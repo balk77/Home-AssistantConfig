@@ -1,0 +1,44 @@
+automation:
+  - alias: Badkamer nacht modus
+    trigger:
+      platform: state
+      entity_id: light.wk_eettafel_plafond_level_12_0
+      #light.badkamer_plafond_level_13_0
+      from: "off"
+      to: "on"
+    action:
+      - service: script.lamp_fade_in
+        data:
+          entity_id: light.wk_eettafel_plafond_level_12_0
+
+script:
+  - lamp_fade_in:
+    sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: "{{ entity_id }}"
+          brightness: 50
+      - delay:
+          seconds: 3
+      - service: light.turn_on
+        data_template:
+          entity_id: "{{ entity_id }}"
+          brightness: 100
+      - delay:
+          seconds: 3
+      - service: light.turn_on
+        data_template:
+          entity_id: "{{ entity_id }}"
+          brightness: 150
+      - delay:
+          seconds: 3
+      - service: light.turn_on
+        data_template:
+          entity_id: "{{ entity_id }}"
+          brightness: 200
+      - delay:
+          seconds: 3
+      - service: light.turn_on
+        data_template:
+          entity_id: "{{ entity_id }}"
+          brightness: 255

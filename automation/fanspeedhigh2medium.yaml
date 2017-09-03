@@ -1,0 +1,23 @@
+alias: "Fan Speed high 2 medium"
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.humdelta
+    above: 2
+    below: 4
+  - platform: state
+    entity_id: sensor.wk_boilerstatus
+    to: 'Noo'
+  # - platform: state
+  #   entity_id: sensor.bkfanhumidity, sensor.bkfanhotwater
+  #   from: "high"
+  #   to: "medium"
+condition:
+  condition: state
+  entity_id: sensor.itho_ventilatie
+  state: high
+action:
+  - delay: '00:15:00'
+  - service: mqtt.publish
+    data:
+      topic: "/hass/itho"
+      payload: "medium"

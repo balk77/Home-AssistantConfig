@@ -1,0 +1,19 @@
+alias: "Fan Speed HW"
+trigger:
+  platform: mqtt
+  topic: /woonkamer/woonkamer/thermostaat/boilerstatus
+  payload: "HWW"
+condition:
+  condition: template
+  value_template: '{{ as_timestamp(now()) - as_timestamp(states.sensor.wk_boilerstatus.last_changed) > 60}}'
+# action:
+#   service: python_script.fanspeed
+#   data_template:
+#     trigger_type: "HW"
+#     fanstatustime: 9999
+#     #wk_abshumidity: '{{sensor.wk_abshumidity}}'
+action:
+  service: mqtt.publish
+  data:
+    topic: "/hass/ithooooo"
+    payload: "high"

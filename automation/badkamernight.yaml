@@ -1,0 +1,18 @@
+alias: Badkamer nacht modus
+trigger:
+  platform: state
+  entity_id: light.badkamer_plafond_level
+  #light.badkamer_plafond_level_13_0
+  from: "off"
+  to: "on"
+condition:
+  condition: time
+  after: '0:00:00'
+  before: '5:00:00'
+action:
+  service: script.badkamer_lights
+  #light.badkamer_plafond_level_13_0
+  #  state: on
+  data:
+    brightness: 50
+    entity_id: light.badkamer_plafond_level

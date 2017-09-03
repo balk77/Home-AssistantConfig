@@ -1,0 +1,148 @@
+default_view:
+  view: yes
+  entities:
+    #- group.phones
+    #- group.wk_sensors
+
+    - group.woonkamer_scenes
+    #- group.woonkamer_comfort
+
+    - sun.sun
+    - sensor.pws_temp_c
+    - sensor.wk_CO2
+    #- sensor.mk_temp
+    #- sensor.wk_relhumidity
+    #- sensor.wk_abshumidity
+    #- sensor.wk_hix
+    #- sensor.itho_ventilatie
+    - group.pihole
+    #- sensor.minhum
+weer:
+  name: Weer
+  view: yes
+  entities:
+    - group.weermorgen
+    - group.weervandaag
+verlichting:
+  name: Verlichting
+  view: yes
+  entities:
+    - group.woonkamer
+    - group.eerste
+woonkamer:
+  name: Woonkamer
+#   control: hidden
+#  view: yes
+  entities:
+    - light.wk_achter_plafond_level
+    - light.wk_eettafel_plafond_level
+    - light.keuken_plafond_level
+    - light.keuken_koof_level
+    - switch.schemerlamp_switch
+woonkamer_scenes:
+  name: Woonkamer Scenes
+  entities:
+    - scene.woonkamer_full
+    - scene.woonkamer_medium
+    - scene.woonkamer_low
+    - scene.woonkamer_off
+woonkamer_comfort:
+  name: Woonkamer Comfort
+  control: hidden
+  entities:
+    - sensor.wk_CO2
+    - sensor.wk_relhumidity
+    - sensor.wk_abshumidity
+    - sensor.mk_temp
+    - sensor.wk_hix
+itho:
+  name: Itho control
+  control: hidden
+  entities:
+    - input_select.fanstate
+eerste:
+  name: Eerste Verdieping
+#  view: yes
+  entities:
+    - light.badkamer_plafond_level
+    - light.mbr_plafond_level
+    - group.bk_sensors
+# phones:
+#   view: yes
+#   entities:
+#     - device_tracker.phone_sander
+#     - device_tracker.phone_linda
+# devices:
+#   view: yes
+#   entities:
+#     group.devices
+weermorgen:
+  #view: no
+  name: Weer morgen Delft
+  entities:
+    - sensor.delft_symbol_1d
+    - sensor.delft_rain_1d
+    - sensor.delft_rainchance_1d
+    - sensor.delft_sunchance_1d
+    - sensor.delft_temperature_1d
+weervandaag:
+  #view: no
+  name: Weer vandaag Delft
+  entities:
+    - sensor.delft_symbol
+    - sensor.delft_condition
+    - sensor.delft_temperature
+sensors:
+  view: yes
+  entities:
+    - group.woonkamer_comfort
+    - group.bk_sensors
+    - group.WKCO2sensor
+    - group.itho
+WKCO2sensor:
+  name: CO2 Sensor Woonkamer
+  entities:
+    - sensor.wk_CO2
+    - sensor.wk_CO2_s
+    - sensor.wk_CO2_u
+nefit:
+  view: yes
+  entities:
+    - sensor.wk_thermostaat_PV
+    - sensor.wk_boilerstatus
+    - sensor.hotwater
+      #- states.climate.heating.attributes.boiler_indicator
+bk_sensors:
+  name: Badkamer Sensors
+  entities:
+    - sensor.badkamer_temp
+    - sensor.badkamer_relhumidity
+    - sensor.badkamer_abshumidity
+    - sensor.bkfanhotwater
+    - sensor.bkfanhumidity
+    - sensor.humdelta
+    - sensor.minhum
+wasmachineendroger:
+  name: Wasmachine en Droger
+  view: yes
+  entities:
+    - group.wasmachine
+    - group.droger
+wasmachine:
+  name: Wasmachine
+  entities:
+    - sensor.wasmachine_energy
+    - sensor.wasmachine_power
+    - sensor.wasmachine_voltage
+    - sensor.washer_pwrup
+    - input_boolean.washer_switch
+droger:
+  name: Droger
+  entities:
+    - sensor.wasmachine_energy
+    - sensor.wasmachine_power
+    - sensor.wasmachine_voltage
+pihole:
+  name: Pi Hole
+  entities:
+    - switch.pihole_switch

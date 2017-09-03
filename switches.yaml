@@ -1,0 +1,21 @@
+- platform: template
+  switches:
+    zolder:
+      friendly_name: 'Zolder PIR'
+      value_template: "{{ is_state('sensor.zolder_multisensor_burglar.state', '8') }}"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.zolder_on
+      turn_off:
+        service: switch.turn_off
+        entity_id: switch.zolder_off
+- platform: command_line
+  switches:
+    pihole_switch:
+#        command_on: "curl -s -X GET 'http://192.168.0.9/admin/api.php?enable&auth=7d743a9898855f96908d8cdee797e634b3c8fb5144002a082e4cb3625ce00fe3'"
+#        command_off: "curl -s -X GET 'http://192.168.0.9/admin/api.php?disable=3600&auth=7d743a9898855f96908d8cdee797e634b3c8fb5144002a082e4cb3625ce00fe3'"
+#        command_state: "curl -s -X GET 'http://192.168.0.9/admin/api.php?status&auth=7d743a9898855f96908d8cdee797e634b3c8fb5144002a082e4cb3625ce00fe3'"
+      command_on: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?enable&auth='"
+      command_off: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?disable=3600&auth='"
+      command_state: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?status&auth='"
+      value_template: "{{ value_json.status == 'enabled' }}"

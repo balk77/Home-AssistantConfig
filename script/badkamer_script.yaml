@@ -1,0 +1,41 @@
+fibaro_lights:
+  alias: "Fibaro verlichting"
+  sequence:
+    - service: light.turn_on
+      #data_template:
+      data_template:
+        entity_id: "{{ entity_id }}"
+        #brightness: '{{ brightness }}'
+        brightness: "{{ brightness }}"
+badkamer_lights_on255:
+  alias: "Badkamer verlichting"
+  sequence:
+    - service: light.turn_on
+      #data_template:
+      data_template:
+        entity_id: light.badkamer_plafond_level
+        #brightness: '{{ brightness }}'
+        brightness: 255
+badkamer_lights_on50:
+  alias: "Badkamer verlichting"
+  sequence:
+    - service: light.turn_on
+      #data_template:
+      data_template:
+        entity_id: light.badkamer_plafond_level
+        #brightness: '{{ brightness }}'
+        brightness: 50
+badkamer_lights_off:
+  alias: "Badkamer verlichting"
+  sequence:
+    - service: light.turn_off
+      #data_template:
+      data_template:
+        entity_id: light.badkamer_plafond_level
+        #brightness: 0
+group_visibility:
+  sequence:
+    - service: group.set_visibility
+      data_template:
+        entity_id: '{{ entity_id }}'
+        visible: '{{ is_state(cond, visible_state) }}'

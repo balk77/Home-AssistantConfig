@@ -1,0 +1,83 @@
+#switch.__switch_8_0:
+#  friendly_name: Schemerlamp
+switch.fibaro_system_fgwpef_wall_plug_switch_4_0:
+  friendly_name: FibaroSwitch
+light.wk_achter_plafond_level:
+  friendly_name: Woonkamer Plafond
+light.wk_eettafel_plafond_level:
+  friendly_name: Woonkamer Eettafel lamp
+light.keuken_plafond_level:
+  friendly_name: Keuken Plafond
+light.keuken_koof_level:
+  friendly_name: Keuken Koofverlichting
+switch.schemerlamp_switch:
+  friendly_name: Schemerlamp
+light.badkamer_plafond_level:
+  friendly_name: Badkamer
+light.mbr_plafond_level:
+  friendly_name: Slaapkamer Linda en Sander
+sensor.pws_temp_c:
+  friendly_name: T Buiten
+sensor.minhum:
+  friendly_name: "Minimum humidity"
+# 9 = keuken_koof
+# 10 = keuken_plafond
+# 11 = wk_achter_plafond
+# 12 = wk_eettafel_plafond
+# 13 = badkamer_plafond
+# 14 = mbr_plafond
+sensor.wk_CO2:
+  friendly_name: CO2 Woonkamer (PPM)
+sensor.aeotec_zw100_multisensor_6_relative_humidity_15_5:
+  friendly_name: Badkamer Humidity (%)
+sensor.aeotec_zw100_multisensor_6_burglar_15_10:
+  friendly_name: Zolder PIR
+sensor.wk_hix:
+  friendly_name: Gevoelstemperatuur
+
+sensor.mk_temp:
+  friendly_name: Meterkast Temp
+sensor.wk_relhumidity:
+  friendly_name: Woonkamer Rel Vochtigheid
+sensor.wk_abshumidity:
+  friendly_name: Woonkamer Abs Vochtigheid
+sensor.badkamer_temp:
+  friendly_name: Badkamer Temperatuur
+sensor.badkamer_relhumidity:
+  friendly_name: Badkamer Rel Vochtigheid
+sensor.badkamer_abshumidity:
+  friendly_name: Badkamer Abs Vochtigheid
+sensor.wasmachine_energy:
+  friendly_name: Wasmachine Energie (vandaag)
+sensor.wasmachine_power:
+  friendly_name: Wasmachine power
+sensor.wasmachine_voltage:
+  friendly_name: Wasmachine Voltage
+switch.pihole_switch:
+  friendly_name: Pi Hole
+sensor.washer_pwrup:
+  friendly_name: Wasmachine status
+scene.woonkamer_medium:
+  friendly_name: Woonkamer Medium
+scene.woonkamer_off:
+  friendly_name: Woonkamer Uit
+scene.woonkamer_full:
+  friendly_name: Woonkamer Max
+scene.woonkamer_low:
+  friendly_name: Woonkamer Laag
+sensor.delft_symbol_1d:
+  friendly_name: Verwachting
+sensor.delft_rain_1d:
+  friendly_name: Regen morgen
+sensor.delft_rainchance_1d:
+  friendly_name: Regenkans morgen
+sensor.delft_sunchance_1d:
+  friendly_name: Zonkans morgen
+sensor.delft_temperature_1d:
+  friendly_name: Temperatuur morgen
+sensor.delft_symbol:
+  friendly_name: Huidig
+sensor.delft_condition:
+  friendly_name: Huidig
+sensor.delft_temperature:
+  friendly_name: Temperatuur

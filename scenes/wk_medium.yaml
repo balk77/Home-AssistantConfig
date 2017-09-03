@@ -1,0 +1,28 @@
+name: Woonkamer Medium
+entities:
+  light.wk_eettafel_plafond_level:
+    state: on
+    brightness: 93
+  light.wk_achter_plafond_level_2:
+    state: off
+  light.wk_achter_plafond_level:
+    state: on
+    brightness: 93
+  light.keuken_plafond_level_2:
+    state: off
+  switch.schemerlamp_switch:
+    state: on
+  light.badkamer_plafond_level_2:
+    state: off
+  light.keuken_plafond_level:
+    state: off
+  light.keuken_koof_level:
+    state: on
+    brightness: 95
+  light.wk_eettafel_plafond_level_2:
+    state: on
+    brightness: 93
+  light.keuken_koof_level_3:
+    state: off
+  light.keuken_koof_level_2:
+    state: off

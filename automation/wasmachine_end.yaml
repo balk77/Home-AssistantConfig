@@ -1,0 +1,21 @@
+# Washer Notification Sequence Done
+alias: 'Wasmachine Klaar'
+trigger:
+  platform: state
+  entity_id: sensor.washer_pwrup
+  from: 'True'
+  to: 'False'
+  for:
+    minutes: 3
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: input_boolean.washer_switch
+      state: 'on'
+action:
+  - service: notify.pushbullet
+    data:
+      message: 'Wasmachine is klaar!'
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.washer_switch

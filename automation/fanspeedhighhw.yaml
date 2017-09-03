@@ -1,0 +1,14 @@
+alias: "Fan Speed high"
+trigger:
+  - platform: state
+    entity_id: sensor.wk_boilerstatus
+    to: 'HWW'
+ # platform: state
+ # entity_id: sensor.bkfanhumidity, sensor.bkfanhotwater
+ # to: "high"
+action:
+  - delay: '00:01:00'
+  - service: mqtt.publish
+    data:
+      topic: "/hass/itho"
+      payload: "high"

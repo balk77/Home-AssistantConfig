@@ -1,0 +1,7 @@
+washer_switch:
+    name: Toggle Washer Automation
+    initial: off
+    icon: mdi:water
+itho_not_low:
+  name: Itho not low
+  initial: off

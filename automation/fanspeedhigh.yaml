@@ -1,0 +1,13 @@
+alias: "Fan Speed high"
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.humdelta
+    above: 4
+ # platform: state
+ # entity_id: sensor.bkfanhumidity, sensor.bkfanhotwater
+ # to: "high"
+action:
+  - service: mqtt.publish
+    data:
+      topic: "/hass/itho"
+      payload: "high"

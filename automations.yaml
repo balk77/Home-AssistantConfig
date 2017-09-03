@@ -1,0 +1,380 @@
+- id: badkamer_01
+  alias: Badkamer dag modus
+  trigger:
+  - entity_id: light.badkamer_plafond_level
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: and
+    conditions:
+    - before: 0:00:00
+      condition: time
+    - after: sunrise
+      condition: sun
+  action:
+  - data:
+      brightness: 255
+      entity_id: light.badkamer_plafond_level
+    service: script.fibaro_lights
+- id: badkamer_02
+  alias: Badkamer ochtend modus
+  trigger:
+    platform: state
+    entity_id: light.badkamer_plafond_level
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      after: '5:00:00'
+    - condition: sun
+      before: sunrise
+  action:
+  - service: light.turn_on
+    data:
+      brightness: 50
+      entity_id: light.badkamer_plafond_level
+  - delay: 0:00:20
+  - service: light.turn_on
+    data:
+      brightness: 255
+      transition: 30
+      entity_id: light.badkamer_plafond_level
+- id: badkamer_03
+  alias: Badkamer nacht modus
+  trigger:
+  - entity_id: light.badkamer_plafond_level
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - after: 0:00:00
+    before: '5:00:00'
+    condition: time
+  action:
+  - data:
+      brightness: 50
+      entity_id: light.badkamer_plafond_level
+    service: script.fibaro_lights
+- id: badkamer_04
+  alias: Badkamer nacht modus PIR uit
+  trigger:
+    platform: state
+    entity_id: sensor.zolder_multisensor_burglar
+    to: '1000'
+    for:
+      minutes: 5
+  condition:
+    condition: template
+    value_template: '{{ states.sun.sun.attributes.elevation < 0 }}'
+  action:
+  - service: script.badkamer_lights_off
+    data:
+      brightness: 0
+      entity_id: light.badkamer_plafond_level
+- id: mbr_01
+  alias: Slaapkamer dim avond en ochtend
+  trigger:
+    platform: state
+    entity_id: light.mbr_plafond_level
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: sun
+      before: sunrise
+    - condition: sun
+      after: sunset
+  action:
+  - service: light.turn_on
+    data:
+      brightness: 50
+      entity_id: light.mbr_plafond_level
+- id: hum_low
+  alias: low humidity
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.humdelta
+    below: 1.9999
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.humidity
+      option: low
+- id: hum_med
+  alias: medium humidity
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.humdelta
+    above: 2
+    below: 4
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.humidity
+      option: medium
+- id: hum_high
+  alias: high humidity
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.humdelta
+    above: 3.9999
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.humidity
+      option: high
+- id: fan_01
+  alias: Fan Speed high
+  trigger:
+  - platform: state
+    entity_id: input_select.humidity
+    to: high
+  - platform: state
+    entity_id: sensor.wk_boilerstatus
+    to: HW
+    for:
+      minutes: 1
+  - platform: state
+    entity_id: input_select.fanstate
+    to: high
+  action:
+  - service: mqtt.publish
+    data:
+      topic: /hass/itho
+      payload: high
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.fanstate
+      option: high
+- id: fan_02
+  alias: Fan Speed high 2 medium
+  trigger:
+  - platform: state
+    entity_id: input_select.humidity
+    from: high
+    to: medium
+    for:
+      minutes: 15
+  condition:
+    condition: state
+    entity_id: sensor.itho_ventilatie
+    state: high
+  action:
+  - service: mqtt.publish
+    data:
+      topic: /hass/itho
+      payload: medium
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.fanstate
+      option: medium
+- id: fan_05
+  alias: Fan Speed low
+  trigger:
+  - platform: state
+    entity_id: input_select.humidity
+    to: low
+    for:
+      minutes: 15
+  - platform: state
+    entity_id: sensor.wk_boilerstatus
+    to: 'No'
+    for:
+      minutes: 15
+  - platform: state
+    entity_id: input_select.fanstate
+    to: low
+  condition:
+    condition: state
+    entity_id: input_boolean.itho_not_low
+    state: 'on'
+  action:
+  - service: mqtt.publish
+    data:
+      topic: /hass/itho
+      payload: low
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.fanstate
+      option: low
+- id: fan_06
+  alias: Fan Speed low 2 medium
+  trigger:
+  - platform: state
+    entity_id: input_select.humidity
+    from: low
+    to: medium
+  condition:
+    condition: state
+    entity_id: sensor.wk_boilerstatus
+    state: 'No'
+  action:
+  - service: mqtt.publish
+    data:
+      topic: /hass/itho
+      payload: medium
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.fanstate
+      option: medium
+- id: fan_07
+  alias: Fan speed medium
+  trigger:
+  - platform: state
+    entity_id: input_select.fanstate
+    to: medium
+  action:
+  - service: mqtt.publish
+    data:
+      topic: /hass/itho
+      payload: medium
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.fanstate
+      option: medium
+- id: itho_1
+  alias: Restart ITHO on false status
+  trigger:
+  - entity_id: sensor.itho_ventilatie_status
+    for:
+      seconds: 20
+    platform: state
+    to: 'false'
+  action:
+  - data:
+      payload: restart
+      topic: /hass/itho
+    service: mqtt.publish
+  - delay: 00:01:00
+  - data:
+      payload: low
+      topic: /hass/itho
+    service: mqtt.publish
+- id: itho_2
+  alias: Itho not low
+  trigger:
+  - platform: state
+    entity_id: sensor.itho_ventilatie
+    to: high
+  - platform: state
+    entity_id: sensor.itho_ventilatie
+    to: medium
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.itho_not_low
+- id: itho_3
+  alias: Itho low
+  trigger:
+  - platform: state
+    entity_id: sensor.itho_ventilatie
+    to: low
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.itho_not_low
+- id: updater
+  alias: Update Available Notifications
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: notify.pushbullet
+    data:
+      target: "device/Nexus5X"
+      message: "Version {{ states('sensor.current_version') }} for Home Assistant is available."
+      #message: "An update for Home Assistant is available."
+- id: Schemerlamp
+  alias: Turn on Schemerlamp when sun sets
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: home
+  action:
+    service: switch.turn_on
+    entity_id: switch.__switch_8_0
+- id: wasmachine_01
+  alias: Washer Start
+  trigger:
+    platform: state
+    entity_id: sensor.washer_pwrup
+    from: 'False'
+    to: 'True'
+    for:
+      minutes: 3
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.washer_switch
+- id: wasmachine_02
+  alias: Wasmachine Klaar
+  trigger:
+    platform: state
+    entity_id: sensor.washer_pwrup
+    from: 'True'
+    to: 'False'
+    for:
+      minutes: 3
+  condition:
+    condition: state
+    entity_id: input_boolean.washer_switch
+    state: 'on'
+  action:
+  - service: notify.pushbullet
+    data:
+      target: "device/Nexus5X"
+      message: Wasmachine is klaar!
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.washer_switch
+# - id: group_01
+#   alias: Weerbericht morgen
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.occasion
+#     - platform: homeassistant
+#       event: start
+#   action:
+#     - service: script.group_visibility
+#       data:
+#         entity_id: group.weermorgen
+#         cond: sensor.occasion
+#         visible_state: 'weermorgen'
+# - id: group_02
+#   alias: Weerbericht vandaag
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.occasion
+#     - platform: homeassistant
+#       event: start
+#   action:
+#     - service: script.group_visibility
+#       data:
+#         entity_id: group.weervandaag
+#         cond: sensor.occasion
+#         visible_state: 'weervandaag'
+# - id: group_03
+#   alias: Weerbericht vandaag
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.occasion
+#     - platform: homeassistant
+#       event: start
+#   action:
+#     - service: script.group_visibility
+#       data:
+#         entity_id: group.weervandaag
+#         cond: sensor.occasion
+#         visible_state: 'night'
+# - id: group_05
+#   alias: Weerbericht
+#   condition:
+#     - condition: time
+#       after: 0:00:01
+#       before: 17:00:00
+#   action:
+#     - service: group.set_visibility
+#       data:
+#         entity_id: group.weervandaag
+#         visible: True

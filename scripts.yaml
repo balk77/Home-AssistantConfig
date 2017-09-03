@@ -1,0 +1,5 @@
+'1504251137786':
+  alias: group_visibility
+  sequence:
+  - data: {}
+    service: group.set_visibility
