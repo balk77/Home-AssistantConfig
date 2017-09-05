@@ -17,7 +17,6 @@ homeassistant:
     !include customize.yaml
 
 
-
 recorder:
   db_url: postgres://@/homeassistant
   purge_days: 7
