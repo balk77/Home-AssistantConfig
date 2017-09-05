@@ -210,6 +210,8 @@
     condition: state
     entity_id: sensor.wk_boilerstatus
     state: 'No'
+    for:
+      minutes: 15
   action:
   - service: mqtt.publish
     data:
