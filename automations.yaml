@@ -77,15 +77,17 @@
 - id: mbr_01
   alias: Slaapkamer dim avond en ochtend
   trigger:
-    platform: state
-    entity_id: light.mbr_plafond_level
+  - entity_id: light.mbr_plafond_level
     from: 'off'
+    platform: state
     to: 'on'
   condition:
-    - condition: sun
-      before: sunrise
-    - condition: sun
-      after: sunset
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
   action:
   - service: light.turn_on
     data:
@@ -330,6 +332,38 @@
       message: Wasmachine is klaar!
   - service: input_boolean.turn_off
     entity_id: input_boolean.washer_switch
+- id: droger_01
+  alias: Dryer Start
+  trigger:
+    platform: state
+    entity_id: sensor.dryer_pwrup
+    from: 'False'
+    to: 'True'
+    for:
+      minutes: 3
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.dryer_switch
+- id: droger_02
+  alias: Droger Klaar
+  trigger:
+    platform: state
+    entity_id: sensor.dryer_pwrup
+    from: 'True'
+    to: 'False'
+    for:
+      minutes: 3
+  condition:
+    condition: state
+    entity_id: input_boolean.dryer_switch
+    state: 'on'
+  action:
+  - service: notify.pushbullet
+    data:
+      target: "device/Nexus5X"
+      message: Droger is klaar!
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.dryer_switch
 # - id: group_01
 #   alias: Weerbericht morgen
 #   trigger:

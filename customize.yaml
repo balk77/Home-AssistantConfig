@@ -14,8 +14,8 @@ switch.schemerlamp_switch:
   friendly_name: Schemerlamp
 light.badkamer_plafond_level:
   friendly_name: Badkamer
-light.mbr_plafond_level:
-  friendly_name: Slaapkamer Linda en Sander
+#light.mbr_plafond_level:
+#  friendly_name: Slaapkamer Linda en Sander
 sensor.pws_temp_c:
   friendly_name: T Buiten
 sensor.minhum:
