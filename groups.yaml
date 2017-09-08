@@ -139,9 +139,11 @@ wasmachine:
 droger:
   name: Droger
   entities:
-    - sensor.wasmachine_energy
-    - sensor.wasmachine_power
-    - sensor.wasmachine_voltage
+    - sensor.droger_energy
+    - sensor.droger_power
+    - sensor.droger_voltage
+    - sensor.dryer_pwrup
+    - input_boolean.dryer_switch
 pihole:
   name: Pi Hole
   entities:

@@ -14,8 +14,8 @@ switch.schemerlamp_switch:
   friendly_name: Schemerlamp
 light.badkamer_plafond_level:
   friendly_name: Badkamer
-#light.mbr_plafond_level:
-#  friendly_name: Slaapkamer Linda en Sander
+light.mbr_plafond_level:
+ friendly_name: Slaapkamer Linda en Sander
 sensor.pws_temp_c:
   friendly_name: T Buiten
 sensor.minhum:
@@ -57,6 +57,8 @@ switch.pihole_switch:
   friendly_name: Pi Hole
 sensor.washer_pwrup:
   friendly_name: Wasmachine status
+sensor.dryer_pwrup:
+  friendly_name: Droger status
 scene.woonkamer_medium:
   friendly_name: Woonkamer Medium
 scene.woonkamer_off:
@@ -81,3 +83,9 @@ sensor.delft_condition:
   friendly_name: Huidig
 sensor.delft_temperature:
   friendly_name: Temperatuur
+sensor.droger_energy:
+  friendly_name: Droger Energie (vandaag)
+sensor.droger_power:
+  friendly_name: Droger power
+sensor.droger_voltage:
+  friendly_name: Droger Voltage

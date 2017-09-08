@@ -1,0 +1,14 @@
+humidity:
+  name: Badkamer Humidity
+  options:
+   - low
+   - medium
+   - high
+  initial: low
+fanstate:
+  name: Itho Fan State
+  options:
+   - low
+   - medium
+   - high
+  initial: low

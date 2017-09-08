@@ -151,18 +151,4 @@ notify:
 media_player:
   - platform: cast
 
-input_select:
-  humidity:
-    name: Badkamer Humidity
-    options:
-     - low
-     - medium
-     - high
-    initial: low
-  fanstate:
-    name: Itho Fan State
-    options:
-     - low
-     - medium
-     - high
-    initial: low
+input_select: !include input_select.yaml
