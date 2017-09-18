@@ -2,7 +2,7 @@ name: Woonkamer Low
 entities:
   light.wk_eettafel_plafond_level:
     state: on
-    brightness: 50
+    brightness: 55
   light.wk_achter_plafond_level_2:
     state: off
   light.wk_achter_plafond_level:

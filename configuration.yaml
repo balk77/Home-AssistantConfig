@@ -13,8 +13,7 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: !secret time_zone
-  customize:
-    !include customize.yaml
+  customize: !include customize.yaml
 
 
 recorder:
@@ -72,8 +71,7 @@ switch: !include switches.yaml
 tts:
   platform: google
 
-#device_tracker: !include device_tracker.yaml
-
+device_tracker: !include device_tracker.yaml
 
 group: !include groups.yaml
 zone: !include zones.yaml

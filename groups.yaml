@@ -3,7 +3,7 @@ default_view:
   entities:
     #- group.phones
     #- group.wk_sensors
-
+    - device_tracker.phone_sander
     - group.woonkamer_scenes
     #- group.woonkamer_comfort
 

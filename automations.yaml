@@ -20,28 +20,45 @@
 - id: badkamer_02
   alias: Badkamer ochtend modus
   trigger:
-    platform: state
-    entity_id: light.badkamer_plafond_level
+  - entity_id: light.badkamer_plafond_level
     from: 'off'
+    platform: state
     to: 'on'
   condition:
-    condition: and
+  - condition: or
     conditions:
-    - condition: time
-      after: '5:00:00'
-    - condition: sun
-      before: sunrise
+    - condition: and
+      conditions:
+      - after: '5:00:00'
+        condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      - before: sunrise
+        condition: sun
+    - condition: and
+      conditions:
+      - after: '7:00:00'
+        condition: time
+        weekday:
+        - sat
+        - sun
+      - before: sunrise
+        condition: sun
   action:
-  - service: light.turn_on
-    data:
+  - data:
       brightness: 50
       entity_id: light.badkamer_plafond_level
+    service: light.turn_on
   - delay: 0:00:20
-  - service: light.turn_on
-    data:
+  - data:
       brightness: 255
-      transition: 30
       entity_id: light.badkamer_plafond_level
+      transition: 30
+    service: light.turn_on
 - id: badkamer_03
   alias: Badkamer nacht modus
   trigger:
@@ -50,30 +67,28 @@
     platform: state
     to: 'on'
   condition:
-  - after: 0:00:00
-    before: '5:00:00'
-    condition: time
+    condition: or
+    conditions:
+    - condition: time
+      after: 0:00:00
+      before: '5:00:00'
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+    - condition: time
+      after: 0:00:00
+      before: '7:00:00'
+      weekday:
+      - sat
+      - sun
   action:
   - service: light.turn_on
     data:
       brightness: 50
       entity_id: light.badkamer_plafond_level
-# - id: badkamer_04
-#   alias: Badkamer nacht modus PIR uit
-#   trigger:
-#     platform: state
-#     entity_id: sensor.zolder_multisensor_burglar
-#     to: '1000'
-#     for:
-#       minutes: 5
-#   condition:
-#     condition: template
-#     value_template: '{{ states.sun.sun.attributes.elevation < 0 }}'
-#   action:
-#   - service: script.badkamer_lights_off
-#     data:
-#       brightness: 0
-#       entity_id: light.badkamer_plafond_level
 - id: mbr_01
   alias: Slaapkamer dim avond en ochtend
   trigger:
@@ -84,10 +99,10 @@
   condition:
     condition: or
     conditions:
-      - condition: sun
-        after: sunset
-      - condition: sun
-        before: sunrise
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
   action:
   - service: light.turn_on
     data:
@@ -285,9 +300,9 @@
   action:
     service: notify.pushbullet
     data:
-      target: "device/Nexus5X"
-      message: "Version {{ states('sensor.current_version') }} for Home Assistant is available."
-      #message: "An update for Home Assistant is available."
+      target: device/Nexus5X
+      message: Version {{ states('sensor.current_version') }} for Home Assistant is
+        available.
 - id: Schemerlamp
   alias: Turn on Schemerlamp when sun sets
   trigger:
@@ -328,7 +343,7 @@
   action:
   - service: notify.pushbullet
     data:
-      target: "device/Nexus5X"
+      target: device/Nexus5X
       message: Wasmachine is klaar!
   - service: input_boolean.turn_off
     entity_id: input_boolean.washer_switch
@@ -360,7 +375,7 @@
   action:
   - service: notify.pushbullet
     data:
-      target: "device/Nexus5X"
+      target: device/Nexus5X
       message: Droger is klaar!
   - service: input_boolean.turn_off
     entity_id: input_boolean.dryer_switch
