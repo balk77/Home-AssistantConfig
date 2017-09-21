@@ -379,3 +379,51 @@
       message: Droger is klaar!
   - service: input_boolean.turn_off
     entity_id: input_boolean.dryer_switch
+- id: Hank_wk1
+  alias: Hank wk1
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_knop_wk
+      scene_id: 1
+      #scene_data: 0
+  action:
+      service: scene.turn_on
+      entity_id: scene.woonkamer_low
+- id: Hank_wk2
+  alias: Hank wk2
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_knop_wk
+      scene_id: 2
+      #scene_data: 0
+  action:
+      service: scene.turn_on
+      entity_id: scene.woonkamer_medium
+- id: Hank_wk3
+  alias: Hank wk3
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_knop_wk
+      scene_id: 3
+      #scene_data: 0
+  action:
+      service: scene.turn_on
+      entity_id: scene.woonkamer_full
+- id: Hank_wk4
+  alias: Hank wk4
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_knop_wk
+      scene_id: 4
+      #scene_data: 0
+  action:
+      service: scene.turn_on
+      entity_id: scene.woonkamer_off

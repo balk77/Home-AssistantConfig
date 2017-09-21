@@ -26,6 +26,6 @@ html5_push_registrations.conf
 ip_bans.yaml
 /icloud/*
 *__pycache__*
-zwcfg*
+zwcfg_0xc5e0280c.xml_*
 device_tracker.yaml
 /void/*
