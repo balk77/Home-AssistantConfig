@@ -36,9 +36,11 @@ woonkamer:
   entities:
     - light.wk_achter_plafond_level
     - light.wk_eettafel_plafond_level
+    - light.wk_muur_level
     - light.keuken_plafond_level
     - light.keuken_koof_level
     - switch.schemerlamp_switch
+    - switch.keuken_aanrecht_switch
 woonkamer_scenes:
   name: Woonkamer Scenes
   entities:

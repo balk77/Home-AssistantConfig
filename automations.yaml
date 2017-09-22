@@ -97,17 +97,17 @@
     platform: state
     to: 'on'
   condition:
-    condition: or
+  - condition: or
     conditions:
-    - condition: sun
-      after: sunset
-    - condition: sun
-      before: sunrise
+    - after: sunset
+      condition: sun
+    - before: sunrise
+      condition: sun
   action:
-  - service: light.turn_on
-    data:
-      brightness: 50
+  - data:
+      brightness: 26
       entity_id: light.mbr_plafond_level
+    service: light.turn_on
 - id: hum_low
   alias: low humidity
   trigger:
@@ -387,10 +387,9 @@
     event_data:
       entity_id: zwave.hank_knop_wk
       scene_id: 1
-      #scene_data: 0
   action:
-      service: scene.turn_on
-      entity_id: scene.woonkamer_low
+    service: scene.turn_on
+    entity_id: scene.woonkamer_low
 - id: Hank_wk2
   alias: Hank wk2
   trigger:
@@ -399,10 +398,9 @@
     event_data:
       entity_id: zwave.hank_knop_wk
       scene_id: 2
-      #scene_data: 0
   action:
-      service: scene.turn_on
-      entity_id: scene.woonkamer_medium
+    service: scene.turn_on
+    entity_id: scene.woonkamer_medium
 - id: Hank_wk3
   alias: Hank wk3
   trigger:
@@ -411,10 +409,9 @@
     event_data:
       entity_id: zwave.hank_knop_wk
       scene_id: 3
-      #scene_data: 0
   action:
-      service: scene.turn_on
-      entity_id: scene.woonkamer_full
+    service: scene.turn_on
+    entity_id: scene.woonkamer_full
 - id: Hank_wk4
   alias: Hank wk4
   trigger:
@@ -423,7 +420,6 @@
     event_data:
       entity_id: zwave.hank_knop_wk
       scene_id: 4
-      #scene_data: 0
   action:
-      service: scene.turn_on
-      entity_id: scene.woonkamer_off
+    service: scene.turn_on
+    entity_id: scene.woonkamer_off
