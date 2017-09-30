@@ -29,3 +29,4 @@ ip_bans.yaml
 zwcfg_0xc5e0280c.xml_*
 device_tracker.yaml
 /void/*
+emulated_hue_ids.json
