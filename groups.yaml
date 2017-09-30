@@ -5,6 +5,17 @@ default_view:
     #- group.wk_sensors
     - device_tracker.phone_sander
     - group.woonkamer_scenes
+    - switch.fibaro_system_fgwpef_wall_plug_switch
+    - light.mqtt_json_slaapkamer
+    - light.mqtt_json_slaapkamer1
+    - light.mqtt_json_slaapkamer2
+    - light.mqtt_json_slaapkamer3
+    - light.mqtt_json_slaapkamer4
+    - light.mqtt_json_slaapkamer5
+    - light.mqtt_json_slaapkamer6
+    - light.mqtt_json_slaapkamer7
+    - light.mqtt_json_slaapkamer8
+    - input_select.rainbow
     #- group.woonkamer_comfort
 
     - sun.sun
@@ -16,6 +27,7 @@ default_view:
     #- sensor.wk_hix
     #- sensor.itho_ventilatie
     - group.pihole
+    - camera.ip_webcam
     #- sensor.minhum
 weer:
   name: Weer

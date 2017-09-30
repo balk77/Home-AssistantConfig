@@ -85,7 +85,19 @@ script: !include script/badkamer_script.yaml
 input_boolean: !include input_booleans.yaml
 scene: !include_dir_list scenes
 
+# emulated_hue:
+#   host_ip: 192.168.0.9
+#   listen_port: 8300
+#   # advertise_ip: 192.168.0.99
+#   # advertise_port: 80
+#   expose_by_default: true
+#   exposed_domains:
+#     - light
 
+
+
+# android_ip_webcam:
+#   - host: 192.168.0.56
 
 # MQTT config
 mqtt:
@@ -150,3 +162,104 @@ media_player:
   - platform: cast
 
 input_select: !include input_select.yaml
+
+light:
+  - platform: mqtt_json
+    command_topic: "/eerste/slaapkamer/rgb/set"
+    brightness: true
+    name: mqtt_json_slaapkamer
+    state_topic: "/eerste/slaapkamer/rgb/state"
+    rgb: true
+    effect: true
+    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
+    flash: true
+    optimistic: false
+    qos: 0
+  - platform: mqtt_json
+    command_topic: "/eerste/slaapkamer/rgb/set1"
+    brightness: true
+    name: mqtt_json_slaapkamer1
+    state_topic: "/eerste/slaapkamer/rgb/state"
+    rgb: true
+    effect: true
+    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
+    flash: true
+    optimistic: false
+    qos: 0
+  - platform: mqtt_json
+    command_topic: "/eerste/slaapkamer/rgb/set2"
+    brightness: true
+    name: mqtt_json_slaapkamer2
+    state_topic: "/eerste/slaapkamer/rgb/state"
+    rgb: true
+    effect: true
+    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
+    flash: true
+    optimistic: false
+    qos: 0
+  - platform: mqtt_json
+    command_topic: "/eerste/slaapkamer/rgb/set3"
+    brightness: true
+    name: mqtt_json_slaapkamer3
+    state_topic: "/eerste/slaapkamer/rgb/state"
+    rgb: true
+    effect: true
+    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
+    flash: true
+    optimistic: false
+    qos: 0
+  - platform: mqtt_json
+    command_topic: "/eerste/slaapkamer/rgb/set4"
+    brightness: true
+    name: mqtt_json_slaapkamer4
+    state_topic: "/eerste/slaapkamer/rgb/state"
+    rgb: true
+    effect: true
+    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
+    flash: true
+    optimistic: false
+    qos: 0
+  - platform: mqtt_json
+    command_topic: "/eerste/slaapkamer/rgb/set5"
+    brightness: true
+    name: mqtt_json_slaapkamer5
+    state_topic: "/eerste/slaapkamer/rgb/state"
+    rgb: true
+    effect: true
+    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
+    flash: true
+    optimistic: false
+    qos: 0
+  - platform: mqtt_json
+    command_topic: "/eerste/slaapkamer/rgb/set6"
+    brightness: true
+    name: mqtt_json_slaapkamer6
+    state_topic: "/eerste/slaapkamer/rgb/state"
+    rgb: true
+    effect: true
+    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
+    flash: true
+    optimistic: false
+    qos: 0
+  - platform: mqtt_json
+    command_topic: "/eerste/slaapkamer/rgb/set7"
+    brightness: true
+    name: mqtt_json_slaapkamer7
+    state_topic: "/eerste/slaapkamer/rgb/state"
+    rgb: true
+    effect: true
+    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
+    flash: true
+    optimistic: false
+    qos: 0
+  - platform: mqtt_json
+    command_topic: "/eerste/slaapkamer/rgb/set8"
+    brightness: true
+    name: mqtt_json_slaapkamer8
+    state_topic: "/eerste/slaapkamer/rgb/state"
+    rgb: true
+    effect: true
+    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
+    flash: true
+    optimistic: false
+    qos: 0

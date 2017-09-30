@@ -10,6 +10,7 @@ light.keuken_plafond_level:
   friendly_name: Keuken Plafond
 light.keuken_koof_level:
   friendly_name: Keuken Koofverlichting
+  emulated_hue_name: "Keuken Koofverlichting"
 switch.schemerlamp_switch:
   friendly_name: Schemerlamp
 light.badkamer_plafond_level:

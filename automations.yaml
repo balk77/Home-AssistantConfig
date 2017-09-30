@@ -411,7 +411,7 @@
       scene_id: 3
   action:
     service: scene.turn_on
-    entity_id: scene.woonkamer_full
+    entity_id: scene.woonkamer_off
 - id: Hank_wk4
   alias: Hank wk4
   trigger:
@@ -422,4 +422,192 @@
       scene_id: 4
   action:
     service: scene.turn_on
-    entity_id: scene.woonkamer_off
+    entity_id: scene.woonkamer_full
+# - id: rainbowswitch
+#   alias: rainbowswitch
+#   trigger:
+#     platform: state
+#     entity_id: input_select.rainbow
+#   condition:
+#     condition: template
+#     value_template: '{{ states.input_select.rainbow.state != 0 }}'
+#   action:
+#     - service: scene.turn_on
+#       data_template:
+#         entity_id: >
+#           {% if states.input_select.rainbow.state == 1 %}
+#             scene.rainbow_1
+#           {% elif states.input_select.rainbow.state == 2 %}
+#             scene.rainbow_2
+#           {% elif states.input_select.rainbow.state == 3 %}
+#             scene.rainbow_3
+#           {% elif states.input_select.rainbow.state == 4 %}
+#             scene.rainbow_4
+#           {% elif states.input_select.rainbow.state == 5 %}
+#             scene.rainbow_5
+#           {% elif states.input_select.rainbow.state == 6 %}
+#             scene.rainbow_6
+#           {% elif states.input_select.rainbow.state == 7 %}
+#             scene.rainbow_7
+#           {% elif states.input_select.rainbow.state == 8 %}
+#             scene.rainbow_8
+#           {% endif %}
+#     - delay: 0:00:02
+#     - service: input_select.select_next
+#       data:
+#         entity_id: input_select.rainbow
+- id: rainbow_0
+  alias: rainbow_0
+  trigger:
+    platform: state
+    entity_id: input_select.rainbow
+    to: "3"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.mqtt_json_slaapkamer
+- id: rainbow_1
+  alias: rainbow_1
+  trigger:
+    platform: state
+    entity_id: input_select.rainbow
+    to: "1"
+  condition:
+    condition: state
+    entity_id: light.mqtt_json_slaapkamer
+    state: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.rainbow_1
+    - delay: 0:00:02
+    - service: input_select.select_next
+      data:
+        entity_id: input_select.rainbow
+- id: rainbow_2
+  alias: rainbow_2
+  trigger:
+    platform: state
+    entity_id: input_select.rainbow
+    to: "2"
+  condition:
+    condition: state
+    entity_id: light.mqtt_json_slaapkamer
+    state: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.rainbow_2
+    - delay: 0:00:02
+    - service: input_select.select_next
+      data:
+        entity_id: input_select.rainbow
+- id: rainbow_3
+  alias: rainbow_3
+  trigger:
+    platform: state
+    entity_id: input_select.rainbow
+    to: "3"
+  condition:
+    condition: state
+    entity_id: light.mqtt_json_slaapkamer
+    state: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.rainbow_3
+    - delay: 0:00:02
+    - service: input_select.select_next
+      data:
+        entity_id: input_select.rainbow
+- id: rainbow_4
+  alias: rainbow_4
+  trigger:
+    platform: state
+    entity_id: input_select.rainbow
+    to: "4"
+  condition:
+    condition: state
+    entity_id: light.mqtt_json_slaapkamer
+    state: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.rainbow_4
+    - delay: 0:00:02
+    - service: input_select.select_next
+      data:
+        entity_id: input_select.rainbow
+- id: rainbow_5
+  alias: rainbow_5
+  trigger:
+    platform: state
+    entity_id: input_select.rainbow
+    to: "5"
+  condition:
+    condition: state
+    entity_id: light.mqtt_json_slaapkamer
+    state: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.rainbow_5
+    - delay: 0:00:02
+    - service: input_select.select_next
+      data:
+        entity_id: input_select.rainbow
+- id: rainbow_6
+  alias: rainbow_6
+  trigger:
+    platform: state
+    entity_id: input_select.rainbow
+    to: "6"
+  condition:
+    condition: state
+    entity_id: light.mqtt_json_slaapkamer
+    state: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.rainbow_6
+    - delay: 0:00:02
+    - service: input_select.select_next
+      data:
+        entity_id: input_select.rainbow
+- id: rainbow_7
+  alias: rainbow_7
+  trigger:
+    platform: state
+    entity_id: input_select.rainbow
+    to: "7"
+  condition:
+    condition: state
+    entity_id: light.mqtt_json_slaapkamer
+    state: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.rainbow_7
+    - delay: 0:00:02
+    - service: input_select.select_next
+      data:
+        entity_id: input_select.rainbow
+- id: rainbow_8
+  alias: rainbow_8
+  trigger:
+    platform: state
+    entity_id: input_select.rainbow
+    to: "8"
+  condition:
+    condition: state
+    entity_id: light.mqtt_json_slaapkamer
+    state: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.rainbow_8
+    - delay: 0:00:02
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.rainbow
+        option: "1"
