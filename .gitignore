@@ -30,3 +30,6 @@ zwcfg_0xc5e0280c.xml_*
 device_tracker.yaml
 /void/*
 emulated_hue_ids.json
+20171020.svg
+GraphViz.php
+zwave-map.php

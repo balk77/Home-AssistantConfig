@@ -18,7 +18,8 @@ homeassistant:
 
 recorder:
   db_url: postgres://@/homeassistant
-  purge_days: 7
+  purge_interval: 2
+  purge_keep_days: 7
 
 logger:
   default: info
@@ -161,6 +162,18 @@ notify:
 media_player:
   - platform: cast
 
+nest:
+  client_id: 22d9982a-426c-4d22-9046-ebbb52bd77e6
+  client_secret: wv45yIASm9g8KQ5DTD4sWlxuG
+  sensors:
+    monitored_conditions:
+      - 'co_status'
+      - 'smoke_status'
+      - 'battery_health'
+  binary_sensors:
+    monitored_conditions:
+      - 'online'
+
 input_select: !include input_select.yaml
 
 light:
@@ -171,7 +184,7 @@ light:
     state_topic: "/eerste/slaapkamer/rgb/state"
     rgb: true
     effect: true
-    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
+    effect_list: [colorfade_slow, colorfade_fast, flash, firegrad, rainbowcycle]
     flash: true
     optimistic: false
     qos: 0

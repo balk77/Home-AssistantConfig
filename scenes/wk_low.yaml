@@ -16,6 +16,8 @@ entities:
   light.keuken_koof_level:
     state: on
     brightness: 95
+  light.keuken_aanrecht:
+    state: on
   light.wk_eettafel_plafond_level_2:
     state: off
   light.keuken_koof_level_3:
