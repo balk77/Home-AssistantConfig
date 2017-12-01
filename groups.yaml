@@ -3,7 +3,7 @@ default_view:
   entities:
     #- group.phones
     #- group.wk_sensors
-    - device_tracker.phone_sander
+    - device_tracker.phone_nexus5x
     - group.woonkamer_scenes
     - switch.fibaro_system_fgwpef_wall_plug_switch
     - light.mqtt_json_slaapkamer
@@ -113,19 +113,28 @@ sensors:
     - group.bk_sensors
     - group.WKCO2sensor
     - group.itho
+    #- group.debug
 WKCO2sensor:
   name: CO2 Sensor Woonkamer
   entities:
     - sensor.wk_CO2
     - sensor.wk_CO2_s
     - sensor.wk_CO2_u
+debug:
+  view: no
+  name: debug
+  entities:
+    - input_boolean.iftt_temp_triggered
+    - input_number.iftt_temp_triggered_sp
+    - sensor.thermostaat_tempsetpoint
 nefit:
   view: yes
   entities:
+    - sensor.thermostaat_tempsetpoint
     - sensor.wk_thermostaat_PV
     - sensor.wk_boilerstatus
     - sensor.hotwater
-      #- states.climate.heating.attributes.boiler_indicator
+    #- states.climate.heating.attributes.boiler_indicator
 bk_sensors:
   name: Badkamer Sensors
   entities:
@@ -162,3 +171,12 @@ pihole:
   name: Pi Hole
   entities:
     - switch.pihole_switch
+woonkamer_ex_muur:
+  name: Woonkamer verlichting exclusief muur
+  entities:
+    - light.wk_achter_plafond_level
+    - light.wk_eettafel_plafond_level
+    - light.keuken_plafond_level
+    - light.keuken_koof_level
+    - switch.schemerlamp_switch
+    - switch.keuken_aanrecht_switch

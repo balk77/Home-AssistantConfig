@@ -33,6 +33,8 @@ logger:
 
 # Enables the frontend
 frontend:
+  javascript_version: latest
+
 
 config:
 
@@ -96,7 +98,6 @@ scene: !include_dir_list scenes
 #     - light
 
 
-
 # android_ip_webcam:
 #   - host: 192.168.0.56
 
@@ -126,7 +127,9 @@ zwave:
   usb_path: /dev/ttyACM0
   new_entity_ids: true
 
-
+# IFTTT
+ifttt:
+  key: !secret ifttt_key
 
 #sensor:
 #  - platform: dsmr
@@ -141,12 +144,12 @@ zwave:
 #      - sensor.power_consumption_normal
 #      - sensor.gas_consumption
 
-#climate:
-#  platform: nefit
-#  name: Heating
-#  serial: !secret nefit_serial
-#  accesskey: !secret nefit_accesskey
-#  password: ! secret nefit_password
+# climate:
+#   platform: nefit
+#   name: Heating
+#   serial: !secret nefit_serial
+#   accesskey: !secret nefit_accesskey
+#   password: ! secret nefit_password
 
 python_script:
 
@@ -175,6 +178,7 @@ nest:
       - 'online'
 
 input_select: !include input_select.yaml
+input_number: !include input_number.yaml
 
 light:
   - platform: mqtt_json
@@ -276,3 +280,11 @@ light:
     flash: true
     optimistic: false
     qos: 0
+
+rest_command:
+  play_pause:
+    url: 'http://192.168.0.9:8181/zone/Woonkamer/play_pause'
+  vol_up:
+    url: 'http://192.168.0.9:8181/zone/Woonkamer/volume/+5'
+  vol_down:
+    url: 'http://192.168.0.9:8181/zone/Woonkamer/volume/-5'

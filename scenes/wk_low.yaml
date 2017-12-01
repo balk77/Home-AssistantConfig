@@ -1,26 +1,34 @@
 name: Woonkamer Low
 entities:
-  light.wk_eettafel_plafond_level:
+  light.keuken_koof_level:
     state: on
-    brightness: 55
-  light.wk_achter_plafond_level_2:
-    state: off
-  light.wk_achter_plafond_level:
+    brightness: 93
+  switch.schemerlamp_switch:
+    state: on
+  switch.keuken_aanrecht_switch:
     state: off
   light.keuken_plafond_level_2:
     state: off
-  switch.schemerlamp_switch:
+  light.wk_eettafel_plafond_level:
     state: on
+    brightness: 54
+  light.wk_muur_level:
+    state: on
+    brightness: 88
+  light.wk_achter_plafond_level_2:
+    state: off
   light.keuken_plafond_level:
     state: off
-  light.keuken_koof_level:
+  light.wk_muur_level_2:
     state: on
-    brightness: 95
-  light.keuken_aanrecht:
-    state: on
-  light.wk_eettafel_plafond_level_2:
+    brightness: 23
+  light.mbr_plafond_level:
     state: off
-  light.keuken_koof_level_3:
+  switch.keuken_aanrecht_switch_2:
+    state: on
+  light.wk_achter_plafond_level:
+    state: off
+  light.wk_eettafel_plafond_level_2:
     state: off
   light.keuken_koof_level_2:
     state: off

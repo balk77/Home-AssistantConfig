@@ -9,3 +9,6 @@ dryer_switch:
 itho_not_low:
   name: Itho not low
   initial: off
+iftt_temp_triggered:
+  name: IFTTT Set Temperature triggered
+  initial: off

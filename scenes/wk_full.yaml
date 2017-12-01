@@ -27,3 +27,6 @@ entities:
     state: off
   light.keuken_aanrecht:
     state: on
+  light.wk_muur_level:
+    state: on
+    brightness: 255

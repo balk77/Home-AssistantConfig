@@ -16,5 +16,7 @@ entities:
     state: off
   light.keuken_koof_level_2:
     state: off
-  swicth.keuken_aanrecht_switch:
+  switch.keuken_aanrecht_switch:
+    state: off
+  light.wk_muur_level:
     state: off

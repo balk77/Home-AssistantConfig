@@ -99,8 +99,10 @@
   condition:
   - condition: or
     conditions:
-    - after: sunset
-      condition: sun
+    - condition: time
+      after: '22:00:00'
+    #- after: sunset
+    #  condition: sun
     - before: sunrise
       condition: sun
   action:
@@ -120,8 +122,10 @@
     conditions:
     - after: sunrise
       condition: sun
-    - before: sunset
-      condition: sun
+    - before: '22:00:00'
+      condition: time
+    #- before: sunset
+    #  condition: sun
   action:
   - data:
       brightness: 254
@@ -428,6 +432,7 @@
       entity_id: zwave.hank_knop_wk
       scene_id: 1
   action:
+    #service: rest_command.play_pause
     service: scene.turn_on
     entity_id: scene.woonkamer_low
 - id: Hank_wk2
@@ -463,3 +468,121 @@
   action:
     service: scene.turn_on
     entity_id: scene.woonkamer_full
+- id: Thermostaat_1
+  alias: Thermostaat 1
+  trigger:
+  - entity_id: sensor.thermostaat_tempsetpoint
+    platform: numeric_state
+    below: 15.1
+  condition:
+  - condition: and
+    conditions:
+    - condition: or
+      conditions:
+      - condition: time
+        after: '20:00:00'
+      - condition: time
+        before: '2:00:00'
+    - condition: state
+      entity_id: group.woonkamer
+      state: 'on'
+    - condition: state
+      entity_id: sensor.thermostaat_activeprogram
+      state: '0'
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "SetTemp"
+        value1: >
+          {{ states.sensor.maxtempsetpoint.state }}
+    - delay: '00:00:01'
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.iftt_temp_triggered_SP
+        value: >
+          {{ states.sensor.maxtempsetpoint.state }}
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.iftt_temp_triggered
+- id: Thermostaat_2
+  alias: Thermostaat 2
+  trigger:
+  - platform: state
+    entity_id: group.woonkamer
+    to: 'off'
+    for:
+      minutes: 10
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: sensor.thermostaat_activeprogram
+      state: '0'
+    - condition: or
+      conditions:
+      - condition: time
+        after: '20:00:00'
+      - condition: time
+        before: '2:00:00'
+  action:
+    - service: ifttt.trigger
+      data:
+        event: "SetTemp"
+        value1: 15
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.iftt_temp_triggered_sp
+        value: 15
+    - delay: '00:00:01'
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.iftt_temp_triggered
+# - id: Thermostaat_3
+#   alias: Thermostaat IFTTT success
+#   trigger:
+#     - platform: state
+#       entity_id: input_boolean.iftt_temp_triggered
+#       to: 'on'
+#   condition:
+#     - condition: template
+#       #entity_id: sensor.thermostaat_tempsetpoint
+#       value_template: '{{ states.input_number.iftt_temp_triggered_sp.state | float != states.sensor.thermostaat_tempsetpoint.state | float }}'
+#   action:
+#     - service: input_boolean.turn_off
+#       entity_id: input_boolean.iftt_temp_triggered
+#     - service: input_number.set_value
+#       data_template:
+#         entity_id: input_number.iftt_temp_triggered_sp
+#         value: 0
+# - id: Thermostaat_4
+#   alias: Thermostaat IFTTT fail1
+#   trigger:
+#     - platform: state
+#       entity_id: input_boolean.iftt_temp_triggered
+#       to: 'on'
+#   condition:
+#     - condition: template
+#       #entity_id: sensor.thermostaat_tempsetpoint
+#       value_template: '{{ states.input_number.iftt_temp_triggered_sp.state | float == states.sensor.thermostaat_tempsetpoint.state | float }}'
+#   action:
+#     - service: input_boolean.turn_off
+#       entity_id: input_boolean.iftt_temp_triggered
+#     # - service: input_number.set_value
+#     #   data_template:
+#     #     entity_id: input_number.iftt_temp_triggered_sp
+#     #     value: 0
+#     - delay: '0:00:01'
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.iftt_temp_triggered
+- id: wk_muur1
+  alias: WK Muur uit
+  trigger:
+    - entity_id: group.woonkamer_ex_muur
+      from: 'on'
+      platform: state
+      to: 'off'
+      for:
+        seconds: 20
+  action:
+    - service: light.turn_off
+      data:
+        transition: 20
+        entity_id: light.wk_muur_level

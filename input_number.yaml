@@ -1,0 +1,6 @@
+iftt_temp_triggered_sp:
+#test:
+  name: IFTTT Set Temperature SP
+  min: 0
+  max: 25
+  mode: box

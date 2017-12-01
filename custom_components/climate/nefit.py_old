@@ -1,7 +1,6 @@
 """
 Nefit thermostat.
 Tested with Junkers CT100
-
 Based on nefit-client-python
 https://github.com/patvdleer/nefit-client-python
 """
@@ -66,8 +65,6 @@ class NefitThermostat(ClimateDevice):
         self._data = {}
         self._attributes = {}
         self._attributes["connection_error_count"] = 0
-        self.override_target_temp = False
-        self.new_target_temp = 0
 
         _LOGGER.debug("Constructor for {} called.".format(self._name))
 
@@ -99,71 +96,37 @@ class NefitThermostat(ClimateDevice):
     def update(self):
         """Get latest data"""
         _LOGGER.debug("update called.")
-        errors = []
+        data = self._client.get_status()
 
-        try:
-            data = self._client.get_status()
-            _LOGGER.debug("update finished. result={}".format(data))
+        _LOGGER.debug("update finished. result={}".format(data))
+        if type(data) is dict and "user mode" in data:
+            self._attributes["connection_state"] = "ok"
+        else:
+            self._attributes["connection_state"] = "error"
+            self._attributes["connection_error_count"] += self._attributes["connection_error_count"]
 
-            if type(data) is dict and "user mode" in data:
-                self._attributes["connection_state"] = "ok"
-            else:
-                self._attributes["connection_state"] = "error"
-                self._attributes["connection_error_count"] += self._attributes["connection_error_count"]
+        if data:
+            self._data = data
 
-            if data:
-                self._data = data
+        self._attributes["boiler_indicator"] = self._data.get("boiler indicator")
+        self._attributes["control"] = self._data.get("control")
 
-            self._attributes["boiler_indicator"] = self._data.get("boiler indicator")
-            self._attributes["control"] = self._data.get("control")
-        except:
-            errors.append('get_status')
+        r = self._client.get_year_total()
+        self._attributes["year_total"] = r.get("value")
+        self._attributes["year_total_unit_of_measure"] = r.get("unitOfMeasure")
 
-        try:
-            r = self._client.get_year_total()
-            self._attributes["year_total"] = r.get("value")
-            self._attributes["year_total_unit_of_measure"] = r.get("unitOfMeasure")
-        except:
-            errors.append('get_year_total')
+        r = self._client.get("/ecus/rrc/userprogram/activeprogram")
+        self._attributes["active_program"] = r.get("value")
 
-        try:
-            r = self._client.get("/ecus/rrc/userprogram/activeprogram")
-            self._attributes["active_program"] = r.get("value")
-        except:
-            errors.append('active_program')
+        r = self._client.get("/ecus/rrc/dayassunday/day10/active")
+        self._attributes["today_as_sunday"] = (r.get("value") == "on")
 
-        try:
-            r = self._client.get("/ecus/rrc/dayassunday/day10/active")
-            self._attributes["today_as_sunday"] = (r.get("value") == "on")
-        except:
-            errors.append('today_as_sunday')
+        r = self._client.get("/ecus/rrc/dayassunday/day11/active")
+        self._attributes["tomorrow_as_sunday"] = (r.get("value") == "on")
 
-        try:
-            r = self._client.get("/ecus/rrc/dayassunday/day11/active")
-            self._attributes["tomorrow_as_sunday"] = (r.get("value") == "on")
-        except:
-            errors.append('tomorrow_as_sunday')
+        r = self._client.get("/system/appliance/systemPressure")
+        self._attributes["system_pressure"] = r.get("value")
 
-        try:
-            r = self._client.get("/system/appliance/systemPressure")
-            self._attributes["system_pressure"] = r.get("value")
-        except:
-            errors.append('system_pressure')
-
-        try:
-            r = self._client.get("/heatingCircuits/hc1/actualSupplyTemperature")
-            self._attributes["supply_temp"] = r.get("value")
-        except:
-            errors.append('supply_temp')
-
-        try:
-            r = self._client.get("/system/sensors/temperatures/outdoor_t1")
-            self._attributes["outside_temp"] = r.get("value")
-        except:
-            errors.append('outside_temp')
-
-        if len(errors) > 0:
-            _LOGGER.warning('Nefit api returned invalid data for: {}'.format(','.join(errors)))
 
     @property
     def current_temperature(self):
@@ -183,33 +146,17 @@ class NefitThermostat(ClimateDevice):
 
     @property
     def target_temperature(self):
-
-        #update happens too fast after setting new target, so value is not changed on server yet.
-        #assume for this first update that the set target was succesful
-        if self.override_target_temp:
-            self._target_temperature = self.new_target_temp
-            self.override_target_temp = False
-        else:
-            self._target_temperature = self._data.get('temp setpoint', None)
-
-        return self._target_temperature
+        return self._data.get('temp setpoint', None)
 
     def set_temperature(self, **kwargs):
         """Set new target temperature."""
-        try:
-            temperature = kwargs.get(ATTR_TEMPERATURE)
-            _LOGGER.debug("set_temperature called (temperature={}).".format(temperature))
+        temperature = kwargs.get(ATTR_TEMPERATURE)
+        _LOGGER.debug("set_temperature called (temperature={}).".format(temperature))
+        if temperature is None:
+            return None
 
-            if temperature is None:
-                return None
+        self._client.set_temperature(temperature)
 
-            self._client.set_temperature(temperature)
-
-            self.override_target_temp = True
-            self.new_target_temp = temperature
-
-        except:
-            _LOGGER.error("Error setting target temperature")
 
     def set_operation_mode(self, operation_mode):
         """Set new target operation mode."""
