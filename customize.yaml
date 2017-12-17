@@ -90,3 +90,8 @@ sensor.droger_power:
   friendly_name: Droger power
 sensor.droger_voltage:
   friendly_name: Droger Voltage
+light.wk_muur_level:
+  friendly_name: LED strip bankje
+# kerstboom
+switch.fibaro_switch_switch:
+  friendly_name: kerstboom

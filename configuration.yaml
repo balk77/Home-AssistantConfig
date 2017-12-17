@@ -288,3 +288,7 @@ rest_command:
     url: 'http://192.168.0.9:8181/zone/Woonkamer/volume/+5'
   vol_down:
     url: 'http://192.168.0.9:8181/zone/Woonkamer/volume/-5'
+  # dide_temperature_dag:
+  #   url: 'http://192.168.0.9:8388/fhem?cmd=set+ThermDide+desiredTemperature+17'
+  # dide_temperature_nacht:
+  #   url: 'http://192.168.0.9:8388/fhem?cmd=set+ThermDide+desiredTemperature+13'

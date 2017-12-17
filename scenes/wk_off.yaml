@@ -18,5 +18,7 @@ entities:
     state: off
   switch.keuken_aanrecht_switch:
     state: off
-  light.wk_muur_level:
+  # light.wk_muur_level:
+  #   state: off
+  switch.fibaro_switch_switch:
     state: off

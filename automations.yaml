@@ -510,7 +510,7 @@
     entity_id: group.woonkamer
     to: 'off'
     for:
-      minutes: 10
+      minutes: 5
   condition:
   - condition: and
     conditions:
@@ -580,9 +580,206 @@
       platform: state
       to: 'off'
       for:
-        seconds: 20
+        seconds: 10
   action:
+    # kerstboom
+    - service: switch.turn_off
+      entity_id: switch.fibaro_switch_switch
     - service: light.turn_off
       data:
         transition: 20
         entity_id: light.wk_muur_level
+- id: wk_muur2
+  alias: WK Muur aan op Beweging
+  trigger:
+    - entity_id: sensor.wk_multisensor_burglar
+      platform: state
+      to: '8'
+    - entity_id: sensor.wk_multisensor_burglar
+      platform: state
+      to: '3'
+  condition:
+    condition: and
+    conditions:
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: "{{ states.sun.sun.attributes.elevation  | int < 10 }}"
+          # - condition: sun
+          #   after: sunset
+          # - condition: sun
+          #   before: sunrise
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.wk_muur_level
+        brightness: 50
+    # kerstboom
+    - service: switch.turn_on
+      entity_id: switch.fibaro_switch_switch
+- id: wk_multisensor_battery1
+  alias: wk_multisensor_battery1
+  trigger:
+    - entity_id: sensor.wk_multisensor_battery_level
+      platform: numeric_state
+      below: 20
+  action:
+    service: notify.pushbullet
+    data:
+      target: device/Nexus5X
+      message: wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}%
+- id: wk_multisensor_battery2
+  alias: wk_multisensor_battery2
+  trigger:
+    platform: time
+    # When 'after' is used, you cannot also match on hour, minute, seconds.
+    # Military time format.
+    at: '20:00:00'
+  condition:
+    - entity_id: sensor.wk_multisensor_battery_level
+      condition: numeric_state
+      below: 20
+  action:
+    service: notify.pushbullet
+    data:
+      target: device/Nexus5X
+      message: wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}%
+- id: zolder_multisensor_battery1
+  alias: zolder_multisensor_battery1
+  trigger:
+    - entity_id: sensor.zolder_multisensor_battery_level
+      platform: numeric_state
+      below: 20
+  action:
+    service: notify.pushbullet
+    data:
+      target: device/Nexus5X
+      message: zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}%
+- id: zolder_multisensor_battery2
+  alias: zolder_multisensor_battery2
+  trigger:
+    platform: time
+    # When 'after' is used, you cannot also match on hour, minute, seconds.
+    # Military time format.
+    at: '20:00:00'
+  condition:
+    - entity_id: sensor.zolder_multisensor_battery_level
+      condition: numeric_state
+      below: 20
+  action:
+    service: notify.pushbullet
+    data:
+      target: device/Nexus5X
+      message: zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}%
+- id: thermo_dide1
+  alias: thermo_dide1
+  trigger:
+    - platform: time
+      at: '17:00:00'
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: "/fhem/ThermDide/desiredTemperature/set"
+      retain: true
+      payload: '17'
+- id: thermo_dide2
+  alias: thermo_dide2
+  trigger:
+    - platform: state
+      entity_id: input_boolean.zolder_multisensor_burglar
+      to: 'on'
+  condition:
+    - condition: time
+      after: '9:00:00'
+      before: '17:00:00'
+    # - condition: and
+    #   conditions:
+    #     - condition: time
+    #       weekday:
+    #         - mon
+    #         - wed
+    #         - fri
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: "/fhem/ThermDide/desiredTemperature/set"
+      retain: true
+      payload: '17'
+- id: thermo_dide3
+  alias: thermo_dide3
+  trigger:
+    - platform: state
+      entity_id: input_boolean.zolder_multisensor_burglar
+      to: 'off'
+  condition:
+    - condition: time
+      after: '9:00:00'
+      before: '17:00:00'
+    # - condition: and
+    #   conditions:
+    #     - condition: time
+    #       weekday:
+    #         - mon
+    #         - wed
+    #         - fri
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: "/fhem/ThermDide/desiredTemperature/set"
+      retain: true
+      payload: '17'
+- id: thermo_dide_uit
+  alias: thermo_dide_uit
+  trigger:
+    platform: time
+    at: '19:00:00'
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: "/fhem/ThermDide/desiredTemperature/set"
+      retain: true
+      payload: '13'
+- id: thermo_dide_10
+  alias: Set temp slider Dide temperature
+  trigger:
+    platform: mqtt
+    topic: "/fhem/ThermDide/desiredTemperature"
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.slaapkamer_dide_setpoint
+      value: '{{ trigger.payload}}'
+- id: thermo_dide_11
+  alias: Temp slider moved
+  trigger:
+    platform: state
+    entity_id: input_number.slaapkamer_dide_setpoint
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: "/fhem/ThermDide/desiredTemperature/set"
+      retain: true
+      payload: '{{ states.input_number.slaapkamer_dide_setpoint.state | int }}'
+- id: beweging_zolder1
+  alias: Beweging zolder aan
+  trigger:
+    - platform: state
+      entity_id: sensor.zolder_multisensor_burglar
+      to: '8'
+    - platform: state
+      entity_id: sensor.zolder_multisensor_burglar
+      to: '3'
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.zolder_multisensor_burglar
+- id: beweging_zolder2
+  alias: Beweging zolder uit
+  trigger:
+    - platform: state
+      entity_id: sensor.zolder_multisensor_burglar
+      to: '0'
+      for:
+        minutes: 25
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.zolder_multisensor_burglar

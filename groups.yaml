@@ -53,6 +53,7 @@ woonkamer:
     - light.keuken_koof_level
     - switch.schemerlamp_switch
     - switch.keuken_aanrecht_switch
+    - switch.fibaro_switch_switch
 woonkamer_scenes:
   name: Woonkamer Scenes
   entities:
@@ -134,7 +135,14 @@ nefit:
     - sensor.wk_thermostaat_PV
     - sensor.wk_boilerstatus
     - sensor.hotwater
+    - group.slaapkamer_dide
     #- states.climate.heating.attributes.boiler_indicator
+slaapkamer_dide:
+  name: Slaapkamer Dide
+  entities:
+    - input_number.slaapkamer_dide_setpoint
+    - sensor.slaapkamer_dide_gemeten_temperatuur
+    - sensor.slaapkamer_dide_gewenste_temperatuur
 bk_sensors:
   name: Badkamer Sensors
   entities:

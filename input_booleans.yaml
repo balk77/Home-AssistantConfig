@@ -12,3 +12,12 @@ itho_not_low:
 iftt_temp_triggered:
   name: IFTTT Set Temperature triggered
   initial: off
+wk_multisensor_battery_level_reminder:
+  name: wk_multisensor_battery_level_reminder
+  initial: off
+zolder_multisensor_battery_level_reminder:
+  name: zolder_multisensor_battery_level_reminder
+  initial: off
+zolder_multisensor_burglar:
+  name: beweging_zolder1
+  initial: off
