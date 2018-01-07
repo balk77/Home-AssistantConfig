@@ -10,6 +10,8 @@ entities:
     state: off
   switch.schemerlamp_switch:
     state: off
+  light.keuken_koof:
+    state: off
   light.keuken_koof_level:
     state: off
   light.keuken_koof_level_3:

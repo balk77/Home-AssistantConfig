@@ -19,3 +19,22 @@
       command_off: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?disable=3600&auth='"
       command_state: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?status&auth='"
       value_template: "{{ value_json.status == 'enabled' }}"
+- platform: template
+  switches:
+    zolder_ventilatie:
+      friendly_name: Zolder Ventilatie
+      value_template: "{{ is_state('input_boolean.zolder_ventilatie', 'on') }}"
+      turn_on:
+        service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.zolder_ventilatie
+      turn_off:
+        service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.zolder_ventilatie
+      icon_template: >-
+          {% if is_state('input_boolean.zolder_ventilatie', 'on') %}
+            mdi:fan
+          {% else %}
+            mdi:fan-off
+          {% endif %}

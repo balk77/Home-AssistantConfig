@@ -1,0 +1,16 @@
+# Apps
+hello_world:
+  module: hello
+  class: HelloWorld
+
+test:
+  module: test
+  class: test
+
+zolder_ventilatie:
+  module: zolder_ventilatie
+  class: ZolderVentilatie
+
+fancontrol:
+  module: fancontrol
+  class: fancontrol

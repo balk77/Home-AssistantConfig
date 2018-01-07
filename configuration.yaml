@@ -20,6 +20,34 @@ recorder:
   db_url: postgres://@/homeassistant
   purge_interval: 2
   purge_keep_days: 7
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+      - device_tracker
+    entities:
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+      - sensor.date
+      - scene.rainbow_1
+      - scene.rainbow_2
+      - scene.rainbow_3
+      - scene.rainbow_4
+      - scene.rainbow_5
+      - scene.rainbow_6
+      - scene.rainbow_7
+      - scene.rainbow_8
+      - zone.home
+  include:
+    entities:
+      - device_tracker.phone_linda_bt
+      - device_tracker.phone_linda_wifi
+      - device_tracker.phone_nexus5x
+      - device_tracker.phone_phone
+      - device_tracker.phone_sander
+      - device_tracker.phone_sander_bt
+      - device_tracker.phone_sander_wifi
 
 logger:
   default: info
@@ -67,12 +95,18 @@ sun:
 
 
 sensor: !include sensors.yaml
+binary_sensor: !include binary_sensors.yaml
 switch: !include switches.yaml
 
 
 # Text to speech
 tts:
   platform: google
+
+# google:
+#   client_id: !secret google_client_id
+#   client_secret: !secret google_client_secret
+#   track_new_calendar: false
 
 device_tracker: !include device_tracker.yaml
 
@@ -292,3 +326,8 @@ rest_command:
   #   url: 'http://192.168.0.9:8388/fhem?cmd=set+ThermDide+desiredTemperature+17'
   # dide_temperature_nacht:
   #   url: 'http://192.168.0.9:8388/fhem?cmd=set+ThermDide+desiredTemperature+13'
+
+input_text:
+  valvemoving:
+    name: "Action:"
+    initial: Valve is moving

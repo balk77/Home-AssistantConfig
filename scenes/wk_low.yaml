@@ -2,6 +2,8 @@ name: Woonkamer Low
 entities:
   light.keuken_koof_level:
     state: off
+  light.keuken_koof:
+    state: off
   switch.schemerlamp_switch:
     state: on
   switch.keuken_aanrecht_switch:

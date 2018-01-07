@@ -41,6 +41,7 @@ verlichting:
   entities:
     - group.woonkamer
     - group.eerste
+    - input_boolean.occupancy_simulation
 woonkamer:
   name: Woonkamer
 #   control: hidden
@@ -114,6 +115,8 @@ sensors:
     - group.bk_sensors
     - group.WKCO2sensor
     - group.itho
+    - group.zolder_ventilatie
+    - group.zolder_ventilatie_moving
     #- group.debug
 WKCO2sensor:
   name: CO2 Sensor Woonkamer
@@ -188,3 +191,12 @@ woonkamer_ex_muur:
     - light.keuken_koof_level
     - switch.schemerlamp_switch
     - switch.keuken_aanrecht_switch
+zolder_ventilatie:
+  name: Zolder ventilatie
+  entities:
+    #- input_boolean.zolder_ventilatie
+    - input_number.zolder_ventilatie
+zolder_ventilatie_moving:
+  name: Zolder ventilatie
+  entities:
+    - input_text.valvemoving

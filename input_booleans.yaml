@@ -21,3 +21,9 @@ zolder_multisensor_battery_level_reminder:
 zolder_multisensor_burglar:
   name: beweging_zolder1
   initial: off
+occupancy_simulation:
+  name: Simuleer bewoning tijdens afwezigheid
+  initial: off
+zolder_ventilatie:
+  name: Zolder ventilatie
+  initial: on

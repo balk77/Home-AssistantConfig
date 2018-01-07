@@ -9,3 +9,13 @@ slaapkamer_dide_setpoint:
   min: 10
   max: 25
   mode: box
+zolder_ventilatie:
+  name: Ventilatie op zolder
+  min: 0
+  max: 100
+  mode: slider
+zolder_ventilatie_old:
+  name: Vorige waarde van ventilatie op zolder
+  min: 0
+  max: 100
+  mode: box
