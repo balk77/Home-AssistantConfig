@@ -34,3 +34,4 @@ emulated_hue_ids.json
 GraphViz.php
 zwave-map.php
 google_calendars.yaml
+appdaemon/log/appdaemon.log
