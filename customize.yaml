@@ -95,3 +95,13 @@ light.wk_muur_level:
 # kerstboom
 switch.fibaro_switch_switch:
   friendly_name: kerstboom
+input_boolean.occupancy_simulation:
+  friendly_name: Simuleer aanwezigheid
+  icon: mdi:account-off
+input_boolean.huis_slaapstand:
+  friendly_name: Slaapstand Huis
+  icon: mdi:sleep
+sensor.itho_ventilatie:
+  friendly_name: Werkelijke ITHO status
+input_boolean.itho_remote_override:
+  friendly_name: ITHO Remote Override

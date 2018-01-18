@@ -17,6 +17,10 @@ class fancontrol(appapi.AppDaemon):
         # change in boiler status
         self.listen_state(self.main, "sensor.wk_boilerstatus")
         #self.listen_state(self.main, "input_number.boilerstatus_dummy")
+        #desiredStateHW = self.boilerstatus
+
+
+
 
 
     def main(self, entity, attribute, old, new, kwargs):
@@ -24,6 +28,19 @@ class fancontrol(appapi.AppDaemon):
         desiredStateHUM = self.humidity_level()
         # get the fan level for the current boiler status level
         desiredStateHW = self.boilerstatus
+
+        # when hot water is reported, return "high"
+        boilerstatus = self.get_state("sensor.wk_boilerstatus")
+        #boilerstatus = self.get_state("input_number.boilerstatus_dummy")
+
+
+        if boilerstatus == "HW": #  or boilerstatus == 2:
+            desiredStateHW = "high"
+        else:
+            desiredStateHW = "low"
+
+        # self.log(desiredStateHW)
+
 
         # self.timestamp_high is set to current time (seconds)
         # if not set, make it zero

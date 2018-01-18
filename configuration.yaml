@@ -331,3 +331,10 @@ input_text:
   valvemoving:
     name: "Action:"
     initial: Valve is moving
+
+
+panel_iframe:
+  avalex:
+    title: 'Avalex'
+    url: 'https://calendar.google.com/calendar/embed?src=4uss0i67es2enb599kpt4692mtradusn%40import.calendar.google.com'
+    icon: mdi:delete

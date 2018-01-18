@@ -27,3 +27,18 @@ occupancy_simulation:
 zolder_ventilatie:
   name: Zolder ventilatie
   initial: on
+# wasser_test:
+#   name: wasser_test
+#   initial: off
+# droger_test:
+#   name: droger_test
+#   initial: off
+huis_slaapstand:
+  name: Slaapstand Huis
+  initial: off
+itho_remote_override:
+  name: Itho remote override
+  initial: off
+appdaemon_alive:
+  name: Appdaemon alive
+  initial: on

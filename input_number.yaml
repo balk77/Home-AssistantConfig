@@ -19,3 +19,13 @@ zolder_ventilatie_old:
   min: 0
   max: 100
   mode: box
+random_hour:
+  name: Random hour - bed time
+  min: 21
+  max: 24
+  mode: slider
+random_minute:
+  name: Random minute - bed time
+  min: 0
+  max: 59
+  mode: slider

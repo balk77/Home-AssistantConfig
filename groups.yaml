@@ -41,7 +41,7 @@ verlichting:
   entities:
     - group.woonkamer
     - group.eerste
-    - input_boolean.occupancy_simulation
+    - group.huis_toggles
 woonkamer:
   name: Woonkamer
 #   control: hidden
@@ -54,7 +54,7 @@ woonkamer:
     - light.keuken_koof_level
     - switch.schemerlamp_switch
     - switch.keuken_aanrecht_switch
-    - switch.fibaro_switch_switch
+    #- switch.fibaro_switch_switch # zet deze aan om de kerstboom te schakelen
 woonkamer_scenes:
   name: Woonkamer Scenes
   entities:
@@ -75,6 +75,8 @@ itho:
   name: Itho control
   control: hidden
   entities:
+    - sensor.itho_laatste_bediening
+    - input_boolean.itho_remote_override
     - input_select.fanstate
 eerste:
   name: Eerste Verdieping
@@ -170,6 +172,7 @@ wasmachine:
     - sensor.wasmachine_voltage
     - sensor.washer_pwrup
     - input_boolean.washer_switch
+
 droger:
   name: Droger
   entities:
@@ -178,6 +181,7 @@ droger:
     - sensor.droger_voltage
     - sensor.dryer_pwrup
     - input_boolean.dryer_switch
+
 pihole:
   name: Pi Hole
   entities:
@@ -200,3 +204,9 @@ zolder_ventilatie_moving:
   name: Zolder ventilatie
   entities:
     - input_text.valvemoving
+huis_toggles:
+  name: Bediening huis
+  control: hidden
+  entities:
+    - input_boolean.huis_slaapstand
+    - input_boolean.occupancy_simulation

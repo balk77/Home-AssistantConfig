@@ -14,3 +14,26 @@ zolder_ventilatie:
 fancontrol:
   module: fancontrol
   class: fancontrol
+
+wasmachine:
+  module: wasserdroger
+  class: wasserdroger
+  trigger: input_boolean.washer_switch
+  appliance: washer
+  kwhsensor: sensor.wasmachine_energy
+
+droger:
+  module: wasserdroger
+  class: wasserdroger
+  trigger: input_boolean.dryer_switch #input_boolean.droger_test
+  appliance: dryer
+  kwhsensor: sensor.droger_energy
+
+humdelta:
+  module: sensorexport
+  class: sensorexport
+  trigger: sensor.humdelta
+  location: eersteverdiep
+  sublocation: badkamer
+  sensor: dht
+  property: humdelta

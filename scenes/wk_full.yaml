@@ -33,5 +33,5 @@ entities:
   light.wk_muur_level:
     state: on
     brightness: 255
-  switch.fibaro_switch_switch:
-    state: on
+  # switch.fibaro_switch_switch:
+  #   state: on

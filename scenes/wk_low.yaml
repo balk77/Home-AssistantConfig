@@ -29,5 +29,5 @@ entities:
     state: off
   light.keuken_koof_level_2:
     state: off
-  switch.fibaro_switch_switch:
-    state: on
+  # switch.fibaro_switch_switch:
+  #   state: on

@@ -3241,3 +3241,2001 @@
 2018-01-06 23:07:52.004603 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
 2018-01-06 23:07:52.006874 INFO Loading Object fancontrol using class fancontrol from module fancontrol
 2018-01-06 23:07:52.007860 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-07 20:59:56.893578 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 20:59:56.894546 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:01.902036 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:01.902036 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:06.908897 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:06.909415 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:11.915781 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:11.915918 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:16.922285 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:16.924207 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:21.930947 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:21.932046 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:26.938986 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:26.942233 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:31.947314 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:31.953519 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:36.955305 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:36.962399 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:41.963331 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:41.971569 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:46.976658 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:46.977629 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:51.984380 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:51.985697 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:56.992430 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:00:56.995507 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:01.999033 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:02.003810 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:07.005287 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:07.010161 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:12.012838 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:12.019294 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:17.021936 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:17.027043 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:22.027480 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:22.039350 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:27.033901 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:27.047454 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:32.040283 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:32.054705 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:37.046166 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:37.067081 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:42.053462 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:42.073956 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:47.060612 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:47.080829 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:52.070778 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:52.087333 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:57.076563 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:01:57.094721 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:02.081497 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:02.100369 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:07.087541 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:07.107145 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:12.097405 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:12.113531 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:17.104201 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:17.120134 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:22.109944 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:22.127478 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:27.130715 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:27.134165 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:32.136916 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:32.141373 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:37.143717 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:37.147743 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:42.151667 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:42.154453 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:47.158586 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:47.161907 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:52.168043 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:02:52.168622 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:27:14.811950 INFO AppDaemon Version 2.1.12 starting
+2018-01-07 21:27:14.813118 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-07 21:27:14.821945 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:27:19.834036 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:27:24.865566 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:27:29.872448 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:27:34.881085 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:27:39.888571 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:27:44.904662 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:27:49.912660 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:27:54.920356 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:27:59.939205 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:28:04.949322 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:28:10.075128 INFO Starting Apps
+2018-01-07 21:28:10.179391 INFO Got initial state
+2018-01-07 21:28:10.192201 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-07 21:28:10.194728 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-07 21:28:10.195881 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-07 21:28:10.200343 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-07 21:28:10.343246 INFO zolder_ventilatie: lalala1
+2018-01-07 21:28:10.343638 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-07 21:28:10.344830 INFO Loading Object test using class test from module test
+2018-01-07 21:28:10.349294 INFO test: Hello from AppDaemon
+2018-01-07 21:28:10.349645 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-07 21:28:10.350800 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-07 21:28:10.352016 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-07 21:28:10.358668 INFO hello_world: Hello from AppDaemon222222
+2018-01-07 21:28:10.360649 INFO hello_world: You are now ready to run Apps223!
+2018-01-07 21:28:10.360997 INFO App initialization complete
+2018-01-07 21:28:10.361520 INFO Dashboards are disabled
+2018-01-07 21:28:10.361831 INFO API is disabled
+2018-01-07 21:28:10.373772 INFO Connected to Home Assistant 0.60.1
+2018-01-07 21:30:47.701263 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:30:52.715409 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:30:57.722813 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:02.732017 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:07.740407 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:12.746851 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:17.752932 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:22.759691 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:27.767379 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:32.775043 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:37.783206 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:42.790170 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:47.796736 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:52.805245 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:31:57.816426 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:02.827193 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:07.836554 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:12.845034 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:17.851369 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:22.859228 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:27.869224 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:32.879601 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:37.928027 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:42.937374 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:47.943787 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:52.951553 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:32:57.959942 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:33:02.977295 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:33:07.983993 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:33:12.990495 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:33:17.996157 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:33:23.003200 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:33:28.018938 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:33:33.028686 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:33:38.156342 INFO Got initial state
+2018-01-07 21:33:38.157647 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-07 21:33:38.160990 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-07 21:33:38.161583 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-07 21:33:38.162654 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-07 21:33:38.168652 INFO zolder_ventilatie: lalala1
+2018-01-07 21:33:38.169060 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-07 21:33:38.170111 INFO Loading Object test using class test from module test
+2018-01-07 21:33:38.173135 INFO test: Hello from AppDaemon
+2018-01-07 21:33:38.173572 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-07 21:33:38.174617 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-07 21:33:38.175710 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-07 21:33:38.178605 INFO hello_world: Hello from AppDaemon222222
+2018-01-07 21:33:38.181609 INFO hello_world: You are now ready to run Apps223!
+2018-01-07 21:33:38.181998 INFO App initialization complete
+2018-01-07 21:33:38.223271 INFO Connected to Home Assistant 0.60.1
+2018-01-07 21:52:49.774201 INFO AppDaemon Version 2.1.12 starting
+2018-01-07 21:52:49.775260 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-07 21:52:49.784178 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:52:54.794030 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:52:59.805927 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:53:04.814541 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:53:09.823295 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:53:14.835653 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:53:19.846390 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:53:24.855165 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:53:29.866607 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:53:34.874221 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:53:39.890903 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:53:44.907838 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-07 21:53:49.996183 INFO Starting Apps
+2018-01-07 21:53:50.066587 INFO Got initial state
+2018-01-07 21:53:50.068470 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-07 21:53:50.070409 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-07 21:53:50.071052 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-07 21:53:50.072197 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-07 21:53:50.181086 INFO zolder_ventilatie: lalala1
+2018-01-07 21:53:50.181415 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-07 21:53:50.182525 INFO Loading Object test using class test from module test
+2018-01-07 21:53:50.186836 INFO test: Hello from AppDaemon
+2018-01-07 21:53:50.187168 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-07 21:53:50.188267 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-07 21:53:50.189318 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-07 21:53:50.193945 INFO hello_world: Hello from AppDaemon222222
+2018-01-07 21:53:50.195626 INFO hello_world: You are now ready to run Apps223!
+2018-01-07 21:53:50.195865 INFO App initialization complete
+2018-01-07 21:53:50.196285 INFO Dashboards are disabled
+2018-01-07 21:53:50.196473 INFO API is disabled
+2018-01-07 21:53:50.203585 INFO Connected to Home Assistant 0.60.1
+2018-01-07 21:54:26.552550 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:54:31.559697 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:54:36.566073 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:54:41.582219 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:54:46.597215 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:54:51.604293 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:54:56.613226 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:01.619394 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:06.625452 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:11.632721 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:16.640160 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:21.647670 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:26.653811 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:31.660502 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:36.668070 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:41.674206 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:46.682993 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:51.691203 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:55:56.701146 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:56:01.708534 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:56:06.713986 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:56:11.727519 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:56:16.734267 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:56:21.741604 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 21:56:26.905188 INFO Got initial state
+2018-01-07 21:56:26.906245 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-07 21:56:26.907252 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-07 21:56:26.907718 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-07 21:56:26.908599 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-07 21:56:26.913041 INFO zolder_ventilatie: lalala1
+2018-01-07 21:56:26.913375 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-07 21:56:26.914346 INFO Loading Object test using class test from module test
+2018-01-07 21:56:26.917087 INFO test: Hello from AppDaemon
+2018-01-07 21:56:26.917440 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-07 21:56:26.918308 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-07 21:56:26.919186 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-07 21:56:26.921750 INFO hello_world: Hello from AppDaemon222222
+2018-01-07 21:56:26.924184 INFO hello_world: You are now ready to run Apps223!
+2018-01-07 21:56:26.924451 INFO App initialization complete
+2018-01-07 21:56:27.142061 INFO Connected to Home Assistant 0.60.1
+2018-01-07 22:00:58.326896 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:01:03.333646 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:01:08.342181 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:01:13.348730 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:01:18.356458 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:01:23.364131 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:01:28.371795 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:01:33.378263 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:01:38.588163 INFO Got initial state
+2018-01-07 22:01:38.589204 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-07 22:01:38.590286 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-07 22:01:38.590843 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-07 22:01:38.591931 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-07 22:01:38.594954 INFO zolder_ventilatie: lalala1
+2018-01-07 22:01:38.595292 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-07 22:01:38.596180 INFO Loading Object test using class test from module test
+2018-01-07 22:01:38.598940 INFO test: Hello from AppDaemon
+2018-01-07 22:01:38.599284 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-07 22:01:38.600116 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-07 22:01:38.600998 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-07 22:01:38.603566 INFO hello_world: Hello from AppDaemon222222
+2018-01-07 22:01:38.605986 INFO hello_world: You are now ready to run Apps223!
+2018-01-07 22:01:38.606227 INFO App initialization complete
+2018-01-07 22:01:38.686870 INFO Connected to Home Assistant 0.60.1
+2018-01-07 22:02:07.505886 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:02:12.515922 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:02:17.526197 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:02:22.534688 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:02:27.542991 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:02:32.550040 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:02:37.557433 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:02:42.563829 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:02:47.571065 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:02:52.578271 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:02:57.584520 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:03:02.595568 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:03:07.602681 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:03:12.609712 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:03:17.616262 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:03:22.622754 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:03:27.632812 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:03:32.650274 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:03:37.657638 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-07 22:03:42.800749 INFO Got initial state
+2018-01-07 22:03:42.801864 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-07 22:03:42.803030 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-07 22:03:42.803613 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-07 22:03:42.804703 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-07 22:03:42.808054 INFO zolder_ventilatie: lalala1
+2018-01-07 22:03:42.808436 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-07 22:03:42.809477 INFO Loading Object test using class test from module test
+2018-01-07 22:03:42.812596 INFO test: Hello from AppDaemon
+2018-01-07 22:03:42.812987 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-07 22:03:42.813936 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-07 22:03:42.814982 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-07 22:03:42.818035 INFO hello_world: Hello from AppDaemon222222
+2018-01-07 22:03:42.820523 INFO hello_world: You are now ready to run Apps223!
+2018-01-07 22:03:42.820777 INFO App initialization complete
+2018-01-07 22:03:42.925802 INFO Connected to Home Assistant 0.60.1
+2018-01-10 14:26:12.048802 INFO AppDaemon Version 2.1.12 starting
+2018-01-10 14:26:12.049782 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-10 14:26:12.059730 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:26:17.088208 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:26:22.095516 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:26:27.104260 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:26:32.112286 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:26:37.119345 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:26:42.128583 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:26:47.143594 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:26:52.155321 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:26:57.179440 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:27:02.194221 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:27:07.203574 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 14:27:12.385883 INFO Starting Apps
+2018-01-10 14:27:12.634610 INFO Got initial state
+2018-01-10 14:27:12.639058 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 14:27:12.640624 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 14:27:12.641205 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 14:27:12.642461 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 14:27:12.851283 INFO zolder_ventilatie: lalala1
+2018-01-10 14:27:12.851695 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 14:27:12.853492 INFO Loading Object test using class test from module test
+2018-01-10 14:27:12.864172 INFO test: Hello from AppDaemon
+2018-01-10 14:27:12.864532 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 14:27:12.865758 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 14:27:12.867078 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 14:27:12.873063 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 14:27:12.875342 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 14:27:12.875648 INFO App initialization complete
+2018-01-10 14:27:12.876099 INFO Dashboards are disabled
+2018-01-10 14:27:12.876334 INFO API is disabled
+2018-01-10 14:27:12.931956 INFO Connected to Home Assistant 0.60.1
+2018-01-10 15:15:13.039276 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:15:18.044988 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:15:23.050889 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:15:28.056270 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:15:33.061452 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:15:38.069061 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:15:43.076813 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:15:48.081906 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:15:53.089059 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:15:58.096377 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:03.103059 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:08.109338 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:13.115757 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:18.125955 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:23.132335 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:28.137574 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:33.143047 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:38.149009 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:43.163929 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:48.170290 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:53.177028 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:16:58.183813 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:03.189650 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:08.195787 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:13.201254 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:18.207302 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:23.214382 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:28.222332 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:33.228879 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:38.234875 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:43.240464 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:48.248094 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:53.253850 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:17:58.259637 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:03.266654 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:08.275587 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:13.282607 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:18.288273 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:23.296073 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:28.302790 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:33.309070 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:38.315636 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:43.322303 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:48.328429 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:53.335970 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:18:58.341703 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:19:03.346847 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:19:08.352889 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:19:13.361062 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:19:18.367469 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:19:23.374601 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:19:28.381519 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:19:33.387766 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:19:38.449270 INFO Got initial state
+2018-01-10 15:19:38.450519 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 15:19:38.457607 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 15:19:38.458304 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 15:19:38.462461 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 15:19:38.472066 INFO zolder_ventilatie: lalala1
+2018-01-10 15:19:38.472452 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 15:19:38.474855 INFO Loading Object test using class test from module test
+2018-01-10 15:19:38.479393 INFO test: Hello from AppDaemon
+2018-01-10 15:19:38.479921 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 15:19:38.483251 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 15:19:38.485764 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 15:19:38.489562 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 15:19:38.493014 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 15:19:38.493381 INFO App initialization complete
+2018-01-10 15:19:38.785987 INFO Connected to Home Assistant 0.60.1
+2018-01-10 15:23:54.984662 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:23:59.991012 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:24:04.998341 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:24:10.006237 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:24:15.011795 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:24:20.020630 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:24:25.026859 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:24:30.032895 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:24:35.077371 INFO Got initial state
+2018-01-10 15:24:35.078457 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 15:24:35.079854 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 15:24:35.080403 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 15:24:35.081642 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 15:24:35.085003 INFO zolder_ventilatie: lalala1
+2018-01-10 15:24:35.085370 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 15:24:35.086526 INFO Loading Object test using class test from module test
+2018-01-10 15:24:35.096685 INFO test: Hello from AppDaemon
+2018-01-10 15:24:35.097041 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 15:24:35.098210 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 15:24:35.099468 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 15:24:35.102209 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 15:24:35.104832 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 15:24:35.105277 INFO App initialization complete
+2018-01-10 15:24:35.137726 INFO Connected to Home Assistant 0.60.1
+2018-01-10 15:31:01.614987 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:31:06.620789 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:31:11.627227 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:31:16.635502 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:31:21.642017 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:31:26.647697 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:31:31.654316 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:31:36.660139 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:31:41.798029 INFO Got initial state
+2018-01-10 15:31:41.799304 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 15:31:41.800641 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 15:31:41.801313 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 15:31:41.802666 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 15:31:41.806023 INFO zolder_ventilatie: lalala1
+2018-01-10 15:31:41.806410 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 15:31:41.811972 INFO Loading Object test using class test from module test
+2018-01-10 15:31:41.815047 INFO test: Hello from AppDaemon
+2018-01-10 15:31:41.815454 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 15:31:41.819929 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 15:31:41.822118 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 15:31:41.827761 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 15:31:41.830488 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 15:31:41.830855 INFO App initialization complete
+2018-01-10 15:31:41.991230 INFO Connected to Home Assistant 0.60.1
+2018-01-10 15:40:00.774589 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:40:05.780335 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:40:10.787129 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:40:15.793414 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:40:20.800433 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:40:25.807956 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:40:30.815392 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:40:35.822569 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:40:40.831320 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:40:45.883662 INFO Got initial state
+2018-01-10 15:40:45.884770 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 15:40:45.887287 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 15:40:45.887893 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 15:40:45.891216 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 15:40:45.894273 INFO zolder_ventilatie: lalala1
+2018-01-10 15:40:45.894649 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 15:40:45.895854 INFO Loading Object test using class test from module test
+2018-01-10 15:40:45.898676 INFO test: Hello from AppDaemon
+2018-01-10 15:40:45.899086 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 15:40:45.900186 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 15:40:45.902540 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 15:40:45.905500 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 15:40:45.911046 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 15:40:45.911420 INFO App initialization complete
+2018-01-10 15:40:45.920777 INFO Connected to Home Assistant 0.60.1
+2018-01-10 15:41:45.831459 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:41:50.839646 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:41:55.846477 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:00.852441 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:05.859084 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:10.867490 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:15.873622 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:20.879685 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:25.886374 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:30.892460 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:35.899162 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:40.905724 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:45.913734 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:50.919266 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 15:42:55.983318 INFO Got initial state
+2018-01-10 15:42:55.984458 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 15:42:55.988533 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 15:42:55.989113 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 15:42:55.991954 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 15:42:55.995031 INFO zolder_ventilatie: lalala1
+2018-01-10 15:42:55.995402 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 15:42:55.996679 INFO Loading Object test using class test from module test
+2018-01-10 15:42:55.999686 INFO test: Hello from AppDaemon
+2018-01-10 15:42:56.000050 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 15:42:56.001881 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 15:42:56.003348 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 15:42:56.006167 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 15:42:56.008911 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 15:42:56.009266 INFO App initialization complete
+2018-01-10 15:42:56.024473 INFO Connected to Home Assistant 0.60.1
+2018-01-10 16:24:37.124085 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 16:24:42.130093 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 16:24:47.136287 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 16:24:52.148080 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 16:24:57.154746 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 16:25:02.161161 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 16:25:07.176018 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 16:25:12.184248 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 16:25:17.294340 INFO Got initial state
+2018-01-10 16:25:17.295472 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 16:25:17.296904 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 16:25:17.297474 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 16:25:17.298845 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 16:25:17.301767 INFO zolder_ventilatie: lalala1
+2018-01-10 16:25:17.302130 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 16:25:17.303505 INFO Loading Object test using class test from module test
+2018-01-10 16:25:17.306319 INFO test: Hello from AppDaemon
+2018-01-10 16:25:17.306658 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 16:25:17.307876 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 16:25:17.309268 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 16:25:17.312270 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 16:25:17.314872 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 16:25:17.315185 INFO App initialization complete
+2018-01-10 16:25:17.333804 INFO Connected to Home Assistant 0.60.1
+2018-01-10 16:44:32.003711 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 16:44:33.005841 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 16:58:50.004999 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 16:59:00.005311 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:09:31.004029 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:12:42.004335 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:13:31.002833 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:13:52.003609 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:14:49.003042 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:15:20.004918 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 17:15:20.018346 INFO App 'wasserdroger' added - running
+2018-01-10 17:15:20.018845 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:15:51.586767 INFO AppDaemon Version 2.1.12 starting
+2018-01-10 17:15:51.587227 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-10 17:15:51.686167 INFO Starting Apps
+2018-01-10 17:15:51.786252 INFO Got initial state
+2018-01-10 17:15:51.787957 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 17:15:51.789422 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 17:15:51.789987 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 17:15:51.791177 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 17:15:51.908567 INFO zolder_ventilatie: lalala1
+2018-01-10 17:15:51.908906 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 17:15:51.909986 INFO Loading Object test using class test from module test
+2018-01-10 17:15:51.914505 INFO test: Hello from AppDaemon
+2018-01-10 17:15:51.914904 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:15:51.917978 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 17:15:51.919269 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 17:15:51.920456 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 17:15:51.925612 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 17:15:51.927387 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 17:15:51.927649 INFO App initialization complete
+2018-01-10 17:15:51.928075 INFO Dashboards are disabled
+2018-01-10 17:15:51.928272 INFO API is disabled
+2018-01-10 17:15:51.936197 INFO Connected to Home Assistant 0.60.1
+2018-01-10 17:16:18.003777 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:16:18.004326 INFO Loading Module: wasserdroger
+2018-01-10 17:16:18.007397 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:18:02.004705 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:18:02.005273 INFO Loading Module: wasserdroger
+2018-01-10 17:18:02.008550 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:18:32.003794 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:18:32.004302 INFO Loading Module: wasserdroger
+2018-01-10 17:18:32.007019 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:18:32.009307 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:19:08.004254 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:19:08.006861 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:19:37.003309 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:19:37.006188 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:20:06.004134 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:20:06.007073 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:20:14.004166 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:20:14.006939 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:23:02.201214 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:23:07.209698 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:23:12.221101 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:23:17.227795 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:23:22.234314 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:23:27.240996 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:23:32.248601 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:23:37.255968 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:23:42.263969 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:23:47.355681 INFO Got initial state
+2018-01-10 17:23:47.357012 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 17:23:47.358167 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 17:23:47.359144 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 17:23:47.361126 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 17:23:47.367575 INFO zolder_ventilatie: lalala1
+2018-01-10 17:23:47.368169 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 17:23:47.369347 INFO Loading Object test using class test from module test
+2018-01-10 17:23:47.372317 INFO test: Hello from AppDaemon
+2018-01-10 17:23:47.372670 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:23:47.373844 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:23:47.374401 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 17:23:47.375385 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 17:23:47.376400 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 17:23:47.379256 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 17:23:47.381913 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 17:23:47.382295 INFO App initialization complete
+2018-01-10 17:23:47.401870 INFO Connected to Home Assistant 0.60.1
+2018-01-10 17:24:47.003478 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:24:47.011748 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:25:07.651719 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:25:12.658934 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:25:17.668455 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:25:22.676218 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:25:27.683065 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:25:32.691562 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:25:37.704426 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:25:42.712455 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:25:47.720256 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:25:52.726966 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 17:25:57.869275 INFO Got initial state
+2018-01-10 17:25:57.870510 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 17:25:57.871818 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 17:25:57.872475 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 17:25:57.873530 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 17:25:57.876335 INFO zolder_ventilatie: lalala1
+2018-01-10 17:25:57.876677 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 17:25:57.877574 INFO Loading Object test using class test from module test
+2018-01-10 17:25:57.880279 INFO test: Hello from AppDaemon
+2018-01-10 17:25:57.880581 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:25:57.881497 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:25:57.882029 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 17:25:57.883262 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 17:25:57.884318 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 17:25:57.887003 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 17:25:57.889501 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 17:25:57.889736 INFO App initialization complete
+2018-01-10 17:25:57.911581 INFO Connected to Home Assistant 0.60.1
+2018-01-10 17:26:47.003830 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:26:47.007099 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:27:31.004150 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:27:31.007076 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:28:27.003756 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:28:27.006553 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:28:32.809529 INFO wasserdroger: wasmachine gaat:
+2018-01-10 17:28:59.003704 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:28:59.006453 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:29:06.095886 INFO wasserdroger: wasmachine gaat:
+2018-01-10 17:29:07.022052 INFO wasserdroger: wasmachine gaat:
+2018-01-10 17:31:19.004059 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:31:19.006970 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:31:47.004112 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:31:47.007449 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:32:09.005803 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:32:09.013224 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:32:17.016431 INFO wasserdroger: wasmachine gaat:
+2018-01-10 17:32:17.016821 INFO wasserdroger: {'action': 'on'}
+2018-01-10 17:34:57.003689 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:34:57.008166 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:39:19.004288 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:39:19.007223 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:39:56.005749 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:39:56.011757 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:40:20.005782 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:40:20.010005 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:40:25.406493 INFO wasserdroger: wasmachine gaat:
+2018-01-10 17:40:25.408557 INFO wasserdroger: off
+2018-01-10 17:40:33.088949 INFO wasserdroger: wasmachine gaat:
+2018-01-10 17:40:33.090338 INFO wasserdroger: on
+2018-01-10 17:41:22.004926 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:41:22.007851 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 17:41:37.004188 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 17:41:37.006971 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:38:20.007850 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:38:20.010483 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:38:30.192219 INFO wasserdroger: wasmachine gaat:
+2018-01-10 18:38:30.193860 INFO wasserdroger: off
+2018-01-10 18:39:53.003842 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:39:53.005431 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:39:54.004221 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:39:54.006926 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:40:01.825110 INFO wasserdroger: wasmachine gaat:
+2018-01-10 18:40:01.826524 INFO wasserdroger: on
+2018-01-10 18:41:25.005254 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:41:25.009321 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:41:30.638308 INFO wasserdroger: wasmachine gaat:
+2018-01-10 18:41:30.643564 INFO wasserdroger: off
+2018-01-10 18:41:55.006900 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:41:55.009672 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:41:58.464455 INFO wasserdroger: wasmachine gaat:
+2018-01-10 18:41:58.466482 INFO wasserdroger: on
+2018-01-10 18:45:24.007030 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:45:26.006159 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:45:26.014380 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:45:40.005524 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:45:40.009932 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:45:45.153114 INFO wasserdroger: wasmachine gaat:
+2018-01-10 18:45:45.154786 INFO wasserdroger: off
+2018-01-10 18:45:51.907937 INFO wasserdroger: wasmachine gaat:
+2018-01-10 18:45:51.910661 INFO wasserdroger: on
+2018-01-10 18:45:55.052812 INFO wasserdroger: wasmachine gaat:
+2018-01-10 18:45:55.054377 INFO wasserdroger: off
+2018-01-10 18:46:25.004281 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:46:25.007181 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:46:27.549670 INFO wasserdroger: wasmachine gaat:
+2018-01-10 18:46:27.551627 INFO wasserdroger: on
+2018-01-10 18:47:40.004648 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:47:40.008544 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:48:04.005858 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:48:04.014620 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:48:05.541426 INFO wasserdroger: {'appliance': 'washer', 'action': 'on'} gaat: on
+2018-01-10 18:48:05.542863 INFO wasserdroger: on
+2018-01-10 18:54:51.004422 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:54:51.007830 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:55:50.004528 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:55:50.007455 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 18:55:53.907360 INFO wasserdroger: {'appliance': 'washer', 'action': 'off'} gaat: off
+2018-01-10 18:55:53.908817 INFO wasserdroger: off
+2018-01-10 18:55:54.298948 INFO wasserdroger: {'appliance': 'washer', 'action': 'on'} gaat: on
+2018-01-10 18:55:54.300499 INFO wasserdroger: on
+2018-01-10 18:56:32.005817 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:58:26.002641 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 18:58:26.005502 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:05:01.004738 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:05:01.007617 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:05:21.004532 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:05:21.007784 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:05:26.004428 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:05:26.007260 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:07:35.005307 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:08:47.003979 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:09:04.004852 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:09:04.007593 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:14:03.005721 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 19:14:03.021299 INFO App 'wasserdroger' changed - reloading
+2018-01-10 19:14:03.021779 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:16:18.003930 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:16:33.004970 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:16:33.012414 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:17:10.006957 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 19:17:10.027638 INFO App 'wasserdroger' changed - reloading
+2018-01-10 19:17:10.028158 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:18:11.003424 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:18:11.006332 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:18:11.009740 INFO wasserdroger: input_boolean.wasser_test
+2018-01-10 19:19:24.004730 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 19:19:24.013618 WARNING Error loading configuration
+2018-01-10 19:19:53.005940 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 19:20:30.003410 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:20:30.006297 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:20:30.008861 INFO wasserdroger: input_boolean.wasser_test
+2018-01-10 19:23:08.003138 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:23:08.005758 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:23:08.009880 INFO wasserdroger: lalalainput_boolean.wasser_test
+2018-01-10 19:23:13.003895 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:23:13.006662 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:23:13.009389 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:23:59.357209 INFO Keyboard interrupt
+2018-01-10 19:23:59.362569 INFO Disconnecting from Home Assistant
+2018-01-10 19:24:00.004738 INFO AppDeamon Exited
+2018-01-10 19:24:06.628798 INFO AppDaemon Version 2.1.12 starting
+2018-01-10 19:24:06.629285 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-10 19:24:06.717416 INFO Starting Apps
+2018-01-10 19:24:06.809875 INFO Got initial state
+2018-01-10 19:24:06.811636 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 19:24:06.813334 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 19:24:06.813893 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 19:24:06.815560 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 19:24:06.931751 INFO zolder_ventilatie: lalala1
+2018-01-10 19:24:06.932110 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 19:24:06.933528 INFO Loading Object test using class test from module test
+2018-01-10 19:24:06.938112 INFO test: Hello from AppDaemon
+2018-01-10 19:24:06.938472 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:24:06.939699 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:24:06.944043 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:24:06.944397 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 19:24:06.945757 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 19:24:06.946967 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 19:24:06.952039 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 19:24:06.953814 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 19:24:06.954114 INFO App initialization complete
+2018-01-10 19:24:06.954608 INFO Dashboards are disabled
+2018-01-10 19:24:06.954941 INFO API is disabled
+2018-01-10 19:24:06.962332 INFO Connected to Home Assistant 0.60.1
+2018-01-10 19:24:17.003473 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:24:17.006185 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:24:17.010148 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:24:41.007921 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:24:41.011791 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:24:41.015361 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:25:11.003579 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:25:11.006220 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:25:11.008680 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:26:18.008302 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:26:18.015850 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:26:18.021497 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:26:24.650824 INFO wasserdroger: washer gaat: off
+2018-01-10 19:26:24.655373 INFO wasserdroger: off
+2018-01-10 19:26:26.486884 INFO wasserdroger: washer gaat: on
+2018-01-10 19:26:26.489413 INFO wasserdroger: on
+2018-01-10 19:27:23.003206 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:27:23.006159 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:28:05.004057 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:28:05.006634 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:28:35.005010 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:28:35.008139 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:28:35.010889 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:28:43.109145 INFO wasserdroger: washer gaat: on
+2018-01-10 19:28:43.110626 INFO wasserdroger: on
+2018-01-10 19:28:58.112674 INFO wasserdroger: washer gaat: on
+2018-01-10 19:28:58.114444 INFO wasserdroger: on
+2018-01-10 19:28:58.900465 INFO wasserdroger: washer gaat: on
+2018-01-10 19:28:58.901856 INFO wasserdroger: on
+2018-01-10 19:29:44.003721 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:29:44.006423 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:29:44.008913 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:30:21.003792 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:30:21.006858 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:30:21.011348 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:30:28.504719 INFO wasserdroger: washer gaat: on
+2018-01-10 19:30:28.507107 INFO wasserdroger: on
+2018-01-10 19:31:25.004051 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:31:25.007437 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:31:25.010803 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:31:31.017246 INFO wasserdroger: washer gaat: on
+2018-01-10 19:31:31.019609 INFO wasserdroger: on
+2018-01-10 19:31:54.005399 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:31:54.009046 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:31:54.011967 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:31:57.627648 INFO wasserdroger: washer gaat: on
+2018-01-10 19:31:57.629651 INFO wasserdroger: on
+2018-01-10 19:32:23.005048 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:32:23.008706 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:32:23.012116 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:32:29.248252 INFO wasserdroger: washer gaat: on
+2018-01-10 19:32:29.249641 INFO wasserdroger: on
+2018-01-10 19:32:48.805124 INFO wasserdroger: washer gaat: on
+2018-01-10 19:32:48.806560 INFO wasserdroger: on
+2018-01-10 19:33:12.004467 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:33:12.007836 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:33:12.010803 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:33:17.309313 INFO wasserdroger: washer gaat: on
+2018-01-10 19:33:17.310806 INFO wasserdroger: on
+2018-01-10 19:33:17.312622 INFO wasserdroger: washer
+2018-01-10 19:33:49.004067 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:33:49.006867 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:33:49.009367 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:33:51.459474 INFO wasserdroger: washer gaat: on
+2018-01-10 19:33:51.460916 INFO wasserdroger: on
+2018-01-10 19:33:51.462782 INFO wasserdroger: washer
+2018-01-10 19:33:52.110002 INFO wasserdroger: washer gaat: off
+2018-01-10 19:33:52.111864 INFO wasserdroger: off
+2018-01-10 19:33:52.113919 INFO wasserdroger: washer
+2018-01-10 19:33:52.887879 INFO wasserdroger: washer gaat: on
+2018-01-10 19:33:52.889315 INFO wasserdroger: on
+2018-01-10 19:33:52.891109 INFO wasserdroger: washer
+2018-01-10 19:33:55.126202 INFO wasserdroger: washer gaat: off
+2018-01-10 19:33:55.127674 INFO wasserdroger: off
+2018-01-10 19:33:55.129347 INFO wasserdroger: washer
+2018-01-10 19:34:08.004273 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:34:08.007580 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:34:08.011068 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:34:09.763899 INFO wasserdroger: washer gaat: on
+2018-01-10 19:34:09.765545 INFO wasserdroger: on
+2018-01-10 19:34:09.767645 INFO wasserdroger: washer
+2018-01-10 19:34:11.570636 INFO wasserdroger: washer gaat: off
+2018-01-10 19:34:11.572441 INFO wasserdroger: off
+2018-01-10 19:34:11.575435 INFO wasserdroger: washer
+2018-01-10 19:35:18.004291 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:35:18.007508 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:35:18.011643 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:35:22.844478 INFO wasserdroger: washer gaat: on
+2018-01-10 19:35:22.847933 INFO wasserdroger: on
+2018-01-10 19:35:22.860784 INFO wasserdroger: washer
+2018-01-10 19:35:32.003581 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:35:32.006527 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:35:32.009278 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:35:32.884096 INFO wasserdroger: washer gaat: off
+2018-01-10 19:35:32.885914 INFO wasserdroger: off
+2018-01-10 19:35:35.207215 INFO wasserdroger: washer gaat: on
+2018-01-10 19:35:35.208830 INFO wasserdroger: on
+2018-01-10 19:36:07.005297 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:36:07.009015 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:36:07.013959 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:36:10.714120 INFO wasserdroger: washer gaat: off
+2018-01-10 19:36:10.715628 INFO wasserdroger: off
+2018-01-10 19:36:11.694632 INFO wasserdroger: washer gaat: on
+2018-01-10 19:36:11.696425 INFO wasserdroger: on
+2018-01-10 19:37:46.006217 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:37:46.011830 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:37:46.015533 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:37:54.154064 INFO wasserdroger: washer gaat: off
+2018-01-10 19:38:08.005094 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:38:08.011079 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:38:08.014911 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:38:12.661705 INFO wasserdroger: washer gaat: on
+2018-01-10 19:38:12.663357 INFO wasserdroger: on
+2018-01-10 19:38:39.776147 INFO wasserdroger: washer gaat: off
+2018-01-10 19:38:39.777669 INFO wasserdroger: off
+2018-01-10 19:38:49.004221 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:38:49.006790 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:38:49.009262 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:38:56.762362 INFO wasserdroger: washer gaat: on
+2018-01-10 19:38:56.763841 INFO wasserdroger: on
+2018-01-10 19:39:55.004106 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:39:55.006599 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:39:55.009754 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:40:01.731675 INFO wasserdroger: washer gaat: off
+2018-01-10 19:40:01.733934 INFO wasserdroger: off
+2018-01-10 19:40:26.005252 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:40:26.012530 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:40:26.020015 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:40:53.993691 INFO wasserdroger: washer gaat: on
+2018-01-10 19:40:53.995376 INFO wasserdroger: on
+2018-01-10 19:41:40.003447 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:41:40.007656 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:41:40.010448 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:41:44.565692 INFO wasserdroger: washer gaat: off
+2018-01-10 19:41:44.569697 INFO wasserdroger: off
+2018-01-10 19:41:49.160167 INFO wasserdroger: washer gaat: on
+2018-01-10 19:41:49.161516 INFO wasserdroger: on
+2018-01-10 19:44:34.003805 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:44:34.006339 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:44:34.008961 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:44:39.585382 INFO wasserdroger: washer gaat: off
+2018-01-10 19:44:39.587675 INFO wasserdroger: off
+2018-01-10 19:44:42.124676 INFO wasserdroger: washer gaat: on
+2018-01-10 19:44:42.126482 INFO wasserdroger: on
+2018-01-10 19:45:17.211164 INFO Keyboard interrupt
+2018-01-10 19:45:17.216849 INFO Disconnecting from Home Assistant
+2018-01-10 19:45:18.003558 INFO AppDeamon Exited
+2018-01-10 19:45:26.883451 INFO AppDaemon Version 2.1.12 starting
+2018-01-10 19:45:26.883925 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-10 19:45:26.969076 INFO Starting Apps
+2018-01-10 19:45:27.062457 INFO Got initial state
+2018-01-10 19:45:27.064279 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 19:45:27.065760 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 19:45:27.066317 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 19:45:27.067523 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 19:45:27.181615 INFO zolder_ventilatie: lalala1
+2018-01-10 19:45:27.181982 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 19:45:27.183145 INFO Loading Object test using class test from module test
+2018-01-10 19:45:27.187513 INFO test: Hello from AppDaemon
+2018-01-10 19:45:27.187887 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:45:27.188825 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:45:27.193195 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:45:27.193556 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 19:45:27.194827 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 19:45:27.195992 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 19:45:27.200538 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 19:45:27.202300 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 19:45:27.202570 INFO App initialization complete
+2018-01-10 19:45:27.203114 INFO Dashboards are disabled
+2018-01-10 19:45:27.203393 INFO API is disabled
+2018-01-10 19:45:27.210754 INFO Connected to Home Assistant 0.60.1
+2018-01-10 19:45:31.642083 INFO wasserdroger: washer gaat: off
+2018-01-10 19:45:31.643665 INFO wasserdroger: off
+2018-01-10 19:45:32.539505 INFO wasserdroger: washer gaat: on
+2018-01-10 19:45:32.540833 INFO wasserdroger: on
+2018-01-10 19:47:23.005487 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:47:23.010621 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:47:23.016798 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:47:30.903662 INFO wasserdroger: washer gaat: off
+2018-01-10 19:47:30.905220 INFO wasserdroger: off
+2018-01-10 19:47:33.417812 INFO wasserdroger: washer gaat: on
+2018-01-10 19:47:33.419294 INFO wasserdroger: on
+2018-01-10 19:47:53.006304 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:47:53.009625 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:47:53.012804 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:47:56.738485 INFO wasserdroger: washer gaat: off
+2018-01-10 19:47:56.739956 INFO wasserdroger: off
+2018-01-10 19:47:57.214937 INFO wasserdroger: washer gaat: on
+2018-01-10 19:47:57.216713 INFO wasserdroger: on
+2018-01-10 19:48:02.892656 INFO wasserdroger: washer gaat: off
+2018-01-10 19:48:02.896071 INFO wasserdroger: off
+2018-01-10 19:48:06.601797 INFO wasserdroger: washer gaat: on
+2018-01-10 19:48:06.603300 INFO wasserdroger: on
+2018-01-10 19:50:26.077790 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 19:50:31.087852 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 19:50:36.096851 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 19:50:41.102741 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 19:50:46.109801 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 19:50:51.116538 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 19:50:56.122430 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 19:51:01.135264 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 19:51:06.251721 INFO Got initial state
+2018-01-10 19:51:06.252909 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 19:51:06.254102 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 19:51:06.254851 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 19:51:06.256077 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 19:51:06.261002 INFO zolder_ventilatie: lalala1
+2018-01-10 19:51:06.261394 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 19:51:06.262513 INFO Loading Object test using class test from module test
+2018-01-10 19:51:06.265750 INFO test: Hello from AppDaemon
+2018-01-10 19:51:06.266122 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:51:06.267259 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:51:06.270109 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:51:06.270463 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 19:51:06.271476 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 19:51:06.272550 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 19:51:06.275516 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 19:51:06.278342 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 19:51:06.278718 INFO App initialization complete
+2018-01-10 19:51:06.294909 INFO Connected to Home Assistant 0.60.1
+2018-01-10 19:51:07.004072 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 19:51:07.017066 INFO App 'droger' added - running
+2018-01-10 19:51:07.017589 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 19:51:07.025598 INFO droger: lalala input_boolean.droger_test
+2018-01-10 19:51:22.577752 INFO droger: dryer gaat: on
+2018-01-10 19:51:22.579242 INFO droger: on
+2018-01-10 19:51:42.006902 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:51:42.009773 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:51:42.012416 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:51:42.012773 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 19:51:42.014746 INFO droger: lalala input_boolean.droger_test
+2018-01-10 19:51:49.296143 INFO wasserdroger: washer gaat: on
+2018-01-10 19:51:49.298942 INFO wasserdroger: on
+2018-01-10 19:51:52.007129 INFO wasserdroger: washer
+2018-01-10 19:51:56.605762 INFO droger: dryer gaat: off
+2018-01-10 19:51:56.607315 INFO droger: off
+2018-01-10 19:51:59.008011 INFO droger: dryer
+2018-01-10 19:52:25.004406 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 19:52:25.007711 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 19:52:25.011221 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 19:52:25.011670 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 19:52:25.014292 INFO droger: lalala input_boolean.droger_test
+2018-01-10 19:52:32.365765 INFO droger: dryer gaat: on
+2018-01-10 19:52:32.367413 INFO droger: on
+2018-01-10 19:52:35.013547 INFO droger: dryer
+2018-01-10 19:52:37.859005 INFO wasserdroger: washer gaat: off
+2018-01-10 19:52:37.860653 INFO wasserdroger: off
+2018-01-10 19:52:40.015576 INFO wasserdroger: washer
+2018-01-10 19:52:41.628684 INFO wasserdroger: washer gaat: on
+2018-01-10 19:52:41.630128 INFO wasserdroger: on
+2018-01-10 19:52:44.010260 INFO wasserdroger: washer
+2018-01-10 20:23:22.100248 INFO wasserdroger: washer gaat: off
+2018-01-10 20:23:22.102069 INFO wasserdroger: off
+2018-01-10 20:23:25.007152 INFO wasserdroger: washer
+2018-01-10 20:50:53.003561 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 20:50:53.008626 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 20:50:53.011821 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 20:50:53.012183 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 20:50:53.014475 INFO droger: lalala input_boolean.droger_test
+2018-01-10 20:51:04.840193 INFO wasserdroger: washer gaat: on
+2018-01-10 20:51:04.841703 INFO wasserdroger: on
+2018-01-10 20:51:07.009432 INFO wasserdroger: washer
+2018-01-10 20:51:13.489227 INFO wasserdroger: washer gaat: off
+2018-01-10 20:51:13.491178 INFO wasserdroger: off
+2018-01-10 20:51:16.007384 INFO wasserdroger: washer
+2018-01-10 20:51:18.066595 INFO Keyboard interrupt
+2018-01-10 20:51:18.072709 INFO Disconnecting from Home Assistant
+2018-01-10 20:51:19.003402 INFO AppDeamon Exited
+2018-01-10 20:51:26.497605 INFO AppDaemon Version 2.1.12 starting
+2018-01-10 20:51:26.498092 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-10 20:51:26.587683 INFO Starting Apps
+2018-01-10 20:51:26.690514 INFO Got initial state
+2018-01-10 20:51:26.693083 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 20:51:26.697257 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 20:51:26.697967 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 20:51:26.699490 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 20:51:26.820069 INFO zolder_ventilatie: lalala1
+2018-01-10 20:51:26.820461 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 20:51:26.821862 INFO Loading Object test using class test from module test
+2018-01-10 20:51:26.827311 INFO test: Hello from AppDaemon
+2018-01-10 20:51:26.827965 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 20:51:26.829043 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 20:51:26.833531 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 20:51:26.833897 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 20:51:26.835891 INFO droger: lalala input_boolean.droger_test
+2018-01-10 20:51:26.836264 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 20:51:26.837478 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 20:51:26.838658 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 20:51:26.843659 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 20:51:26.845562 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 20:51:26.846016 INFO App initialization complete
+2018-01-10 20:51:26.846544 INFO Dashboards are disabled
+2018-01-10 20:51:26.846813 INFO API is disabled
+2018-01-10 20:51:26.854362 INFO Connected to Home Assistant 0.60.1
+2018-01-10 20:53:11.003736 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 20:53:11.007213 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 20:53:11.011725 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 20:53:11.012104 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 20:53:11.014096 INFO droger: lalala input_boolean.droger_test
+2018-01-10 20:53:54.006932 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 20:53:54.010099 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 20:53:54.013389 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 20:53:54.014152 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 20:53:54.016733 INFO droger: lalala input_boolean.droger_test
+2018-01-10 20:53:56.004916 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 20:53:56.008273 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 20:53:56.012145 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 20:53:56.013084 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 20:53:56.017148 INFO droger: lalala input_boolean.droger_test
+2018-01-10 20:55:32.004621 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 20:55:32.021713 INFO App 'wasserdroger' changed - reloading
+2018-01-10 20:55:32.022177 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 20:55:32.024150 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 20:55:32.024488 INFO App 'droger' changed - reloading
+2018-01-10 20:55:32.024786 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 20:55:32.026674 INFO droger: lalala input_boolean.droger_test
+2018-01-10 20:57:39.005119 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 20:57:39.008848 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 20:57:39.011693 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 20:57:39.012044 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 20:57:39.014190 INFO droger: lalala input_boolean.droger_test
+2018-01-10 20:57:46.128046 INFO wasserdroger: washer gaat: on
+2018-01-10 20:57:46.129542 INFO wasserdroger: on
+2018-01-10 20:58:38.006501 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 20:58:38.016430 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 20:58:38.021932 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 20:58:38.022399 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 20:58:38.025529 INFO droger: lalala input_boolean.droger_test
+2018-01-10 20:58:40.939222 INFO wasserdroger: washer gaat: off
+2018-01-10 20:58:40.940741 INFO wasserdroger: off
+2018-01-10 20:59:27.002310 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 20:59:27.006237 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 20:59:27.009122 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 20:59:27.009572 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 20:59:27.012182 INFO droger: lalala input_boolean.droger_test
+2018-01-10 20:59:29.031818 INFO wasserdroger: washer gaat: on
+2018-01-10 20:59:29.033365 INFO wasserdroger: on
+2018-01-10 20:59:32.011141 INFO wasserdroger: 1515614372.0;1.703;washer on
+2018-01-10 20:59:32.013858 INFO wasserdroger: washer
+2018-01-10 20:59:48.486298 INFO wasserdroger: washer gaat: off
+2018-01-10 20:59:48.487903 INFO wasserdroger: off
+2018-01-10 20:59:51.008379 INFO wasserdroger: 1515614391.0;1.703;washer off
+2018-01-10 20:59:51.010068 INFO wasserdroger: washer
+2018-01-10 21:00:06.003722 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:00:41.003990 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:00:41.007319 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:00:41.010307 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:00:41.010735 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:00:41.013212 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:00:42.004120 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:00:42.007648 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:00:42.010565 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:00:42.011099 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:00:42.013346 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:00:45.137996 INFO wasserdroger: washer gaat: off
+2018-01-10 21:00:45.139646 INFO wasserdroger: off
+2018-01-10 21:00:48.007567 INFO wasserdroger: 1515614448.0;1.703;washer off
+
+2018-01-10 21:00:48.009371 INFO wasserdroger: washer
+2018-01-10 21:01:08.163170 INFO wasserdroger: washer gaat: on
+2018-01-10 21:01:08.164824 INFO wasserdroger: on
+2018-01-10 21:01:11.008792 INFO wasserdroger: 1515614471.0;1.703;washer on
+
+2018-01-10 21:01:11.010285 INFO wasserdroger: washer
+2018-01-10 21:01:18.799446 INFO wasserdroger: washer gaat: off
+2018-01-10 21:01:18.803631 INFO wasserdroger: off
+2018-01-10 21:01:21.008429 INFO wasserdroger: 1515614481.0;1.703;washer off
+
+2018-01-10 21:01:21.009974 INFO wasserdroger: washer
+2018-01-10 21:14:57.003755 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:14:57.007535 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:14:57.010922 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:14:57.011348 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:14:57.013949 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:15:02.383708 INFO wasserdroger: washer gaat: on
+2018-01-10 21:15:02.385325 INFO wasserdroger: on
+2018-01-10 21:16:15.003949 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:16:15.059198 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:16:15.062235 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:16:15.062603 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:16:15.064976 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:16:24.109422 INFO wasserdroger: washer gaat: off
+2018-01-10 21:16:24.110900 INFO wasserdroger: off
+2018-01-10 21:16:37.173536 INFO wasserdroger: washer gaat: on
+2018-01-10 21:16:37.174959 INFO wasserdroger: on
+2018-01-10 21:17:59.466013 INFO Keyboard interrupt
+2018-01-10 21:17:59.470501 INFO Disconnecting from Home Assistant
+2018-01-10 21:18:00.002577 INFO AppDeamon Exited
+2018-01-10 21:18:13.317462 INFO AppDaemon Version 2.1.12 starting
+2018-01-10 21:18:13.317974 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-10 21:18:13.407679 INFO Starting Apps
+2018-01-10 21:18:13.513961 INFO Got initial state
+2018-01-10 21:18:13.515685 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 21:18:13.518529 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 21:18:13.519152 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 21:18:13.520257 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 21:18:13.636346 INFO zolder_ventilatie: lalala1
+2018-01-10 21:18:13.636703 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 21:18:13.637745 INFO Loading Object test using class test from module test
+2018-01-10 21:18:13.642203 INFO test: Hello from AppDaemon
+2018-01-10 21:18:13.642552 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:18:13.652692 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:18:13.658422 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:18:13.658815 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:18:13.660723 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:18:13.661066 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 21:18:13.662291 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 21:18:13.663800 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 21:18:13.668525 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 21:18:13.671362 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 21:18:13.671719 INFO App initialization complete
+2018-01-10 21:18:13.672195 INFO Dashboards are disabled
+2018-01-10 21:18:13.672442 INFO API is disabled
+2018-01-10 21:18:13.679548 INFO Connected to Home Assistant 0.60.1
+2018-01-10 21:18:57.003921 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:18:57.010595 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:18:57.014216 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:18:57.014565 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:18:57.016697 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:19:04.075975 INFO wasserdroger: washer gaat: off
+2018-01-10 21:19:04.077556 INFO wasserdroger: off
+2018-01-10 21:19:07.101935 INFO wasserdroger: 1515615547.0;1,703;washer off
+
+2018-01-10 21:19:07.104434 INFO wasserdroger: washer
+2018-01-10 21:20:43.004430 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:20:43.007515 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:20:43.009932 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:20:43.010244 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:20:43.012321 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:20:52.995602 INFO wasserdroger: washer gaat: on
+2018-01-10 21:20:52.997181 INFO wasserdroger: on
+2018-01-10 21:20:55.007703 INFO wasserdroger: 1515615655;1,703;washer on
+
+2018-01-10 21:20:55.009609 INFO wasserdroger: washer
+2018-01-10 21:21:11.536685 INFO droger: dryer gaat: off
+2018-01-10 21:21:11.538508 INFO droger: off
+2018-01-10 21:21:13.953223 INFO droger: dryer gaat: on
+2018-01-10 21:21:13.954800 INFO droger: on
+2018-01-10 21:21:14.006729 INFO droger: 1515615674;1,052;dryer on
+
+2018-01-10 21:21:14.008489 INFO droger: dryer
+2018-01-10 21:21:16.013373 INFO droger: 1515615676;1,052;dryer on
+
+2018-01-10 21:21:16.015968 INFO droger: dryer
+2018-01-10 21:21:33.405810 INFO droger: dryer gaat: off
+2018-01-10 21:21:33.407422 INFO droger: off
+2018-01-10 21:21:36.009149 INFO droger: 1515615696;1,052;dryer off
+
+2018-01-10 21:21:36.011128 INFO droger: dryer
+2018-01-10 21:25:21.004052 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:25:21.006900 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:25:21.009533 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:25:21.009873 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:25:21.012078 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:33:07.004069 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:33:23.004338 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:33:54.004162 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:33:55.003282 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:34:17.003971 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:34:17.006569 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:34:17.009143 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:34:17.009473 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:34:17.011494 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:34:20.689244 INFO wasserdroger: washer gaat: off
+2018-01-10 21:34:20.691330 INFO wasserdroger: off
+2018-01-10 21:34:23.009138 INFO wasserdroger: washer
+2018-01-10 21:34:30.004888 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:34:30.007697 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:34:30.010088 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:34:30.010404 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:34:30.012446 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:34:31.806036 INFO wasserdroger: washer gaat: on
+2018-01-10 21:34:31.807626 INFO wasserdroger: on
+2018-01-10 21:34:34.008485 INFO wasserdroger: washer
+2018-01-10 21:37:51.003918 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:37:53.003592 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:38:16.004139 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:38:16.007182 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:38:16.009859 INFO wasserdroger: lalala input_boolean.wasser_test
+2018-01-10 21:38:16.010321 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:38:16.012668 INFO droger: lalala input_boolean.droger_test
+2018-01-10 21:38:18.175816 INFO wasserdroger: washer gaat: on
+2018-01-10 21:38:18.177397 INFO wasserdroger: on
+2018-01-10 21:38:21.008599 INFO wasserdroger: washer
+2018-01-10 21:38:21.307373 INFO wasserdroger: washer gaat: off
+2018-01-10 21:38:21.310154 INFO wasserdroger: off
+2018-01-10 21:38:24.008792 INFO wasserdroger: washer
+2018-01-10 21:38:30.960903 INFO droger: dryer gaat: on
+2018-01-10 21:38:30.963085 INFO droger: on
+2018-01-10 21:38:33.007798 INFO droger: dryer
+2018-01-10 21:38:35.252672 INFO droger: dryer gaat: off
+2018-01-10 21:38:35.260852 INFO droger: off
+2018-01-10 21:38:38.013617 INFO droger: dryer
+2018-01-10 21:40:39.005071 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 21:40:39.033937 INFO App 'wasserdroger' deleted - removing
+2018-01-10 21:40:39.034537 INFO App 'droger' changed - reloading
+2018-01-10 21:40:39.034968 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:41:15.004815 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:41:15.008270 INFO Loading Object wasserdroger using class wasserdroger from module wasserdroger
+2018-01-10 21:42:54.003822 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:44:30.006189 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 21:44:30.024326 INFO App 'wasserdroger' deleted - removing
+2018-01-10 21:44:30.024810 INFO App 'droger' changed - reloading
+2018-01-10 21:44:30.025158 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:44:30.027626 INFO droger: lalala sensor.dryer_pwrup
+2018-01-10 21:44:30.028042 INFO App 'wasmachine' added - running
+2018-01-10 21:44:30.028356 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 21:44:30.030367 INFO wasmachine: lalala sensor.washer_pwrup
+2018-01-10 21:57:24.004055 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:57:33.004602 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-10 21:57:34.003540 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-10 21:59:58.005128 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 21:59:58.007927 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 21:59:58.008605 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:00:02.005913 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 22:00:02.020426 INFO App 'droger' changed - reloading
+2018-01-10 22:00:02.020856 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:00:02.021244 INFO App 'wasmachine' changed - reloading
+2018-01-10 22:00:02.021555 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:00:28.825299 INFO wasmachine: washer gaat: off
+2018-01-10 22:00:28.826743 INFO wasmachine: off
+2018-01-10 22:01:14.003231 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 22:01:14.006525 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:01:14.007359 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:02:47.003792 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 22:02:47.006202 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:02:47.006729 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:02:53.735135 INFO wasmachine: washer gaat: on
+2018-01-10 22:02:53.737421 INFO wasmachine: on
+2018-01-10 22:02:57.186050 INFO wasmachine: washer gaat: off
+2018-01-10 22:02:57.188182 INFO wasmachine: off
+2018-01-10 22:03:50.004279 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 22:03:50.007455 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:03:50.008165 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:03:51.003808 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 22:03:51.006146 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:03:51.006661 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:04:46.004011 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 22:04:46.007474 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:04:46.008400 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:04:52.003467 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 22:04:52.005897 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:04:52.006383 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:05:08.004796 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-10 22:05:08.019061 INFO App 'droger' changed - reloading
+2018-01-10 22:05:08.019740 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:05:08.020428 INFO App 'wasmachine' changed - reloading
+2018-01-10 22:05:08.021047 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:45:31.383452 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:45:36.389593 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:45:38.475388 INFO Keyboard interrupt
+2018-01-10 22:45:41.391045 INFO Disconnecting from Home Assistant
+2018-01-10 22:45:41.391906 INFO AppDeamon Exited
+2018-01-10 22:45:52.268209 INFO AppDaemon Version 2.1.12 starting
+2018-01-10 22:45:52.268731 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-10 22:45:52.280215 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 22:45:57.291078 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 22:46:02.297480 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 22:46:07.306903 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-10 22:46:12.428821 INFO Starting Apps
+2018-01-10 22:46:12.556203 INFO Got initial state
+2018-01-10 22:46:12.558321 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 22:46:12.563245 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 22:46:12.564135 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 22:46:12.565680 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 22:46:12.713123 INFO zolder_ventilatie: lalala1
+2018-01-10 22:46:12.713510 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 22:46:12.714763 INFO Loading Object test using class test from module test
+2018-01-10 22:46:12.720137 INFO test: Hello from AppDaemon
+2018-01-10 22:46:12.720571 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 22:46:12.733741 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:46:12.734330 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:46:12.734922 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-10 22:46:12.738667 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 22:46:12.740044 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 22:46:12.741363 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 22:46:12.749128 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 22:46:12.751132 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 22:46:12.751521 INFO App initialization complete
+2018-01-10 22:46:12.752171 INFO Dashboards are disabled
+2018-01-10 22:46:12.752560 INFO API is disabled
+2018-01-10 22:46:12.843900 INFO Connected to Home Assistant 0.60.1
+2018-01-10 22:49:20.519728 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:49:25.525942 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:49:30.534218 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:49:35.541440 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:49:40.549133 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:49:45.556559 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:49:50.562457 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:49:55.568926 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:50:00.745183 INFO Got initial state
+2018-01-10 22:50:00.746476 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 22:50:00.748464 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 22:50:00.749175 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 22:50:00.750627 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 22:50:00.756085 INFO zolder_ventilatie: lalala1
+2018-01-10 22:50:00.756484 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 22:50:00.757724 INFO Loading Object test using class test from module test
+2018-01-10 22:50:00.760585 INFO test: Hello from AppDaemon
+2018-01-10 22:50:00.760927 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 22:50:00.762206 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:50:00.762799 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:50:00.763291 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-10 22:50:00.763613 INFO Loading Module: wasserdroger_old
+2018-01-10 22:50:00.766613 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 22:50:00.768010 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 22:50:00.769298 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 22:50:00.772182 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 22:50:00.776313 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 22:50:00.776657 INFO App initialization complete
+2018-01-10 22:50:00.789982 INFO Connected to Home Assistant 0.60.1
+2018-01-10 22:52:22.586533 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:52:27.592943 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:52:32.599796 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:52:37.607542 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:52:42.614390 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:52:47.621174 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:52:52.627012 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:52:57.634140 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 22:53:02.758572 INFO Got initial state
+2018-01-10 22:53:02.759952 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 22:53:02.761107 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 22:53:02.761639 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 22:53:02.762674 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 22:53:02.765644 INFO zolder_ventilatie: lalala1
+2018-01-10 22:53:02.765992 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 22:53:02.767034 INFO Loading Object test using class test from module test
+2018-01-10 22:53:02.769886 INFO test: Hello from AppDaemon
+2018-01-10 22:53:02.770261 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 22:53:02.771408 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 22:53:02.771895 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 22:53:02.772290 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-10 22:53:02.772554 INFO Loading Module: wasserdroger_old
+2018-01-10 22:53:02.776255 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 22:53:02.777844 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 22:53:02.779769 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 22:53:02.783421 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 22:53:02.786216 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 22:53:02.786580 INFO App initialization complete
+2018-01-10 22:53:02.838039 INFO Connected to Home Assistant 0.60.1
+2018-01-10 23:03:25.740086 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:03:30.746885 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:03:35.753179 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:03:40.759430 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:03:45.765111 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:03:50.771368 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:03:55.777828 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:04:00.785456 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:04:05.791828 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:04:10.873931 INFO Got initial state
+2018-01-10 23:04:10.875290 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 23:04:10.876575 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 23:04:10.877390 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 23:04:10.879089 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 23:04:10.881919 INFO zolder_ventilatie: lalala1
+2018-01-10 23:04:10.882245 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 23:04:10.883226 INFO Loading Object test using class test from module test
+2018-01-10 23:04:10.886061 INFO test: Hello from AppDaemon
+2018-01-10 23:04:10.886423 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 23:04:10.887559 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 23:04:10.888043 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 23:04:10.888419 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-10 23:04:10.888679 INFO Loading Module: wasserdroger_old
+2018-01-10 23:04:10.891470 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 23:04:10.892421 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 23:04:10.893504 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 23:04:10.896395 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 23:04:10.900014 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 23:04:10.900508 INFO App initialization complete
+2018-01-10 23:04:10.922467 INFO Connected to Home Assistant 0.60.1
+2018-01-10 23:14:51.411820 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:14:56.419029 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:15:01.425411 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:15:06.431312 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:15:11.437344 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:15:16.442606 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:15:21.448712 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:15:26.456116 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:15:31.581224 INFO Got initial state
+2018-01-10 23:15:31.582554 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 23:15:31.584160 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 23:15:31.584734 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 23:15:31.586070 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 23:15:31.589065 INFO zolder_ventilatie: lalala1
+2018-01-10 23:15:31.589451 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 23:15:31.590844 INFO Loading Object test using class test from module test
+2018-01-10 23:15:31.593842 INFO test: Hello from AppDaemon
+2018-01-10 23:15:31.594227 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 23:15:31.595605 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 23:15:31.596122 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 23:15:31.596441 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-10 23:15:31.596662 INFO Loading Module: wasserdroger_old
+2018-01-10 23:15:31.600618 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 23:15:31.602171 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 23:15:31.604292 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 23:15:31.607457 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 23:15:31.610661 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 23:15:31.611058 INFO App initialization complete
+2018-01-10 23:15:31.657645 INFO Connected to Home Assistant 0.60.1
+2018-01-10 23:20:20.684550 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:20:25.690435 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:20:30.697388 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:20:35.706604 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:20:40.713728 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:20:45.719570 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:20:50.726075 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:20:55.732825 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:21:00.739446 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-10 23:21:05.933599 INFO Got initial state
+2018-01-10 23:21:05.935025 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-10 23:21:05.937470 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-10 23:21:05.938077 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-10 23:21:05.939883 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-10 23:21:05.943582 INFO zolder_ventilatie: lalala1
+2018-01-10 23:21:05.943988 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-10 23:21:05.946772 INFO Loading Object test using class test from module test
+2018-01-10 23:21:05.949811 INFO test: Hello from AppDaemon
+2018-01-10 23:21:05.950195 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-10 23:21:05.951951 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-10 23:21:05.952485 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-10 23:21:05.952976 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-10 23:21:05.953322 INFO Loading Module: wasserdroger_old
+2018-01-10 23:21:05.958203 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-10 23:21:05.959691 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-10 23:21:05.961288 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-10 23:21:05.965415 INFO hello_world: Hello from AppDaemon222222
+2018-01-10 23:21:05.969877 INFO hello_world: You are now ready to run Apps223!
+2018-01-10 23:21:05.970348 INFO App initialization complete
+2018-01-10 23:21:06.155679 INFO Connected to Home Assistant 0.60.1
+2018-01-11 20:46:40.004765 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-11 20:53:27.004563 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-11 20:53:35.006438 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-11 20:53:35.026777 INFO App 'humdelta' added - running
+2018-01-11 20:53:35.027131 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-11 20:54:27.005175 INFO /ssd_home/homeassistant/homeassistant/appdaemon/conf/apps.yaml modified
+2018-01-11 20:54:27.023208 INFO App 'humdelta' changed - reloading
+2018-01-11 20:54:27.023632 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-11 20:55:39.773254 INFO AppDaemon Version 2.1.12 starting
+2018-01-11 20:55:39.773707 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-11 20:55:39.873411 INFO Starting Apps
+2018-01-11 20:55:39.983480 INFO Got initial state
+2018-01-11 20:55:39.985362 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-11 20:55:39.988448 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-11 20:55:39.989071 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-11 20:55:39.989958 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-11 20:55:39.990379 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-11 20:55:39.991529 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-11 20:55:40.130920 INFO zolder_ventilatie: lalala1
+2018-01-11 20:55:40.131264 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-11 20:55:40.132376 INFO Loading Object test using class test from module test
+2018-01-11 20:55:40.137315 INFO test: Hello from AppDaemon
+2018-01-11 20:55:40.137683 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-11 20:55:40.150169 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-11 20:55:40.150765 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-11 20:55:40.151156 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-11 20:55:40.154509 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-11 20:55:40.155765 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-11 20:55:40.156883 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-11 20:55:40.163607 INFO hello_world: Hello from AppDaemon222222
+2018-01-11 20:55:40.165574 INFO hello_world: You are now ready to run Apps223!
+2018-01-11 20:55:40.165841 INFO App initialization complete
+2018-01-11 20:55:40.166283 INFO Dashboards are disabled
+2018-01-11 20:55:40.166488 INFO API is disabled
+2018-01-11 20:55:40.175420 INFO Connected to Home Assistant 0.60.1
+2018-01-11 20:56:40.004059 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-11 20:56:40.004553 INFO Loading Module: wasserdroger_old
+2018-01-11 21:18:55.223043 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-11 21:18:58.395145 INFO Keyboard interrupt
+2018-01-11 21:19:00.226581 INFO Disconnecting from Home Assistant
+2018-01-11 21:19:00.227536 INFO AppDeamon Exited
+2018-01-11 21:19:10.061659 INFO AppDaemon Version 2.1.12 starting
+2018-01-11 21:19:10.062096 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-11 21:19:10.071322 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-11 21:19:15.078006 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-11 21:19:20.088422 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-11 21:19:25.096464 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-11 21:19:30.231897 INFO Starting Apps
+2018-01-11 21:19:30.445224 INFO Got initial state
+2018-01-11 21:19:30.447281 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-11 21:19:30.449010 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-11 21:19:30.449677 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-11 21:19:30.451119 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-11 21:19:30.451704 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-11 21:19:30.453216 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-11 21:19:30.598190 INFO zolder_ventilatie: lalala1
+2018-01-11 21:19:30.598605 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-11 21:19:30.599965 INFO Loading Object test using class test from module test
+2018-01-11 21:19:30.605117 INFO test: Hello from AppDaemon
+2018-01-11 21:19:30.605468 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-11 21:19:30.619235 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-11 21:19:30.619763 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-11 21:19:30.620151 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-11 21:19:30.621609 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-11 21:19:30.622912 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-11 21:19:30.624175 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-11 21:19:30.632030 INFO hello_world: Hello from AppDaemon222222
+2018-01-11 21:19:30.633791 INFO hello_world: You are now ready to run Apps223!
+2018-01-11 21:19:30.634150 INFO App initialization complete
+2018-01-11 21:19:30.634634 INFO Dashboards are disabled
+2018-01-11 21:19:30.634943 INFO API is disabled
+2018-01-11 21:19:30.742749 INFO Connected to Home Assistant 0.60.1
+2018-01-13 20:40:26.005033 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:40:26.022855 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:40:56.004746 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:40:56.006588 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:40:57.003451 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:40:57.006409 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:41:14.004495 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:41:14.008663 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:41:14.009486 INFO fancontrol: <bound method fancontrol.boilerstatus of <fancontrol.fancontrol object at 0x7f0954496860>>
+2018-01-13 20:41:27.003482 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:41:27.004978 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:41:27.005506 INFO fancontrol: <bound method fancontrol.boilerstatus of <fancontrol.fancontrol object at 0x7f09543fd7f0>>
+2018-01-13 20:41:28.004412 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:41:28.008209 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:41:28.008812 INFO fancontrol: <bound method fancontrol.boilerstatus of <fancontrol.fancontrol object at 0x7f09543f7c88>>
+2018-01-13 20:41:28.018500 INFO fancontrol: xxxx
+2018-01-13 20:41:34.004032 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:41:34.007214 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:41:45.004683 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:41:45.008926 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:42:03.487287 INFO AppDaemon Version 2.1.12 starting
+2018-01-13 20:42:03.487775 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-13 20:42:03.599048 INFO Starting Apps
+2018-01-13 20:42:03.705487 INFO Got initial state
+2018-01-13 20:42:03.707559 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:42:03.708984 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:42:03.712542 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-13 20:42:03.713963 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-13 20:42:03.714454 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-13 20:42:03.715722 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-13 20:42:03.852434 INFO zolder_ventilatie: lalala1
+2018-01-13 20:42:03.852786 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-13 20:42:03.853895 INFO Loading Object test using class test from module test
+2018-01-13 20:42:03.858755 INFO test: Hello from AppDaemon
+2018-01-13 20:42:03.859118 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-13 20:42:03.871546 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-13 20:42:03.872060 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-13 20:42:03.872577 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-13 20:42:03.873951 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-13 20:42:03.875276 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-13 20:42:03.876427 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-13 20:42:03.883439 INFO hello_world: Hello from AppDaemon222222
+2018-01-13 20:42:03.885207 INFO hello_world: You are now ready to run Apps223!
+2018-01-13 20:42:03.885489 INFO App initialization complete
+2018-01-13 20:42:03.885956 INFO Dashboards are disabled
+2018-01-13 20:42:03.886197 INFO API is disabled
+2018-01-13 20:42:03.893449 INFO Connected to Home Assistant 0.60.1
+2018-01-13 20:42:07.410666 INFO fancontrol: <bound method fancontrol.boilerstatus of <fancontrol.fancontrol object at 0x7fa96d3ca0b8>>
+2018-01-13 20:43:07.397174 INFO fancontrol: <bound method fancontrol.boilerstatus of <fancontrol.fancontrol object at 0x7fa96d3ca0b8>>
+2018-01-13 20:43:41.005214 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:43:41.009514 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:43:41.010188 INFO fancontrol: <bound method fancontrol.boilerstatus of <fancontrol.fancontrol object at 0x7fa96c207908>>
+2018-01-13 20:43:41.014324 INFO fancontrol: xxxx
+2018-01-13 20:43:42.006589 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:43:42.016131 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:43:42.016977 INFO fancontrol: <bound method fancontrol.boilerstatus of <fancontrol.fancontrol object at 0x7fa96c207860>>
+2018-01-13 20:43:42.020929 INFO fancontrol: xxxx
+2018-01-13 20:43:49.003997 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:43:49.007457 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:43:55.004058 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:43:55.007796 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:44:07.410382 INFO fancontrol: <bound method fancontrol.boilerstatus of <fancontrol.fancontrol object at 0x7fa9680e6cf8>>
+2018-01-13 20:44:09.004162 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:44:36.004833 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:44:36.009091 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:44:36.012463 INFO fancontrol: low
+2018-01-13 20:44:36.014895 INFO fancontrol: xxxxs
+2018-01-13 20:44:37.410270 INFO fancontrol: <bound method fancontrol.boilerstatus of <fancontrol.fancontrol object at 0x7fa96c2078d0>>
+2018-01-13 20:44:48.009565 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:44:48.015527 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:44:48.020714 INFO fancontrol: low
+2018-01-13 20:44:48.024010 INFO fancontrol: xxxxs
+2018-01-13 20:45:15.329559 INFO fancontrol: <bound method fancontrol.boilerstatus of <fancontrol.fancontrol object at 0x7fa9680ec7b8>>
+2018-01-13 20:45:48.006277 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:45:48.015767 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:46:18.004518 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:46:18.008018 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:46:23.707670 INFO Keyboard interrupt
+2018-01-13 20:46:23.713255 INFO Disconnecting from Home Assistant
+2018-01-13 20:46:24.007996 INFO AppDeamon Exited
+2018-01-13 20:46:30.071387 INFO AppDaemon Version 2.1.12 starting
+2018-01-13 20:46:30.071840 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-13 20:46:30.153354 INFO Starting Apps
+2018-01-13 20:46:30.260382 INFO Got initial state
+2018-01-13 20:46:30.262498 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:46:30.263842 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 20:46:30.264401 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-13 20:46:30.265329 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-13 20:46:30.265809 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-13 20:46:30.266760 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-13 20:46:30.402774 INFO zolder_ventilatie: lalala1
+2018-01-13 20:46:30.403155 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-13 20:46:30.404054 INFO Loading Object test using class test from module test
+2018-01-13 20:46:30.408643 INFO test: Hello from AppDaemon
+2018-01-13 20:46:30.408997 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-13 20:46:30.419049 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-13 20:46:30.419573 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-13 20:46:30.419953 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-13 20:46:30.420912 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-13 20:46:30.421871 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-13 20:46:30.422798 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-13 20:46:30.429478 INFO hello_world: Hello from AppDaemon222222
+2018-01-13 20:46:30.431346 INFO hello_world: You are now ready to run Apps223!
+2018-01-13 20:46:30.431664 INFO App initialization complete
+2018-01-13 20:46:30.432137 INFO Dashboards are disabled
+2018-01-13 20:46:30.432376 INFO API is disabled
+2018-01-13 20:46:30.440468 INFO Connected to Home Assistant 0.60.1
+2018-01-13 20:46:33.004787 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 20:46:33.009838 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 21:35:32.329806 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:35:37.335914 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:35:42.341960 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:35:47.349706 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:35:52.357033 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:35:57.363397 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:02.369464 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:07.375364 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:12.381187 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:17.388038 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:22.393997 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:27.399610 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:32.406163 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:37.412158 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:42.418719 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:47.424863 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:52.431734 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:36:57.437713 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:37:02.443769 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:37:07.449323 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:37:12.455185 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:37:17.461277 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:37:22.467548 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:37:27.474876 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:37:32.531135 INFO Got initial state
+2018-01-13 21:37:32.532513 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 21:37:32.533825 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 21:37:32.534532 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-13 21:37:32.535790 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-13 21:37:32.536374 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-13 21:37:32.537615 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-13 21:37:32.542883 INFO zolder_ventilatie: lalala1
+2018-01-13 21:37:32.543262 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-13 21:37:32.544374 INFO Loading Object test using class test from module test
+2018-01-13 21:37:32.547343 INFO test: Hello from AppDaemon
+2018-01-13 21:37:32.547732 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-13 21:37:32.548831 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-13 21:37:32.549350 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-13 21:37:32.549762 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-13 21:37:32.550828 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-13 21:37:32.551917 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-13 21:37:32.552989 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-13 21:37:32.555820 INFO hello_world: Hello from AppDaemon222222
+2018-01-13 21:37:32.558551 INFO hello_world: You are now ready to run Apps223!
+2018-01-13 21:37:32.558942 INFO App initialization complete
+2018-01-13 21:37:32.617618 INFO Connected to Home Assistant 0.60.1
+2018-01-13 21:49:58.372639 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:50:03.379164 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:50:08.385011 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:50:13.390653 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:50:18.396472 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:50:23.409712 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:50:28.416934 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:50:33.424119 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:50:38.429630 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:50:43.557311 INFO Got initial state
+2018-01-13 21:50:43.558848 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 21:50:43.560293 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 21:50:43.561060 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-13 21:50:43.562418 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-13 21:50:43.563083 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-13 21:50:43.565358 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-13 21:50:43.568600 INFO zolder_ventilatie: lalala1
+2018-01-13 21:50:43.569014 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-13 21:50:43.570276 INFO Loading Object test using class test from module test
+2018-01-13 21:50:43.574284 INFO test: Hello from AppDaemon
+2018-01-13 21:50:43.574711 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-13 21:50:43.577109 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-13 21:50:43.577648 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-13 21:50:43.578015 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-13 21:50:43.579958 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-13 21:50:43.581072 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-13 21:50:43.582326 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-13 21:50:43.585523 INFO hello_world: Hello from AppDaemon222222
+2018-01-13 21:50:43.589491 INFO hello_world: You are now ready to run Apps223!
+2018-01-13 21:50:43.589996 INFO App initialization complete
+2018-01-13 21:50:43.657361 INFO Connected to Home Assistant 0.60.1
+2018-01-13 21:57:07.412881 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:57:12.419420 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:57:17.433796 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:57:22.440695 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:57:27.447294 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:57:32.453322 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:57:37.460352 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:57:42.466127 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-13 21:57:47.674596 INFO Got initial state
+2018-01-13 21:57:47.676385 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-13 21:57:47.677907 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-13 21:57:47.678661 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-13 21:57:47.680246 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-13 21:57:47.680960 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-13 21:57:47.682170 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-13 21:57:47.685615 INFO zolder_ventilatie: lalala1
+2018-01-13 21:57:47.686010 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-13 21:57:47.687502 INFO Loading Object test using class test from module test
+2018-01-13 21:57:47.690808 INFO test: Hello from AppDaemon
+2018-01-13 21:57:47.691276 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-13 21:57:47.692778 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-13 21:57:47.693351 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-13 21:57:47.693994 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-13 21:57:47.695253 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-13 21:57:47.696848 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-13 21:57:47.698519 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-13 21:57:47.701686 INFO hello_world: Hello from AppDaemon222222
+2018-01-13 21:57:47.705785 INFO hello_world: You are now ready to run Apps223!
+2018-01-13 21:57:47.706348 INFO App initialization complete
+2018-01-13 21:57:47.734044 INFO Connected to Home Assistant 0.60.1
+2018-01-14 22:30:08.924634 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-14 22:30:13.947241 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-14 22:30:18.954364 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-14 22:30:23.962250 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-14 22:30:28.970009 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-14 22:30:33.977981 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-14 22:30:38.986174 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-14 22:30:43.992981 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-14 22:30:49.173528 INFO Got initial state
+2018-01-14 22:30:49.174897 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-14 22:30:49.196505 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-14 22:30:49.197379 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-14 22:30:49.200999 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-14 22:30:49.201556 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-14 22:30:49.207041 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-14 22:30:49.220171 INFO zolder_ventilatie: lalala1
+2018-01-14 22:30:49.220555 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-14 22:30:49.223136 INFO Loading Object test using class test from module test
+2018-01-14 22:30:49.226320 INFO test: Hello from AppDaemon
+2018-01-14 22:30:49.226796 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-14 22:30:49.230555 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-14 22:30:49.231117 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-14 22:30:49.231834 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-14 22:30:49.234033 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-14 22:30:49.236729 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-14 22:30:49.238655 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-14 22:30:49.242212 INFO hello_world: Hello from AppDaemon222222
+2018-01-14 22:30:49.244913 INFO hello_world: You are now ready to run Apps223!
+2018-01-14 22:30:49.245246 INFO App initialization complete
+2018-01-14 22:30:49.463041 INFO Connected to Home Assistant 0.60.1
+2018-01-14 22:33:06.576024 INFO test: Hello from AppDaemon
+2018-01-17 22:00:05.605826 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:00:10.617670 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:00:15.623971 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:00:20.632550 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:00:25.638724 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:00:30.644861 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:00:35.651806 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:00:40.659637 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:00:45.667095 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:00:50.673187 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:00:55.680267 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:01:00.686223 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:01:05.692622 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:01:10.702668 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:01:15.715824 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:01:20.732071 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:01:25.852062 INFO Got initial state
+2018-01-17 22:01:25.853446 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-17 22:01:25.856063 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-17 22:01:25.856650 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-17 22:01:25.858413 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-17 22:01:25.859039 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-17 22:01:25.860303 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-17 22:01:25.866309 INFO zolder_ventilatie: lalala1
+2018-01-17 22:01:25.866736 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-17 22:01:25.868308 INFO Loading Object test using class test from module test
+2018-01-17 22:01:25.871244 INFO test: Hello from AppDaemon
+2018-01-17 22:01:25.871590 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-17 22:01:25.872985 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-17 22:01:25.873513 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-17 22:01:25.874022 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-17 22:01:25.876063 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-17 22:01:25.877364 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-17 22:01:25.878600 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-17 22:01:25.881672 INFO hello_world: Hello from AppDaemon222222
+2018-01-17 22:01:25.884952 INFO hello_world: You are now ready to run Apps223!
+2018-01-17 22:01:25.885294 INFO App initialization complete
+2018-01-17 22:01:25.912729 INFO Connected to Home Assistant 0.61.1
+2018-01-17 22:09:28.456820 INFO AppDaemon Version 2.1.12 starting
+2018-01-17 22:09:28.457721 INFO Configuration read from: /ssd_home/homeassistant/homeassistant/appdaemon/conf/appdaemon.yaml
+2018-01-17 22:09:28.467133 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:09:33.475415 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:09:38.483277 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:09:43.493611 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:09:48.503372 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:09:53.512053 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:09:58.523795 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:10:03.535291 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:10:08.548290 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:10:13.564186 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:10:18.570868 WARNING Unable to connect to Home Assistant, retrying in 5 seconds
+2018-01-17 22:10:24.059410 INFO Starting Apps
+2018-01-17 22:10:24.547185 INFO Got initial state
+2018-01-17 22:10:24.549420 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-17 22:10:24.552281 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-17 22:10:24.552892 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-17 22:10:24.563070 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-17 22:10:24.563681 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-17 22:10:24.565380 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-17 22:10:25.187552 INFO zolder_ventilatie: lalala1
+2018-01-17 22:10:25.188014 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-17 22:10:25.207568 INFO Loading Object test using class test from module test
+2018-01-17 22:10:25.223064 INFO test: Hello from AppDaemon
+2018-01-17 22:10:25.223476 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-17 22:10:25.315001 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-17 22:10:25.315939 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-17 22:10:25.316457 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-17 22:10:25.343109 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-17 22:10:25.399702 INFO Loading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-17 22:10:25.401699 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-17 22:10:25.490724 INFO hello_world: Hello from AppDaemon222222
+2018-01-17 22:10:25.496526 INFO hello_world: You are now ready to run Apps223!
+2018-01-17 22:10:25.496902 INFO App initialization complete
+2018-01-17 22:10:25.497402 INFO Dashboards are disabled
+2018-01-17 22:10:25.497645 INFO API is disabled
+2018-01-17 22:10:25.594191 INFO Connected to Home Assistant 0.61.1
+2018-01-17 22:20:09.462094 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:20:14.470051 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:20:19.476068 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:20:24.482732 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:20:29.488786 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:20:34.496311 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:20:39.516380 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:20:44.522348 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:20:49.527815 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:20:54.534448 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:20:59.541478 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:04.548943 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:09.557837 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:14.566029 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:19.573083 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:24.587274 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:29.594882 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:34.601863 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:39.608375 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:44.614592 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:49.631711 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:54.646203 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:21:59.653369 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:04.660345 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:09.667805 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:14.676626 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:19.686393 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:24.703649 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:29.713560 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:34.721862 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:39.736998 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:44.747163 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:49.754228 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:54.761815 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:22:59.771831 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:04.781050 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:09.795662 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:14.803730 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:19.810119 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:24.823156 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:29.833079 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:34.840958 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:39.847510 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:44.856541 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:49.866173 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:54.874874 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:23:59.884241 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:04.891776 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:09.901167 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:14.908461 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:19.916276 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:24.925389 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:29.932036 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:34.938703 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:39.946961 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:44.956715 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:49.963387 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:54.970574 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:24:59.978932 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:04.985189 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:09.993462 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:15.001390 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:20.008962 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:25.014840 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:30.021825 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:35.027149 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:40.035870 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:45.044549 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:50.053456 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:25:55.061933 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:00.068600 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:05.075487 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:10.090895 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:15.097615 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:20.104006 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:25.110967 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:30.117747 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:35.124350 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:40.129544 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:45.137030 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:50.143569 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:26:55.151071 WARNING Disconnected from Home Assistant, retrying in 5 seconds
+2018-01-17 22:27:00.322391 INFO Got initial state
+2018-01-17 22:27:00.323921 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/fancontrol.py
+2018-01-17 22:27:00.326075 INFO Loading Object fancontrol using class fancontrol from module fancontrol
+2018-01-17 22:27:00.326694 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/sensorexport.py
+2018-01-17 22:27:00.328069 INFO Loading Object humdelta using class sensorexport from module sensorexport
+2018-01-17 22:27:00.328844 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/zolder_ventilatie.py
+2018-01-17 22:27:00.330102 INFO Loading Object zolder_ventilatie using class ZolderVentilatie from module zolder_ventilatie
+2018-01-17 22:27:00.337527 INFO zolder_ventilatie: lalala1
+2018-01-17 22:27:00.337876 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/test.py
+2018-01-17 22:27:00.339093 INFO Loading Object test using class test from module test
+2018-01-17 22:27:00.342099 INFO test: Hello from AppDaemon
+2018-01-17 22:27:00.342478 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger.py
+2018-01-17 22:27:00.345523 INFO Loading Object wasmachine using class wasserdroger from module wasserdroger
+2018-01-17 22:27:00.346122 INFO Loading Object droger using class wasserdroger from module wasserdroger
+2018-01-17 22:27:00.346649 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/wasserdroger_old.py
+2018-01-17 22:27:00.348126 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/motion_lights.py
+2018-01-17 22:27:00.349361 INFO Reloading Module: /ssd_home/homeassistant/homeassistant/appdaemon/apps/hello.py
+2018-01-17 22:27:00.350690 INFO Loading Object hello_world using class HelloWorld from module hello
+2018-01-17 22:27:00.353365 INFO hello_world: Hello from AppDaemon222222
+2018-01-17 22:27:00.355960 INFO hello_world: You are now ready to run Apps223!
+2018-01-17 22:27:00.356293 INFO App initialization complete
+2018-01-17 22:27:00.433202 INFO Connected to Home Assistant 0.61.1

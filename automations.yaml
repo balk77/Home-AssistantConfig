@@ -180,10 +180,15 @@
   #   from: medium
   #   platform: state
   #   to: high
+  condition:
+    - condition: state
+      entity_id: input_boolean.itho_remote_override
+      state: 'off'
   action:
   - data:
-      payload: high
-      topic: /hass/itho
+      #payload: high
+      payload: "State,3"
+      topic: /hass/itho/cmd
     service: mqtt.publish
   - data:
       entity_id: input_select.fanstate
@@ -204,12 +209,13 @@
     to: HW
   condition:
     - condition: state
-      entity_id: light.badkamer_plafond_level
-      state: 'on'
+      entity_id: input_boolean.itho_remote_override
+      state: 'off'
   action:
   - data:
-      payload: high
-      topic: /hass/itho
+      #payload: high
+      payload: "State,3"
+      topic: /hass/itho/cmd
     service: mqtt.publish
   - data:
       entity_id: input_select.fanstate
@@ -232,12 +238,13 @@
   condition:
     condition: state
     entity_id: sensor.itho_ventilatie
-    state: high
+    state: "3"
   action:
   - service: mqtt.publish
     data:
-      topic: /hass/itho
-      payload: medium
+      topic: /hass/itho/cmd
+      #payload: medium
+      payload: "State,2"
   - service: input_select.select_option
     data:
       entity_id: input_select.fanstate
@@ -262,11 +269,16 @@
   #   condition: state
   #   entity_id: input_boolean.itho_not_low
   #   state: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.itho_remote_override
+      state: 'off'
   action:
   - service: mqtt.publish
     data:
-      topic: /hass/itho
-      payload: low
+      topic: /hass/itho/cmd
+      #payload: low
+      payload: "State,1"
   - service: input_select.select_option
     data:
       entity_id: input_select.fanstate
@@ -292,8 +304,9 @@
   action:
   - service: mqtt.publish
     data:
-      topic: /hass/itho
-      payload: medium
+      topic: /hass/itho/cmd
+      #payload: medium
+      payload: "State,2"
   - service: input_select.select_option
     data:
       entity_id: input_select.fanstate
@@ -304,11 +317,16 @@
   - platform: state
     entity_id: input_select.fanstate
     to: medium
+  condition:
+    - condition: state
+      entity_id: input_boolean.itho_remote_override
+      state: 'off'
   action:
   - service: mqtt.publish
     data:
-      topic: /hass/itho
-      payload: medium
+      topic: /hass/itho/cmd
+      # payload: medium
+      payload: "State,2"
   - service: input_select.select_option
     data:
       entity_id: input_select.fanstate
@@ -324,22 +342,23 @@
   action:
   - data:
       payload: restart
-      topic: /hass/itho
+      topic: /hass/itho/cmd
     service: mqtt.publish
   - delay: 00:01:00
   - data:
-      payload: low
-      topic: /hass/itho
+      #payload: low
+      payload: "State,1"
+      topic: /hass/itho/cmd
     service: mqtt.publish
 - id: itho_2
   alias: Itho not low
   trigger:
   - platform: state
     entity_id: sensor.itho_ventilatie
-    to: high
+    to: "3"
   - platform: state
     entity_id: sensor.itho_ventilatie
-    to: medium
+    to: "2"
   action:
     service: input_boolean.turn_on
     entity_id: input_boolean.itho_not_low
@@ -348,10 +367,36 @@
   trigger:
   - platform: state
     entity_id: sensor.itho_ventilatie
-    to: low
+    to: "1"
   action:
     service: input_boolean.turn_off
     entity_id: input_boolean.itho_not_low
+- id: itho_4
+  alias: Remote control is used
+  trigger:
+    - platform: state
+      entity_id: sensor.itho_lastidindex
+      to: "1"
+    - platform: state
+      entity_id: sensor.itho_lastidindex
+      to: "2"
+    - platform: state
+      entity_id: sensor.itho_lastidindex
+      to: "3"
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.itho_remote_override
+- id: itho_5
+  alias: Reset ITHO remote control override
+  trigger:
+    platform: state
+    entity_id: input_boolean.itho_remote_override
+    to: "on"
+    for:
+      minutes: "10"
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.itho_remote_override
 - id: updater
   alias: Update Available Notifications
   trigger:
@@ -361,8 +406,7 @@
     service: notify.pushbullet
     data:
       target: device/Nexus5X
-      message: Version {{ states('sensor.current_version') }} for Home Assistant is
-        available.
+      message: "Version {{ states('sensor.current_version') }} for Home Assistant is available."
 - id: Schemerlamp
   alias: Turn on Schemerlamp when sun sets
   trigger:
@@ -385,8 +429,8 @@
     for:
       minutes: 3
   action:
-    service: input_boolean.turn_on
-    entity_id: input_boolean.washer_switch
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.washer_switch
 - id: wasmachine_02
   alias: Wasmachine Klaar
   trigger:
@@ -471,8 +515,10 @@
       entity_id: zwave.hank_knop_wk
       scene_id: 3
   action:
-    service: scene.turn_on
-    entity_id: scene.woonkamer_off
+    - service: scene.turn_on
+      entity_id: scene.woonkamer_off
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.huis_slaapstand
 - id: Hank_wk4
   alias: Hank wk4
   trigger:
@@ -551,6 +597,8 @@
     - delay: '00:00:01'
     - service: input_boolean.turn_on
       entity_id: input_boolean.iftt_temp_triggered
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.huis_slaapstand
 - id: wk_muur1
   alias: WK Muur uit
   trigger:
@@ -561,9 +609,11 @@
       for:
         seconds: 10
   action:
-    # kerstboom
-    - service: switch.turn_off
-      entity_id: switch.fibaro_switch_switch
+    # kerstboom, zet deze aan om de kerstboom te schakelen
+    # ook in groups.yaml
+    #- service: switch.turn_off
+    #  entity_id: switch.fibaro_switch_switch
+    # bankje
     - service: light.turn_off
       data:
         transition: 20
@@ -578,8 +628,13 @@
       platform: state
       to: '3'
   condition:
-    condition: template
-    value_template: "{{ states.sun.sun.attributes.elevation  | int < 10 }}"
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states.sun.sun.attributes.elevation  | int < 10 }}"
+      - condition: state
+        entity_id: input_boolean.huis_slaapstand
+        state: 'off'
     # condition: and
     # conditions:
     #   - condition: or
@@ -595,9 +650,10 @@
       data:
         entity_id: light.wk_muur_level
         brightness: 50
-    # kerstboom
-    - service: switch.turn_on
-      entity_id: switch.fibaro_switch_switch
+    # kerstboom, zet deze aan om de kerstboom te schakelen
+    # ook in groups.yaml
+    #- service: switch.turn_on
+    #  entity_id: switch.fibaro_switch_switch
 - id: wk_multisensor_battery1
   alias: wk_multisensor_battery1
   trigger:
@@ -762,6 +818,35 @@
   action:
     service: scene.turn_on
     entity_id: scene.woonkamer_low
+- id: occupancy_sim_off
+  trigger:
+    - platform: state
+      entity_id: sensor.wk_multisensor_burglar
+      to: "8"
+    - platform: state
+      entity_id: sensor.wk_multisensor_burglar
+      to: "3"
+  condition:
+    - condition: time
+      after: "18:10:00"
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.occupancy_simulation
+- id: occupancy_sim_goodnight
+  trigger:
+    platform: time
+    at: "22:30"
+  condition:
+    - condition: state
+      entity_id: input_boolean.occupancy_simulation
+      state: "on"
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.occupancy_simulation
+    - service: light.turn_off
+      entity_id: group.woonkamer
+    - service: switch.turn_off
+      entity_id: group.woonkamer
 - id: hass_startup
   alias: 'HA_Start'
   trigger:
@@ -810,3 +895,79 @@
     data_template:
       entity_id: input_number.zolder_ventilatie
       value: 100
+- id: reset_huis_slaapstand
+  alias: Reset huis_slaapstand
+  trigger:
+    platform: time
+    at: '04:00:00'
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.huis_slaapstand
+- id: set_huis_slaapstand
+  alias: Set huis_slaapstand
+  trigger:
+    platform: state
+    entity_id: group.woonkamer
+    to: 'off'
+  condition:
+    condition: or
+    conditions:
+      - condition: time
+        after: "21:00:00"
+      - condition: time
+        before: "4:00:00"
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.huis_slaapstand
+- id: notify_when_not_home_1
+  alias: Notify and activate Occupancy Simulation 1
+  trigger:
+    - platform: time
+      at: "18:10:00"
+  condition:
+    - condition: and
+      conditions:
+        - condition: sun
+          after: sunset
+        - condition: state
+          entity_id: group.woonkamer
+          state: 'off'
+  action:
+    - service: notify.pushbullet
+      data:
+        target: device/Nexus5X
+        message: "Lampen in huis gaan aan - aanwezigheidssimulatie"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.occupancy_simulation
+- id: notify_when_not_home_2
+  alias: Notify and activate Occupancy Simulation 2
+  trigger:
+    - platform: sun
+      event: sunset
+  condition:
+    - condition: and
+      conditions:
+        - condition: time
+          after: "18:10:00"
+        - condition: state
+          entity_id: group.woonkamer
+          state: 'off'
+  action:
+    - service: notify.pushbullet
+      data:
+        target: device/Nexus5X
+        message: "Lampen in huis gaan aan - aanwezigheidssimulatie"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.occupancy_simulation
+- id: appdaemon_alive
+  trigger:
+    - platform: state
+      entity_id: input_boolean.appdaemon_alive
+      to: "off"
+      for:
+        minutes: 15
+  action:
+    - service: notify.pushbullet
+      data:
+        target: device/Nexus5X
+        message: "Appdaemon draait niet"
