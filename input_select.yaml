@@ -8,9 +8,14 @@ humidity:
 fanstate:
   name: Itho Fan State
   options:
+   - standby
    - low
    - medium
    - high
+   - full
+   - high (10 min)
+   - high (20 min)
+   - high (30 min)
   initial: low
 rainbow:
   name: rainbow

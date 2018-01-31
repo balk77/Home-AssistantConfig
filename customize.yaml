@@ -105,3 +105,9 @@ sensor.itho_ventilatie:
   friendly_name: Werkelijke ITHO status
 input_boolean.itho_remote_override:
   friendly_name: ITHO Remote Override
+sensor.zolder_multisensor_temperature:
+  friendly_name: Zolder Temperatuur
+sensor.slaapkamer_dide_gemeten_temperatuur:
+  friendly_name: Kamer Dide
+sensor.zolder_delta_t:
+  friendly_name: Zolder delta T  

@@ -29,3 +29,6 @@ random_minute:
   min: 0
   max: 59
   mode: slider
+humdelta_dummy:
+  min: 0
+  max: 20

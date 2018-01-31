@@ -1,336 +1,3 @@
-- id: badkamer_01
-  alias: Badkamer dag modus
-  trigger:
-  - entity_id: light.badkamer_plafond_level
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - condition: and
-    conditions:
-    - before: 0:00:00
-      condition: time
-    - after: sunrise
-      condition: sun
-  action:
-  - service: light.turn_on
-    data:
-      brightness: 255
-      entity_id: light.badkamer_plafond_level
-- id: badkamer_02
-  alias: Badkamer ochtend modus
-  trigger:
-  - entity_id: light.badkamer_plafond_level
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - condition: or
-    conditions:
-    - condition: and
-      conditions:
-      - condition: time
-        after: '7:00:00'
-      - condition: sun
-        before: sunrise
-      - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'off'
-    - condition: and
-      conditions:
-      - condition: time
-        after: '5:00:00'
-      - condition: sun
-        before: sunrise
-      - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'on'
-  action:
-  - data:
-      brightness: 50
-      entity_id: light.badkamer_plafond_level
-    service: light.turn_on
-  - delay: 0:00:20
-  - data:
-      brightness: 255
-      entity_id: light.badkamer_plafond_level
-      transition: 30
-    service: light.turn_on
-- id: badkamer_03
-  alias: Badkamer nacht modus
-  trigger:
-  - entity_id: light.badkamer_plafond_level
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-    condition: or
-    conditions:
-    - condition: and
-      conditions:
-      - condition: time
-        after: '0:00:00'
-        before: '7:00:00'
-      - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'off'
-    - condition: and
-      conditions:
-      - condition: time
-        after: '0:00:00'
-        before: '5:00:00'
-      - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'on'
-  action:
-  - service: light.turn_on
-    data:
-      brightness: 50
-      entity_id: light.badkamer_plafond_level
-- id: mbr_01
-  alias: Slaapkamer dim avond en ochtend
-  trigger:
-  - entity_id: light.mbr_plafond_level
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - condition: or
-    conditions:
-    - condition: time
-      after: '22:00:00'
-    #- after: sunset
-    #  condition: sun
-    - before: sunrise
-      condition: sun
-  action:
-  - data:
-      brightness: 26
-      entity_id: light.mbr_plafond_level
-    service: light.turn_on
-- id: mbr_02
-  alias: Slaapkamer overdag
-  trigger:
-  - entity_id: light.mbr_plafond_level
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - condition: and
-    conditions:
-    - after: sunrise
-      condition: sun
-    - before: '22:00:00'
-      condition: time
-    #- before: sunset
-    #  condition: sun
-  action:
-  - data:
-      brightness: 254
-      entity_id: light.mbr_plafond_level
-    service: light.turn_on
-- id: hum_low
-  initial_state: false
-  alias: low humidity
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.humdelta
-    below: 1.9999
-  action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.humidity
-      option: low
-- id: hum_med
-  alias: medium humidity
-  initial_state: false
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.humdelta
-    above: 2
-    below: 4
-  action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.humidity
-      option: medium
-- id: hum_high
-  alias: high humidity
-  initial_state: false
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.humdelta
-    above: 3.9999
-  action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.humidity
-      option: high
-- id: fan_01a
-  alias: Fan Speed high a
-  trigger:
-  # - entity_id: input_select.humidity
-  #   from: low
-  #   platform: state
-  #   to: high
-  - entity_id: input_select.fanstate
-    platform: state
-    to: high
-  # - entity_id: input_select.humidity
-  #   from: medium
-  #   platform: state
-  #   to: high
-  condition:
-    - condition: state
-      entity_id: input_boolean.itho_remote_override
-      state: 'off'
-  action:
-  - data:
-      #payload: high
-      payload: "State,3"
-      topic: /hass/itho/cmd
-    service: mqtt.publish
-  - data:
-      entity_id: input_select.fanstate
-      option: high
-    service: input_select.select_option
-  # - service: input_number.set_value
-  #   data_template:
-  #     entity_id: input_number.zolder_ventilatie
-  #     value: 1
-- id: fan_01b
-  alias: Fan Speed high b
-  initial_state: false
-  trigger:
-  - entity_id: sensor.wk_boilerstatus
-    for:
-      minutes: 1
-    platform: state
-    to: HW
-  condition:
-    - condition: state
-      entity_id: input_boolean.itho_remote_override
-      state: 'off'
-  action:
-  - data:
-      #payload: high
-      payload: "State,3"
-      topic: /hass/itho/cmd
-    service: mqtt.publish
-  - data:
-      entity_id: input_select.fanstate
-      option: high
-    service: input_select.select_option
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.zolder_ventilatie
-      value: 1
-- id: fan_02
-  alias: Fan Speed high 2 medium
-  initial_state: false
-  trigger:
-  - platform: state
-    entity_id: input_select.humidity
-    from: high
-    to: medium
-    for:
-      minutes: 15
-  condition:
-    condition: state
-    entity_id: sensor.itho_ventilatie
-    state: "3"
-  action:
-  - service: mqtt.publish
-    data:
-      topic: /hass/itho/cmd
-      #payload: medium
-      payload: "State,2"
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.fanstate
-      option: medium
-- id: fan_05
-  alias: Fan Speed low
-  trigger:
-  # - platform: state
-  #   entity_id: input_select.humidity
-  #   to: low
-  #   for:
-  #     minutes: 15
-  # - platform: state
-  #   entity_id: sensor.wk_boilerstatus
-  #   to: 'No'
-  #   for:
-  #     minutes: 15
-  - platform: state
-    entity_id: input_select.fanstate
-    to: low
-  # condition:
-  #   condition: state
-  #   entity_id: input_boolean.itho_not_low
-  #   state: 'on'
-  condition:
-    - condition: state
-      entity_id: input_boolean.itho_remote_override
-      state: 'off'
-  action:
-  - service: mqtt.publish
-    data:
-      topic: /hass/itho/cmd
-      #payload: low
-      payload: "State,1"
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.fanstate
-      option: low
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.zolder_ventilatie
-      value: 100
-- id: fan_06
-  alias: Fan Speed low 2 medium
-  initial_state: false
-  trigger:
-  - platform: state
-    entity_id: input_select.humidity
-    from: low
-    to: medium
-  condition:
-    condition: state
-    entity_id: sensor.wk_boilerstatus
-    state: 'No'
-    for:
-      minutes: 15
-  action:
-  - service: mqtt.publish
-    data:
-      topic: /hass/itho/cmd
-      #payload: medium
-      payload: "State,2"
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.fanstate
-      option: medium
-- id: fan_07
-  alias: Fan speed medium
-  trigger:
-  - platform: state
-    entity_id: input_select.fanstate
-    to: medium
-  condition:
-    - condition: state
-      entity_id: input_boolean.itho_remote_override
-      state: 'off'
-  action:
-  - service: mqtt.publish
-    data:
-      topic: /hass/itho/cmd
-      # payload: medium
-      payload: "State,2"
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.fanstate
-      option: medium
 - id: itho_1
   alias: Restart ITHO on false status
   trigger:
@@ -350,53 +17,6 @@
       payload: "State,1"
       topic: /hass/itho/cmd
     service: mqtt.publish
-- id: itho_2
-  alias: Itho not low
-  trigger:
-  - platform: state
-    entity_id: sensor.itho_ventilatie
-    to: "3"
-  - platform: state
-    entity_id: sensor.itho_ventilatie
-    to: "2"
-  action:
-    service: input_boolean.turn_on
-    entity_id: input_boolean.itho_not_low
-- id: itho_3
-  alias: Itho low
-  trigger:
-  - platform: state
-    entity_id: sensor.itho_ventilatie
-    to: "1"
-  action:
-    service: input_boolean.turn_off
-    entity_id: input_boolean.itho_not_low
-- id: itho_4
-  alias: Remote control is used
-  trigger:
-    - platform: state
-      entity_id: sensor.itho_lastidindex
-      to: "1"
-    - platform: state
-      entity_id: sensor.itho_lastidindex
-      to: "2"
-    - platform: state
-      entity_id: sensor.itho_lastidindex
-      to: "3"
-  action:
-    service: input_boolean.turn_on
-    entity_id: input_boolean.itho_remote_override
-- id: itho_5
-  alias: Reset ITHO remote control override
-  trigger:
-    platform: state
-    entity_id: input_boolean.itho_remote_override
-    to: "on"
-    for:
-      minutes: "10"
-  action:
-    service: input_boolean.turn_off
-    entity_id: input_boolean.itho_remote_override
 - id: updater
   alias: Update Available Notifications
   trigger:
@@ -599,6 +219,34 @@
       entity_id: input_boolean.iftt_temp_triggered
     - service: input_boolean.turn_on
       entity_id: input_boolean.huis_slaapstand
+- id: Thermostaat_3
+  alias: Thermostaat 3
+  trigger:
+  - platform: time
+    at: '2:00:00'
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: sensor.thermostaat_activeprogram
+      state: '0'
+    - condition: state
+      entity_id: input_boolean.huis_slaapstand
+      state: 'off'
+  action:
+    - service: ifttt.trigger
+      data:
+        event: "SetTemp"
+        value1: 15
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.iftt_temp_triggered_sp
+        value: 15
+    - delay: '00:00:01'
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.iftt_temp_triggered
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.huis_slaapstand
 - id: wk_muur1
   alias: WK Muur uit
   trigger:
@@ -631,20 +279,10 @@
     condition: and
     conditions:
       - condition: template
-        value_template: "{{ states.sun.sun.attributes.elevation  | int < 10 }}"
+        value_template: "{{ states.sun.sun.attributes.elevation  | int < 8 }}"
       - condition: state
         entity_id: input_boolean.huis_slaapstand
         state: 'off'
-    # condition: and
-    # conditions:
-    #   - condition: or
-    #     conditions:
-    #       - condition: template
-    #         value_template: "{{ states.sun.sun.attributes.elevation  | int < 10 }}"
-    #       # - condition: sun
-    #       #   after: sunset
-    #       # - condition: sun
-    #       #   before: sunrise
   action:
     - service: light.turn_on
       data:
@@ -959,15 +597,27 @@
         message: "Lampen in huis gaan aan - aanwezigheidssimulatie"
     - service: input_boolean.turn_on
       entity_id: input_boolean.occupancy_simulation
-- id: appdaemon_alive
+- id: appdaemon_alive_1
   trigger:
     - platform: state
       entity_id: input_boolean.appdaemon_alive
       to: "off"
       for:
-        minutes: 15
+        minutes: 5
   action:
     - service: notify.pushbullet
       data:
         target: device/Nexus5X
         message: "Appdaemon draait niet"
+- id: appdaemon_alive_2
+  trigger:
+    platform: time
+    # You can also match on interval. This will match every 5 minutes
+    minutes: '/5'
+    seconds: 00
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.appdaemon_alive
+# - id: boilerstatus_60sec
+#   trigger:
+#     platform: template

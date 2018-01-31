@@ -210,3 +210,14 @@ huis_toggles:
   entities:
     - input_boolean.huis_slaapstand
     - input_boolean.occupancy_simulation
+zolder:
+  view: yes
+  name: Zolder
+  entities:
+        - group.itho
+        - group.zolder_ventilatie
+        - group.zolder_ventilatie_moving
+        - sensor.zolder_multisensor_temperature
+        - sensor.slaapkamer_dide_gemeten_temperatuur
+        - sensor.pws_temp_c
+        - sensor.zolder_delta_t

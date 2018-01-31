@@ -42,3 +42,6 @@ itho_remote_override:
 appdaemon_alive:
   name: Appdaemon alive
   initial: on
+shower:
+  name: Douche actief?
+  initial: off

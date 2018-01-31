@@ -14,6 +14,7 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: !secret time_zone
   customize: !include customize.yaml
+  #packages: !include_dir_named packages
 
 
 recorder:
@@ -58,6 +59,9 @@ logger:
 #    homeassistant.components.script: debug
 #    homeassistant.components.automation: debug
 #    homeassistant.components.device_tracker: debug
+
+#splunk:
+#  token: !secret splunk_token
 
 # Enables the frontend
 frontend:
@@ -141,6 +145,8 @@ mqtt:
   port: 1883
   client_id: home-assistant
   keepalive: 60
+  discovery: true
+  discovery_prefix: homeassistant
 #  username: USERNAME
 #  password: PASSWORD
   protocol: 3.1
@@ -200,8 +206,8 @@ media_player:
   - platform: cast
 
 nest:
-  client_id: 22d9982a-426c-4d22-9046-ebbb52bd77e6
-  client_secret: wv45yIASm9g8KQ5DTD4sWlxuG
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
   sensors:
     monitored_conditions:
       - 'co_status'
@@ -338,3 +344,5 @@ panel_iframe:
     title: 'Avalex'
     url: 'https://calendar.google.com/calendar/embed?src=4uss0i67es2enb599kpt4692mtradusn%40import.calendar.google.com'
     icon: mdi:delete
+
+shopping_list:

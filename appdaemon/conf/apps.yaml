@@ -37,3 +37,19 @@ humdelta:
   sublocation: badkamer
   sensor: dht
   property: humdelta
+
+appdaemonalive:
+  module: appdaemonalive
+  class: appdaemonalive
+
+mbrlight:
+  module: mbrlight
+  class: mbrlight
+
+badkamerlight:
+  module: badkamerlight
+  class: badkamerlight
+
+fanstate:
+  module: fanstate
+  class: fanstate
