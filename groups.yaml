@@ -4,6 +4,8 @@ default_view:
     #- group.phones
     #- group.wk_sensors
     - device_tracker.phone_nexus5x
+    - device_tracker.nut_sander
+    - device_tracker.nut_linda
     - group.woonkamer_scenes
     - switch.fibaro_system_fgwpef_wall_plug_switch
     - light.mqtt_json_slaapkamer
@@ -35,6 +37,7 @@ weer:
   entities:
     - group.weermorgen
     - group.weervandaag
+    - group.zonnescherm
 verlichting:
   name: Verlichting
   view: yes
@@ -57,11 +60,12 @@ woonkamer:
     #- switch.fibaro_switch_switch # zet deze aan om de kerstboom te schakelen
 woonkamer_scenes:
   name: Woonkamer Scenes
+  control: hidden
   entities:
-    - scene.woonkamer_full
-    - scene.woonkamer_medium
-    - scene.woonkamer_low
-    - scene.woonkamer_off
+    - script.woonkamer_full
+    - script.woonkamer_medium
+    - script.woonkamer_low
+    - script.woonkamer_off
 woonkamer_comfort:
   name: Woonkamer Comfort
   control: hidden
@@ -110,6 +114,11 @@ weervandaag:
     - sensor.delft_symbol
     - sensor.delft_condition
     - sensor.delft_temperature
+zonnescherm:
+  name: Zonnescherm
+  entities:
+    - sensor.delft_irradiance
+    - sensor.delft_precipitation_forecast_total
 sensors:
   view: yes
   entities:

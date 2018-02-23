@@ -53,3 +53,18 @@ badkamerlight:
 fanstate:
   module: fanstate
   class: fanstate
+
+telegram:
+  module: telegram
+  class: TelegramBotEventListener
+
+wk_abshumidity:
+  module: rel2abshumidity
+  class: rel2abs
+  temperature: sensor.mk_temp
+  relhumidity: sensor.wk_relhumidity
+  abshumidity: sensor.wk_abshumidity
+
+thermostaatavond:
+  module: thermostaatavond
+  class: thermostaatavond

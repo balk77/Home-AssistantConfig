@@ -18,12 +18,12 @@ homeassistant:
 
 
 recorder:
-  db_url: postgres://@/homeassistant
+  db_url: postgres://homeassistant:ereadsta@192.168.0.9/homeassistant
   purge_interval: 2
   purge_keep_days: 7
   exclude:
     domains:
-      - automation
+      # - automation
       - weblink
       - updater
       - device_tracker
@@ -49,6 +49,8 @@ recorder:
       - device_tracker.phone_sander
       - device_tracker.phone_sander_bt
       - device_tracker.phone_sander_wifi
+      - device_tracker.nut_sander
+      - device_tracker.nut_linda
 
 logger:
   default: info
@@ -121,7 +123,8 @@ automation: !include automations.yaml
 
 #light: !include_dir_list light/
 #script: !include_dir_list script/
-script: !include script/badkamer_script.yaml
+#script: !include script/badkamer_script.yaml
+script: !include script/woonkamer.yaml
 #script: !include script/group_visibility.yaml
 input_boolean: !include input_booleans.yaml
 scene: !include_dir_list scenes
@@ -197,10 +200,20 @@ notify:
   - name: pushbullet
     platform: pushbullet
     api_key: !secret pushbullet_api_key
+  - name: telegram
+    platform: telegram
+    chat_id: !secret telegram_chat_id1
 #  - name: chrome
 #    platform: html5
 #    gcm_api_key: !secret chrome_gcm_api_key
 #    gcm_sender_id: !secret chrome_gcm_sender_id
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_bot_api
+    allowed_chat_ids:
+      - !secret telegram_chat_id1
+
 
 media_player:
   - platform: cast

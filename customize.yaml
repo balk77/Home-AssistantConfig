@@ -110,4 +110,20 @@ sensor.zolder_multisensor_temperature:
 sensor.slaapkamer_dide_gemeten_temperatuur:
   friendly_name: Kamer Dide
 sensor.zolder_delta_t:
-  friendly_name: Zolder delta T  
+  friendly_name: Zolder delta T
+script.woonkamer_low:
+  friendly_name: Woonkamer low
+  can_cancel: false
+script.woonkamer_off:
+  friendly_name: Woonkamer off
+  can_cancel: false
+script.woonkamer_medium:
+  friendly_name: Woonkamer Medium
+  can_cancel: false
+script.woonkamer_full:
+  friendly_name: Woonkamer Full
+  can_cancel: false
+sensor.delft_irradiance:
+  friendly_name: Zoninstraling
+sensor.delft_precipitation_forecast_total:
+  friendly_name: Regen komend uur

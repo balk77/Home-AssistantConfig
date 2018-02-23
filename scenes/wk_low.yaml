@@ -19,8 +19,6 @@ entities:
     state: off
   light.keuken_plafond_level:
     state: off
-  light.mbr_plafond_level:
-    state: off
   switch.keuken_aanrecht_switch_2:
     state: on
   light.wk_achter_plafond_level:

@@ -1,0 +1,166 @@
+2018-02-21 18:55:06.815493 WARNING ------------------------------------------------------------
+2018-02-21 18:55:06.815951 WARNING Unexpected error during loading of thermostaatavond.py:
+2018-02-21 18:55:06.816313 WARNING ------------------------------------------------------------
+2018-02-21 18:55:06.819291 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 901, in read_app
+    conf.modules[module_name] = importlib.import_module(module_name)
+  File "/usr/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 661, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 767, in get_code
+  File "<frozen importlib._bootstrap_external>", line 727, in source_to_code
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 1
+    i mport appdaemon.appapi as appapi
+          ^
+SyntaxError: invalid syntax
+
+2018-02-21 18:55:06.819675 WARNING ------------------------------------------------------------
+2018-02-21 18:55:07.000641 WARNING ------------------------------------------------------------
+2018-02-21 18:55:07.000905 WARNING Unexpected error during loading of appdaemonalive.py:
+2018-02-21 18:55:07.001076 WARNING ------------------------------------------------------------
+2018-02-21 18:55:07.001803 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 901, in read_app
+    conf.modules[module_name] = importlib.import_module(module_name)
+  File "/usr/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 958, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 673, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 661, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 767, in get_code
+  File "<frozen importlib._bootstrap_external>", line 727, in source_to_code
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/sander/hass/homeassistant/appdaemon/apps/appdaemonalive.py", line 1
+    i mport appdaemon.appapi as appapi
+          ^
+SyntaxError: invalid syntax
+
+2018-02-21 18:55:07.002110 WARNING ------------------------------------------------------------
+2018-02-21 19:56:10.874097 WARNING ------------------------------------------------------------
+2018-02-21 19:56:10.874576 WARNING Unexpected error in worker for App thermostaatavond:
+2018-02-21 19:56:10.875024 WARNING Worker Ags: {'new_state': '21.0', 'function': <bound method thermostaatavond.inputhandler of <thermostaatavond.thermostaatavond object at 0x7fdf4036c2e8>>, 'attribute': 'state', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('8e6c7728-7cdf-4d76-81e9-85c9e16b9508'), 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'name': 'thermostaatavond'}
+2018-02-21 19:56:10.875367 WARNING ------------------------------------------------------------
+2018-02-21 19:56:10.876319 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 14, in inputhandler
+    now = datetime.datetime.now()
+NameError: name 'datetime' is not defined
+
+2018-02-21 19:56:10.876692 WARNING ------------------------------------------------------------
+2018-02-21 19:57:10.892414 WARNING ------------------------------------------------------------
+2018-02-21 19:57:10.892944 WARNING Unexpected error in worker for App thermostaatavond:
+2018-02-21 19:57:10.893302 WARNING Worker Ags: {'new_state': '20.5', 'function': <bound method thermostaatavond.inputhandler of <thermostaatavond.thermostaatavond object at 0x7fdf3c2a7c88>>, 'attribute': 'state', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c433e827-4e3b-4b22-a6be-5b4832da0c89'), 'old_state': '21.0', 'type': 'attr', 'kwargs': {}, 'name': 'thermostaatavond'}
+2018-02-21 19:57:10.893551 WARNING ------------------------------------------------------------
+2018-02-21 19:57:10.899305 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 28, in inputhandler
+    jsondata = json.dumps(body1)
+NameError: name 'json' is not defined
+
+2018-02-21 19:57:10.901791 WARNING ------------------------------------------------------------
+2018-02-21 21:53:45.006001 WARNING ------------------------------------------------------------
+2018-02-21 21:53:45.006380 WARNING Unexpected error during loading of thermostaatavond.py:
+2018-02-21 21:53:45.006636 WARNING ------------------------------------------------------------
+2018-02-21 21:53:45.009143 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 890, in read_app
+    importlib.reload(conf.modules[module_name])
+  File "/usr/lib/python3.5/importlib/__init__.py", line 166, in reload
+    _bootstrap._exec(spec, module)
+  File "<frozen importlib._bootstrap>", line 626, in _exec
+  File "<frozen importlib._bootstrap_external>", line 661, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 767, in get_code
+  File "<frozen importlib._bootstrap_external>", line 727, in source_to_code
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 92
+    self.set_state("input_boolean.iftt_temp_triggered, state="on")
+                                                               ^
+SyntaxError: invalid syntax
+
+2018-02-21 21:53:45.009843 WARNING ------------------------------------------------------------
+2018-02-21 23:01:35.006888 WARNING ------------------------------------------------------------
+2018-02-21 23:01:35.007235 WARNING Unexpected error during loading of thermostaatavond.py:
+2018-02-21 23:01:35.007451 WARNING ------------------------------------------------------------
+2018-02-21 23:01:35.008233 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 890, in read_app
+    importlib.reload(conf.modules[module_name])
+  File "/usr/lib/python3.5/importlib/__init__.py", line 166, in reload
+    _bootstrap._exec(spec, module)
+  File "<frozen importlib._bootstrap>", line 626, in _exec
+  File "<frozen importlib._bootstrap_external>", line 661, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 767, in get_code
+  File "<frozen importlib._bootstrap_external>", line 727, in source_to_code
+  File "<frozen importlib._bootstrap>", line 222, in _call_with_frames_removed
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 51
+    self.set_state("input_boolean.iftt_temp_triggered, state="on")
+                                                               ^
+SyntaxError: invalid syntax
+
+2018-02-21 23:01:35.008538 WARNING ------------------------------------------------------------
+2018-02-22 23:26:47.811645 WARNING ------------------------------------------------------------
+2018-02-22 23:26:47.812503 WARNING Unexpected error in worker for App wk_abshumidity:
+2018-02-22 23:26:47.813718 WARNING Worker Ags: {'new_state': '45.90', 'function': <bound method rel2abs.inputhandler of <rel2abshumidity.rel2abs object at 0x7fdf403a3978>>, 'attribute': 'state', 'entity': 'sensor.wk_relhumidity', 'id': UUID('70682ea8-c7ab-444c-b1b0-05c6468f7f27'), 'old_state': 'unknown', 'type': 'attr', 'kwargs': {}, 'name': 'wk_abshumidity'}
+2018-02-22 23:26:47.814123 WARNING ------------------------------------------------------------
+2018-02-22 23:26:47.815653 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/rel2abshumidity.py", line 9, in inputhandler
+    temperature = float(self.get_state(self.args["temperature"]))
+ValueError: could not convert string to float: 'unknown'
+
+2018-02-22 23:26:47.816021 WARNING ------------------------------------------------------------
+2018-02-22 23:27:47.817563 WARNING ------------------------------------------------------------
+2018-02-22 23:27:47.817985 WARNING Unexpected error in worker for App wk_abshumidity:
+2018-02-22 23:27:47.818354 WARNING Worker Ags: {'new_state': '45.70', 'function': <bound method rel2abs.inputhandler of <rel2abshumidity.rel2abs object at 0x7fdf403a3978>>, 'attribute': 'state', 'entity': 'sensor.wk_relhumidity', 'id': UUID('70682ea8-c7ab-444c-b1b0-05c6468f7f27'), 'old_state': '45.90', 'type': 'attr', 'kwargs': {}, 'name': 'wk_abshumidity'}
+2018-02-22 23:27:47.818753 WARNING ------------------------------------------------------------
+2018-02-22 23:27:47.819459 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/rel2abshumidity.py", line 9, in inputhandler
+    temperature = float(self.get_state(self.args["temperature"]))
+ValueError: could not convert string to float: 'unknown'
+
+2018-02-22 23:27:47.819817 WARNING ------------------------------------------------------------
+2018-02-22 23:28:47.809587 WARNING ------------------------------------------------------------
+2018-02-22 23:28:47.810038 WARNING Unexpected error in worker for App wk_abshumidity:
+2018-02-22 23:28:47.810523 WARNING Worker Ags: {'new_state': '43.50', 'function': <bound method rel2abs.inputhandler of <rel2abshumidity.rel2abs object at 0x7fdf403a3978>>, 'attribute': 'state', 'entity': 'sensor.wk_relhumidity', 'id': UUID('70682ea8-c7ab-444c-b1b0-05c6468f7f27'), 'old_state': '45.70', 'type': 'attr', 'kwargs': {}, 'name': 'wk_abshumidity'}
+2018-02-22 23:28:47.810830 WARNING ------------------------------------------------------------
+2018-02-22 23:28:47.811331 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/rel2abshumidity.py", line 9, in inputhandler
+    temperature = float(self.get_state(self.args["temperature"]))
+ValueError: could not convert string to float: 'unknown'
+
+2018-02-22 23:28:47.811626 WARNING ------------------------------------------------------------
+2018-02-23 17:08:04.210015 WARNING ------------------------------------------------------------
+2018-02-23 17:08:04.211446 WARNING Unexpected error in worker for App wk_abshumidity:
+2018-02-23 17:08:04.212469 WARNING Worker Ags: {'new_state': '50.20', 'function': <bound method rel2abs.inputhandler of <rel2abshumidity.rel2abs object at 0x7fdf403a3978>>, 'attribute': 'state', 'entity': 'sensor.wk_relhumidity', 'id': UUID('70682ea8-c7ab-444c-b1b0-05c6468f7f27'), 'old_state': '43.50', 'type': 'attr', 'kwargs': {}, 'name': 'wk_abshumidity'}
+2018-02-23 17:08:04.212705 WARNING ------------------------------------------------------------
+2018-02-23 17:08:04.217070 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/rel2abshumidity.py", line 9, in inputhandler
+    temperature = float(self.get_state(self.args["temperature"]))
+ValueError: could not convert string to float: 'unknown'
+
+2018-02-23 17:08:04.217407 WARNING ------------------------------------------------------------
+2018-02-23 17:09:04.209917 WARNING ------------------------------------------------------------
+2018-02-23 17:09:04.210284 WARNING Unexpected error in worker for App wk_abshumidity:
+2018-02-23 17:09:04.210672 WARNING Worker Ags: {'new_state': '49.40', 'function': <bound method rel2abs.inputhandler of <rel2abshumidity.rel2abs object at 0x7fdf403a3978>>, 'attribute': 'state', 'entity': 'sensor.wk_relhumidity', 'id': UUID('70682ea8-c7ab-444c-b1b0-05c6468f7f27'), 'old_state': '50.20', 'type': 'attr', 'kwargs': {}, 'name': 'wk_abshumidity'}
+2018-02-23 17:09:04.210930 WARNING ------------------------------------------------------------
+2018-02-23 17:09:04.211367 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/rel2abshumidity.py", line 9, in inputhandler
+    temperature = float(self.get_state(self.args["temperature"]))
+ValueError: could not convert string to float: 'unknown'
+
+2018-02-23 17:09:04.211632 WARNING ------------------------------------------------------------

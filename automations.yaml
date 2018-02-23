@@ -113,8 +113,8 @@
       scene_id: 1
   action:
     #service: rest_command.play_pause
-    service: scene.turn_on
-    entity_id: scene.woonkamer_low
+    service: script.turn_on
+    entity_id: script.woonkamer_low
 - id: Hank_wk2
   alias: Hank wk2
   trigger:
@@ -124,8 +124,8 @@
       entity_id: zwave.hank_knop_wk
       scene_id: 2
   action:
-    service: scene.turn_on
-    entity_id: scene.woonkamer_medium
+    service: script.turn_on
+    entity_id: script.woonkamer_medium
 - id: Hank_wk3
   alias: Hank wk3
   trigger:
@@ -135,8 +135,8 @@
       entity_id: zwave.hank_knop_wk
       scene_id: 3
   action:
-    - service: scene.turn_on
-      entity_id: scene.woonkamer_off
+    - service: script.turn_on
+      entity_id: script.woonkamer_off
     - service: input_boolean.turn_on
       entity_id: input_boolean.huis_slaapstand
 - id: Hank_wk4
@@ -148,77 +148,79 @@
       entity_id: zwave.hank_knop_wk
       scene_id: 4
   action:
-    service: scene.turn_on
-    entity_id: scene.woonkamer_full
-- id: Thermostaat_1
-  alias: Thermostaat 1
-  trigger:
-  - entity_id: sensor.thermostaat_tempsetpoint
-    platform: numeric_state
-    below: 15.1
-  condition:
-  - condition: and
-    conditions:
-    - condition: or
-      conditions:
-      - condition: time
-        after: '20:00:00'
-      - condition: time
-        before: '2:00:00'
-    - condition: state
-      entity_id: group.woonkamer
-      state: 'on'
-    - condition: state
-      entity_id: sensor.thermostaat_activeprogram
-      state: '0'
-  action:
-    - service: ifttt.trigger
-      data_template:
-        event: "SetTemp"
-        value1: >
-          {{ states.sensor.maxtempsetpoint.state }}
-    - delay: '00:00:01'
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.iftt_temp_triggered_SP
-        value: >
-          {{ states.sensor.maxtempsetpoint.state }}
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.iftt_temp_triggered
-- id: Thermostaat_2
-  alias: Thermostaat 2
-  trigger:
-  - platform: state
-    entity_id: group.woonkamer
-    to: 'off'
-    for:
-      minutes: 5
-  condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: sensor.thermostaat_activeprogram
-      state: '0'
-    - condition: or
-      conditions:
-      - condition: time
-        after: '20:00:00'
-      - condition: time
-        before: '2:00:00'
-  action:
-    - service: ifttt.trigger
-      data:
-        event: "SetTemp"
-        value1: 15
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.iftt_temp_triggered_sp
-        value: 15
-    - delay: '00:00:01'
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.iftt_temp_triggered
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.huis_slaapstand
+    service: script.turn_on
+    entity_id: script.woonkamer_full
+# - id: Thermostaat_1
+#   initial_state: false
+#   alias: Thermostaat 1
+#   trigger:
+#   - entity_id: sensor.thermostaat_tempsetpoint
+#     platform: numeric_state
+#     below: 15.1
+#   condition:
+#   - condition: and
+#     conditions:
+#     - condition: or
+#       conditions:
+#       - condition: time
+#         after: '20:00:00'
+#       - condition: time
+#         before: '2:00:00'
+#     - condition: state
+#       entity_id: group.woonkamer
+#       state: 'on'
+#     - condition: state
+#       entity_id: sensor.thermostaat_activeprogram
+#       state: '0'
+#   action:
+#     - service: ifttt.trigger
+#       data_template:
+#         event: "SetTemp"
+#         value1: >
+#           {{ states.sensor.maxtempsetpoint.state }}
+#     - delay: '00:00:01'
+#     - service: input_number.set_value
+#       data_template:
+#         entity_id: input_number.iftt_temp_triggered_SP
+#         value: >
+#           {{ states.sensor.maxtempsetpoint.state }}
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.iftt_temp_triggered
+# - id: Thermostaat_2
+#   initial_state: false
+#   alias: Thermostaat 2
+#   trigger:
+#   - platform: state
+#     entity_id: group.woonkamer
+#     to: 'off'
+#     for:
+#       minutes: 5
+#   condition:
+#   - condition: and
+#     conditions:
+#     - condition: state
+#       entity_id: sensor.thermostaat_activeprogram
+#       state: '0'
+#     - condition: or
+#       conditions:
+#       - condition: time
+#         after: '20:00:00'
+#       - condition: time
+#         before: '2:00:00'
+#   action:
+#     - service: ifttt.trigger
+#       data:
+#         event: "SetTemp"
+#         value1: 15
+#     - service: input_number.set_value
+#       data_template:
+#         entity_id: input_number.iftt_temp_triggered_sp
+#         value: 15
+#     - delay: '00:00:01'
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.iftt_temp_triggered
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.huis_slaapstand
 - id: Thermostaat_3
   alias: Thermostaat 3
   trigger:
@@ -288,6 +290,54 @@
       data:
         entity_id: light.wk_muur_level
         brightness: 50
+    # kerstboom, zet deze aan om de kerstboom te schakelen
+    # ook in groups.yaml
+    #- service: switch.turn_on
+    #  entity_id: switch.fibaro_switch_switch
+- id: wk_muur3
+  alias: WK Muur na zonsopgang uit
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 8
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: group.woonkamer_ex_muur
+      state: 'off'
+    - condition: time
+      before: "12:00:00"
+  action:
+    # kerstboom, zet deze aan om de kerstboom te schakelen
+    # ook in groups.yaml
+    #- service: switch.turn_off
+    #  entity_id: switch.fibaro_switch_switch
+    # bankje
+    - service: light.turn_off
+      data:
+        entity_id: light.wk_muur_level
+- id: wk_muur4
+  alias: WK Muur uit bij geen Beweging
+  trigger:
+    - entity_id: sensor.wk_multisensor_burglar
+      platform: state
+      to: '0'
+      for:
+        minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states.sun.sun.attributes.elevation  | int > 8 }}"
+      - condition: state
+        entity_id: input_boolean.huis_slaapstand
+        state: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.wk_muur_level
     # kerstboom, zet deze aan om de kerstboom te schakelen
     # ook in groups.yaml
     #- service: switch.turn_on
@@ -454,8 +504,8 @@
       entity_id: input_boolean.occupancy_simulation
       state: 'on'
   action:
-    service: scene.turn_on
-    entity_id: scene.woonkamer_low
+    service: script.turn_on
+    entity_id: script.woonkamer_low
 - id: occupancy_sim_off
   trigger:
     - platform: state
@@ -621,3 +671,24 @@
 # - id: boilerstatus_60sec
 #   trigger:
 #     platform: template
+- id: pingpong
+  alias: 'Telegram bot that reply pong to ping'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/ping'
+  # action:
+  #   service: notify.telegram
+  #   data:
+  #     title: '*Send a message*'
+  #     message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+  #     data:
+  #       inline_keyboard:
+  #         - 'Task 1:/command1, Task 2:/command2'
+  #         - 'Task 3:/command3, Task 4:/command4'
+  action:
+    - service: notify.telegram
+      data:
+        message: "pong\npang"
