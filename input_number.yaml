@@ -4,11 +4,19 @@ iftt_temp_triggered_sp:
   min: 0
   max: 25
   mode: box
+  step: 0.5
 slaapkamer_dide_setpoint:
   name: Slaapkamer Dide Setpoint
   min: 10
   max: 25
-  mode: box
+  mode: slider
+  step: 0.5
+hass_tempsetpoint:
+  name: Gewenste Temperatuur
+  min: 15
+  max: 25
+  mode: slider
+  step: 0.5
 zolder_ventilatie:
   name: Ventilatie op zolder
   min: 0

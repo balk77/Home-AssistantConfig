@@ -13,4 +13,5 @@ class appdaemonalive(appapi.AppDaemon):
     def set_alive(self, kwargs):
         self.log("AppDaemon = alive")
 
+
         self.set_state("input_boolean.appdaemon_alive", state="on")

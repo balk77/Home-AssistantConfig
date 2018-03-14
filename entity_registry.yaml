@@ -1,384 +1,516 @@
 light.woonkamer_eettafel:
+  name:
   platform: hue
   unique_id: 00:17:88:5E:D3:07-07
 light.bankje:
+  name:
   platform: hue
   unique_id: 00:17:88:5E:D3:02-02
 light.keuken_koof:
+  name:
   platform: hue
   unique_id: 00:17:88:5E:D3:05-05
 light.keuken_aanrecht:
+  name:
   platform: hue
   unique_id: 00:17:88:5E:D3:06-06
 light.keuken_plafond:
+  name:
   platform: hue
   unique_id: 00:17:88:5E:D3:03-03
 light.woonkamer_plafond_achter:
+  name:
   platform: hue
   unique_id: 00:17:88:5E:D3:04-04
 light.woonkamer_schemerlamp:
+  name:
   platform: hue
   unique_id: 00:17:88:5E:D3:08-08
 binary_sensor.wk_multisensor_sensor:
+  name:
   platform: zwave
   unique_id: 3-72057594093240320
 sensor.wk_multisensor_temperature:
+  name:
   platform: zwave
   unique_id: 3-72057594093256722
 sensor.wk_multisensor_luminance:
+  name:
   platform: zwave
   unique_id: 3-72057594093256754
 sensor.wk_multisensor_relative_humidity:
+  name:
   platform: zwave
   unique_id: 3-72057594093256786
 sensor.wk_multisensor_ultraviolet:
+  name:
   platform: zwave
   unique_id: 3-72057594093257138
 sensor.wk_multisensor_alarm_type:
+  name:
   platform: zwave
   unique_id: 3-72057594094305281
 sensor.wk_multisensor_alarm_level:
+  name:
   platform: zwave
   unique_id: 3-72057594094305297
 sensor.wk_multisensor_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 3-72057594094305313
 sensor.wk_multisensor_burglar:
+  name:
   platform: zwave
   unique_id: 3-72057594094305441
 switch.fibaro_switch_switch:
+  name:
   platform: zwave
   unique_id: 4-72057594109837312
 sensor.fibaro_switch_power:
+  name:
   platform: zwave
   unique_id: 4-72057594110033986
 sensor.fibaro_switch_energy:
+  name:
   platform: zwave
   unique_id: 4-72057594110050306
 sensor.fibaro_switch_power_2:
+  name:
   platform: zwave
   unique_id: 4-72057594110050434
 sensor.fibaro_switch_exporting:
+  name:
   platform: zwave
   unique_id: 4-72057594110050816
 switch.schemerlamp_switch:
+  name:
   platform: zwave
   unique_id: 8-72057594176946176
 light.keuken_koof_level:
+  name:
   platform: zwave
   unique_id: 9-72057594193739777
 light.keuken_koof_level_2:
+  name:
   platform: zwave
   unique_id: 9-144115188231667713
 sensor.keuken_koof_power:
+  name:
   platform: zwave
   unique_id: 9-72057594193920066
 sensor.keuken_koof_energy:
+  name:
   platform: zwave
   unique_id: 9-72057594193936386
 sensor.keuken_koof_power_2:
+  name:
   platform: zwave
   unique_id: 9-72057594193936514
 sensor.keuken_koof_exporting:
+  name:
   platform: zwave
   unique_id: 9-72057594193936896
 sensor.keuken_koof_alarm_type:
+  name:
   platform: zwave
   unique_id: 9-72057594194968577
 sensor.keuken_koof_alarm_level:
+  name:
   platform: zwave
   unique_id: 9-72057594194968593
 sensor.keuken_koof_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 9-72057594194968609
 sensor.keuken_koof_heat:
+  name:
   platform: zwave
   unique_id: 9-72057594194968689
 sensor.keuken_koof_power_management:
+  name:
   platform: zwave
   unique_id: 9-72057594194968753
 sensor.keuken_koof_system:
+  name:
   platform: zwave
   unique_id: 9-72057594194968769
 light.wk_eettafel_plafond_level:
+  name:
   platform: zwave
   unique_id: 12-72057594244071425
 light.wk_eettafel_plafond_level_2:
+  name:
   platform: zwave
   unique_id: 12-144115188281999361
 sensor.wk_eettafel_plafond_power:
+  name:
   platform: zwave
   unique_id: 12-72057594244251714
 sensor.wk_eettafel_plafond_energy:
+  name:
   platform: zwave
   unique_id: 12-72057594244268034
 sensor.wk_eettafel_plafond_power_2:
+  name:
   platform: zwave
   unique_id: 12-72057594244268162
 sensor.wk_eettafel_plafond_exporting:
+  name:
   platform: zwave
   unique_id: 12-72057594244268544
 sensor.wk_eettafel_plafond_alarm_type:
+  name:
   platform: zwave
   unique_id: 12-72057594245300225
 sensor.wk_eettafel_plafond_alarm_level:
+  name:
   platform: zwave
   unique_id: 12-72057594245300241
 sensor.wk_eettafel_plafond_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 12-72057594245300257
 sensor.wk_eettafel_plafond_heat:
+  name:
   platform: zwave
   unique_id: 12-72057594245300337
 sensor.wk_eettafel_plafond_power_management:
+  name:
   platform: zwave
   unique_id: 12-72057594245300401
 sensor.wk_eettafel_plafond_system:
+  name:
   platform: zwave
   unique_id: 12-72057594245300417
 light.badkamer_plafond_level:
+  name:
   platform: zwave
   unique_id: 13-72057594260848641
 light.badkamer_plafond_level_2:
+  name:
   platform: zwave
   unique_id: 13-144115188298776577
 sensor.badkamer_plafond_power:
+  name:
   platform: zwave
   unique_id: 13-72057594261028930
 sensor.badkamer_plafond_energy:
+  name:
   platform: zwave
   unique_id: 13-72057594261045250
 sensor.badkamer_plafond_power_2:
+  name:
   platform: zwave
   unique_id: 13-72057594261045378
 sensor.badkamer_plafond_exporting:
+  name:
   platform: zwave
   unique_id: 13-72057594261045760
 sensor.badkamer_plafond_alarm_type:
+  name:
   platform: zwave
   unique_id: 13-72057594262077441
 sensor.badkamer_plafond_alarm_level:
+  name:
   platform: zwave
   unique_id: 13-72057594262077457
 sensor.badkamer_plafond_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 13-72057594262077473
 sensor.badkamer_plafond_heat:
+  name:
   platform: zwave
   unique_id: 13-72057594262077553
 sensor.badkamer_plafond_power_management:
+  name:
   platform: zwave
   unique_id: 13-72057594262077617
 sensor.badkamer_plafond_system:
+  name:
   platform: zwave
   unique_id: 13-72057594262077633
 light.mbr_plafond_level:
+  name:
   platform: zwave
   unique_id: 14-72057594277625857
 light.mbr_plafond_level_2:
+  name:
   platform: zwave
   unique_id: 14-144115188315553793
 sensor.mbr_plafond_power:
+  name:
   platform: zwave
   unique_id: 14-72057594277806146
 sensor.mbr_plafond_energy:
+  name:
   platform: zwave
   unique_id: 14-72057594277822466
 sensor.mbr_plafond_power_2:
+  name:
   platform: zwave
   unique_id: 14-72057594277822594
 sensor.mbr_plafond_exporting:
+  name:
   platform: zwave
   unique_id: 14-72057594277822976
 sensor.mbr_plafond_alarm_type:
+  name:
   platform: zwave
   unique_id: 14-72057594278854657
 sensor.mbr_plafond_alarm_level:
+  name:
   platform: zwave
   unique_id: 14-72057594278854673
 sensor.mbr_plafond_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 14-72057594278854689
 sensor.mbr_plafond_heat:
+  name:
   platform: zwave
   unique_id: 14-72057594278854769
 sensor.mbr_plafond_power_management:
+  name:
   platform: zwave
   unique_id: 14-72057594278854833
 sensor.mbr_plafond_system:
+  name:
   platform: zwave
   unique_id: 14-72057594278854849
 binary_sensor.zolder_multisensor_sensor:
+  name:
   platform: zwave
   unique_id: 15-72057594294566912
 sensor.zolder_multisensor_temperature:
+  name:
   platform: zwave
   unique_id: 15-72057594294583314
 sensor.zolder_multisensor_luminance:
+  name:
   platform: zwave
   unique_id: 15-72057594294583346
 sensor.zolder_multisensor_relative_humidity:
+  name:
   platform: zwave
   unique_id: 15-72057594294583378
 sensor.zolder_multisensor_ultraviolet:
+  name:
   platform: zwave
   unique_id: 15-72057594294583730
 sensor.zolder_multisensor_alarm_type:
+  name:
   platform: zwave
   unique_id: 15-72057594295631873
 sensor.zolder_multisensor_alarm_level:
+  name:
   platform: zwave
   unique_id: 15-72057594295631889
 sensor.zolder_multisensor_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 15-72057594295631905
 sensor.zolder_multisensor_burglar:
+  name:
   platform: zwave
   unique_id: 15-72057594295632033
 light.wk_achter_plafond_level:
+  name:
   platform: zwave
   unique_id: 17-72057594327957505
 light.wk_achter_plafond_level_2:
+  name:
   platform: zwave
   unique_id: 17-144115188365885441
 sensor.wk_achter_plafond_power:
+  name:
   platform: zwave
   unique_id: 17-72057594328137794
 sensor.wk_achter_plafond_energy:
+  name:
   platform: zwave
   unique_id: 17-72057594328154114
 sensor.wk_achter_plafond_power_2:
+  name:
   platform: zwave
   unique_id: 17-72057594328154242
 sensor.wk_achter_plafond_exporting:
+  name:
   platform: zwave
   unique_id: 17-72057594328154624
 sensor.wk_achter_plafond_alarm_type:
+  name:
   platform: zwave
   unique_id: 17-72057594329186305
 sensor.wk_achter_plafond_alarm_level:
+  name:
   platform: zwave
   unique_id: 17-72057594329186321
 sensor.wk_achter_plafond_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 17-72057594329186337
 sensor.wk_achter_plafond_heat:
+  name:
   platform: zwave
   unique_id: 17-72057594329186417
 sensor.wk_achter_plafond_power_management:
+  name:
   platform: zwave
   unique_id: 17-72057594329186481
 sensor.wk_achter_plafond_system:
+  name:
   platform: zwave
   unique_id: 17-72057594329186497
 switch.keuken_aanrecht_switch:
+  name: Keuken Aanrecht
   platform: zwave
   unique_id: 19-72057594361495552
 switch.keuken_aanrecht_switch_2:
+  name:
   platform: zwave
   unique_id: 19-144115188399423488
 sensor.keuken_aanrecht_energy:
+  name:
   platform: zwave
   unique_id: 19-72057594361708546
 sensor.keuken_aanrecht_energy_2:
+  name:
   platform: zwave
   unique_id: 19-144115188399636482
 sensor.keuken_aanrecht_power:
+  name:
   platform: zwave
   unique_id: 19-72057594361708674
 sensor.keuken_aanrecht_exporting:
+  name:
   platform: zwave
   unique_id: 19-72057594361709056
 sensor.keuken_aanrecht_power_2:
+  name:
   platform: zwave
   unique_id: 19-144115188399636610
 sensor.keuken_aanrecht_exporting_2:
+  name:
   platform: zwave
   unique_id: 19-144115188399636992
 sensor.keuken_aanrecht_alarm_type:
+  name:
   platform: zwave
   unique_id: 19-72057594362740737
 sensor.keuken_aanrecht_alarm_level:
+  name:
   platform: zwave
   unique_id: 19-72057594362740753
 sensor.keuken_aanrecht_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 19-72057594362740769
 sensor.keuken_aanrecht_heat:
+  name:
   platform: zwave
   unique_id: 19-72057594362740849
 sensor.keuken_aanrecht_power_management:
+  name:
   platform: zwave
   unique_id: 19-72057594362740913
 light.wk_muur_level:
+  name:
   platform: zwave
   unique_id: 20-72057594378289153
 light.wk_muur_level_2:
+  name:
   platform: zwave
   unique_id: 20-144115188416217089
 sensor.wk_muur_power:
+  name:
   platform: zwave
   unique_id: 20-72057594378469442
 sensor.wk_muur_energy:
+  name:
   platform: zwave
   unique_id: 20-72057594378485762
 sensor.wk_muur_power_2:
+  name:
   platform: zwave
   unique_id: 20-72057594378485890
 sensor.wk_muur_exporting:
+  name:
   platform: zwave
   unique_id: 20-72057594378486272
 sensor.wk_muur_alarm_type:
+  name:
   platform: zwave
   unique_id: 20-72057594379517953
 sensor.wk_muur_alarm_level:
+  name:
   platform: zwave
   unique_id: 20-72057594379517969
 sensor.wk_muur_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 20-72057594379517985
 sensor.wk_muur_heat:
+  name:
   platform: zwave
   unique_id: 20-72057594379518065
 sensor.wk_muur_power_management:
+  name:
   platform: zwave
   unique_id: 20-72057594379518129
 sensor.wk_muur_system:
+  name:
   platform: zwave
   unique_id: 20-72057594379518145
 light.keuken_plafond_level:
+  name:
   platform: zwave
   unique_id: 21-72057594395066369
 light.keuken_plafond_level_2:
+  name:
   platform: zwave
   unique_id: 21-144115188432994305
 sensor.keuken_plafond_power:
+  name:
   platform: zwave
   unique_id: 21-72057594395246658
 sensor.keuken_plafond_energy:
+  name:
   platform: zwave
   unique_id: 21-72057594395262978
 sensor.keuken_plafond_power_2:
+  name:
   platform: zwave
   unique_id: 21-72057594395263106
 sensor.keuken_plafond_exporting:
+  name:
   platform: zwave
   unique_id: 21-72057594395263488
 sensor.keuken_plafond_alarm_type:
+  name:
   platform: zwave
   unique_id: 21-72057594396295169
 sensor.keuken_plafond_alarm_level:
+  name:
   platform: zwave
   unique_id: 21-72057594396295185
 sensor.keuken_plafond_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 21-72057594396295201
 sensor.keuken_plafond_heat:
+  name:
   platform: zwave
   unique_id: 21-72057594396295281
 sensor.keuken_plafond_power_management:
+  name:
   platform: zwave
   unique_id: 21-72057594396295345
 sensor.keuken_plafond_system:
+  name:
   platform: zwave
   unique_id: 21-72057594396295361
+media_player.huiskamer:
+  name:
+  platform: cast
+  unique_id: 5d0a2e3f-b4d1-0e2a-0539-1f77d07cee97

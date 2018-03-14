@@ -38,6 +38,7 @@ weer:
     - group.weermorgen
     - group.weervandaag
     - group.zonnescherm
+    - group.darksky
 verlichting:
   name: Verlichting
   view: yes
@@ -57,6 +58,7 @@ woonkamer:
     - light.keuken_koof_level
     - switch.schemerlamp_switch
     - switch.keuken_aanrecht_switch
+    #- light.woonkamer_verlichting_groep
     #- switch.fibaro_switch_switch # zet deze aan om de kerstboom te schakelen
 woonkamer_scenes:
   name: Woonkamer Scenes
@@ -149,8 +151,27 @@ nefit:
     - sensor.wk_thermostaat_PV
     - sensor.wk_boilerstatus
     - sensor.hotwater
+    - group.thermostaat_woonkamer
     - group.slaapkamer_dide
     #- states.climate.heating.attributes.boiler_indicator
+thermostaat_woonkamer:
+  name: Thermostaat Woonkamer
+  entities:
+    - sensor.thermostaat_tempsetpoint
+    - sensor.wk_thermostaat_PV
+    - input_number.hass_tempsetpoint
+    - sensor.wk_boilerstatus
+    - sensor.hotwater
+    - input_boolean.nefit_programma
+darksky:
+  name: Dark Sky weer
+  entities:
+    - sensor.dark_sky_icon
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_wind_speed
 slaapkamer_dide:
   name: Slaapkamer Dide
   entities:
@@ -228,5 +249,8 @@ zolder:
         - group.zolder_ventilatie_moving
         - sensor.zolder_multisensor_temperature
         - sensor.slaapkamer_dide_gemeten_temperatuur
-        - sensor.pws_temp_c
+        - sensor.dark_sky_temperature
         - sensor.zolder_delta_t
+        - sensor.dide_temp
+        - sensor.fien_temp
+        - sensor.wk_delta_t

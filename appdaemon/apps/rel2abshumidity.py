@@ -11,7 +11,8 @@ class rel2abs(appapi.AppDaemon):
 
 
         abshumidity = round((6.112 * math.exp((17.67 * temperature)/(temperature+243.5)) * relhumidity * 2.1674)/(273.15+temperature),2);
-        # self.log("abshumidity")
-        # self.log(abshumidity)
+        self.log("abshumidity")
+        self.log(abshumidity)
 
-        status = self.set_state(self.args["abshumidity"], state=abshumidity)
+        status = self.set_state(self.args["abshumidity"], state=abshumidity, attributes={"unit_of_measurement":"mg/m3"})
+        self.call_service("mqtt/publish", topic=self.args["topic"], payload=abshumidity)

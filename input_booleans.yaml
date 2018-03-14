@@ -45,3 +45,6 @@ appdaemon_alive:
 shower:
   name: Douche actief?
   initial: off
+nefit_programma:
+  name: Nefit programma actief
+  initial: on

@@ -470,7 +470,7 @@
     data_template:
       topic: "/fhem/ThermDide/desiredTemperature/set"
       retain: true
-      payload: '{{ states.input_number.slaapkamer_dide_setpoint.state | int }}'
+      payload: '{{ states.input_number.slaapkamer_dide_setpoint.state }}'
 - id: beweging_zolder1
   alias: Beweging zolder aan
   trigger:
@@ -692,3 +692,23 @@
     - service: notify.telegram
       data:
         message: "pong\npang"
+- id: vals_woonkamer_on
+  alias: Detect vals aantal lampen aan in woonkamer
+  trigger:
+    - entity_id: sensor.wk_multisensor_burglar
+      platform: state
+      to: '0'
+      for:
+        minutes: 30
+  condition:
+    - condition: and
+      conditions:
+        - condition: time
+          after: "21:00:00"
+        - condition: template
+          value_template: "{{ states.sensor.woonkamer_number_of_lights_on.state | int <= 2  }}"
+  action:
+    - service: script.turn_on
+      entity_id: script.woonkamer_off
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.huis_slaapstand

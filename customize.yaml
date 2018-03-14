@@ -127,3 +127,15 @@ sensor.delft_irradiance:
   friendly_name: Zoninstraling
 sensor.delft_precipitation_forecast_total:
   friendly_name: Regen komend uur
+input_number.hass_tempsetpoint:
+  friendly_name: Gewenst set point
+sensor.thermostaat_tempsetpoint:
+  friendly_name: Set point op thermostaat
+sensor.thermostaat_activeprogram:
+  friendly_name: Programma op thermostaat
+sensor.dide_temp:
+  friendly_name: Temperatuur Dide ventilatie
+sensor.fien_temp:
+  friendly_name: Temperatuur Fien ventilatie
+sensor.wk_delta_t:
+  friendly_name: Woonkamer delta T
