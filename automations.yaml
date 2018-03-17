@@ -27,18 +27,18 @@
     data:
       target: device/Nexus5X
       message: "Version {{ states('sensor.current_version') }} for Home Assistant is available."
-- id: Schemerlamp
-  alias: Turn on Schemerlamp when sun sets
-  trigger:
-    platform: sun
-    event: sunset
-  condition:
-    condition: state
-    entity_id: group.all_devices
-    state: home
-  action:
-    service: switch.turn_on
-    entity_id: switch.__switch_8_0
+# - id: Schemerlamp
+#   alias: Turn on Schemerlamp when sun sets
+#   trigger:
+#     platform: sun
+#     event: sunset
+#   condition:
+#     condition: state
+#     entity_id: group.all_devices
+#     state: home
+#   action:
+#     service: switch.turn_on
+#     entity_id: switch.__switch_8_0
 - id: wasmachine_01
   alias: Washer Start
   trigger:
@@ -497,12 +497,9 @@
 - id: occupancy_sim_on
   alias: Simulate Occupancy - on
   trigger:
-    - platform: sun
-      event: sunset
-  condition:
-    - condition: state
+    - platform: state
       entity_id: input_boolean.occupancy_simulation
-      state: 'on'
+      to: 'on'
   action:
     service: script.turn_on
     entity_id: script.woonkamer_low
@@ -514,9 +511,6 @@
     - platform: state
       entity_id: sensor.wk_multisensor_burglar
       to: "3"
-  condition:
-    - condition: time
-      after: "18:10:00"
   action:
     service: input_boolean.turn_off
     entity_id: input_boolean.occupancy_simulation

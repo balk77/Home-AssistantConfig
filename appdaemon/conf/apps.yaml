@@ -81,3 +81,40 @@ thermostaatavond:
 thermostaat:
   module: thermostaat
   class: thermostaat
+
+Occupancy Simulator:
+  module: occusim
+  class: OccuSim
+  log: 1
+  #notify: 1
+  enable: input_boolean.occupancy_simulation,on
+  test: 1
+  dump_times: 1
+  #reset_time: 02:00:00
+
+
+  step_avond_vroeg_name: Vroege avond
+  step_avond_vroeg_start: sunset - 00:45:00
+  step_avond_vroeg_end: sunset - 00:10:00
+  step_avond_vroeg_on_1: script.woonkamer_medium
+
+  step_avond_laat_name: Late avond
+  step_avond_laat_start: 19:30:00
+  step_avond_laat_end: 20:00:00
+  step_avond_laat_on_1: script.woonkamer_low
+
+  step_bedtime_name: Bedtime
+  step_bedtime_start: 22:00:00
+  step_bedtime_end: 22:45:00
+  step_bedtime_on_1: light.mbr_plafond_level
+
+  step_downstairs_off_name: Downstairs Off
+  step_downstairs_off_relative: Bedtime
+  step_downstairs_off_start_offset: 00:00:10
+  step_downstairs_off_on_1: scene.woonkamer_off
+
+  step_goodnight_name: Goodnight
+  step_goodnight_relative: Bedtime
+  step_goodnight_start_offset: 00:05:00
+  step_goodnight_end_offset: 00:10:00
+  step_goodnight_off_1: light.mbr_plafond_level

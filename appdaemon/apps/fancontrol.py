@@ -84,6 +84,7 @@ class fancontrol(appapi.AppDaemon):
         runout_time = 900 # seconds
         if desiredStateHUM == "full":
             self.setfanstate("full")
+            status = self.set_state("input_boolean.shower", state="on")
         elif desiredStateHW == "high" or desiredStateHUM == "high":
             # Close the ventilation for the attic to force airflow from bathroom
             self.set_state("input_number.zolder_ventilatie", state=0)
@@ -143,16 +144,29 @@ class fancontrol(appapi.AppDaemon):
         humdelta = float(self.get_state("sensor.humdelta"))
         #humdelta = float(self.get_state("input_number.humdelta_dummy"))
 
-        if humdelta < 2:
+        # if humdelta < 2:
+        #     # fanstate low
+        #     desiredState = "low"
+        # elif humdelta >= 2 and humdelta < 4:
+        #     # fanstate medium
+        #     desiredState = "medium"
+        # if humdelta >= 4 and humdelta < 8:
+        #     # fanstate high
+        #     desiredState = "high"
+        # if humdelta >= 8:
+        #     desiredState = "full"
+
+
+        if humdelta < 5:
             # fanstate low
             desiredState = "low"
-        elif humdelta >= 2 and humdelta < 4:
+        elif humdelta >= 5 and humdelta < 10:
             # fanstate medium
             desiredState = "medium"
-        if humdelta >= 4 and humdelta < 8:
+        if humdelta >= 10 and humdelta < 15:
             # fanstate high
             desiredState = "high"
-        if humdelta >= 8:
+        if humdelta >= 15:
             desiredState = "full"
         return desiredState
 
