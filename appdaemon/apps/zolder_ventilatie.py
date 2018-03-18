@@ -83,7 +83,7 @@ class ZolderVentilatie(appapi.AppDaemon):
             self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/Power1", payload="off")
             self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/Power2", payload="off")
         # write DesiredPercentage value to Home Assistant for next time
-        self.set_state("input_number.zolder_ventilatie_old", state=DesiredPercentage)
+        self.select_value("input_number.zolder_ventilatie_old", DesiredPercentage)
 
         # Enable UI input after valve has stopped moving
         self.run_in(self.turn_on_handler, PulseTime_sec)

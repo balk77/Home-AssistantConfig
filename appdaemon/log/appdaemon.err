@@ -3286,3 +3286,454 @@ ValueError: could not convert string to float: 'undefined'
 TypeError: expected string or bytes-like object
 
 2018-03-17 20:53:42.070296 WARNING ------------------------------------------------------------
+2018-03-17 23:00:27.309902 WARNING ------------------------------------------------------------
+2018-03-17 23:00:27.315224 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-17 23:00:27.315653 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e7d72f780>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': '15.0', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('10e37621-4dae-4324-9691-e4eeff4a7a39'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-17 23:00:27.315917 WARNING ------------------------------------------------------------
+2018-03-17 23:00:27.316436 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 29, in inputhandler1
+    self.set_state("input_number.hass_tempsetpoint",maxtempsetpoint)
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appapi.py", line 20, in func_wrapper
+    return(func(*args, **kwargs))
+TypeError: set_state() takes 2 positional arguments but 3 were given
+
+2018-03-17 23:00:27.316857 WARNING ------------------------------------------------------------
+2018-03-17 23:21:27.552216 WARNING ------------------------------------------------------------
+2018-03-17 23:21:27.552414 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-17 23:21:27.552634 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e783eb7f0>>, 'old_state': '15.5', 'type': 'attr', 'kwargs': {}, 'new_state': '15.0', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('452f41c7-d9f5-4d19-9ec5-cdea49a14cf2'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-17 23:21:27.552807 WARNING ------------------------------------------------------------
+2018-03-17 23:21:27.553702 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 32, in inputhandler1
+    self.set_state("input_number.hass_tempsetpoint",maxtempsetpoint)
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appapi.py", line 20, in func_wrapper
+    return(func(*args, **kwargs))
+TypeError: set_state() takes 2 positional arguments but 3 were given
+
+2018-03-17 23:21:27.554070 WARNING ------------------------------------------------------------
+2018-03-17 23:23:07.573648 WARNING ------------------------------------------------------------
+2018-03-17 23:23:07.573914 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-17 23:23:07.574141 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e7d72f780>>, 'old_state': '15.5', 'type': 'attr', 'kwargs': {}, 'new_state': '15.0', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('b2ecf4f9-ac7c-45ab-af1f-da1848da7f48'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-17 23:23:07.574381 WARNING ------------------------------------------------------------
+2018-03-17 23:23:07.574989 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 35, in inputhandler1
+    self.set_state("input_number.hass_tempsetpoint",maxtempsetpoint)
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appapi.py", line 20, in func_wrapper
+    return(func(*args, **kwargs))
+TypeError: set_state() takes 2 positional arguments but 3 were given
+
+2018-03-17 23:23:07.575298 WARNING ------------------------------------------------------------
+2018-03-17 23:25:37.582424 WARNING ------------------------------------------------------------
+2018-03-17 23:25:37.582784 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-17 23:25:37.583125 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e78245240>>, 'old_state': '15.0', 'type': 'attr', 'kwargs': {}, 'new_state': '15.5', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('73ee866d-6f39-4370-9cb4-f46aff687f01'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-17 23:25:37.583403 WARNING ------------------------------------------------------------
+2018-03-17 23:25:37.583956 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 36, in inputhandler1
+    self.set_state("input_number.hass_tempsetpoint",maxtempsetpoint)
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appapi.py", line 20, in func_wrapper
+    return(func(*args, **kwargs))
+TypeError: set_state() takes 2 positional arguments but 3 were given
+
+2018-03-17 23:25:37.584324 WARNING ------------------------------------------------------------
+2018-03-18 03:00:00.008370 WARNING ------------------------------------------------------------
+2018-03-18 03:00:00.015342 WARNING Unexpected error during exec_schedule() for App: Occupancy Simulator
+2018-03-18 03:00:00.015768 WARNING Args: {'repeat': True, 'offset': 0, 'kwargs': {'interval': 86400}, 'type': None, 'basetime': 1521338400, 'id': UUID('0ef26c56-fa55-4b36-9e94-9800a420b394'), 'interval': 86400, 'timestamp': 1521338400, 'name': 'Occupancy Simulator', 'callback': <bound method OccuSim.create_events of <occusim.OccuSim object at 0x7f9e78251080>>}
+2018-03-18 03:00:00.016075 WARNING ------------------------------------------------------------
+2018-03-18 03:00:00.016671 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 313, in exec_schedule
+    "kwargs": args["kwargs"],
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 240, in dispatch_worker
+    for arg in conf.app_config[name].keys():
+KeyError: 'Occupancy Simulator'
+
+2018-03-18 03:00:00.017007 WARNING ------------------------------------------------------------
+2018-03-18 03:00:00.017499 WARNING Scheduler entry has been deleted
+2018-03-18 03:00:00.017742 WARNING ------------------------------------------------------------
+2018-03-18 09:50:24.064667 WARNING ------------------------------------------------------------
+2018-03-18 09:50:24.065003 WARNING Unexpected error:
+2018-03-18 09:50:24.065250 WARNING ------------------------------------------------------------
+2018-03-18 09:50:24.065833 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 856, in check_config
+    new_config[name]["module"], new_config[name]
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 583, in init_object
+    conf.objects[name]["object"].initialize()
+  File "/home/sander/hass/homeassistant/appdaemon/apps/occusim.py", line 32, in initialize
+    self.create_events({})
+  File "/home/sander/hass/homeassistant/appdaemon/apps/occusim.py", line 65, in create_events
+    start = self.parse_time(start_p)
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appapi.py", line 598, in parse_time
+    return utils.parse_time(time_str)
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/utils.py", line 193, in parse_time
+    parts = re.search('^(\d+):(\d+):(\d+)', time_str)
+  File "/usr/lib/python3.5/re.py", line 173, in search
+    return _compile(pattern, flags).search(string)
+TypeError: expected string or bytes-like object
+
+2018-03-18 09:50:24.066049 WARNING ------------------------------------------------------------
+2018-03-18 10:31:21.850853 WARNING ------------------------------------------------------------
+2018-03-18 10:31:21.851214 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 10:31:21.851469 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 10:31:21.851651 WARNING ------------------------------------------------------------
+2018-03-18 10:31:21.852170 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 10:31:21.852404 WARNING ------------------------------------------------------------
+2018-03-18 10:31:21.852957 WARNING ------------------------------------------------------------
+2018-03-18 10:31:21.853144 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 10:31:21.853359 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 10:31:21.853533 WARNING ------------------------------------------------------------
+2018-03-18 10:31:21.855388 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 10:31:21.855722 WARNING ------------------------------------------------------------
+2018-03-18 10:43:02.881600 WARNING ------------------------------------------------------------
+2018-03-18 10:43:02.882189 WARNING ------------------------------------------------------------
+2018-03-18 10:43:02.882718 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 10:43:02.885167 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 10:43:02.884384 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 10:43:02.885538 WARNING ------------------------------------------------------------
+2018-03-18 10:43:02.885941 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 10:43:02.886509 WARNING ------------------------------------------------------------
+2018-03-18 10:43:02.887100 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 10:43:02.887402 WARNING ------------------------------------------------------------
+2018-03-18 10:43:02.888367 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 10:43:02.888704 WARNING ------------------------------------------------------------
+2018-03-18 11:11:06.113983 WARNING ------------------------------------------------------------
+2018-03-18 11:11:06.114512 WARNING ------------------------------------------------------------
+2018-03-18 11:11:06.115460 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 11:11:06.114899 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 11:11:06.115905 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 11:11:06.116700 WARNING ------------------------------------------------------------
+2018-03-18 11:11:06.116365 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 11:11:06.117167 WARNING ------------------------------------------------------------
+2018-03-18 11:11:06.117474 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 11:11:06.117807 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 11:11:06.118352 WARNING ------------------------------------------------------------
+2018-03-18 11:11:06.118142 WARNING ------------------------------------------------------------
+2018-03-18 11:32:11.054315 WARNING ------------------------------------------------------------
+2018-03-18 11:32:11.055269 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 11:32:11.055658 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 11:32:11.054938 WARNING ------------------------------------------------------------
+2018-03-18 11:32:11.056460 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 11:32:11.056820 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 11:32:11.057117 WARNING ------------------------------------------------------------
+2018-03-18 11:32:11.057642 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 11:32:11.057990 WARNING ------------------------------------------------------------
+2018-03-18 11:32:11.055932 WARNING ------------------------------------------------------------
+2018-03-18 11:32:11.059206 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 11:32:11.059587 WARNING ------------------------------------------------------------
+2018-03-18 11:49:13.848908 WARNING ------------------------------------------------------------
+2018-03-18 11:49:13.849366 WARNING ------------------------------------------------------------
+2018-03-18 11:49:13.849566 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 11:49:13.854563 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 11:49:13.854984 WARNING ------------------------------------------------------------
+2018-03-18 11:49:13.855595 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 11:49:13.855947 WARNING ------------------------------------------------------------
+2018-03-18 11:49:13.850149 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 11:49:13.856757 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 11:49:13.857124 WARNING ------------------------------------------------------------
+2018-03-18 11:49:13.857565 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 11:49:13.857816 WARNING ------------------------------------------------------------
+2018-03-18 12:58:07.213470 WARNING ------------------------------------------------------------
+2018-03-18 12:58:07.213967 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 12:58:07.214355 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 12:58:07.214625 WARNING ------------------------------------------------------------
+2018-03-18 12:58:07.215123 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 12:58:07.215427 WARNING ------------------------------------------------------------
+2018-03-18 12:58:07.216095 WARNING ------------------------------------------------------------
+2018-03-18 12:58:07.216400 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 12:58:07.216679 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 12:58:07.219424 WARNING ------------------------------------------------------------
+2018-03-18 12:58:07.220052 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 12:58:07.220422 WARNING ------------------------------------------------------------
+2018-03-18 13:35:02.728763 WARNING ------------------------------------------------------------
+2018-03-18 13:35:02.729389 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 13:35:02.729749 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 13:35:02.730027 WARNING ------------------------------------------------------------
+2018-03-18 13:35:02.730758 WARNING ------------------------------------------------------------
+2018-03-18 13:35:02.731298 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 13:35:02.732718 WARNING ------------------------------------------------------------
+2018-03-18 13:35:02.732175 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 13:35:02.736622 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 13:35:02.736893 WARNING ------------------------------------------------------------
+2018-03-18 13:35:02.737318 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 13:35:02.737530 WARNING ------------------------------------------------------------
+2018-03-18 16:58:32.588670 WARNING ------------------------------------------------------------
+2018-03-18 16:58:32.589114 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 16:58:32.589492 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 16:58:32.589826 WARNING ------------------------------------------------------------
+2018-03-18 16:58:32.590672 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 16:58:32.591012 WARNING ------------------------------------------------------------
+2018-03-18 16:58:32.591560 WARNING ------------------------------------------------------------
+2018-03-18 16:58:32.592025 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 16:58:32.592354 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 16:58:32.592535 WARNING ------------------------------------------------------------
+2018-03-18 16:58:32.592930 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 16:58:32.593126 WARNING ------------------------------------------------------------
+2018-03-18 17:08:06.481991 WARNING ------------------------------------------------------------
+2018-03-18 17:08:06.482600 WARNING ------------------------------------------------------------
+2018-03-18 17:08:06.482862 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 17:08:06.483397 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 17:08:06.483829 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 17:08:06.484240 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 17:08:06.484581 WARNING ------------------------------------------------------------
+2018-03-18 17:08:06.484906 WARNING ------------------------------------------------------------
+2018-03-18 17:08:06.485742 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 17:08:06.486550 WARNING ------------------------------------------------------------
+2018-03-18 17:08:06.486251 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 17:08:06.487910 WARNING ------------------------------------------------------------
+2018-03-18 17:57:06.068351 WARNING ------------------------------------------------------------
+2018-03-18 17:57:06.069092 WARNING ------------------------------------------------------------
+2018-03-18 17:57:06.075995 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 17:57:06.069352 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 17:57:06.076478 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 17:57:06.080644 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.0', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 17:57:06.085017 WARNING ------------------------------------------------------------
+2018-03-18 17:57:06.087064 WARNING ------------------------------------------------------------
+2018-03-18 17:57:06.091599 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 17:57:06.092075 WARNING ------------------------------------------------------------
+2018-03-18 17:57:06.092585 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 17:57:06.093347 WARNING ------------------------------------------------------------
+2018-03-18 18:14:21.819802 WARNING ------------------------------------------------------------
+2018-03-18 18:14:21.820504 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 18:14:21.822753 WARNING ------------------------------------------------------------
+2018-03-18 18:14:21.823131 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 18:14:21.833880 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 18:14:21.837225 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 18:14:21.837535 WARNING ------------------------------------------------------------
+2018-03-18 18:14:21.835370 WARNING ------------------------------------------------------------
+2018-03-18 18:14:21.843012 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 18:14:21.847120 WARNING ------------------------------------------------------------
+2018-03-18 18:14:21.848050 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 18:14:21.848411 WARNING ------------------------------------------------------------
+2018-03-18 18:24:08.441833 WARNING ------------------------------------------------------------
+2018-03-18 18:24:08.442212 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 18:24:08.445590 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 18:24:08.445990 WARNING ------------------------------------------------------------
+2018-03-18 18:24:08.447442 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 18:24:08.446639 WARNING ------------------------------------------------------------
+2018-03-18 18:24:08.452339 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 18:24:08.452700 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 18:24:08.452943 WARNING ------------------------------------------------------------
+2018-03-18 18:24:08.453413 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 18:24:08.453671 WARNING ------------------------------------------------------------
+2018-03-18 18:24:08.450629 WARNING ------------------------------------------------------------
+2018-03-18 20:08:31.163329 WARNING ------------------------------------------------------------
+2018-03-18 20:08:31.163727 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 20:08:31.164014 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 20:08:31.164241 WARNING ------------------------------------------------------------
+2018-03-18 20:08:31.164765 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 20:08:31.165113 WARNING ------------------------------------------------------------
+2018-03-18 20:08:31.165720 WARNING ------------------------------------------------------------
+2018-03-18 20:08:31.165953 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 20:08:31.166204 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 20:08:31.166423 WARNING ------------------------------------------------------------
+2018-03-18 20:08:31.166912 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 20:08:31.167176 WARNING ------------------------------------------------------------
+2018-03-18 20:29:42.838916 WARNING ------------------------------------------------------------
+2018-03-18 20:29:42.839269 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 20:29:42.839502 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 20:29:42.839681 WARNING ------------------------------------------------------------
+2018-03-18 20:29:42.840101 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 20:29:42.840563 WARNING ------------------------------------------------------------
+2018-03-18 20:29:42.841306 WARNING ------------------------------------------------------------
+2018-03-18 20:29:42.841501 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 20:29:42.841724 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 20:29:42.841903 WARNING ------------------------------------------------------------
+2018-03-18 20:29:42.846269 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 20:29:42.846779 WARNING ------------------------------------------------------------
+2018-03-18 20:41:16.570794 WARNING ------------------------------------------------------------
+2018-03-18 20:41:16.571229 WARNING Unexpected error in worker for App thermostaat:
+2018-03-18 20:41:16.576201 WARNING Worker Ags: {'function': <bound method thermostaat.sync_hass_with_thermostat of <thermostaat.thermostaat object at 0x7f9e78295518>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('1b504c98-a9c7-4af8-b8a3-ee269443cd25'), 'name': 'thermostaat', 'attribute': 'state'}
+2018-03-18 20:41:16.576810 WARNING ------------------------------------------------------------
+2018-03-18 20:41:16.577468 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaat.py", line 60, in sync_hass_with_thermostat
+    temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 20:41:16.577834 WARNING ------------------------------------------------------------
+2018-03-18 20:41:16.571712 WARNING ------------------------------------------------------------
+2018-03-18 20:41:16.578633 WARNING Unexpected error in worker for App thermostaatavond:
+2018-03-18 20:41:16.581478 WARNING Worker Ags: {'function': <bound method thermostaatavond.inputhandler1 of <thermostaatavond.thermostaatavond object at 0x7f9e785080f0>>, 'old_state': '20.5', 'type': 'attr', 'kwargs': {}, 'new_state': 'undefined', 'entity': 'sensor.thermostaat_tempsetpoint', 'id': UUID('c559e3c6-ce44-4c9a-b0fe-434baf3b23aa'), 'name': 'thermostaatavond', 'attribute': 'state'}
+2018-03-18 20:41:16.582285 WARNING ------------------------------------------------------------
+2018-03-18 20:41:16.587311 WARNING Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/appdaemon/appdaemon.py", line 512, in worker
+    utils.sanitize_state_kwargs(args["kwargs"]))
+  File "/home/sander/hass/homeassistant/appdaemon/apps/thermostaatavond.py", line 17, in inputhandler1
+    temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+ValueError: could not convert string to float: 'undefined'
+
+2018-03-18 20:41:16.587745 WARNING ------------------------------------------------------------

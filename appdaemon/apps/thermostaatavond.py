@@ -26,7 +26,8 @@ class thermostaatavond(appapi.AppDaemon):
             avond = 0
 
         if (temp_sp < 15.1 and avond == 1 and thermostaat_activeprogram == "0" and lights_woonkamer == "on"):
-            self.set_state("input_number.hass_tempsetpoint",maxtempsetpoint)
+            self.select_value("input_number.hass_tempsetpoint",maxtempsetpoint)
+
 
     def inputhandler2(self, entity, attribute, old, new, kwargs):
         # Zet verwarming uit wanneer lichten uit gaan tussen 20:00 en 2:00

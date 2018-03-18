@@ -82,7 +82,7 @@ thermostaat:
   module: thermostaat
   class: thermostaat
 
-Occupancy Simulator:
+OccupancySimulator:
   module: occusim
   class: OccuSim
   log: 1

@@ -87,7 +87,7 @@ class fancontrol(appapi.AppDaemon):
             status = self.set_state("input_boolean.shower", state="on")
         elif desiredStateHW == "high" or desiredStateHUM == "high":
             # Close the ventilation for the attic to force airflow from bathroom
-            self.set_state("input_number.zolder_ventilatie", state=0)
+            self.select_value("input_number.zolder_ventilatie", 0)
 
             if desiredStateHW == "high" and desiredStateHUM == "high":
                     status = self.set_state("input_boolean.shower", state="on")
@@ -115,7 +115,7 @@ class fancontrol(appapi.AppDaemon):
 
                 #self.log("effe wachten medium")
             else:
-                self.set_state("input_number.zolder_ventilatie", state=100)
+                self.select_value("input_number.zolder_ventilatie", 100)
                 #self.log("fan medium")
                 self.setfanstate("medium")
             # reset timestamp_high
@@ -127,7 +127,7 @@ class fancontrol(appapi.AppDaemon):
 
                 #self.log("effe wachten low")
             else:
-                self.set_state("input_number.zolder_ventilatie", state=100)
+                self.select_value("input_number.zolder_ventilatie", 100)
                 #self.log("fan medium")
                 self.setfanstate("low")
             # reset timestamp_high
