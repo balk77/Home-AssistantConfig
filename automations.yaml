@@ -13,8 +13,7 @@
     service: mqtt.publish
   - delay: 00:01:00
   - data:
-      #payload: low
-      payload: "State,1"
+      payload: State,1
       topic: /hass/itho/cmd
     service: mqtt.publish
 - id: updater
@@ -26,19 +25,8 @@
     service: notify.pushbullet
     data:
       target: device/Nexus5X
-      message: "Version {{ states('sensor.current_version') }} for Home Assistant is available."
-# - id: Schemerlamp
-#   alias: Turn on Schemerlamp when sun sets
-#   trigger:
-#     platform: sun
-#     event: sunset
-#   condition:
-#     condition: state
-#     entity_id: group.all_devices
-#     state: home
-#   action:
-#     service: switch.turn_on
-#     entity_id: switch.__switch_8_0
+      message: Version {{ states('sensor.current_version') }} for Home Assistant is
+        available.
 - id: wasmachine_01
   alias: Washer Start
   trigger:
@@ -49,8 +37,8 @@
     for:
       minutes: 3
   action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.washer_switch
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.washer_switch
 - id: wasmachine_02
   alias: Wasmachine Klaar
   trigger:
@@ -112,7 +100,6 @@
       entity_id: zwave.hank_knop_wk
       scene_id: 1
   action:
-    #service: rest_command.play_pause
     service: script.turn_on
     entity_id: script.woonkamer_low
 - id: Hank_wk2
@@ -135,10 +122,10 @@
       entity_id: zwave.hank_knop_wk
       scene_id: 3
   action:
-    - service: script.turn_on
-      entity_id: script.woonkamer_off
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.huis_slaapstand
+  - service: script.turn_on
+    entity_id: script.woonkamer_off
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.huis_slaapstand
 - id: Hank_wk4
   alias: Hank wk4
   trigger:
@@ -150,77 +137,6 @@
   action:
     service: script.turn_on
     entity_id: script.woonkamer_full
-# - id: Thermostaat_1
-#   initial_state: false
-#   alias: Thermostaat 1
-#   trigger:
-#   - entity_id: sensor.thermostaat_tempsetpoint
-#     platform: numeric_state
-#     below: 15.1
-#   condition:
-#   - condition: and
-#     conditions:
-#     - condition: or
-#       conditions:
-#       - condition: time
-#         after: '20:00:00'
-#       - condition: time
-#         before: '2:00:00'
-#     - condition: state
-#       entity_id: group.woonkamer
-#       state: 'on'
-#     - condition: state
-#       entity_id: sensor.thermostaat_activeprogram
-#       state: '0'
-#   action:
-#     - service: ifttt.trigger
-#       data_template:
-#         event: "SetTemp"
-#         value1: >
-#           {{ states.sensor.maxtempsetpoint.state }}
-#     - delay: '00:00:01'
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.iftt_temp_triggered_SP
-#         value: >
-#           {{ states.sensor.maxtempsetpoint.state }}
-#     - service: input_boolean.turn_on
-#       entity_id: input_boolean.iftt_temp_triggered
-# - id: Thermostaat_2
-#   initial_state: false
-#   alias: Thermostaat 2
-#   trigger:
-#   - platform: state
-#     entity_id: group.woonkamer
-#     to: 'off'
-#     for:
-#       minutes: 5
-#   condition:
-#   - condition: and
-#     conditions:
-#     - condition: state
-#       entity_id: sensor.thermostaat_activeprogram
-#       state: '0'
-#     - condition: or
-#       conditions:
-#       - condition: time
-#         after: '20:00:00'
-#       - condition: time
-#         before: '2:00:00'
-#   action:
-#     - service: ifttt.trigger
-#       data:
-#         event: "SetTemp"
-#         value1: 15
-#     - service: input_number.set_value
-#       data_template:
-#         entity_id: input_number.iftt_temp_triggered_sp
-#         value: 15
-#     - delay: '00:00:01'
-#     - service: input_boolean.turn_on
-#       entity_id: input_boolean.iftt_temp_triggered
-#     - service: input_boolean.turn_on
-#       entity_id: input_boolean.huis_slaapstand
 - id: Thermostaat_3
   alias: Thermostaat 3
   trigger:
@@ -236,64 +152,55 @@
       entity_id: input_boolean.huis_slaapstand
       state: 'off'
   action:
-    - service: ifttt.trigger
-      data:
-        event: "SetTemp"
-        value1: 15
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.iftt_temp_triggered_sp
-        value: 15
-    - delay: '00:00:01'
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.iftt_temp_triggered
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.huis_slaapstand
+  - service: ifttt.trigger
+    data:
+      event: SetTemp
+      value1: 15
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.iftt_temp_triggered_sp
+      value: 15
+  - delay: 00:00:01
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.iftt_temp_triggered
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.huis_slaapstand
 - id: wk_muur1
   alias: WK Muur uit
   trigger:
-    - entity_id: group.woonkamer_ex_muur
-      from: 'on'
-      platform: state
-      to: 'off'
-      for:
-        seconds: 10
+  - entity_id: group.woonkamer_ex_muur
+    from: 'on'
+    platform: state
+    to: 'off'
+    for:
+      seconds: 10
   action:
-    # kerstboom, zet deze aan om de kerstboom te schakelen
-    # ook in groups.yaml
-    #- service: switch.turn_off
-    #  entity_id: switch.fibaro_switch_switch
-    # bankje
-    - service: light.turn_off
-      data:
-        transition: 20
-        entity_id: light.wk_muur_level
+  - service: light.turn_off
+    data:
+      transition: 20
+      entity_id: light.wk_muur_level
 - id: wk_muur2
   alias: WK Muur aan op Beweging
   trigger:
-    - entity_id: sensor.wk_multisensor_burglar
-      platform: state
-      to: '8'
-    - entity_id: sensor.wk_multisensor_burglar
-      platform: state
-      to: '3'
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '8'
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '3'
   condition:
     condition: and
     conditions:
-      - condition: template
-        value_template: "{{ states.sun.sun.attributes.elevation  | int < 8 }}"
-      - condition: state
-        entity_id: input_boolean.huis_slaapstand
-        state: 'off'
+    - condition: template
+      value_template: '{{ states.sun.sun.attributes.elevation  | int < 8 }}'
+    - condition: state
+      entity_id: input_boolean.huis_slaapstand
+      state: 'off'
   action:
-    - service: light.turn_on
-      data:
-        entity_id: light.wk_muur_level
-        brightness: 50
-    # kerstboom, zet deze aan om de kerstboom te schakelen
-    # ook in groups.yaml
-    #- service: switch.turn_on
-    #  entity_id: switch.fibaro_switch_switch
+  - service: light.turn_on
+    data:
+      entity_id: light.wk_muur_level
+      brightness: 50
 - id: wk_muur3
   alias: WK Muur na zonsopgang uit
   trigger:
@@ -308,153 +215,156 @@
       entity_id: group.woonkamer_ex_muur
       state: 'off'
     - condition: time
-      before: "12:00:00"
+      before: '12:00:00'
   action:
-    # kerstboom, zet deze aan om de kerstboom te schakelen
-    # ook in groups.yaml
-    #- service: switch.turn_off
-    #  entity_id: switch.fibaro_switch_switch
-    # bankje
-    - service: light.turn_off
-      data:
-        entity_id: light.wk_muur_level
+  - service: light.turn_off
+    data:
+      entity_id: light.wk_muur_level
 - id: wk_muur4
   alias: WK Muur uit bij geen Beweging
   trigger:
-    - entity_id: sensor.wk_multisensor_burglar
-      platform: state
-      to: '0'
-      for:
-        minutes: 10
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '0'
+    for:
+      minutes: 10
   condition:
     condition: and
     conditions:
-      - condition: template
-        value_template: "{{ states.sun.sun.attributes.elevation  | int > 8 }}"
-      - condition: state
-        entity_id: input_boolean.huis_slaapstand
-        state: 'off'
+    - condition: template
+      value_template: '{{ states.sun.sun.attributes.elevation  | int > 8 }}'
+    - condition: state
+      entity_id: input_boolean.huis_slaapstand
+      state: 'off'
   action:
-    - service: light.turn_off
-      data:
-        entity_id: light.wk_muur_level
-    # kerstboom, zet deze aan om de kerstboom te schakelen
-    # ook in groups.yaml
-    #- service: switch.turn_on
-    #  entity_id: switch.fibaro_switch_switch
+  - service: light.turn_off
+    data:
+      entity_id: light.wk_muur_level
 - id: wk_multisensor_battery1
   alias: wk_multisensor_battery1
   trigger:
-    - entity_id: sensor.wk_multisensor_battery_level
-      platform: numeric_state
-      below: 25
+  - entity_id: sensor.wk_multisensor_battery_level
+    platform: numeric_state
+    below: 25
   action:
     service: notify.pushbullet
     data:
       target: device/Nexus5X
-      message: wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}%
+      message: wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level
+        }}%
 - id: wk_multisensor_battery2
   alias: wk_multisensor_battery2
   trigger:
     platform: time
-    # When 'after' is used, you cannot also match on hour, minute, seconds.
-    # Military time format.
     at: '20:00:00'
   condition:
-    - entity_id: sensor.wk_multisensor_battery_level
-      condition: numeric_state
-      below: 25
+  - entity_id: sensor.wk_multisensor_battery_level
+    condition: numeric_state
+    below: 25
   action:
     service: notify.pushbullet
     data:
       target: device/Nexus5X
-      message: wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}%
+      message: wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level
+        }}%
 - id: zolder_multisensor_battery1
   alias: zolder_multisensor_battery1
   trigger:
-    - entity_id: sensor.zolder_multisensor_battery_level
-      platform: numeric_state
-      below: 25
+  - entity_id: sensor.zolder_multisensor_battery_level
+    platform: numeric_state
+    below: 25
   action:
     service: notify.pushbullet
     data:
       target: device/Nexus5X
-      message: zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}%
+      message: zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level
+        }}%
 - id: zolder_multisensor_battery2
   alias: zolder_multisensor_battery2
   trigger:
     platform: time
-    # When 'after' is used, you cannot also match on hour, minute, seconds.
-    # Military time format.
     at: '20:00:00'
   condition:
-    - entity_id: sensor.zolder_multisensor_battery_level
-      condition: numeric_state
-      below: 25
+  - entity_id: sensor.zolder_multisensor_battery_level
+    condition: numeric_state
+    below: 25
   action:
     service: notify.pushbullet
     data:
       target: device/Nexus5X
-      message: zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}%
+      message: zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level
+        }}%
 - id: thermo_dide1
   alias: thermo_dide1
   trigger:
-    - platform: time
-      at: '17:00:00'
+  - platform: time
+    at: '17:00:00'
   action:
     service: mqtt.publish
     data_template:
-      topic: "/fhem/ThermDide/desiredTemperature/set"
+      topic: /fhem/ThermDide/desiredTemperature/set
       retain: true
       payload: '17'
-- id: thermo_dide2
-  alias: thermo_dide2
+- id: thermo_dide2a
+  alias: Thermostaat Dide ochtend laat
   trigger:
-    - platform: state
-      entity_id: input_boolean.zolder_multisensor_burglar
-      to: 'on'
+  - entity_id: input_boolean.zolder_multisensor_burglar
+    platform: state
+    to: 'on'
   condition:
-    - condition: time
-      after: '9:00:00'
-      before: '17:00:00'
+  - after: '9:00:00'
+    before: '17:00:00'
+    condition: time
   action:
-    service: mqtt.publish
-    data_template:
-      topic: "/fhem/ThermDide/desiredTemperature/set"
-      retain: true
+  - data_template:
       payload: '17'
+      retain: true
+      topic: /fhem/ThermDide/desiredTemperature/set
+    service: mqtt.publish
+- id: thermo_dide2b
+  alias: Thermostaat Dide ochtend vroeg
+  trigger:
+  - at: '6:30:00'
+    platform: time
+  condition: []
+  action:
+  - data_template:
+      payload: '16'
+      retain: true
+      topic: /fhem/ThermDide/desiredTemperature/set
+    service: mqtt.publish
 - id: thermo_dide3
-  alias: thermo_dide3
+  alias: Thermostaat Dide ochtend uit
   trigger:
-    - platform: state
-      entity_id: input_boolean.zolder_multisensor_burglar
-      to: 'off'
+  - entity_id: input_boolean.zolder_multisensor_burglar
+    platform: state
+    to: 'off'
   condition:
-    - condition: time
-      after: '9:00:00'
-      before: '17:00:00'
+  - after: '6:30:00'
+    before: '17:00:00'
+    condition: time
   action:
-    service: mqtt.publish
-    data_template:
-      topic: "/fhem/ThermDide/desiredTemperature/set"
+  - data_template:
+      payload: '13'
       retain: true
-      payload: '17'
+      topic: /fhem/ThermDide/desiredTemperature/set
+    service: mqtt.publish
 - id: thermo_dide_uit
-  alias: thermo_dide_uit
+  alias: Thermostaat Dide uit
   trigger:
     platform: time
     at: '19:00:00'
   action:
     service: mqtt.publish
     data_template:
-      topic: "/fhem/ThermDide/desiredTemperature/set"
+      topic: /fhem/ThermDide/desiredTemperature/set
       retain: true
       payload: '13'
 - id: thermo_dide_10
   alias: Set temp slider Dide temperature
   trigger:
     platform: mqtt
-    topic: "/fhem/ThermDide/desiredTemperature"
+    topic: /fhem/ThermDide/desiredTemperature
   action:
     service: input_number.set_value
     data_template:
@@ -468,92 +378,92 @@
   action:
     service: mqtt.publish
     data_template:
-      topic: "/fhem/ThermDide/desiredTemperature/set"
+      topic: /fhem/ThermDide/desiredTemperature/set
       retain: true
       payload: '{{ states.input_number.slaapkamer_dide_setpoint.state }}'
 - id: beweging_zolder1
   alias: Beweging zolder aan
   trigger:
-    - platform: state
-      entity_id: sensor.zolder_multisensor_burglar
-      to: '8'
-    - platform: state
-      entity_id: sensor.zolder_multisensor_burglar
-      to: '3'
+  - platform: state
+    entity_id: sensor.zolder_multisensor_burglar
+    to: '8'
+  - platform: state
+    entity_id: sensor.zolder_multisensor_burglar
+    to: '3'
   action:
     service: input_boolean.turn_on
     entity_id: input_boolean.zolder_multisensor_burglar
 - id: beweging_zolder2
   alias: Beweging zolder uit
   trigger:
-    - platform: state
-      entity_id: sensor.zolder_multisensor_burglar
-      to: '0'
-      for:
-        minutes: 25
+  - platform: state
+    entity_id: sensor.zolder_multisensor_burglar
+    to: '0'
+    for:
+      minutes: 25
   action:
     service: input_boolean.turn_off
     entity_id: input_boolean.zolder_multisensor_burglar
 - id: occupancy_sim_on
   alias: Simulate Occupancy - on
   trigger:
-    - platform: state
-      entity_id: input_boolean.occupancy_simulation
-      to: 'on'
+  - platform: state
+    entity_id: input_boolean.occupancy_simulation
+    to: 'on'
   action:
     service: script.turn_on
     entity_id: script.woonkamer_low
 - id: occupancy_sim_off
   trigger:
-    - platform: state
-      entity_id: sensor.wk_multisensor_burglar
-      to: "8"
-    - platform: state
-      entity_id: sensor.wk_multisensor_burglar
-      to: "3"
+  - platform: state
+    entity_id: sensor.wk_multisensor_burglar
+    to: '8'
+  - platform: state
+    entity_id: sensor.wk_multisensor_burglar
+    to: '3'
   action:
     service: input_boolean.turn_off
     entity_id: input_boolean.occupancy_simulation
 - id: occupancy_sim_goodnight
   trigger:
     platform: time
-    at: "22:30"
+    at: '22:30'
   condition:
-    - condition: state
-      entity_id: input_boolean.occupancy_simulation
-      state: "on"
+  - condition: state
+    entity_id: input_boolean.occupancy_simulation
+    state: 'on'
   action:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.occupancy_simulation
-    - service: light.turn_off
-      entity_id: group.woonkamer
-    - service: switch.turn_off
-      entity_id: group.woonkamer
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.occupancy_simulation
+  - service: light.turn_off
+    entity_id: group.woonkamer
+  - service: switch.turn_off
+    entity_id: group.woonkamer
 - id: hass_startup
-  alias: 'HA_Start'
+  alias: HA_Start
   trigger:
     platform: event
     event_type: homeassistant_start
   action:
-    - service: group.set_visibility
-      entity_id: group.zolder_ventilatie_moving
-      data:
-        visible: False
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.zolder_ventilatie
-        value: "100"
+  - service: group.set_visibility
+    entity_id: group.zolder_ventilatie_moving
+    data:
+      visible: false
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.zolder_ventilatie
+      value: '100'
 - id: zolder_ventilatie_01
-  alias: "Zolder Ventilatie Uit"
+  alias: Zolder Ventilatie Uit
   trigger:
-    - entity_id: sensor.wk_boilerstatus
-      platform: state
-      to: HW
+  - entity_id: sensor.wk_boilerstatus
+    platform: state
+    to: HW
   action:
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.zolder_ventilatie
-        value: "0"
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.zolder_ventilatie
+      value: '0'
 - id: zolder_ventilatie_02
   alias: Zolder Ventilatie aan
   trigger:
@@ -562,16 +472,16 @@
     to: 'No'
   - platform: state
     entity_id: sensor.wk_boilerstatus
-    to: 'CH'
+    to: CH
   condition:
     condition: or
     conditions:
-      - condition: state
-        entity_id: input_select.fanstate
-        state: 'low'
-      - condition: state
-        entity_id: input_select.fanstate
-        state: 'medium'
+    - condition: state
+      entity_id: input_select.fanstate
+      state: low
+    - condition: state
+      entity_id: input_select.fanstate
+      state: medium
   action:
   - service: input_number.set_value
     data_template:
@@ -581,7 +491,7 @@
   alias: Reset huis_slaapstand
   trigger:
     platform: time
-    at: '04:00:00'
+    at: 04:00:00
   action:
     service: input_boolean.turn_off
     entity_id: input_boolean.huis_slaapstand
@@ -594,115 +504,144 @@
   condition:
     condition: or
     conditions:
-      - condition: time
-        after: "21:00:00"
-      - condition: time
-        before: "4:00:00"
+    - condition: time
+      after: '21:00:00'
+    - condition: time
+      before: '4:00:00'
   action:
     service: input_boolean.turn_on
     entity_id: input_boolean.huis_slaapstand
 - id: notify_when_not_home_1
   alias: Notify and activate Occupancy Simulation 1
   trigger:
-    - platform: time
-      at: "18:10:00"
+  - platform: time
+    at: '18:10:00'
   condition:
-    - condition: and
-      conditions:
-        - condition: sun
-          after: sunset
-        - condition: state
-          entity_id: group.woonkamer
-          state: 'off'
+  - condition: and
+    conditions:
+    - condition: sun
+      after: sunset
+    - condition: state
+      entity_id: group.woonkamer
+      state: 'off'
   action:
-    - service: notify.pushbullet
-      data:
-        target: device/Nexus5X
-        message: "Lampen in huis gaan aan - aanwezigheidssimulatie"
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.occupancy_simulation
+  - service: notify.pushbullet
+    data:
+      target: device/Nexus5X
+      message: Lampen in huis gaan aan - aanwezigheidssimulatie
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.occupancy_simulation
 - id: notify_when_not_home_2
   alias: Notify and activate Occupancy Simulation 2
   trigger:
-    - platform: sun
-      event: sunset
+  - platform: sun
+    event: sunset
   condition:
-    - condition: and
-      conditions:
-        - condition: time
-          after: "18:10:00"
-        - condition: state
-          entity_id: group.woonkamer
-          state: 'off'
+  - condition: and
+    conditions:
+    - condition: time
+      after: '18:10:00'
+    - condition: state
+      entity_id: group.woonkamer
+      state: 'off'
   action:
-    - service: notify.pushbullet
-      data:
-        target: device/Nexus5X
-        message: "Lampen in huis gaan aan - aanwezigheidssimulatie"
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.occupancy_simulation
+  - service: notify.pushbullet
+    data:
+      target: device/Nexus5X
+      message: Lampen in huis gaan aan - aanwezigheidssimulatie
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.occupancy_simulation
 - id: appdaemon_alive_1
   trigger:
-    - platform: state
-      entity_id: input_boolean.appdaemon_alive
-      to: "off"
-      for:
-        minutes: 5
+  - platform: state
+    entity_id: input_boolean.appdaemon_alive
+    to: 'off'
+    for:
+      minutes: 5
   action:
-    - service: notify.pushbullet
-      data:
-        target: device/Nexus5X
-        message: "Appdaemon draait niet"
+  - service: notify.pushbullet
+    data:
+      target: device/Nexus5X
+      message: Appdaemon draait niet
 - id: appdaemon_alive_2
   trigger:
     platform: time
-    # You can also match on interval. This will match every 5 minutes
-    minutes: '/5'
-    seconds: 00
+    minutes: /5
+    seconds: 0
   action:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.appdaemon_alive
-# - id: boilerstatus_60sec
-#   trigger:
-#     platform: template
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.appdaemon_alive
 - id: pingpong
-  alias: 'Telegram bot that reply pong to ping'
+  alias: Telegram bot that reply pong to ping
   hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
     event_data:
-      command: '/ping'
-  # action:
-  #   service: notify.telegram
-  #   data:
-  #     title: '*Send a message*'
-  #     message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
-  #     data:
-  #       inline_keyboard:
-  #         - 'Task 1:/command1, Task 2:/command2'
-  #         - 'Task 3:/command3, Task 4:/command4'
+      command: /ping
   action:
-    - service: notify.telegram
-      data:
-        message: "pong\npang"
+  - service: notify.telegram
+    data:
+      message: 'pong
+
+        pang'
 - id: vals_woonkamer_on
   alias: Detect vals aantal lampen aan in woonkamer
   trigger:
-    - entity_id: sensor.wk_multisensor_burglar
-      platform: state
-      to: '0'
-      for:
-        minutes: 30
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '0'
+    for:
+      minutes: 30
   condition:
-    - condition: and
-      conditions:
-        - condition: time
-          after: "21:00:00"
-        - condition: template
-          value_template: "{{ states.sensor.woonkamer_number_of_lights_on.state | int <= 2  }}"
+  - condition: and
+    conditions:
+    - condition: time
+      after: '21:00:00'
+    - condition: template
+      value_template: '{{ states.sensor.woonkamer_number_of_lights_on.state | int
+        <= 2  }}'
   action:
-    - service: script.turn_on
-      entity_id: script.woonkamer_off
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.huis_slaapstand
+  - service: script.turn_on
+    entity_id: script.woonkamer_off
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.huis_slaapstand
+- id: zolder_warm_in_1
+  alias: Temperatuur op zolder hoger dan buiten
+  trigger:
+  - entity_id: sensor.zolder_delta_t
+    platform: numeric_state
+    below: 0
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.delft_temperature
+    above: 27
+  action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.zolder_te_warm
+- id: zolder_warm_in_2
+  alias: Temperatuur op zolder veel hoger dan buiten
+  trigger:
+  - entity_id: sensor.zolder_delta_t
+    platform: numeric_state
+    below: 0
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.delft_temperature
+    above: 32
+  action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.zolder_veel_te_warm
+- id: zolder_warm_uit
+  alias: Temperatuur op zolder lager dan buiten
+  trigger:
+  - entity_id: sensor.zolder_delta_t
+    platform: numeric_state
+    above: 0
+    for:
+      minutes: 10
+  action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.zolder_te_warm
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.zolder_veel_te_warm

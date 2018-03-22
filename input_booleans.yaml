@@ -48,3 +48,9 @@ shower:
 nefit_programma:
   name: Nefit programma actief
   initial: on
+zolder_te_warm:
+  name: Zolder te warm - ventilatie moet aan
+  initial: off
+zolder_veel_te_warm:
+  name: Zolder veel te warm - ventilatie moet aan
+  initial: off

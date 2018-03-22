@@ -36,10 +36,9 @@ woonkamer_low:
 woonkamer_off:
   alias: Woonkamer Off
   sequence:
-    - service: switch.turn_off
-      entity_id: switch.keuken_aanrecht_switch
-    - delay:
-        milliseconds: 100
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.huis_slaapstand
     - service: switch.turn_off
       entity_id: switch.schemerlamp_switch
     - delay:
@@ -66,6 +65,10 @@ woonkamer_off:
         milliseconds: 100
     - service: light.turn_off
       entity_id: light.wk_achter_plafond_level
+    - delay:
+        milliseconds: 10000
+    - service: switch.turn_off
+      entity_id: switch.keuken_aanrecht_switch
 woonkamer_medium:
   alias: Woonkamer Medium
   sequence:
