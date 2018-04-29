@@ -19,6 +19,9 @@ class fancontrol(appapi.AppDaemon):
         self.listen_state(self.main, "sensor.wk_boilerstatus")
         #self.listen_state(self.boiler_to_low, "sensor.wk_boilerstatus", old="HW")
 
+        # change in attic temperature
+        self.listen_state(self.main,"sensor.zolder_max_t")
+
         #self.listen_state(self.main, "input_number.boilerstatus_dummy")
         #desiredStateHW = self.boilerstatus
 
@@ -34,7 +37,7 @@ class fancontrol(appapi.AppDaemon):
         desiredStateHW = self.boilerstatus
         curr_fanstate =  self.get_state("input_select.fanstate")
 
-        desiredStateZOLDER = self.zolder_ventilatie_status
+        desiredStateZOLDER = self.zolder_ventilatie_status()
 
         # when hot water is reported, return "high"
         boilerstatus = self.get_state("sensor.wk_boilerstatus")
@@ -54,11 +57,14 @@ class fancontrol(appapi.AppDaemon):
             desiredStateHW = "low"
 
 
-        # self.log("Hot Water:")
-        # self.log(desiredStateHW)
-        #
-        # self.log("humidity:")
-        # self.log(desiredStateHUM)
+        self.log("Hot Water:")
+        self.log(desiredStateHW)
+
+        self.log("humidity:")
+        self.log(desiredStateHUM)
+
+        self.log("zolder fan:")
+        self.log(desiredStateZOLDER)
 
 
         # self.timestamp_high is set to current time (seconds)
@@ -84,7 +90,13 @@ class fancontrol(appapi.AppDaemon):
         # self.log(timestamp_delta_high)
 
         runout_time = 900 # seconds
-        if desiredStateHUM == "full":
+        if desiredStateZOLDER == "full":
+            self.set_state("input_number.zolder_ventilatie", state=100)
+            self.setfanstate("full")
+        elif desiredStateZOLDER == "high":
+            self.set_state("input_number.zolder_ventilatie", state=100)
+            self.setfanstate("high")
+        elif desiredStateHUM == "full":
             self.setfanstate("full")
             status = self.set_state("input_boolean.shower", state="on")
         elif desiredStateHW == "high" or desiredStateHUM == "high":
@@ -109,8 +121,6 @@ class fancontrol(appapi.AppDaemon):
                 # boiler status is reported every 10 seconds
                 if curr_fanstate != "high":
                     self.run_in(self.fanstatehighdelay, 60)
-        elif desiredStateZOLDER == "high":
-            self.setfanstate("high")
         elif desiredStateHUM == "medium" or desiredStateZOLDER == "medium": # and timestamp_delta_high > runout_time:
             #self.log("komen we bij medium?")
             if self.shower == "on":
@@ -145,6 +155,7 @@ class fancontrol(appapi.AppDaemon):
         # HASS has a sensor that receives the lowest absolute humidity in the past
         # two hours. Delta between current humidity and lowest is humdelta
         humdelta = float(self.get_state("sensor.humdelta"))
+        relhum = float(self.get_state("sensor.badkamer_relhumidity"))
         #humdelta = float(self.get_state("input_number.humdelta_dummy"))
 
         # if humdelta < 2:
@@ -160,17 +171,19 @@ class fancontrol(appapi.AppDaemon):
         #     desiredState = "full"
 
 
-        if humdelta < 5:
+        if relhum > 90:
+            desiredState = "full"
+        elif humdelta < 10:
             # fanstate low
             desiredState = "low"
-        elif humdelta >= 5 and humdelta < 10:
+        elif humdelta >= 10 and humdelta < 20:
             # fanstate medium
             desiredState = "medium"
-        elif humdelta >= 10 and humdelta < 15:
+        elif humdelta >= 20: # and humdelta < 15:
             # fanstate high
             desiredState = "high"
-        elif humdelta >= 15:
-            desiredState = "full"
+        # elif humdelta >= 15:
+        #     desiredState = "full"
         return desiredState
 
     def boilerstatus(self, entity, attribute, old, new, kwargs):
@@ -182,15 +195,25 @@ class fancontrol(appapi.AppDaemon):
         else:
             return "low"
 
-    def zolder_ventilatie_status(self, entity, attribute, old, new, kwargs):
+    #def zolder_ventilatie_status(self, entity, attribute, old, new, kwargs):
+    def zolder_ventilatie_status(self):
         # als de zolder te warm is, zet fan aan
-        zolder_te_warm = self.get_state("input_boolean.zolder_te_warm")
-        zolder_veel_te_warm = self.get_state("input_boolean.zolder_veel_te_warm")
+        zolder_max_t = float(self.get_state("sensor.zolder_max_t"))
+        zolder_delta_t = float(self.get_state("sensor.zolder_delta_t"))
 
-        if zolder_veel_te_warm == "on":
-            return "high"
-        elif zolder_te_warm == "on":
-            return "medium"
+        self.log("lala")
+        self.log(zolder_max_t)
+        self.log(zolder_delta_t)
+
+        if zolder_delta_t < 0:
+            if zolder_max_t >= 27:
+                return "full"
+            elif 25 < zolder_max_t < 27:
+                return "high"
+            elif 22 < zolder_max_t < 25:
+                return "medium"
+            else:
+                return "low"
         else:
             return "low"
 

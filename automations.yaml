@@ -294,19 +294,24 @@
       target: device/Nexus5X
       message: zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level
         }}%
-- id: thermo_dide1
-  alias: thermo_dide1
+- id: thermo_zolder1
+  alias: thermo_zolder1
   trigger:
   - platform: time
     at: '17:00:00'
   action:
-    service: mqtt.publish
-    data_template:
-      topic: /fhem/ThermDide/desiredTemperature/set
-      retain: true
-      payload: '17'
-- id: thermo_dide2a
-  alias: Thermostaat Dide ochtend laat
+    - service: mqtt.publish
+      data_template:
+        topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
+        retain: true
+        payload: '17'
+    - service: mqtt.publish
+      data_template:
+        topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+        retain: true
+        payload: '18'
+- id: thermo_zolder2a
+  alias: Thermostaat Zolder ochtend laat
   trigger:
   - entity_id: input_boolean.zolder_multisensor_burglar
     platform: state
@@ -316,25 +321,35 @@
     before: '17:00:00'
     condition: time
   action:
-  - data_template:
-      payload: '17'
-      retain: true
-      topic: /fhem/ThermDide/desiredTemperature/set
-    service: mqtt.publish
-- id: thermo_dide2b
-  alias: Thermostaat Dide ochtend vroeg
+    - data_template:
+        payload: '17'
+        retain: true
+        topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
+      service: mqtt.publish
+    - data_template:
+        payload: '18'
+        retain: true
+        topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+      service: mqtt.publish
+- id: thermo_zolder2b
+  alias: Thermostaat Zolder ochtend vroeg
   trigger:
   - at: '6:30:00'
     platform: time
   condition: []
   action:
-  - data_template:
-      payload: '16'
-      retain: true
-      topic: /fhem/ThermDide/desiredTemperature/set
-    service: mqtt.publish
-- id: thermo_dide3
-  alias: Thermostaat Dide ochtend uit
+    - data_template:
+        payload: '16'
+        retain: true
+        topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
+      service: mqtt.publish
+    - data_template:
+        payload: '17'
+        retain: true
+        topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+      service: mqtt.publish
+- id: thermo_zolder3
+  alias: Thermostaat Zolder ochtend uit
   trigger:
   - entity_id: input_boolean.zolder_multisensor_burglar
     platform: state
@@ -344,43 +359,74 @@
     before: '17:00:00'
     condition: time
   action:
-  - data_template:
-      payload: '13'
-      retain: true
-      topic: /fhem/ThermDide/desiredTemperature/set
-    service: mqtt.publish
-- id: thermo_dide_uit
-  alias: Thermostaat Dide uit
+    - data_template:
+        payload: '13'
+        retain: true
+        topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
+      service: mqtt.publish
+    - data_template:
+        payload: '13'
+        retain: true
+        topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+      service: mqtt.publish
+- id: thermo_zolder_uit
+  alias: Thermostaat Zolder uit
   trigger:
     platform: time
     at: '19:00:00'
   action:
-    service: mqtt.publish
-    data_template:
-      topic: /fhem/ThermDide/desiredTemperature/set
-      retain: true
-      payload: '13'
+    - service: mqtt.publish
+      data_template:
+        topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
+        retain: true
+        payload: '13'
+    - service: mqtt.publish
+      data_template:
+        topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+        retain: true
+        payload: '13'
 - id: thermo_dide_10
   alias: Set temp slider Dide temperature
   trigger:
     platform: mqtt
-    topic: /fhem/ThermDide/desiredTemperature
+    topic: /zolder/kamerdide/thermostaat/desiredTemperature
   action:
     service: input_number.set_value
     data_template:
       entity_id: input_number.slaapkamer_dide_setpoint
       value: '{{ trigger.payload}}'
 - id: thermo_dide_11
-  alias: Temp slider moved
+  alias: Temp slider moved Dide
   trigger:
     platform: state
     entity_id: input_number.slaapkamer_dide_setpoint
   action:
     service: mqtt.publish
     data_template:
-      topic: /fhem/ThermDide/desiredTemperature/set
+      topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
       retain: true
       payload: '{{ states.input_number.slaapkamer_dide_setpoint.state }}'
+- id: thermo_fien_10
+  alias: Set temp slider Fien temperature
+  trigger:
+    platform: mqtt
+    topic: /zolder/kamerfien/thermostaat/desiredTemperature
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.slaapkamer_fien_setpoint
+      value: '{{ trigger.payload}}'
+- id: thermo_fien_11
+  alias: Temp slider moved Fien
+  trigger:
+    platform: state
+    entity_id: input_number.slaapkamer_fien_setpoint
+  action:
+    service: mqtt.publish
+    data_template:
+      topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+      retain: true
+      payload: '{{ states.input_number.slaapkamer_fien_setpoint.state }}'
 - id: beweging_zolder1
   alias: Beweging zolder aan
   trigger:
@@ -414,6 +460,7 @@
     service: script.turn_on
     entity_id: script.woonkamer_low
 - id: occupancy_sim_off
+  alias: occupancy_sim_off
   trigger:
   - platform: state
     entity_id: sensor.wk_multisensor_burglar
@@ -425,6 +472,7 @@
     service: input_boolean.turn_off
     entity_id: input_boolean.occupancy_simulation
 - id: occupancy_sim_goodnight
+  alias: occupancy_sim_goodnight
   trigger:
     platform: time
     at: '22:30'
@@ -439,6 +487,10 @@
     entity_id: group.woonkamer
   - service: switch.turn_off
     entity_id: group.woonkamer
+  - service: notify.pushbullet
+    data:
+      target: device/Nexus5X
+      message: Lampen in huis gaan uit
 - id: hass_startup
   alias: HA_Start
   trigger:
@@ -552,6 +604,7 @@
   - service: input_boolean.turn_on
     entity_id: input_boolean.occupancy_simulation
 - id: appdaemon_alive_1
+  alias: appdaemon_alive_1
   trigger:
   - platform: state
     entity_id: input_boolean.appdaemon_alive
@@ -564,6 +617,7 @@
       target: device/Nexus5X
       message: Appdaemon draait niet
 - id: appdaemon_alive_2
+  alias: appdaemon_alive_2
   trigger:
     platform: time
     minutes: /5
@@ -614,8 +668,8 @@
     below: 0
   condition:
   - condition: numeric_state
-    entity_id: sensor.delft_temperature
-    above: 27
+    entity_id: sensor.zolder_max_t
+    above: 23
   action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.zolder_te_warm
@@ -627,8 +681,8 @@
     below: 0
   condition:
   - condition: numeric_state
-    entity_id: sensor.delft_temperature
-    above: 32
+    entity_id: sensor.zolder_max_t
+    above: 27
   action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.zolder_veel_te_warm
@@ -645,3 +699,16 @@
     entity_id: input_boolean.zolder_te_warm
   - service: input_boolean.turn_off
     entity_id: input_boolean.zolder_veel_te_warm
+- id: azimuth_scherm_op
+  alias: Zonnescherm op tegen avond
+# Neer bij 55graden, op bij 234 graden
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.azimuth
+      above: 234
+    - platform: sun
+      event: sunset
+  action:
+    - service: cover.open_cover
+      data:
+        entity_id: cover.level

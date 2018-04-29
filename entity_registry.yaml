@@ -514,3 +514,35 @@ media_player.huiskamer:
   name:
   platform: cast
   unique_id: 5d0a2e3f-b4d1-0e2a-0539-1f77d07cee97
+media_player.chromecast8147:
+  name:
+  platform: cast
+  unique_id: 2975e137-2446-deb3-2a1e-9a44c8c70ff4
+cover.level:
+  name: Zolder Rolluik
+  platform: zwave
+  unique_id: 24-72057594445398017
+cover.switch:
+  name:
+  platform: zwave
+  unique_id: 24-72057594445381632
+switch.switch:
+  name:
+  platform: zwave
+  unique_id: 24-72057594445381632
+sensor.unknown:
+  name:
+  platform: zwave
+  unique_id: 24-72057594445594626
+sensor.fibaro_system_fgrm222_roller_shutter_controller_2_power:
+  name:
+  platform: zwave
+  unique_id: 24-72057594445594754
+sensor.fibaro_system_fgrm222_roller_shutter_controller_2_exporting:
+  name:
+  platform: zwave
+  unique_id: 24-72057594445595136
+sensor.fibaro_system_fgrm222_roller_shutter_controller_2_power_2:
+  name:
+  platform: zwave
+  unique_id: 24-72057594445578306

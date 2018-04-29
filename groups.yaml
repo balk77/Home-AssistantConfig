@@ -1,4 +1,5 @@
 default_view:
+  name: Home
   view: yes
   entities:
     #- group.phones
@@ -30,7 +31,6 @@ default_view:
     #- sensor.itho_ventilatie
     - group.pihole
     - camera.ip_webcam
-    #- sensor.minhum
 weer:
   name: Weer
   view: yes
@@ -153,6 +153,7 @@ nefit:
     - sensor.hotwater
     - group.thermostaat_woonkamer
     - group.slaapkamer_dide
+    - group.slaapkamer_fien
     #- states.climate.heating.attributes.boiler_indicator
 thermostaat_woonkamer:
   name: Thermostaat Woonkamer
@@ -178,6 +179,12 @@ slaapkamer_dide:
     - input_number.slaapkamer_dide_setpoint
     - sensor.slaapkamer_dide_gemeten_temperatuur
     - sensor.slaapkamer_dide_gewenste_temperatuur
+slaapkamer_fien:
+  name: Slaapkamer Fien
+  entities:
+    - input_number.slaapkamer_fien_setpoint
+    - sensor.slaapkamer_fien_gemeten_temperatuur
+    - sensor.slaapkamer_fien_gewenste_temperatuur
 bk_sensors:
   name: Badkamer Sensors
   entities:
@@ -188,6 +195,7 @@ bk_sensors:
     - sensor.bkfanhumidity
     - sensor.humdelta
     - sensor.minhum
+    #- sensor.minhum2
 wasmachineendroger:
   name: Wasmachine en Droger
   view: yes
@@ -254,3 +262,4 @@ zolder:
         - sensor.dide_temp
         - sensor.fien_temp
         - sensor.wk_delta_t
+        - cover.level

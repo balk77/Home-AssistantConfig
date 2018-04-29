@@ -11,6 +11,12 @@ slaapkamer_dide_setpoint:
   max: 25
   mode: slider
   step: 0.5
+slaapkamer_fien_setpoint:
+  name: Slaapkamer Fien Setpoint
+  min: 10
+  max: 25
+  mode: slider
+  step: 0.5
 hass_tempsetpoint:
   name: Gewenste Temperatuur
   min: 15
@@ -40,3 +46,7 @@ random_minute:
 humdelta_dummy:
   min: 0
   max: 20
+zonnescherm:
+  # 0 is omhoog, 255 is down
+  min: 0
+  max: 255

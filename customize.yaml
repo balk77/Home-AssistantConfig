@@ -108,7 +108,9 @@ input_boolean.itho_remote_override:
 sensor.zolder_multisensor_temperature:
   friendly_name: Zolder Temperatuur
 sensor.slaapkamer_dide_gemeten_temperatuur:
-  friendly_name: Kamer Dide
+  friendly_name: Thermostaat Kamer Dide
+sensor.slaapkamer_fien_gemeten_temperatuur:
+  friendly_name: Thermostaat Kamer Fien
 sensor.zolder_delta_t:
   friendly_name: Zolder delta T
 script.woonkamer_low:
@@ -130,7 +132,7 @@ sensor.delft_precipitation_forecast_total:
 input_number.hass_tempsetpoint:
   friendly_name: Gewenst set point
 sensor.thermostaat_tempsetpoint:
-  friendly_name: Set point op thermostaat
+  friendly_name: Setpoint op thermostaat
 sensor.thermostaat_activeprogram:
   friendly_name: Programma op thermostaat
 sensor.dide_temp:
