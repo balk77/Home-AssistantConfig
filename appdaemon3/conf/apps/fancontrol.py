@@ -30,7 +30,7 @@ class fancontrol(hass.Hass):
 
 
     def main(self, entity, attribute, old, new, kwargs):
-        self.log("   ")
+        # self.log("   ")
         # get the fan level for the current humidity level
         desiredStateHUM = self.humidity_level()
         # get the fan level for the current boiler status level
@@ -57,14 +57,14 @@ class fancontrol(hass.Hass):
             desiredStateHW = "low"
 
 
-        self.log("Hot Water:")
-        self.log(desiredStateHW)
-
-        self.log("humidity:")
-        self.log(desiredStateHUM)
-
-        self.log("zolder fan:")
-        self.log(desiredStateZOLDER)
+        # self.log("Hot Water:")
+        # self.log(desiredStateHW)
+        #
+        # self.log("humidity:")
+        # self.log(desiredStateHUM)
+        #
+        # self.log("zolder fan:")
+        # self.log(desiredStateZOLDER)
 
 
         # self.timestamp_high is set to current time (seconds)
@@ -76,8 +76,8 @@ class fancontrol(hass.Hass):
 
         self.shower = self.get_state("input_boolean.shower")
 
-        self.log("Douche status:")
-        self.log(self.shower)
+        # self.log("Douche status:")
+        # self.log(self.shower)
 
 
 

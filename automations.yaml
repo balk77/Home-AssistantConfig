@@ -143,14 +143,14 @@
   - platform: time
     at: '2:00:00'
   condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: sensor.thermostaat_activeprogram
-      state: '0'
-    - condition: state
-      entity_id: input_boolean.huis_slaapstand
-      state: 'off'
+  # - condition: and
+  #   conditions:
+  #   - condition: state
+  #     entity_id: sensor.thermostaat_activeprogram
+  #     state: '0'
+  - condition: state
+    entity_id: input_boolean.huis_slaapstand
+    state: 'off'
   action:
   - service: ifttt.trigger
     data:

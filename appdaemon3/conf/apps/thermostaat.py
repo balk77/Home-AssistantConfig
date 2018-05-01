@@ -23,6 +23,9 @@ class thermostaat(hass.Hass):
         body1 = temp_sp_hass
         body2 = "on"
         body3 = temp_sp_hass
+        self.log("new setpoint & command:")
+        self.log(body1)
+        self.log(body2)
 
         if(temp_sp_hass != temp_sp_thermostaat):
 
