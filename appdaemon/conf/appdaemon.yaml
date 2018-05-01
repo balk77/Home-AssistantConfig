@@ -1,9 +1,0 @@
-AppDaemon:
-  #logfile: STDOUT
-  #errorfile: STDERR
-  threads: 10
-  app_dir: /home/sander/hass/homeassistant/appdaemon/apps
-  logfile: /home/sander/hass/homeassistant/appdaemon/log/appdaemon.log
-  errorfile: /home/sander/hass/homeassistant/appdaemon/log/appdaemon.err
-HASS:
-  ha_url: http://192.168.0.9:8123

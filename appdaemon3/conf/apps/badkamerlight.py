@@ -1,8 +1,8 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 import datetime
 
 
-class badkamerlight(appapi.AppDaemon):
+class badkamerlight(hass.Hass):
     def initialize(self):
         self.listen_state(self.inputhandler, "light.badkamer_plafond_level", old = "off", new = "on")
 

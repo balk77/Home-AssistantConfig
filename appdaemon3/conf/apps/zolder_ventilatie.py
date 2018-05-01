@@ -1,7 +1,7 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 
 
-class ZolderTemperatuurVentilatie(appapi.AppDaemon):
+class ZolderVentilatie(hass.Hass):
     def initialize(self):
         # Listen for state change of ventilation requirements
         self.listen_state(self.input_parse2, "input_number.zolder_ventilatie")
@@ -83,7 +83,7 @@ class ZolderTemperatuurVentilatie(appapi.AppDaemon):
             self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/Power1", payload="off")
             self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/Power2", payload="off")
         # write DesiredPercentage value to Home Assistant for next time
-        self.select_value("input_number.zolder_ventilatie_old", DesiredPercentage)
+        self.set_value("input_number.zolder_ventilatie_old", DesiredPercentage)
 
         # Enable UI input after valve has stopped moving
         self.run_in(self.turn_on_handler, PulseTime_sec)

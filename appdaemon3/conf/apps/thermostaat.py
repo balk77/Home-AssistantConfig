@@ -1,8 +1,8 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 import datetime
 import requests
 
-class thermostaat(appapi.AppDaemon):
+class thermostaat(hass.Hass):
     def initialize(self):
         self.listen_state(self.inputhandler, "input_number.hass_tempsetpoint")
         self.listen_state(self.program_enable, "input_boolean.nefit_programma",new="on")
@@ -61,4 +61,4 @@ class thermostaat(appapi.AppDaemon):
 
         self.log(temp_sp_thermostaat)
 
-        self.select_value("input_number.hass_tempsetpoint", temp_sp_thermostaat)
+        self.set_value("input_number.hass_tempsetpoint", temp_sp_thermostaat)

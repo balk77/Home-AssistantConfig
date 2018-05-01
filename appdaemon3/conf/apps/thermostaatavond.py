@@ -1,9 +1,9 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 import datetime
 #import urllib.request
 import requests
 
-class thermostaatavond(appapi.AppDaemon):
+class thermostaatavond(hass.Hass):
     def initialize(self):
         self.listen_state(self.inputhandler1, "sensor.thermostaat_tempsetpoint")
         self.listen_state(self.inputhandler2, "group.woonkamer", new="off")
@@ -26,7 +26,7 @@ class thermostaatavond(appapi.AppDaemon):
             avond = 0
 
         if (temp_sp < 15.1 and avond == 1 and thermostaat_activeprogram == "0" and lights_woonkamer == "on"):
-            self.select_value("input_number.hass_tempsetpoint",maxtempsetpoint)
+            self.set_value("input_number.hass_tempsetpoint",maxtempsetpoint)
 
 
     def inputhandler2(self, entity, attribute, old, new, kwargs):
@@ -45,7 +45,7 @@ class thermostaatavond(appapi.AppDaemon):
             avond = 0
 
         if (avond == 1 and thermostaat_activeprogram == "0" and lights_woonkamer == "off"):
-            self.select_value("input_number.hass_tempsetpoint",15)
+            self.set_value("input_number.hass_tempsetpoint",15)
             self.set_state("input_boolean.huis_slaapstand", state="on")
             self.set_state("input_boolean.iftt_temp_triggered", state="on")
-            self.select_value("input_number.iftt_temp_triggered_sp", 15)
+            self.set_value("input_number.iftt_temp_triggered_sp", 15)

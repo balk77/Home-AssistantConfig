@@ -1,8 +1,8 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 import datetime
 
 
-class mbrlight(appapi.AppDaemon):
+class mbrlight(hass.Hass):
     def initialize(self):
         self.listen_state(self.inputhandler, "light.mbr_plafond_level", old="off", new="on")
 

@@ -1,7 +1,7 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 import math
 
-class rel2abs(appapi.AppDaemon):
+class rel2abs(hass.Hass):
     def initialize(self):
         self.listen_state(self.inputhandler, self.args["relhumidity"])
 

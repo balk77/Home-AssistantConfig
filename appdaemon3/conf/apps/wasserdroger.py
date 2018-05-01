@@ -1,9 +1,9 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 import time
 from babel.numbers import format_number, format_decimal
 
 
-class wasserdroger(appapi.AppDaemon):
+class wasserdroger(hass.Hass):
     def initialize(self):
         self.listen_state(self.inputhandler, self.args["trigger"], old="off", new="on")
         self.listen_state(self.inputhandler, self.args["trigger"], old="on", new="off")

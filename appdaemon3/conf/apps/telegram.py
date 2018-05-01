@@ -1,6 +1,6 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 
-class TelegramBotEventListener(appapi.AppDaemon):
+class TelegramBotEventListener(hass.Hass):
     """Event listener for Telegram bot events."""
 
     def initialize(self):

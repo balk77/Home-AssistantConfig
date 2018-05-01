@@ -1,0 +1,7 @@
+hello_world:
+  module: hello
+  class: HelloWorld
+
+appdaemonalive:
+  module: appdaemonalive
+  class: appdaemonalive

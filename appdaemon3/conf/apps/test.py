@@ -1,6 +1,6 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 
-class test(appapi.AppDaemon):
+class test(hass.Hass):
 
     def initialize(self):
         self.listen_state(self.what_we_want_to_do,"input_boolean.occupancy_simulation", new="on")

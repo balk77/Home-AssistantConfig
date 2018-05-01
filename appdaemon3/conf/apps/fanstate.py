@@ -1,6 +1,6 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 
-class fanstate(appapi.AppDaemon):
+class fanstate(hass.Hass):
     def initialize(self):
         # Listen for state change of ventilation requirements
         # self.log("   ")
@@ -39,7 +39,7 @@ class fanstate(appapi.AppDaemon):
             self.call_service("mqtt/publish", topic="/hass/itho/cmd", payload=payload)
 
             if desiredState == "1" or desiredState == "0":
-                self.select_value("input_number.zolder_ventilatie", 100)
+                self.set_value("input_number.zolder_ventilatie", 100)
 
     def setselector(self, entity, attribute, old, new, kwargs):
         # If LastID is Itho remote, execute the following block

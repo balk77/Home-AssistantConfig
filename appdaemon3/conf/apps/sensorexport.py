@@ -1,6 +1,6 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 
-class sensorexport(appapi.AppDaemon):
+class sensorexport(hass.Hass):
     def initialize(self):
         self.listen_state(self.inputhandler, self.args["trigger"])
 

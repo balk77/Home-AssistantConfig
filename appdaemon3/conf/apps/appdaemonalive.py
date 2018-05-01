@@ -1,9 +1,9 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 import time
 import datetime
 
 
-class appdaemonalive(appapi.AppDaemon):
+class appdaemonalive(hass.Hass):
     def initialize(self):
         time = datetime.time(0, 0, 0)
 
