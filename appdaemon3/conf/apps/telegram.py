@@ -18,15 +18,18 @@ class TelegramBotEventListener(hass.Hass):
         # chat_id: "<origin chat id>"
         # chat: "<chat info>"
         command = payload_event['command']
-        self.log("lala")
-        self.log(command)
+        # self.log("lala")
+        # self.log(command)
 
         user_id = payload_event['user_id']
         if command == "/ventilatie":
             self.ventilatie(payload_event = payload_event)
 
+
+
     def ventilatie(self, payload_event, *args):
         self.log(payload_event['user_id'])
+        user_id = payload_event['user_id']
         self.call_service('telegram_bot/send_message',
                           title='*Dumb automation*',
                           target=user_id,
@@ -54,12 +57,13 @@ class TelegramBotEventListener(hass.Hass):
         """Text repeater."""
         assert event_id == 'telegram_text'
         user_id = payload_event['user_id']
-        if payload_event['text'] == '/piing':  # Only Answer to callback query
+        self.log(payload_event['text'])
+        if payload_event['text'] == '/vakantie':  # Only Answer to callback query
             self.call_service('telegram_bot/answer_callback_query',
                               message='pang pang pang',
                               callback_query_id=callback_id)
         msg = 'You said: ``` %s ```' % payload_event['text']
-        keyboard = [[("Edit message", "/edit_msg"),
+        keyboard = [[("Vakantie Status", "/vakantie"),
                      ("Don't", "/do_nothing")],
                     [("Remove this button", "/remove button")]]
         self.call_service('telegram_bot/send_message',
@@ -118,3 +122,37 @@ class TelegramBotEventListener(hass.Hass):
             self.call_service('telegram_bot/answer_callback_query',
                               message='OK, you said no!',
                               callback_query_id=callback_id)
+        elif data_callback == "/vakantie_set":
+            self.toggle("input_boolean.vakantie")
+            modus = self.get_state("input_boolean.vakantie")
+            if modus == "on":
+                modus = "aan"
+            else:
+                modus = "uit"
+            msg = "Vakantiemodus is nu " + modus
+            self.call_service('telegram_bot/send_message',
+                              title='*Vakantiemodus*',
+                              target=user_id,
+                              message=msg,
+                              disable_notification=True)
+        elif data_callback == "/vakantie":
+            user_id = payload_event['user_id']
+            modus = self.get_state("input_boolean.vakantie")
+
+
+            if modus == "on":
+                modus2 = "uit"
+            else:
+                modus2 = "aan"
+
+            msg = 'Vakantiemodus: ``` %s ```' % modus
+
+            # self.log(modus2)
+            keyboard = [[("Zet " + modus2, "/vakantie_set")]]
+
+            self.call_service('telegram_bot/send_message',
+                              title='*Vakantiemodus*',
+                              target=user_id,
+                              message=msg,
+                              disable_notification=True,
+                              inline_keyboard=keyboard)

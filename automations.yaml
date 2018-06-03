@@ -143,11 +143,6 @@
   - platform: time
     at: '2:00:00'
   condition:
-  # - condition: and
-  #   conditions:
-  #   - condition: state
-  #     entity_id: sensor.thermostaat_activeprogram
-  #     state: '0'
   - condition: state
     entity_id: input_boolean.huis_slaapstand
     state: 'off'
@@ -300,16 +295,16 @@
   - platform: time
     at: '17:00:00'
   action:
-    - service: mqtt.publish
-      data_template:
-        topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
-        retain: true
-        payload: '17'
-    - service: mqtt.publish
-      data_template:
-        topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
-        retain: true
-        payload: '18'
+  - service: mqtt.publish
+    data_template:
+      topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
+      retain: true
+      payload: '17'
+  - service: mqtt.publish
+    data_template:
+      topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+      retain: true
+      payload: '18'
 - id: thermo_zolder2a
   alias: Thermostaat Zolder ochtend laat
   trigger:
@@ -321,16 +316,16 @@
     before: '17:00:00'
     condition: time
   action:
-    - data_template:
-        payload: '17'
-        retain: true
-        topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
-      service: mqtt.publish
-    - data_template:
-        payload: '18'
-        retain: true
-        topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
-      service: mqtt.publish
+  - data_template:
+      payload: '17'
+      retain: true
+      topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
+    service: mqtt.publish
+  - data_template:
+      payload: '18'
+      retain: true
+      topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+    service: mqtt.publish
 - id: thermo_zolder2b
   alias: Thermostaat Zolder ochtend vroeg
   trigger:
@@ -338,16 +333,16 @@
     platform: time
   condition: []
   action:
-    - data_template:
-        payload: '16'
-        retain: true
-        topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
-      service: mqtt.publish
-    - data_template:
-        payload: '17'
-        retain: true
-        topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
-      service: mqtt.publish
+  - data_template:
+      payload: '16'
+      retain: true
+      topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
+    service: mqtt.publish
+  - data_template:
+      payload: '17'
+      retain: true
+      topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+    service: mqtt.publish
 - id: thermo_zolder3
   alias: Thermostaat Zolder ochtend uit
   trigger:
@@ -359,32 +354,32 @@
     before: '17:00:00'
     condition: time
   action:
-    - data_template:
-        payload: '13'
-        retain: true
-        topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
-      service: mqtt.publish
-    - data_template:
-        payload: '13'
-        retain: true
-        topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
-      service: mqtt.publish
+  - data_template:
+      payload: '13'
+      retain: true
+      topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
+    service: mqtt.publish
+  - data_template:
+      payload: '13'
+      retain: true
+      topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+    service: mqtt.publish
 - id: thermo_zolder_uit
   alias: Thermostaat Zolder uit
   trigger:
     platform: time
     at: '19:00:00'
   action:
-    - service: mqtt.publish
-      data_template:
-        topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
-        retain: true
-        payload: '13'
-    - service: mqtt.publish
-      data_template:
-        topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
-        retain: true
-        payload: '13'
+  - service: mqtt.publish
+    data_template:
+      topic: /zolder/kamerdide/thermostaat/desiredTemperature/set
+      retain: true
+      payload: '13'
+  - service: mqtt.publish
+    data_template:
+      topic: /zolder/kamerfien/thermostaat/desiredTemperature/set
+      retain: true
+      payload: '13'
 - id: thermo_dide_10
   alias: Set temp slider Dide temperature
   trigger:
@@ -577,10 +572,10 @@
       entity_id: group.woonkamer
       state: 'off'
   action:
-  - service: notify.pushbullet
-    data:
-      target: device/Nexus5X
-      message: Lampen in huis gaan aan - aanwezigheidssimulatie
+  # - service: notify.pushbullet
+  #   data:
+  #     target: device/Nexus5X
+  #     message: Lampen in huis gaan aan - aanwezigheidssimulatie
   - service: input_boolean.turn_on
     entity_id: input_boolean.occupancy_simulation
 - id: notify_when_not_home_2
@@ -596,6 +591,8 @@
     - condition: state
       entity_id: group.woonkamer
       state: 'off'
+    - condition: time
+      before: '22:30:00'
   action:
   - service: notify.pushbullet
     data:
@@ -646,12 +643,12 @@
     platform: state
     to: '0'
     for:
-      minutes: 30
+      minutes: 60
   condition:
   - condition: and
     conditions:
     - condition: time
-      after: '21:00:00'
+      after: '22:00:00'
     - condition: template
       value_template: '{{ states.sensor.woonkamer_number_of_lights_on.state | int
         <= 2  }}'
@@ -660,55 +657,102 @@
     entity_id: script.woonkamer_off
   - service: input_boolean.turn_on
     entity_id: input_boolean.huis_slaapstand
-- id: zolder_warm_in_1
-  alias: Temperatuur op zolder hoger dan buiten
-  trigger:
-  - entity_id: sensor.zolder_delta_t
-    platform: numeric_state
-    below: 0
-  condition:
-  - condition: numeric_state
-    entity_id: sensor.zolder_max_t
-    above: 23
-  action:
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.zolder_te_warm
-- id: zolder_warm_in_2
-  alias: Temperatuur op zolder veel hoger dan buiten
-  trigger:
-  - entity_id: sensor.zolder_delta_t
-    platform: numeric_state
-    below: 0
-  condition:
-  - condition: numeric_state
-    entity_id: sensor.zolder_max_t
-    above: 27
-  action:
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.zolder_veel_te_warm
-- id: zolder_warm_uit
-  alias: Temperatuur op zolder lager dan buiten
-  trigger:
-  - entity_id: sensor.zolder_delta_t
-    platform: numeric_state
-    above: 0
-    for:
-      minutes: 10
-  action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.zolder_te_warm
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.zolder_veel_te_warm
+# - id: zolder_warm_in_1
+#   alias: Temperatuur op zolder hoger dan buiten
+#   trigger:
+#   - entity_id: sensor.zolder_delta_t
+#     platform: numeric_state
+#     below: 0
+#   condition:
+#   - condition: numeric_state
+#     entity_id: sensor.zolder_max_t
+#     above: 23
+#   action:
+#   - service: input_boolean.turn_on
+#     entity_id: input_boolean.zolder_te_warm
+# - id: zolder_warm_in_2
+#   alias: Temperatuur op zolder veel hoger dan buiten
+#   trigger:
+#   - entity_id: sensor.zolder_delta_t
+#     platform: numeric_state
+#     below: 0
+#   condition:
+#   - condition: numeric_state
+#     entity_id: sensor.zolder_max_t
+#     above: 27
+#   action:
+#   - service: input_boolean.turn_on
+#     entity_id: input_boolean.zolder_veel_te_warm
+# - id: zolder_warm_uit
+#   alias: Temperatuur op zolder lager dan buiten
+#   trigger:
+#   - entity_id: sensor.zolder_delta_t
+#     platform: numeric_state
+#     above: 0
+#     for:
+#       minutes: 10
+#   action:
+#   - service: input_boolean.turn_off
+#     entity_id: input_boolean.zolder_te_warm
+#   - service: input_boolean.turn_off
+#     entity_id: input_boolean.zolder_veel_te_warm
+# - id: azimuth_backside_on
+#   trigger:
+#   - platform: numeric_state
+#     entity_id: sensor.azimuth
+#     above: 54
+#   action:
+#   - service: input_boolean.turn_on
+#     entity_id: input_boolean.azimuth_backside
+# - id: azimuth_backside_off
+#   trigger:
+#   - platform: numeric_state
+#     entity_id: sensor.azimuth
+#     above: 234
+#   action:
+#   - service: input_boolean.turn_off
+#     entity_id: input_boolean.azimuth_backside
 - id: azimuth_scherm_op
   alias: Zonnescherm op tegen avond
-# Neer bij 55graden, op bij 234 graden
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.azimuth
-      above: 234
-    - platform: sun
-      event: sunset
+  - platform: state
+    entity_id: input_boolean.azimuth_backside
+    to: "off"
+  - platform: sun
+    event: sunset
   action:
-    - service: cover.open_cover
-      data:
-        entity_id: cover.level
+  - service: cover.open_cover
+    data:
+      entity_id: cover.level
+- id: 'sander_gaat_weg'
+  alias: Sander gaat weg
+  trigger:
+  - entity_id: device_tracker.phone_sander
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      message: Sander verlaat het huis
+      target: device/Nexus5X
+    service: notify.pushbullet
+- id: heal_network
+  alias: heal at 2:32am
+  trigger:
+    platform: time
+    at: '2:32:00'
+  action:
+    service: zwave.heal_network
+- id: ping_raumfeld
+  alias: Ping Raumfeld
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ping_raumfeld
+    to: "off"
+    for:
+      minutes: 1
+  action:
+    service: notify.pushbullet
+    data:
+      target: device/Nexus5X
+      message: Raumfeld offline

@@ -1,11 +1,11 @@
 washer_switch:
     name: Toggle Washer Automation
     initial: off
-    icon: mdi:water
+    icon: mdi:washing-machine
 dryer_switch:
     name: Toggle Dryer Automation
     initial: off
-    icon: mdi:water
+    icon: mdi:tumble-dryer
 itho_not_low:
   name: Itho not low
   initial: off
@@ -54,3 +54,17 @@ zolder_te_warm:
 zolder_veel_te_warm:
   name: Zolder veel te warm - ventilatie moet aan
   initial: off
+sander_occupancy:
+  name: Sander is thuis
+  initial: off
+linda_occupancy:
+  name: Linda is thuis
+  initial: off
+azimuth_backside:
+  name: Zon schijnt tegen achterkant huis
+  initial: off
+vakantie:
+  name: Vakantie
+  initial: off
+#  icon_template: "{% if is_state('input_boolean.vakantie', 'on') %}mdi:airplane-takeoff{% else %}mdi:home{% endif  %}"
+#  icon: mdi:airplane-takeoff

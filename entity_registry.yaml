@@ -546,3 +546,111 @@ sensor.fibaro_system_fgrm222_roller_shutter_controller_2_power_2:
   name:
   platform: zwave
   unique_id: 24-72057594445578306
+sensor.pws_temp_c:
+  name:
+  platform: wunderground
+  unique_id: IDELFT73,temp_c
+sensor.delft_rainchance_1d:
+  name:
+  platform: buienradar
+  unique_id: 52.0175984.357678rainchance_1d
+sensor.delft_precipitation_forecast_total:
+  name:
+  platform: buienradar
+  unique_id: 52.0175984.357678precipitation_forecast_total
+sensor.delft_rain_1d:
+  name:
+  platform: buienradar
+  unique_id: 52.0175984.357678rain_1d
+sensor.delft_sunchance_1d:
+  name:
+  platform: buienradar
+  unique_id: 52.0175984.357678sunchance_1d
+sensor.delft_symbol:
+  name:
+  platform: buienradar
+  unique_id: 52.0175984.357678symbol
+sensor.delft_condition:
+  name:
+  platform: buienradar
+  unique_id: 52.0175984.357678condition
+sensor.delft_temperature:
+  name:
+  platform: buienradar
+  unique_id: 52.0175984.357678temperature
+sensor.delft_symbol_1d:
+  name:
+  platform: buienradar
+  unique_id: 52.0175984.357678symbol_1d
+sensor.delft_temperature_1d:
+  name:
+  platform: buienradar
+  unique_id: 52.0175984.357678temperature_1d
+sensor.delft_irradiance:
+  name:
+  platform: buienradar
+  unique_id: 52.0175984.357678irradiance
+zwave.aeotec_zw090_zstick_gen5_eu:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.wk_multisensor:
+  name:
+  platform: zwave
+  unique_id: node-3
+zwave.fibaro_switch:
+  name:
+  platform: zwave
+  unique_id: node-4
+zwave.schemerlamp:
+  name:
+  platform: zwave
+  unique_id: node-8
+zwave.keuken_koof:
+  name:
+  platform: zwave
+  unique_id: node-9
+zwave.wk_eettafel_plafond:
+  name:
+  platform: zwave
+  unique_id: node-12
+zwave.badkamer_plafond:
+  name:
+  platform: zwave
+  unique_id: node-13
+zwave.mbr_plafond:
+  name:
+  platform: zwave
+  unique_id: node-14
+zwave.zolder_multisensor:
+  name:
+  platform: zwave
+  unique_id: node-15
+zwave.wk_achter_plafond:
+  name:
+  platform: zwave
+  unique_id: node-17
+zwave.keuken_aanrecht:
+  name:
+  platform: zwave
+  unique_id: node-19
+zwave.wk_muur:
+  name:
+  platform: zwave
+  unique_id: node-20
+zwave.keuken_plafond:
+  name:
+  platform: zwave
+  unique_id: node-21
+zwave.hank22:
+  name:
+  platform: zwave
+  unique_id: node-22
+zwave.zolder_rolluik:
+  name:
+  platform: zwave
+  unique_id: node-24
+zwave._:
+  name:
+  platform: zwave
+  unique_id: node-7

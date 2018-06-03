@@ -60,6 +60,7 @@ class thermostaat(hass.Hass):
         self.log(r2.text)
 
     def sync_hass_with_thermostat(self, entity, attribute, old, new, kwargs):
+        
         temp_sp_thermostaat = float(self.get_state("sensor.thermostaat_tempsetpoint"))
 
         self.log(temp_sp_thermostaat)

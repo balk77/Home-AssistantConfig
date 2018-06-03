@@ -10,11 +10,12 @@ class fanstate(hass.Hass):
 
 
     def setspeed(self, entity, attribute, old, new, kwargs):
-        self.log("   ")
+        #self.log("   ")
 
         ## if Itho remote is used, override HASS automation for 10 minutes
         override = self.get_state("input_boolean.itho_remote_override")
         desiredState = self.get_state("input_select.fanstate")
+        self.log("desiredState: "+desiredState)
         if override == "off":
             if desiredState == "full":
                 newstate =  "4"

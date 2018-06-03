@@ -6,7 +6,7 @@ class ZolderTemperatuurVentilatie(hass.Hass):
         # Listen for state change of ventilation requirements
         self.listen_state(self.input_parse2, "input_number.zolder_ventilatie")
         # DesiredPercentage = self.get_state("input_number.zolder_ventilatie")
-        self.log("lalala1")
+
 
     def input_parse2(self, entity, attribute, old, new, kwargs):
         # get Desired Percentage from Home assistant

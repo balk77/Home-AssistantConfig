@@ -9,7 +9,7 @@ class mbrlight(hass.Hass):
     def inputhandler(self, entity, attribute, old, new, kwargs):
         now = datetime.datetime.now()
 
-        if now.hour >= 22 or (self.sun_down() and now.hour < 11):
+        if now.hour >= 22 or (self.sun_down() or now.hour < 7 and now.hour < 11):
             self.turn_on("light.mbr_plafond_level", brightness=26)
             self.log("MBR dim")
         else:

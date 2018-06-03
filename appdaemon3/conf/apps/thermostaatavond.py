@@ -14,6 +14,7 @@ class thermostaatavond(hass.Hass):
         # self.run_daily(self.run_daily_c, runtime)
 
     def inputhandler1(self, entity, attribute, old, new, kwargs):
+        
         temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
         lights_woonkamer = self.get_state("group.woonkamer")
         thermostaat_activeprogram = self.get_state("sensor.thermostaat_activeprogram")

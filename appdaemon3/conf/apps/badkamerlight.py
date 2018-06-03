@@ -14,11 +14,14 @@ class badkamerlight(hass.Hass):
         # self.run_in(self.setlightfade, 20, brightness=255, transition=30)
 
 
-        if workday_sensor == "on" and now.hour >= 0 and self.sun_down() and now.hour < 5:
+        if workday_sensor == "on" and now.hour >= 0 and now.hour < 5:
             self.setlight(brightness=26, transition=0)
-        elif workday_sensor == "off" and now.hour >= 0 and self.sun_down() and now.hour < 7:
+        elif workday_sensor == "off" and now.hour >= 0 and now.hour < 7:
             self.setlight(brightness=26, transition=0)
-        elif workday_sensor == "on" and now.hour >= 5 and self.sun_down() and now.hour < 11:
+        elif workday_sensor == "on" and now.hour >= 5 and now.hour < 8:
+            self.setlight(brightness=26, transition=0)
+            self.run_in(self.setlightfade, 20, brightness=255, transition=30)
+        elif workday_sensor == "on" and now.hour >= 8 and self.sun_down() and now.hour < 11:
             self.setlight(brightness=26, transition=0)
             self.run_in(self.setlightfade, 20, brightness=255, transition=30)
         elif workday_sensor == "off" and now.hour >= 7 and self.sun_down() and now.hour < 11:

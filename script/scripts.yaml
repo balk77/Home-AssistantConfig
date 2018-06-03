@@ -1,7 +1,7 @@
 woonkamer_low:
   alias: Woonkamer Low
   sequence:
-    - service: switch.turn_on
+    - service: switch.turn_off
       entity_id: switch.keuken_aanrecht_switch
     - delay:
         milliseconds: 100
@@ -145,3 +145,14 @@ woonkamer_full:
       entity_id: light.wk_achter_plafond_level
       data:
         brightness: 255
+mbr_low:
+  alias: MBR Low
+  sequence:
+    - service: light.turn_on
+      entity_id: light.mbr_plafond_level
+      data:
+        brightness: 26
+    - delay:
+        milliseconds: 600000
+    - service: light.turn_off
+      entity_id: light.mbr_plafond_level

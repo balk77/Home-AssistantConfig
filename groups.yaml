@@ -4,9 +4,11 @@ default_view:
   entities:
     #- group.phones
     #- group.wk_sensors
-    - device_tracker.phone_nexus5x
-    - device_tracker.nut_sander
-    - device_tracker.nut_linda
+    - device_tracker.phone_sander
+    - device_tracker.phone_linda
+    # - device_tracker.phone_nexus5x
+    # - device_tracker.nut_sander
+    # - device_tracker.nut_linda
     - group.woonkamer_scenes
     - switch.fibaro_system_fgwpef_wall_plug_switch
     - light.mqtt_json_slaapkamer
@@ -29,8 +31,7 @@ default_view:
     #- sensor.wk_abshumidity
     #- sensor.wk_hix
     #- sensor.itho_ventilatie
-    - group.pihole
-    - camera.ip_webcam
+    - group.algemeen
 weer:
   name: Weer
   view: yes
@@ -220,10 +221,12 @@ droger:
     - sensor.dryer_pwrup
     - input_boolean.dryer_switch
 
-pihole:
-  name: Pi Hole
+algemeen:
+  name: Algemeen
+  control: hidden
   entities:
     - switch.pihole_switch
+    - input_boolean.vakantie
 woonkamer_ex_muur:
   name: Woonkamer verlichting exclusief muur
   entities:

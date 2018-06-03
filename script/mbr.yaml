@@ -1,0 +1,12 @@
+mbr_low:
+  alias: MBR Low
+  sequence:
+    - service: light.turn_on
+      entity_id: light.mbr_plafond_level
+      data:
+        brightness: 26
+mbr_off:
+  alias: MBR off
+  sequence:
+    - service: light.turn_off
+      entity_id: light.mbr_plafond_level

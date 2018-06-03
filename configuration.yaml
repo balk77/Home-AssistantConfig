@@ -17,6 +17,7 @@ homeassistant:
   #packages: !include_dir_named packages
 
 
+
 recorder:
   db_url: postgres://homeassistant:ereadsta@192.168.0.9/homeassistant
   purge_interval: 2
@@ -68,7 +69,10 @@ logger:
 # Enables the frontend
 frontend:
   javascript_version: latest
-
+  extra_html_url:
+    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
+  extra_html_url_es5:
+    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui-es5.html
 
 config:
 
@@ -86,6 +90,8 @@ updater:
 
 # Discover some devices automatically
 discovery:
+  ignore:
+    - plex_mediaserver
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
@@ -124,7 +130,9 @@ automation: !include automations.yaml
 #light: !include_dir_list light/
 #script: !include_dir_list script/
 #script: !include script/badkamer_script.yaml
-script: !include script/woonkamer.yaml
+script: !include script/scripts.yaml
+#  - !include script/woonkamer.yaml
+  #- !include script/mbr.yaml
 #script: !include script/group_visibility.yaml
 input_boolean: !include input_booleans.yaml
 scene: !include_dir_list scenes
@@ -168,6 +176,7 @@ mqtt:
 # Z-Wave config
 zwave:
   usb_path: /dev/ttyACM0
+  autoheal: false
   device_config:
     cover.level:
       invert_openclose_buttons: true
