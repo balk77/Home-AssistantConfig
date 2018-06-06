@@ -756,3 +756,22 @@
     data:
       target: device/Nexus5X
       message: Raumfeld offline
+- id: douche_counter
+  alias: Aantal keren douchen
+  trigger:
+  - entity_id: sensor.wk_boilerstatus
+    platform: state
+    to: HW
+    for:
+      minutes: 2
+  action:
+  - service: counter.increment
+    entity_id: counter.douches
+- id: reset_douche_counter
+  alias: Reset Douche Counter
+  trigger:
+    platform: time
+    at: '4:00:00' 
+  action:
+  - service: counter.reset
+    entity_id: counter.douches

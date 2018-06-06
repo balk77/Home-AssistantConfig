@@ -1,8 +1,0 @@
-alias: "test"
-trigger:
-  platform: time
-  at: "21:03"
-action:
-  - service: notify.pushbullet
-    data:
-      message: 'Wasmachine is klaar!'

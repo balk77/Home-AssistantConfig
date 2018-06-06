@@ -19,7 +19,7 @@ class TelegramBotEventListener(hass.Hass):
         # chat: "<chat info>"
         command = payload_event['command']
         # self.log("lala")
-        # self.log(command)
+        
 
         user_id = payload_event['user_id']
         if command == "/ventilatie":
@@ -54,26 +54,60 @@ class TelegramBotEventListener(hass.Hass):
                           inline_keyboard=keyboard)
 
     def receive_telegram_text(self, event_id, payload_event, *args):
-        """Text repeater."""
+
         assert event_id == 'telegram_text'
-        user_id = payload_event['user_id']
+        self.log(payload_event['chat_id'])
+
         self.log(payload_event['text'])
         if payload_event['text'] == '/vakantie':  # Only Answer to callback query
             self.call_service('telegram_bot/answer_callback_query',
                               message='pang pang pang',
                               callback_query_id=callback_id)
-        msg = 'You said: ``` %s ```' % payload_event['text']
-        keyboard = [[("Vakantie Status", "/vakantie"),
-                     ("Don't", "/do_nothing")],
-                    [("Remove this button", "/remove button")]]
+        #msg = 'You said: ``` %s ```' % payload_event['text']
+        
+        if payload_event['text'] == "":
+            self.log("ja")
+        else:
+            self.main_menu(payload_event = payload_event)
+            
+            
+
+    def main_menu(self, payload_event, *args):
+        
+        user_id = payload_event['user_id']
+
+        msg = "Roep status op"
+        keyboard = [[("Vakantie", "/vakantie"),
+                        ("Verlichting", "/verlichting")],
+                        [("Ventilatie", "/ventilatie")]]
         self.call_service('telegram_bot/send_message',
-                          title='*Dumb automation*',
-                          target=user_id,
-                          message=msg,
-                          disable_notification=True,
-                          inline_keyboard=keyboard)
+                        title='*Hoofdmenu*',
+                        target=user_id,
+                        message=msg,
+                        disable_notification=True,
+                        inline_keyboard=keyboard)
+    def send_message(self, payload_event, **kwargs):
+        user_id = payload_event['user_id']
+        self.log(kwargs['msg'])
+        try:
+            self.call_service('telegram_bot/edit_message',
+                                chat_id=user_id,
+                                message_id="last",
+                                title="*"+kwargs['title']+"*",
+                                message=kwargs['msg'])
+                            
+        except:
+            try:
+                self.call_service('telegram_bot/edit_message',
+                                chat_id=user_id,
+                                message_id="last",
+                                message=kwargs['msg'])
+            except:
+                self.log("error")
+                                              
 
     def receive_telegram_callback(self, event_id, payload_event, *args):
+
         """Event listener for Telegram callback queries."""
         assert event_id == 'telegram_callback'
         data_callback = payload_event['data']
@@ -135,6 +169,7 @@ class TelegramBotEventListener(hass.Hass):
                               target=user_id,
                               message=msg,
                               disable_notification=True)
+            self.main_menu(payload_event = payload_event)
         elif data_callback == "/vakantie":
             user_id = payload_event['user_id']
             modus = self.get_state("input_boolean.vakantie")
@@ -156,3 +191,33 @@ class TelegramBotEventListener(hass.Hass):
                               message=msg,
                               disable_notification=True,
                               inline_keyboard=keyboard)
+        elif data_callback == "/ventilatie":
+            modus = self.get_state("input_select.fanstate")
+            msg = 'Vemtilatiemodus: ``` %s ```' % modus
+            keyboard = [
+                        [
+                            ("Low", "/ventilatie_set_low"),("Medium", "/ventilatie_set_medium")
+                        ],
+                        [
+                            ("High", "/ventilatie_set_high"),("Full", "/ventilatie_set_full")
+                        ]]
+
+            self.call_service('telegram_bot/send_message',
+                              title='*Ventilatiemodus*',
+                              target=user_id,
+                              message=msg,
+                              disable_notification=True,
+                              inline_keyboard=keyboard)
+            #self.send_message(payload_event = payload_event, msg="jaja", title="jojo")                                          
+        elif data_callback == "/ventilatie_set_low":
+            self.set_state("input_select.fanstate", state="low")
+            self.main_menu(payload_event = payload_event)
+        elif data_callback == "/ventilatie_set_medium":
+            self.set_state("input_select.fanstate", state="medium")
+            self.main_menu(payload_event = payload_event)
+        elif data_callback == "/ventilatie_set_high":
+            self.set_state("input_select.fanstate", state="high")
+            self.main_menu(payload_event = payload_event)
+        elif data_callback == "/ventilatie_set_full":
+            self.set_state("input_select.fanstate", state="full")
+            self.main_menu(payload_event = payload_event)

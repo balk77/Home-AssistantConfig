@@ -36,3 +36,5 @@ zwave-map.php
 google_calendars.yaml
 appdaemon/log/
 nest.conf*
+appdaemon3/log/
+appdaemon3/conf/apps/secrets.yaml

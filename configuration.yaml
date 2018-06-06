@@ -13,7 +13,7 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: !secret time_zone
-  customize: !include customize.yaml
+  customize: !include includes/customize.yaml
   #packages: !include_dir_named packages
 
 
@@ -106,10 +106,15 @@ logbook:
 sun:
 
 
-sensor: !include sensors.yaml
-binary_sensor: !include binary_sensors.yaml
-switch: !include switches.yaml
+sensor: !include includes/sensors.yaml
+binary_sensor: !include includes/binary_sensors.yaml
+switch: !include includes/switches.yaml
 
+counter:
+  douches:
+    initial: 0
+    step: 1
+    icon: mdi:shower
 
 # Text to speech
 tts:
@@ -120,21 +125,21 @@ tts:
 #   client_secret: !secret google_client_secret
 #   track_new_calendar: false
 
-device_tracker: !include device_tracker.yaml
+device_tracker: !include includes/device_tracker.yaml
 
-group: !include groups.yaml
-zone: !include zones.yaml
-automation: !include automations.yaml
+group: !include includes/groups.yaml
+zone: !include includes/zones.yaml
+automation: !include includes/automations.yaml
 #automation: !include_dir_list automation/
 
 #light: !include_dir_list light/
 #script: !include_dir_list script/
 #script: !include script/badkamer_script.yaml
-script: !include script/scripts.yaml
+script: !include includes/script/scripts.yaml
 #  - !include script/woonkamer.yaml
   #- !include script/mbr.yaml
 #script: !include script/group_visibility.yaml
-input_boolean: !include input_booleans.yaml
+input_boolean: !include includes/input_booleans.yaml
 scene: !include_dir_list scenes
 
 # emulated_hue:
@@ -241,9 +246,9 @@ nest:
     monitored_conditions:
       - 'online'
 
-input_select: !include input_select.yaml
-input_number: !include input_number.yaml
-light: !include light.yaml
+input_select: !include includes/input_select.yaml
+input_number: !include includes/input_number.yaml
+light: !include includes/light.yaml
 
 
 
