@@ -7,6 +7,7 @@ class fanstate(hass.Hass):
 
         self.listen_state(self.setspeed, "input_select.fanstate")
         self.listen_state(self.setselector, "sensor.itho_lastidindex")
+        self.listen_state(self.setoverride, "input_select.override_fan_timer")
 
 
     def setspeed(self, entity, attribute, old, new, kwargs):
@@ -37,7 +38,7 @@ class fanstate(hass.Hass):
             payload = "State,"+newstate
             self.log(payload)
             # Change the topic to your liking
-            self.call_service("mqtt/publish", topic="/hass/itho/cmd", payload=payload)
+            self.call_service("mqtt/publish", topic="hass/itho/cmd", payload=payload)
 
             if desiredState == "1" or desiredState == "0":
                 self.set_value("input_number.zolder_ventilatie", 100)
@@ -83,3 +84,24 @@ class fanstate(hass.Hass):
 
     def setselector_delay(self, kwargs):
         status = self.set_state("input_boolean.itho_remote_override", state="off")
+        self.set_state("input_select.override_fan_timer", state="Uit")
+    
+    def setoverride(self, entity, attribute, old, new, kwargs):
+        selector = self.get_state("input_select.override_fan_timer")
+
+        if selector == "Uit":
+            self.run_in(self.setselector_delay, 1)
+        elif selector == "15 minuten":
+            status = self.set_state("input_boolean.itho_remote_override", state="on")
+            self.run_in(self.setselector_delay, 900)
+        elif selector == "30 minuten":
+            status = self.set_state("input_boolean.itho_remote_override", state="on")
+            self.run_in(self.setselector_delay, 1800)
+        elif selector == "een uur":
+            status = self.set_state("input_boolean.itho_remote_override", state="on")
+            self.run_in(self.setselector_delay, 3600)
+        elif selector == "vier uur":
+            status = self.set_state("input_boolean.itho_remote_override", state="on")
+            self.run_in(self.setselector_delay, 14400)
+
+        

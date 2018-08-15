@@ -24,3 +24,12 @@ class mqtt_device_tracker(hass.Hass):
             # self.log(device_topic)
             # self.log("not_home")
             self.call_service("mqtt/publish", topic=device_topic, payload="not_home")
+        elif confidence > 10:
+            # self.log(device_topic)
+            # self.log("home")
+            self.call_service("mqtt/publish", topic=device_topic, payload="home")
+        elif confidence <= 10:
+            # self.log(device_topic)
+            # self.log("not_home")
+            self.call_service("mqtt/publish", topic=device_topic, payload="not_home")
+            

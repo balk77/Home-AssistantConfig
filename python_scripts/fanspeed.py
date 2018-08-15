@@ -37,4 +37,4 @@ elif(trigger_type == "humidity"):
     else:
         fanspeed = "low"
 
-hass.services.call("mqtt","publish",{ "topic" : "/hass/itho", "payload" : fanspeed })
+hass.services.call("mqtt","publish",{ "topic" : "hass/itho", "payload" : fanspeed })

@@ -112,15 +112,15 @@ class fancontrol(hass.Hass):
             runout_time = 900 # seconds
             if desiredStateZOLDER == "full":
                 self.set_state("input_number.zolder_ventilatie", state=100)
-                self.send_message(msg="Zolder temp high, fan FULL")
+                self.set_state("sensor.itho_reason", state="Zolder temp high, fan FULL")
                 self.setfanstate("full")
             elif desiredStateZOLDER == "high":
                 self.set_state("input_number.zolder_ventilatie", state=100)
-                self.send_message(msg="Zolder temp high, fan HIGH")
+                self.set_state("sensor.itho_reason", state="Zolder temp high, fan HIGH")
                 self.setfanstate("high")
             elif desiredStateHUM == "full":
                 self.setfanstate("full")
-                self.send_message(msg="Humidity high, fan FULL")
+                self.set_state("sensor.itho_reason", state="Humidity high, fan FULL")
                 status = self.set_state("input_boolean.shower", state="on")
             elif desiredStateHW == "high" or desiredStateHUM == "high":
                 # Close the ventilation for the attic to force airflow from bathroom
@@ -136,16 +136,19 @@ class fancontrol(hass.Hass):
 
                 # record curren time stamp to facilitate runout time
                 self.timestamp_high = time.time()
+                badkamer_light = self.get_state("light.badkamer_plafond_level")
+
+
                 if desiredStateHUM == "high":
                     self.setfanstate("high")
-                    self.send_message(msg="Humidity high, fan HIGH")
-                else:
+                    self.set_state("sensor.itho_reason", state="Humidity high, fan HIGH")
+                elif badkamer_light == "On" and curr_fanstate != "high":
                     # start fan in high mode with 60 seconds delay
                     # Short usage of hot water does nor require fan to switch on
                     # boiler status is reported every 10 seconds
-                    if curr_fanstate != "high":
-                        self.send_message(msg="Humidity high, shower, fan HIGH")
-                        self.run_in(self.fanstatehighdelay, 60)
+                    self.set_state("sensor.itho_reason", state="Humidity high, shower, fan HIGH")
+                    self.run_in(self.fanstatehighdelay, 60)
+
             elif desiredStateHUM == "medium" or desiredStateZOLDER == "medium": # and timestamp_delta_high > runout_time:
                 #self.log("komen we bij medium?")
                 if self.shower == "on":
@@ -155,7 +158,13 @@ class fancontrol(hass.Hass):
                 else:
                     self.set_state("input_number.zolder_ventilatie", state=100)
                     #self.log("fan medium")
-                    self.send_message(msg="Zolder ventilatie, fan MED")
+                    if desiredStateHUM == "medium" and desiredStateZOLDER == "medium":
+                        msg = "Badkamer hum  = medium, zolder temp = medium, fan MED"
+                    elif desiredStateHUM == "medium":
+                        msg = "Badkamer hum  = medium, fan MED"
+                    elif desiredStateZOLDER == "medium":
+                        msg = "zolder temp = medium, fan MED"
+                    self.set_state("sensor.itho_reason", state=msg)
                     self.setfanstate("medium")
                 # reset timestamp_high
                 self.timestamp_high = 0
@@ -168,6 +177,7 @@ class fancontrol(hass.Hass):
                 else:
                     self.set_state("input_number.zolder_ventilatie", state=100)
                     #self.log("fan medium")
+                    self.set_state("sensor.itho_reason", state="fan LOW")
                     self.setfanstate("low")
                 # reset timestamp_high
                 self.timestamp_high = 0
@@ -232,11 +242,11 @@ class fancontrol(hass.Hass):
         # self.log(zolder_delta_t)
 
         if zolder_delta_t < 0:
-            if zolder_max_t >= 28:
+            if zolder_max_t >= 38:
                 return "full"
-            elif 25 < zolder_max_t < 28:
+            elif 35 < zolder_max_t < 38:
                 return "high"
-            elif 22 < zolder_max_t < 25:
+            elif 22 < zolder_max_t < 35:
                 return "medium"
             else:
                 return "low"
@@ -248,7 +258,8 @@ class fancontrol(hass.Hass):
         boilerstatus = self.get_state("sensor.wk_boilerstatus")
         if boilerstatus == "HW":
             self.setfanstate("high")
-            self.send_message(msg="Douche aan, fan HOGH")
+            self.set_state("sensor.itho_reason", state="Douche aan, fan HIGH")
+            
 
     def fanstatedowndelay(self, kwargs):
         self.set_state("input_boolean.shower", state="off")

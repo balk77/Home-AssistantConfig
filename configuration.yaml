@@ -43,8 +43,7 @@ recorder:
       - zone.home
   include:
     entities:
-      - device_tracker.phone_linda_bt
-      - device_tracker.phone_linda_wifi
+      - device_tracker.phone_linda
       - device_tracker.phone_nexus5x
       - device_tracker.phone_phone
       - device_tracker.phone_sander
@@ -84,6 +83,7 @@ http:
   #ssl_key: !secret ssl_ssl_key
   #base_url: !secret ssl_base_url
 
+api:
 
 # Checks for available updates
 updater:
@@ -105,6 +105,10 @@ logbook:
 # Track the sun
 sun:
 
+weather:
+- platform: darksky
+  api_key: !secret darksky_api_key
+- platform: buienradar
 
 sensor: !include includes/sensors.yaml
 binary_sensor: !include includes/binary_sensors.yaml

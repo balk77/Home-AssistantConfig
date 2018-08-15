@@ -30,6 +30,8 @@ class badkamerlight(hass.Hass):
             elif workday_sensor == "off" and now.hour >= 7 and self.sun_down() and now.hour < 11:
                 self.setlight(brightness=26, transition=0)
                 self.run_in(self.setlightfade, 20, brightness=255, transition=30)
+            else:
+                self.setlight(brightness=254, transition=0)
         else:
             self.setlight(brightness=254, transition=0)
 

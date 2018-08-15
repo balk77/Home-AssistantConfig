@@ -30,3 +30,12 @@ rainbow:
     - 7
     - 8
   initial: 0
+override_fan_timer:
+  name: Override fan timer
+  options:
+    - Uit
+    - 15 minuten
+    - 30 minuten
+    - een uur
+    - vier uur
+  initial: Uit

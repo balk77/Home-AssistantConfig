@@ -1,5 +1,7 @@
 import appdaemon.plugins.hass.hassapi as hass
 
+
+
 class TelegramBotEventListener(hass.Hass):
     """Event listener for Telegram bot events."""
 
@@ -8,6 +10,7 @@ class TelegramBotEventListener(hass.Hass):
         self.listen_event(self.receive_telegram_text, 'telegram_text')
         self.listen_event(self.receive_telegram_callback, 'telegram_callback')
         self.listen_event(self.receive_telegram_command, 'telegram_command')
+        self.listen_state(self.def_print_itho_reason, 'sensor.itho_reason')
 
     def receive_telegram_command(self, event_id, payload_event, *args):
         # command: "/thecommand"
@@ -19,11 +22,21 @@ class TelegramBotEventListener(hass.Hass):
         # chat: "<chat info>"
         command = payload_event['command']
         # self.log("lala")
-        
+        #self.log(payload_event['chat_id'])
 
         user_id = payload_event['user_id']
         if command == "/ventilatie":
             self.ventilatie(payload_event = payload_event)
+        
+    def def_print_itho_reason(self, entity, attribute, old, new, kwargs):
+        print_itho_reason = float(self.get_state("sensor.print_itho_reason"))
+
+        #self.log(self.get_state('sensor.itho_reason'))
+        #self.log(print_itho_reason)
+        if print_itho_reason == 1:
+            itho_reason = self.get_state('sensor.itho_reason')
+            #self.log("print message")
+            self.send_message(msg=itho_reason,disable_notification="True")
 
 
 
@@ -54,7 +67,7 @@ class TelegramBotEventListener(hass.Hass):
                           inline_keyboard=keyboard)
 
     def receive_telegram_text(self, event_id, payload_event, *args):
-
+        self.set_state("sensor.print_itho_reason", state=0)
         assert event_id == 'telegram_text'
         self.log(payload_event['chat_id'])
 
@@ -86,28 +99,34 @@ class TelegramBotEventListener(hass.Hass):
                         message=msg,
                         disable_notification=True,
                         inline_keyboard=keyboard)
-    def send_message(self, payload_event, **kwargs):
-        user_id = payload_event['user_id']
+    def send_message(self, **kwargs):
+        #user_id = payload_event['user_id']
         self.log(kwargs['msg'])
         try:
-            self.call_service('telegram_bot/edit_message',
-                                chat_id=user_id,
-                                message_id="last",
+            kwargs['disable_notification']
+            disable_notification = kwargs['disable_notification']
+        except:
+            disable_notification = "false"
+        try:
+            self.call_service('telegram_bot/send_message',
+                                #chat_id=user_id,
+                                #message_id="last",
                                 title="*"+kwargs['title']+"*",
-                                message=kwargs['msg'])
+                                message=kwargs['msg'],
+                                disable_notification=disable_notification)
                             
         except:
             try:
-                self.call_service('telegram_bot/edit_message',
-                                chat_id=user_id,
-                                message_id="last",
+                self.call_service('telegram_bot/send_message',
+                                #chat_id=user_id,
+                                #message_id="last",
                                 message=kwargs['msg'])
             except:
                 self.log("error")
                                               
 
     def receive_telegram_callback(self, event_id, payload_event, *args):
-
+        self.set_state("sensor.print_itho_reason", state=0)
         """Event listener for Telegram callback queries."""
         assert event_id == 'telegram_callback'
         data_callback = payload_event['data']
@@ -193,7 +212,7 @@ class TelegramBotEventListener(hass.Hass):
                               inline_keyboard=keyboard)
         elif data_callback == "/ventilatie":
             modus = self.get_state("input_select.fanstate")
-            msg = 'Vemtilatiemodus: ``` %s ```' % modus
+            msg = 'Ventilatiemodus: ``` %s ```' % modus
             keyboard = [
                         [
                             ("Low", "/ventilatie_set_low"),("Medium", "/ventilatie_set_medium")
@@ -208,6 +227,11 @@ class TelegramBotEventListener(hass.Hass):
                               message=msg,
                               disable_notification=True,
                               inline_keyboard=keyboard)
+            
+            self.set_state("sensor.print_itho_reason", state=1)
+            print_itho_reason = 1
+            #self.log("print_itho_reason: " + str(print_itho_reason))
+
             #self.send_message(payload_event = payload_event, msg="jaja", title="jojo")                                          
         elif data_callback == "/ventilatie_set_low":
             self.set_state("input_select.fanstate", state="low")

@@ -24,3 +24,7 @@ class wasserdroger(hass.Hass):
 
         f.write(timestamp+";"+str(format_decimal(kwh, locale='de'))+";"+appliance+" "+action+"\n")
         f.close()
+        payload = '{ "timestamp" :'+str(format_decimal(kwh, locale='de'))+',"appliance":'+appliance+',"action":'+action+'}'
+        topic = "zolder/"+appliance+"/status"
+        self.call_service("mqtt/publish", topic=topic, payload=payload)
+

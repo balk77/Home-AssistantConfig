@@ -12,11 +12,11 @@ class rel2abs(hass.Hass):
 
         abshumidity = round((6.112 * math.exp((17.67 * temperature)/(temperature+243.5)) * relhumidity * 2.1674)/(273.15+temperature),2);
         self.log("abshumidity")
-        self.log(abshumidity)
+        # self.log(abshumidity)
 
-        self.call_service('notify/telegram',
-                                message="Abs humidity = " + str(abshumidity),
-                                disable_notification="True")
+        # self.call_service('telegram_bot/send_message',
+        #                         message="Abs humidity = " + str(abshumidity),
+        #                         disable_notification="True")
 
         status = self.set_state(self.args["abshumidity"], state=abshumidity, attributes={"unit_of_measurement":"mg/m3"})
         self.call_service("mqtt/publish", topic=self.args["topic"], payload=abshumidity)

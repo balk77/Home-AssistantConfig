@@ -171,3 +171,9 @@ input_boolean.vakantie:
     #   {% if is_state('input_boolean.vacation', 'on') %} mdi:airplane-takeoff
     #   {% else %} mdi:home
     #   {% endif %}
+device_tracker.phone_linda:
+  friendly_name: Linda
+  entity_picture: /local/linda.jpeg
+device_tracker.phone_sander:
+  friendly_name: Sander
+  entity_picture: /local/sander.jpeg 

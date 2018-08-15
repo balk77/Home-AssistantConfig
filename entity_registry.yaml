@@ -654,3 +654,7 @@ zwave._:
   name:
   platform: zwave
   unique_id: node-7
+zwave.hank_knop_wk:
+  name:
+  platform: zwave
+  unique_id: node-23

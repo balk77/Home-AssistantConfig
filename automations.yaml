@@ -1,0 +1,22 @@
+- id: '1531589421217'
+  alias: Vakantie Aan
+  trigger:
+  - entity_id: input_boolean.vakantie
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.fibaro_switch_switch
+    service: switch.turn_off
+- id: '1531589536651'
+  alias: Vakantie aan
+  trigger:
+  - entity_id: input_boolean.vakantie
+    platform: state
+    to: '"on"'
+  condition: []
+  action:
+  - data:
+      entitiy_id: switch.fibaro_switch_switch
+    service: switch.turn_off
