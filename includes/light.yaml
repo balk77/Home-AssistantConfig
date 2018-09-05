@@ -104,3 +104,8 @@
 #     - light.woonkamer_eettafel
 #     - light.woonkamer_plafond_achter
 #     - light.wk_achter_plafond_level
+- platform: group
+  name: Keuken Aanrecht (groep)
+  entities:
+    - light.keuken_aanrecht_rechts
+    - light.keuken_aanrecht_links

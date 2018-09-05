@@ -1,8 +1,10 @@
 woonkamer_low:
   alias: Woonkamer Low
   sequence:
-    - service: switch.turn_off
-      entity_id: switch.keuken_aanrecht_switch
+    - service: light.turn_on
+      entity_id: light.keuken_aanrecht_groep
+      data:
+        brightness: 150
     - delay:
         milliseconds: 100
     - service: switch.turn_on
@@ -67,13 +69,15 @@ woonkamer_off:
       entity_id: light.wk_achter_plafond_level
     - delay:
         milliseconds: 10000
-    - service: switch.turn_off
-      entity_id: switch.keuken_aanrecht_switch
+    - service: light.turn_off
+      entity_id: light.keuken_aanrecht_groep
 woonkamer_medium:
   alias: Woonkamer Medium
   sequence:
-    - service: switch.turn_on
-      entity_id: switch.keuken_aanrecht_switch
+    - service: light.turn_on
+      entity_id: light.keuken_aanrecht_groep
+      data:
+        brightness: 180
     - delay:
         milliseconds: 100
     - service: switch.turn_on
@@ -109,8 +113,10 @@ woonkamer_medium:
 woonkamer_full:
   alias: Woonkamer Full
   sequence:
-    - service: switch.turn_on
-      entity_id: switch.keuken_aanrecht_switch
+    - service: light.turn_on
+      entity_id: light.keuken_aanrecht_groep
+      data:
+        brightness: 255
     - delay:
         milliseconds: 100
     - service: switch.turn_on

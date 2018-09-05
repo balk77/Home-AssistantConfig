@@ -1,0 +1,100 @@
+title: Home Linda & Sander
+views:
+    # The name of a view will be used as tab title.
+    # Might be used for other things in the future.
+  - title: Home
+    tab_icon: mdi:home-assistant
+    cards:
+      - type: glance
+        entities:
+          #- group.phones
+          #- group.wk_sensors
+          - device_tracker.phone_sander
+          - device_tracker.phone_linda
+          # - device_tracker.phone_nexus5x
+          # - device_tracker.nut_sander
+          # - device_tracker.nut_linda
+          #- group.woonkamer_scenes
+          - switch.fibaro_system_fgwpef_wall_plug_switch
+      - type: entities
+        title: Woonkamer Scenes
+        entities:
+          - script.woonkamer_full
+          - script.woonkamer_medium
+          - script.woonkamer_low
+          - script.woonkamer_off
+      - type: entities
+        title: Algemeen
+        entities:
+          - switch.pihole_switch
+          - input_boolean.vakantie
+      - type: entities
+        title: LED Slaapkamer
+        entities:
+          - light.mqtt_json_slaapkamer
+          - light.mqtt_json_slaapkamer1
+          - light.mqtt_json_slaapkamer2
+          - light.mqtt_json_slaapkamer3
+          - light.mqtt_json_slaapkamer4
+          - light.mqtt_json_slaapkamer5
+          - light.mqtt_json_slaapkamer6
+          - light.mqtt_json_slaapkamer7
+          - light.mqtt_json_slaapkamer8
+          - input_select.rainbow
+          #- group.woonkamer_comfort
+
+          - sun.sun
+          - sensor.pws_temp_c
+          - sensor.wk_CO2
+          #- sensor.mk_temp
+          #- sensor.wk_relhumidity
+          #- sensor.wk_abshumidity
+          #- sensor.wk_hix
+          #- sensor.itho_ventilatie
+          - group.algemeen
+  - tab_icon: mdi:white-balance-sunny
+    title: Weer
+    cards:
+      - type: weather-forecast
+        entity: weather.dark_sky
+  - title: Example
+    # Each view can have a different theme applied. Theme should be defined in the frontend.
+    theme: dark-mode
+    # The cards to show on this view.
+    cards:
+        # The entities card will take a list of entities and show their state.
+      - type: entities
+        # Title of the entities card
+        title: Example
+        # The entities here will be shown in the same order as specified.
+        entities:
+          - input_boolean.switch_ac_kitchen
+          - input_boolean.switch_ac_livingroom
+          - input_boolean.switch_tv
+
+        # The filter card will filter available entities for certain criteria
+        # and render it as type 'entities'.
+      - type: entity-filter
+        # Filter criteria. They are all optional.
+        filter:
+          - domain: input_boolean
+            state: 'on'
+        # This config will be passed to the card rendering the filter results
+        card_config:
+          title: Input booleans that are on
+
+    # Specify a tab_icon if you want the view tab to be an icon.
+  - tab_icon: mdi:home-assistant
+    # Name of the view. Will be used as the tooltip for tab icon
+    title: Second view
+    cards:
+      - type: entities
+        title: Lots of Kitchen AC
+        entities:
+            # It is totally possible to render duplicates.
+          - input_boolean.switch_ac_kitchen
+          - input_boolean.switch_ac_kitchen
+          - input_boolean.switch_ac_kitchen
+          - input_boolean.switch_ac_kitchen
+          - input_boolean.switch_ac_kitchen
+          - input_boolean.switch_ac_kitchen

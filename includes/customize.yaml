@@ -39,7 +39,7 @@ sensor.wk_hix:
   friendly_name: Gevoelstemperatuur
 
 sensor.mk_temp:
-  friendly_name: Meterkast Temp
+  friendly_name: Keuken Temperatuur
 sensor.wk_relhumidity:
   friendly_name: Woonkamer Rel Vochtigheid
   icon: mdi:water

@@ -97,7 +97,7 @@
       message: Droger is klaar!
   - service: input_boolean.turn_off
     entity_id: input_boolean.dryer_switch
-- id: Hank_wk1
+- id: hank_wk1
   alias: Hank wk1
   trigger:
     platform: event
@@ -108,7 +108,7 @@
   action:
     service: script.turn_on
     entity_id: script.woonkamer_low
-- id: Hank_wk2
+- id: hank_wk2
   alias: Hank wk2
   trigger:
     platform: event
@@ -119,24 +119,35 @@
   action:
     service: script.turn_on
     entity_id: script.woonkamer_medium
-- id: Hank_wk3
-  alias: Hank wk3
+- id: activeer_slaapstand
+  alias: Huis in slaapstand
   trigger:
-    platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.hank_knop_wk
-      scene_id: 3
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.hank_knop_wk
+        scene_id: 3
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.keuken_koof
+        scene_id: 24
   condition:
-    condition: state
-    entity_id: input_boolean.vakantie
-    state: "off"
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.vakantie
+      state: "off"
+    - condition: time
+      # At least one of the following is required.
+      after: '20:00:00'
+      before: '04:00:00'
   action:
   - service: script.turn_on
     entity_id: script.woonkamer_off
   - service: input_boolean.turn_on
     entity_id: input_boolean.huis_slaapstand
-- id: Hank_wk3_1
+- id: hank_wk3_1
   alias: Hank wk3_1
   trigger:
     platform: event
@@ -151,7 +162,7 @@
   action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.vakantie
-- id: Hank_wk4
+- id: hank_wk4
   alias: Hank wk4
   trigger:
     platform: event
@@ -162,7 +173,7 @@
   action:
     service: script.turn_on
     entity_id: script.woonkamer_full
-- id: Thermostaat_3
+- id: thermostaat_3
   alias: Thermostaat 3
   trigger:
   - platform: time
@@ -833,3 +844,140 @@
   action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.vakantie
+- id: Keuken_aanrecht_muur_1
+  alias: Keuken aanrecht knop bediening
+  # trigger:
+  #   platform: mqtt
+  #   topic: woonkamer/meterkast/keuken_aanrecht/switch
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.wk_achter_plafond
+      scene_id: 26
+  action:
+    service: light.toggle
+    entity_id: light.keuken_aanrecht_groep
+- id: Keuken_aanrecht_muur_2
+  alias: Keuken aanrecht knop aan max
+  trigger:
+    platform: state
+    entity_id: light.keuken_aanrecht_groep
+    from: "off"
+    to: "on"
+  condition:
+    condition: time
+    after: '2:00:00'
+    before: '20:00:00'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.keuken_aanrecht_groep
+      brightness: 255
+- id: Keuken_aanrecht_muur_3
+  alias: Keuken aanrecht dim om 20:00
+  trigger:
+    platform: time
+    at: "20:00:00"
+  condition:
+    condition: state
+    entity_id: light.keuken_aanrecht_groep
+    state: "on"
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.keuken_aanrecht_groep
+      brightness: 150
+- id: Keuken_aanrecht_muur_4
+  alias: Keuken aanrecht knop aan dim
+  trigger:
+    platform: state
+    entity_id: light.keuken_aanrecht_groep
+    from: "off"
+    to: "on"
+  condition:
+    condition: time
+    after: '20:00:00'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.keuken_aanrecht_groep
+      brightness: 150
+- id: keuken_aanrecht_pir_vol
+  alias: Keuken aanrecht vol bij Beweging
+  trigger:
+    platform: mqtt
+    topic: keuken_aanrecht_rechts/binary_sensor/pir_sensor_keuken/state
+    payload: 'ON'
+  condition:
+    condition: state
+    entity_id: light.keuken_aanrecht_groep
+    state: "on"
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.keuken_aanrecht_groep
+      brightness: 255
+      transition: 1
+- id: keuken_aanrecht_pir_dim
+  alias: Keuken aanrecht dim bij geen Beweging
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_sensor_keuken
+    to: "off"
+    for:
+      seconds: "240"
+  condition:
+    - condition: state
+      entity_id: light.keuken_aanrecht_groep
+      state: "on"
+    - condition: time
+      after: '20:00:00'
+    - condition: state
+      entity_id: input_boolean.huis_slaapstand
+      state: 'off'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.keuken_aanrecht_groep
+      brightness: 150
+      transition: 30
+# - id: zwave_1keer
+#   alias: Z-Wave 1x
+#   trigger:
+#     platform: event
+#     event_type: zwave.scene_activated
+#     event_data:
+#       entity_id: zwave.wk_achter_plafond
+#       scene_id: 26
+#   action:
+#     service: notify.pushbullet
+#     data:
+#       target: device/Nexus5X
+#       message: "een keer gedrukt"
+# - id: zwave_2keer
+#   alias: Z-Wave 2x
+#   trigger:
+#     platform: event
+#     event_type: zwave.scene_activated
+#     event_data:
+#       entity_id: zwave.wk_achter_plafond
+#       scene_id: 24
+#   action:
+#     service: notify.pushbullet
+#     data:
+#       target: device/Nexus5X
+#       message: "twee keer gedrukt"
+# - id: zwave_3keer
+#   alias: Z-Wave 3x
+#   trigger:
+#     platform: event
+#     event_type: zwave.scene_activated
+#     event_data:
+#       entity_id: zwave.wk_achter_plafond
+#       scene_id: 25
+#   action:
+#     service: notify.pushbullet
+#     data:
+#       target: device/Nexus5X
+#       message: "drie keer gedrukt"

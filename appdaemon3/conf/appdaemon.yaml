@@ -1,3 +1,4 @@
+# secrets: /home/sander/hass/homeassistant
 log:
   logfile: STDOUT
   errorfile: STDERR
@@ -7,6 +8,7 @@ appdaemon:
   plugins:
     HASS:
       type: hass
-      ha_url: "http://192.168.0.9:8123"
+      ha_url: "http://192.168.0.199:8123"
+      ha_key: !secret api_password
 hadashboard:
-  dash_url: http://192.168.0.9:5050
+  dash_url: http://192.168.0.199:5050

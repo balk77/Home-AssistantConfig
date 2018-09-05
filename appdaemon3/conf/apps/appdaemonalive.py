@@ -13,5 +13,5 @@ class appdaemonalive(hass.Hass):
     def set_alive(self, kwargs):
         self.log("AppDaemon = alive")
 
-
-        self.set_state("input_boolean.appdaemon_alive", state="on")
+        self.call_service("input_boolean/turn_on", entity_id="input_boolean.appdaemon_alive")
+        #self.set_state("input_boolean.appdaemon_alive", state="on")

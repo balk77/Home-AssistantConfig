@@ -11,7 +11,7 @@ class mbrlight(hass.Hass):
         now = datetime.datetime.now()
 
         if now.hour >= 22 or (self.sun_down() or now.hour < 7 and now.hour < 11):
-            self.turn_on("light.mbr_plafond_level", brightness=26)
+            self.turn_on("light.mbr_plafond_level", brightness=10)
             self.log("MBR dim")
         else:
             self.turn_on("light.mbr_plafond_level", brightness=254)

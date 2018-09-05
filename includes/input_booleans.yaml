@@ -77,3 +77,6 @@ switch_ac_livingroom:
   name: AC living room
 switch_tv:
   name: TV
+show_moving_valve:
+  name: Show Moving valve panel in frontend
+  initial: off

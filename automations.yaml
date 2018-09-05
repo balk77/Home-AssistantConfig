@@ -20,3 +20,13 @@
   - data:
       entitiy_id: switch.fibaro_switch_switch
     service: switch.turn_off
+- id: '1534509104750'
+  alias: Keuken Aanrecht aan/uit muur
+  trigger:
+  - platform: mqtt
+    topic: woonkamer/meterkast/keuken_aanrecht/switch
+  condition: []
+  action:
+  - data:
+      entity_id: light.keuken_aanrecht_groep
+    service: light.toggle
