@@ -28,4 +28,5 @@ class rel2abs(hass.Hass):
             #                         disable_notification="True")
 
             status = self.set_state(self.args["abshumidity"], state=abshumidity, attributes={"unit_of_measurement":"mg/m3"})
+            
             self.call_service("mqtt/publish", topic=self.args["topic"], payload=abshumidity)

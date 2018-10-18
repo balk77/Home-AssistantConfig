@@ -10,9 +10,10 @@ class TelegramBotEventListener(hass.Hass):
         self.listen_event(self.receive_telegram_text, 'telegram_text')
         self.listen_event(self.receive_telegram_callback, 'telegram_callback')
         self.listen_event(self.receive_telegram_command, 'telegram_command')
-        self.listen_state(self.def_print_itho_reason, 'sensor.itho_reason')
+        self.listen_state(self.def_print_itho_reason, 'input_text.itho_reason')
 
     def receive_telegram_command(self, event_id, payload_event, *args):
+        
         # command: "/thecommand"
         # args: "<any other text following the command>"
         # from_first: "<first name of the sender>"
@@ -29,12 +30,12 @@ class TelegramBotEventListener(hass.Hass):
             self.ventilatie(payload_event = payload_event)
         
     def def_print_itho_reason(self, entity, attribute, old, new, kwargs):
-        print_itho_reason = float(self.get_state("sensor.print_itho_reason"))
+        print_itho_reason = self.get_state("input_boolean.print_itho_reason")
 
         #self.log(self.get_state('sensor.itho_reason'))
-        #self.log(print_itho_reason)
-        if print_itho_reason == 1:
-            itho_reason = self.get_state('sensor.itho_reason')
+        self.log(print_itho_reason)
+        if print_itho_reason == "On":
+            itho_reason = self.get_state('input_text.itho_reason')
             #self.log("print message")
             self.send_message(msg=itho_reason,disable_notification="True")
 
@@ -67,7 +68,10 @@ class TelegramBotEventListener(hass.Hass):
                           inline_keyboard=keyboard)
 
     def receive_telegram_text(self, event_id, payload_event, *args):
-        self.set_state("sensor.print_itho_reason", state=0)
+        #self.set_state("sensor.print_itho_reason", state=0)
+        
+        self.call_service("input_boolean/turn_off", event_id="input_boolean.print_itho_reason")
+        print_itho_reason = self.get_state("input_boolean.print_itho_reason")
         assert event_id == 'telegram_text'
         self.log(payload_event['chat_id'])
 
@@ -126,7 +130,8 @@ class TelegramBotEventListener(hass.Hass):
                                               
 
     def receive_telegram_callback(self, event_id, payload_event, *args):
-        self.set_state("sensor.print_itho_reason", state=0)
+        #self.set_state("sensor.print_itho_reason", state=0)
+        self.call_service("input_boolean/turn_off", event_id="input_boolean.print_itho_reason")
         """Event listener for Telegram callback queries."""
         assert event_id == 'telegram_callback'
         data_callback = payload_event['data']
@@ -228,20 +233,25 @@ class TelegramBotEventListener(hass.Hass):
                               disable_notification=True,
                               inline_keyboard=keyboard)
             
-            self.set_state("sensor.print_itho_reason", state=1)
-            print_itho_reason = 1
+            self.call_service("input_boolean/turn_on", event_id="input_boolean.print_itho_reason")
+            #self.set_state("sensor.print_itho_reason", state=1)
+            print_itho_reason = "On"
             #self.log("print_itho_reason: " + str(print_itho_reason))
 
             #self.send_message(payload_event = payload_event, msg="jaja", title="jojo")                                          
         elif data_callback == "/ventilatie_set_low":
-            self.set_state("input_select.fanstate", state="low")
+            self.call_service("input_select/select_option", entity_id="input_select.fanstate", option="low")
+            #self.set_state("input_select.fanstate", state="low")
             self.main_menu(payload_event = payload_event)
         elif data_callback == "/ventilatie_set_medium":
-            self.set_state("input_select.fanstate", state="medium")
+            self.call_service("input_select/select_option", entity_id="input_select.fanstate", option="medium")
+            #self.set_state("input_select.fanstate", state="medium")
             self.main_menu(payload_event = payload_event)
         elif data_callback == "/ventilatie_set_high":
-            self.set_state("input_select.fanstate", state="high")
+            self.call_service("input_select/select_option", entity_id="input_select.fanstate", option="high")
+            #self.set_state("input_select.fanstate", state="high")
             self.main_menu(payload_event = payload_event)
         elif data_callback == "/ventilatie_set_full":
-            self.set_state("input_select.fanstate", state="full")
+            self.call_service("input_select/select_option", entity_id="input_select.fanstate", option="full")
+            #self.set_state("input_select.fanstate", state="full")
             self.main_menu(payload_event = payload_event)

@@ -5,7 +5,12 @@ class ZolderVentilatie(hass.Hass):
     def initialize(self):
         # Listen for state change of ventilation requirements
         self.listen_state(self.input_parse2, "input_number.zolder_ventilatie")
+
+        self.listen_state(self.input_parse, "sensor.wk_boilerstatus", new="HW")
         # DesiredPercentage = self.get_state("input_number.zolder_ventilatie")
+    
+    def input_parse(self, entity, attribute, old, new, kwargs):
+        self.call_service("input_number/set_value", entity_id="input_number.zolder_ventilatie", value=0)
 
     def input_parse2(self, entity, attribute, old, new, kwargs):
         # get Desired Percentage from Home assistant
@@ -18,8 +23,8 @@ class ZolderVentilatie(hass.Hass):
 
         # Disable input from user interface and show message "Valve is moving" instead
 
-        self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie", visible="False")
-        self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie_moving", visible="True")
+        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie", visible="False")
+        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie_moving", visible="True")
         self.call_service("input_boolean/turn_on", entity_id="input_boolean.show_moving_valve")
 
         # Set time (seconds) for the valve to move from open to close, or close to open
@@ -89,6 +94,6 @@ class ZolderVentilatie(hass.Hass):
         self.run_in(self.turn_on_handler, PulseTime_sec)
 
     def turn_on_handler(self, kwargs):
-        self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie", visible="True")
-        self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie_moving", visible="False")
+        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie", visible="True")
+        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie_moving", visible="False")
         self.call_service("input_boolean/turn_off", entity_id="input_boolean.show_moving_valve")

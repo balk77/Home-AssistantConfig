@@ -1,207 +1,259 @@
-title: Home Linda en Sander
-views:
-- title: Home
-  icon: mdi:home
-  cards:
-  - type: entities
-    title: Woonkamer Scenes
-    entities:
-    - script.woonkamer_full
-    - script.woonkamer_medium
-    - script.woonkamer_low
-    - script.woonkamer_off
-  - type: entities
-    title: Algemeen
-    entities:
-    - switch.pihole_switch
-    - input_boolean.vakantie
-- title: Weer2
-  cards:
-  - type: weather-forecast
-    entity: weather.dark_sky
-  - type: weather-forecast
-    entity: weather.br_unknown_station
-- title: Weer
-  icon: mdi:white-balance-sunny
-  cards:
-  - type: weather-forecast
-    entity: weather.dark_sky
-  - type: entities
-    title: Weer morgen Delft
-    entities:
-    - sensor.delft_symbol_1d
-    - sensor.delft_rain_1d
-    - sensor.delft_rainchance_1d
-    - sensor.delft_sunchance_1d
-    - sensor.delft_temperature_1d
-  - type: entities
-    title: Weer vandaag Delft
-    entities:
-    - sensor.delft_symbol
-    - sensor.delft_condition
-    - sensor.delft_temperature
-  - type: entities
-    title: Zonnescherm
-    entities:
-    - sensor.delft_irradiance
-    - sensor.delft_precipitation_forecast_total
-  - type: entities
-    title: Dark Sky weer
-    entities:
-    - sensor.dark_sky_icon
-    - sensor.dark_sky_summary
-    - sensor.dark_sky_temperature
-    - sensor.dark_sky_precip_intensity
-    - sensor.dark_sky_precip_probability
-    - sensor.dark_sky_wind_speed
-- title: Verlichting
-  icon: mdi:lightbulb-on
-  cards:
-  - type: entities
-    title: Woonkamer
-    entities:
-    - light.wk_achter_plafond_level
-    - light.wk_eettafel_plafond_level
-    - light.wk_muur_level
-    - light.keuken_koof_level
-    - switch.schemerlamp_switch
-    - light.keuken_aanrecht_groep
-  - type: entities
-    title: Eerste Verdieping
-    entities:
-    - light.badkamer_plafond_level
-    - light.mbr_plafond_level
-  - type: entities
-    title: Bediening huis
-    entities:
-    - input_boolean.huis_slaapstand
-    - input_boolean.occupancy_simulation
-- title: Sensors
-  icon: mdi:eyedropper
-  cards:
-  - type: entities
-    title: Woonkamer Comfort
-    entities:
-    - sensor.wk_CO2
-    - sensor.wk_relhumidity
-    - sensor.mk_temp
-  - type: entities
-    title: Badkamer Sensors
-    entities:
-    - sensor.badkamer_temp
-    - sensor.badkamer_relhumidity
-    - sensor.bkfanhotwater
-    - sensor.bkfanhumidity
-    - sensor.humdelta
-    - sensor.minhum
-  - type: entities
-    title: CO2 Sensor Woonkamer
-    entities:
-    - sensor.wk_CO2
-    - sensor.wk_CO2_s
-    - sensor.wk_CO2_u
-  - type: entities
-    title: Itho control
-    entities:
-    - sensor.itho_laatste_bediening
-    - input_boolean.itho_remote_override
-    - input_select.fanstate
-    - input_select.override_fan_timer
-  - type: conditional
-    conditions:
-      - entity: input_boolean.show_moving_valve
-        state: "off"
-    card:
-      type: entities
-      title: Zolder ventilatie
-      entities:
-        - input_number.zolder_ventilatie
-  - type: conditional
-    conditions:
-      - entity: input_boolean.show_moving_valve
-        state: "on"
-    card:
-      type: entities
-      title: Zolder ventilatie
-      entities:
-        - input_text.valvemoving
-- title: Nefit
-  icon: mdi:radiator
-  cards:
-  - type: entities
-    title: Thermostaat Woonkamer
-    entities:
-    - sensor.thermostaat_tempsetpoint
-    - sensor.wk_thermostaat_PV
-    - input_number.hass_tempsetpoint
-    - sensor.wk_boilerstatus
-    - sensor.hotwater
-    - input_boolean.nefit_programma
-  - type: entities
-    title: Slaapkamer Dide
-    entities:
-    - input_number.slaapkamer_dide_setpoint
-    - sensor.slaapkamer_dide_gemeten_temperatuur
-    - sensor.slaapkamer_dide_gewenste_temperatuur
-  - type: entities
-    title: Slaapkamer Fien
-    entities:
-    - input_number.slaapkamer_fien_setpoint
-    - sensor.slaapkamer_fien_gemeten_temperatuur
-    - sensor.slaapkamer_fien_gewenste_temperatuur
-- title: Wasmachine en Droger
-  icon: mdi:washing-machine
-  cards:
-  - type: entities
-    title: Wasmachine
-    entities:
-    - sensor.wasmachine_energy
-    - sensor.wasmachine_power
-    - sensor.wasmachine_voltage
-    - sensor.washer_pwrup
-    - input_boolean.washer_switch
-  - type: entities
-    title: Droger
-    entities:
-    - sensor.droger_energy
-    - sensor.droger_power
-    - sensor.droger_voltage
-    - sensor.dryer_pwrup
-    - input_boolean.dryer_switch
-- title: Zolder
-  icon: mdi:human-child
-  cards:
-  - type: entities
-    title: Itho control
-    entities:
-    - sensor.itho_laatste_bediening
-    - input_boolean.itho_remote_override
-    - input_select.fanstate
-    - input_select.override_fan_timer
-  - type: conditional
-    conditions:
-      - entity: input_boolean.show_moving_valve
-        state: "off"
-    card:
-      type: entities
-      title: Zolder ventilatie
-      entities:
-        - input_number.zolder_ventilatie
-  - type: conditional
-    conditions:
-      - entity: input_boolean.show_moving_valve
-        state: "on"
-    card:
-      type: entities
-      title: Zolder ventilatie
-      entities:
-        - input_text.valvemoving
-# - cards:
-#   - card_config:
-#       title: All Entities
-#     filter:
-#     - {}
-#     type: entity-filter
-#   title: All Entities
-#   icon: mdi:settings
 
+# This file was automatically generated by lovelace_migrate.py
+# https://github.com/dale3h/python-lovelace
+title: Home
+views:
+  - title: Home
+    icon: mdi:home
+    cards:
+      - type: entities
+        entities:
+          - device_tracker.phone_linda
+          - device_tracker.phone_sander
+          - light.mbr_disco
+          - sun.sun
+          - sensor.mhz19_temperature
+          - sensor.mhz19_co2_value
+      - type: entities
+        title: Woonkamer Scenes
+        show_header_toggle: false
+        entities:
+          - script.woonkamer_low
+          - script.woonkamer_medium
+          - script.woonkamer_off
+          - script.woonkamer_full
+      - type: entities
+        title: Algemeen
+        show_header_toggle: false
+        entities:
+          - input_boolean.vakantie
+          - switch.pihole_switch
+  - title: Weer
+    icon: mdi:white-balance-sunny
+    cards:
+      - type: entities
+        title: Weer morgen Delft
+        show_header_toggle: false
+        entities:
+          - sensor.delft_rainchance_1d
+          - sensor.delft_temperature_1d
+          - sensor.delft_symbol_1d
+          - sensor.delft_rain_1d
+          - sensor.delft_sunchance_1d
+      - type: entities
+        title: Dark Sky weer
+        show_header_toggle: false
+        entities:
+          - sensor.dark_sky_summary
+          - sensor.dark_sky_icon
+          - sensor.dark_sky_precip_intensity
+          - sensor.dark_sky_temperature
+          - sensor.dark_sky_precip_probability
+          - sensor.dark_sky_wind_speed
+      - type: entities
+        title: Weer vandaag Delft
+        show_header_toggle: false
+        entities:
+          - sensor.delft_temperature
+          - sensor.delft_symbol
+          - sensor.delft_condition
+      - type: entities
+        title: Zonnescherm
+        show_header_toggle: false
+        entities:
+          - sensor.delft_irradiance
+          - sensor.delft_precipitation_forecast_total
+  - title: Verlichting
+    icon: mdi:lightbulb-on
+    cards:
+      - type: entities
+        title: Woonkamer
+        show_header_toggle: true
+        entities:
+          - light.wk_muur_level
+          - light.keuken_koof_level
+          - light.keuken_aanrecht_groep
+          - switch.schemerlamp_switch
+          - light.wk_eettafel_plafond_level
+          - light.wk_achter_plafond_level
+      - type: vertical-stack
+        cards:
+        - type: entities
+          title: Eerste Verdieping
+          show_header_toggle: true
+          entities:
+            - light.badkamer_plafond_level
+            - light.mbr_plafond_level
+        - type: entities
+          title: Bediening huis
+          show_header_toggle: false
+          entities:
+            - input_boolean.huis_slaapstand
+            - input_boolean.occupancy_simulation
+        
+        
+      # - type: entities
+      #   title: Badkamer Sensors
+      #   show_header_toggle: false
+      #   entities:
+      #     - sensor.humdelta
+      #     - input_text.itho_reason
+      #     - sensor.badkamer_temperatuur
+      #     - sensor.minhum
+      #     - sensor.badkamer_relhumidity
+      #     - sensor.dewpoint_delta_cor
+      #     - sensor.badkamer_dewpoint
+      #     - input_boolean.shower
+  - title: Sensors
+    icon: mdi:eyedropper
+    cards:
+      - type: entities
+        title: Itho control
+        show_header_toggle: false
+        entities:
+          - input_select.fanstate
+          - sensor.itho_laatste_bediening
+          - input_select.override_fan_timer
+          - input_boolean.itho_remote_override
+      - type: vertical-stack
+        cards:
+        - type: conditional
+          conditions:
+            - entity: input_boolean.show_moving_valve
+              state: "on"
+          card:
+            type: entities
+            title: Zolder ventilatie
+            entities:
+              - input_text.valvemoving
+        - type: conditional
+          conditions:
+            - entity: input_boolean.show_moving_valve
+              state: "off"
+          card:
+            type: entities
+            title: Zolder ventilatie
+            show_header_toggle: false
+            entities:
+              - input_number.zolder_ventilatie
+      
+      - type: entities
+        title: Woonkamer Comfort
+        show_header_toggle: false
+        entities:
+          - sensor.mhz19_temperature
+          - sensor.wk_relhumidity
+          - sensor.mhz19_co2_value
+      - type: entities
+        title: Badkamer Sensors
+        show_header_toggle: false
+        entities:
+          - sensor.humdelta
+          - input_text.itho_reason
+          - sensor.badkamer_temperatuur
+          - sensor.minhum
+          - sensor.badkamer_relhumidity
+          - sensor.dewpoint_delta_cor
+          - sensor.badkamer_dewpoint
+          - input_boolean.shower
+      - type: entities
+        title: CO2 Sensor Woonkamer
+        show_header_toggle: false
+        entities:
+          - sensor.wk_co2
+          - sensor.wk_co2_u
+  - title: Wasmachine en Droger
+    icon: mdi:washing-machine
+    cards:
+      - type: entities
+        title: Wasmachine
+        show_header_toggle: false
+        entities:
+          - sensor.wasmachine_power
+          - input_boolean.washer_switch
+          - sensor.washer_pwrup
+          - sensor.wasmachine_voltage
+          - sensor.wasmachine_energy
+      - type: entities
+        title: Droger
+        show_header_toggle: false
+        entities:
+          - input_boolean.dryer_switch
+          - sensor.dryer_pwrup
+          - sensor.droger_power
+          - sensor.droger_voltage
+          - sensor.droger_energy
+  - title: Nefit
+    icon: mdi:radiator
+    cards:
+      - type: vertical-stack
+        cards:
+        - type: entities
+          title: Thermostaten zolder
+          entities:
+            - climate.kamer_dide
+            # - sensor.hotwater
+            # - sensor.wk_boilerstatus
+            # - climate.woonkamer
+            - climate.kamer_fien
+        - type: entities
+          title: Thermostaat Woonkamer
+          show_header_toggle: false
+          entities:
+            - climate.woonkamer
+            - sensor.hotwater
+            - sensor.wk_boilerstatus
+            - input_boolean.nefit_programma
+      - type: entities
+        title: Temperatuur rond keteltemp
+        show_header_toggle: false
+        entities:
+          - sensor.ch_retour
+          - binary_sensor.hotwateron
+          - input_boolean.shower
+          # - sensor.ch_aanvoer
+          # - sensor.hw_aanvoer
+          - binary_sensor.hotwateroff
+      - type: vertical-stack
+        cards:
+        - type: sensor
+          entity: sensor.ch_aanvoer
+          name: Verwarming aanvoer
+          height: 75
+          line_color: "#d62502"
+        - type: sensor
+          entity: sensor.ch_retour
+          name: Verwarming retour
+          height: 75
+          line_color: "#3498db"
+  - title: Zolder
+    icon: mdi:human-child
+    cards:
+      - type: entities
+        entities:
+          - sensor.zolder_multisensor_temperature
+          - sensor.filtered_fien_temperatuur
+          - sensor.slaapkamer_dide_gemeten_temperatuur
+          - sensor.wk_delta_t
+          - sensor.dark_sky_temperature
+          - cover.level
+          - sensor.filtered_dide_temperatuur
+          - sensor.zolder_delta_t
+      - type: entities
+        title: Itho control
+        show_header_toggle: false
+        entities:
+          - input_select.fanstate
+          - sensor.itho_laatste_bediening
+          - input_select.override_fan_timer
+          - input_boolean.itho_remote_override
+      - type: entities
+        title: Zolder ventilatie
+        show_header_toggle: false
+        entities:
+          - input_number.zolder_ventilatie
+      - type: entities
+        title: Zolder ventilatie
+        show_header_toggle: false
+        entities:
+          - input_text.valvemoving

@@ -9,13 +9,28 @@ class mbrlight(hass.Hass):
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
         now = datetime.datetime.now()
+        counterdouches = float(self.get_state("counter.douches"))
+        self.log(counterdouches)
 
-        if now.hour >= 22 or (self.sun_down() or now.hour < 7 and now.hour < 11):
+        if 11 < now.hour <= 22:
+            self.turn_on("light.mbr_plafond_level", brightness=254)
+            self.log("MBR max tussen 11 en 22")
+        elif now.hour < 22 and counterdouches >= 2:
+            self.turn_on("light.mbr_plafond_level", brightness=254)
+            self.log("MBR max counterdouches = 2")
+        elif 7 <= now.hour < 22 and self.sun_up():
+            self.turn_on("light.mbr_plafond_level", brightness=254)
+
+            self.log("MBR max sunup")
+        else:
             self.turn_on("light.mbr_plafond_level", brightness=10)
             self.log("MBR dim")
-        else:
-            self.turn_on("light.mbr_plafond_level", brightness=254)
-            self.log("MBR max")
+
+        # if level == max:
+        #     self.turn_on("light.mbr_plafond_level", brightness=254)
+        # else:
+        #     self.turn_on("light.mbr_plafond_level", brightness=10)
+
 
     def inputhandler2(self, entity, attribute, old, new, kwargs):
         now = datetime.datetime.now()
@@ -24,4 +39,4 @@ class mbrlight(hass.Hass):
 
         if now.hour < 12 and mbr_light == "on":
             self.turn_on("light.mbr_plafond_level", brightness=254)
-            self.log("MBR max")
+            self.log("MBR max terwijl licht al aan is. douchesv= 2")

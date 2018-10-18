@@ -12,5 +12,5 @@ class HelloWorld(hass.Hass):
      self.log("You are now ready to run Apps!m")
      self.log("")
      self.log("")
-     self.log("") 
+     self.log(self.sun_up()) 
 

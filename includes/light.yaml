@@ -109,3 +109,32 @@
   entities:
     - light.keuken_aanrecht_rechts
     - light.keuken_aanrecht_links
+# - platform: mqtt_json
+#   name: "MBR Disco"
+#   state_topic: "eersteverdiep/mbr/disco/light"
+#   command_topic: "eersteverdiep/mbr/disco/light/set"
+#   effect: true
+#   effect_list:
+#     - bpm
+#     - candy cane  
+#     - confetti  
+#     - cyclon rainbow  
+#     - dots  
+#     - fire  
+#     - glitter  
+#     - juggle  
+#     - lightning
+#     - noise  
+#     - police all  
+#     - police one  
+#     - rainbow  
+#     - rainbow with glitter  
+#     - ripple  
+#     - sinelon  
+#     - solid  
+#     - twinkle  
+#   brightness: true
+#   flash: true
+#   rgb: true
+#   optimistic: false
+#   qos: 0

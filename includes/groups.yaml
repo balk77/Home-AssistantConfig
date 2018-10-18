@@ -12,21 +12,22 @@ default_view:
     # - device_tracker.nut_linda
     - group.woonkamer_scenes
     - switch.fibaro_system_fgwpef_wall_plug_switch
-    - light.mqtt_json_slaapkamer
-    - light.mqtt_json_slaapkamer1
-    - light.mqtt_json_slaapkamer2
-    - light.mqtt_json_slaapkamer3
-    - light.mqtt_json_slaapkamer4
-    - light.mqtt_json_slaapkamer5
-    - light.mqtt_json_slaapkamer6
-    - light.mqtt_json_slaapkamer7
-    - light.mqtt_json_slaapkamer8
-    - input_select.rainbow
+    - light.mbr_disco
+    # - light.mqtt_json_slaapkamer
+    # - light.mqtt_json_slaapkamer1
+    # - light.mqtt_json_slaapkamer2
+    # - light.mqtt_json_slaapkamer3
+    # - light.mqtt_json_slaapkamer4
+    # - light.mqtt_json_slaapkamer5
+    # - light.mqtt_json_slaapkamer6
+    # - light.mqtt_json_slaapkamer7
+    # - light.mqtt_json_slaapkamer8
+    # - input_select.rainbow
     #- group.woonkamer_comfort
 
     - sun.sun
-    - sensor.pws_temp_c
-    - sensor.wk_CO2
+    - sensor.mhz19_temperature
+    - sensor.mhz19_co2_value
     #- sensor.mk_temp
     #- sensor.wk_relhumidity
     #- sensor.wk_abshumidity
@@ -75,10 +76,11 @@ woonkamer_comfort:
   name: Woonkamer Comfort
   control: hidden
   entities:
-    - sensor.wk_CO2
+    - sensor.mhz19_temperature
+    - sensor.mhz19_co2_value
     - sensor.wk_relhumidity
     #- sensor.wk_abshumidity
-    - sensor.mk_temp
+    # - sensor.mk_temp
     #- sensor.wk_hix
 itho:
   name: Itho control
@@ -155,20 +157,34 @@ nefit:
   name: Nefit
   icon: mdi:radiator
   entities:
-    - sensor.thermostaat_tempsetpoint
-    - sensor.wk_thermostaat_PV
+    #- sensor.thermostaat_tempsetpoint
+    #- sensor.wk_thermostaat_PV
     - sensor.wk_boilerstatus
     - sensor.hotwater
     - group.thermostaat_woonkamer
-    - group.slaapkamer_dide
-    - group.slaapkamer_fien
+    - climate.woonkamer
+    - climate.kamer_fien
+    - climate.kamer_dide
+    #- group.slaapkamer_dide
+    #- group.slaapkamer_fien
+    - group.keteltemp
     #- states.climate.heating.attributes.boiler_indicator
+keteltemp:
+  name: Temperatuur rond keteltemp
+  entities:
+    - sensor.hw_aanvoer
+    - sensor.ch_aanvoer
+    - sensor.ch_retour
+    - binary_sensor.hotwateron
+    - binary_sensor.hotwateroff
+    - input_boolean.shower
 thermostaat_woonkamer:
   name: Thermostaat Woonkamer
   entities:
-    - sensor.thermostaat_tempsetpoint
-    - sensor.wk_thermostaat_PV
-    - input_number.hass_tempsetpoint
+    #- sensor.thermostaat_tempsetpoint
+    #- sensor.wk_thermostaat_PV
+    #- input_number.hass_tempsetpoint
+    - climate.woonkamer
     - sensor.wk_boilerstatus
     - sensor.hotwater
     - input_boolean.nefit_programma
@@ -196,13 +212,14 @@ slaapkamer_fien:
 bk_sensors:
   name: Badkamer Sensors
   entities:
-    - sensor.badkamer_temp
+    - sensor.badkamer_temperatuur
     - sensor.badkamer_relhumidity
-    #- sensor.badkamer_abshumidity
-    - sensor.bkfanhotwater
-    - sensor.bkfanhumidity
+    - sensor.badkamer_dewpoint
+    - sensor.dewpoint_delta_cor
     - sensor.humdelta
     - sensor.minhum
+    - input_text.itho_reason
+    - input_boolean.shower
     #- sensor.minhum2
 wasmachineendroger:
   name: Wasmachine en Droger

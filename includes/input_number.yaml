@@ -50,3 +50,7 @@ zonnescherm:
   # 0 is omhoog, 255 is down
   min: 0
   max: 255
+# thermostaat_setpoint:
+#   min: 5
+#   max: 40
+#   initial: 15

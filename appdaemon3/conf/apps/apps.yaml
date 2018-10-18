@@ -78,9 +78,13 @@ thermostaatavond:
   module: thermostaatavond
   class: thermostaatavond
 
-thermostaat:
-  module: thermostaat
-  class: thermostaat
+# thermostaat:
+#   module: thermostaat
+#   class: thermostaat
+
+thermostaat_mqtt:
+  module: thermostaat_mqtt
+  class: thermostaat_mqtt
 
 sander_device_tracker:
   module: mqtt_device_tracker
@@ -155,3 +159,11 @@ Occupancy Simulator:
 vakantie:
   module: vakantie
   class: vakantie
+
+eettafellamp:
+  module: eettafellamp
+  class: eettafellamp
+
+douche:
+  module: douche
+  class: douche

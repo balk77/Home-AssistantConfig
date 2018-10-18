@@ -13,7 +13,7 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: !secret time_zone
-  customize: !include includes/customize.yaml
+  customize: !include customize.yaml
   #packages: !include_dir_named packages
   auth_providers:
    - type: homeassistant
@@ -78,6 +78,8 @@ frontend:
 
 config:
 
+cloud:
+
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret api_password
@@ -95,6 +97,7 @@ updater:
 discovery:
   ignore:
     - plex_mediaserver
+    - google_cast
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
@@ -136,7 +139,7 @@ device_tracker: !include includes/device_tracker.yaml
 
 group: !include includes/groups.yaml
 zone: !include includes/zones.yaml
-automation: !include includes/automations.yaml
+automation: !include automations.yaml
 #automation: !include_dir_list automation/
 
 #light: !include_dir_list light/
@@ -210,6 +213,7 @@ ifttt:
 #      - sensor.power_consumption_normal
 #      - sensor.gas_consumption
 
+climate: !include includes/climate.yaml
 # climate:
 #   platform: nefit
 #   name: Heating
@@ -307,6 +311,10 @@ influxdb:
       - sensor
       - light
       - input_select
+      - input_boolean
+      - input_number
+      - input_text
+      - switch
   tags:
     source: hass
   tags_attributes:

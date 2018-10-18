@@ -1,0 +1,43 @@
+- platform: mqtt
+  name: Kamer Dide
+  current_temperature_topic: "zolder/kamerdide/ventilatie/temperatuur"
+  temperature_command_topic: "zolder/kamerdide/thermostaat/desiredTemperature/set"
+  temperature_state_topic: "zolder/kamerdide/thermostaat/desiredTemperature"
+  mode_state_topic: "zolder/kamerdide/thermostaat/valveposition"
+  mode_state_template: "{% if value | float == 0 %} off {% else %} on {% endif %}"
+  modes:
+    - "off"
+    - "on"
+  min_temp: 10
+  max_temp: 25
+  intial: 13
+  retain: True
+- platform: mqtt
+  name: Kamer Fien
+  current_temperature_topic: "zolder/kamerfien/ventilatie/temperatuur"
+  temperature_command_topic: "zolder/kamerfien/thermostaat/desiredTemperature/set"
+  temperature_state_topic: "zolder/kamerfien/thermostaat/desiredTemperature"
+  mode_state_topic: "zolder/kamerfien/thermostaat/valveposition"
+  mode_state_template: "{% if value | float == 0 %} off {% else %} on {% endif %}"
+  modes:
+    - "off"
+    - "on"
+  min_temp: 10
+  max_temp: 25
+  intial: 13
+  retain: True
+- platform: mqtt
+  name: Woonkamer
+  current_temperature_topic: "woonkamer/woonkamer/thermostaat/gemetentemperatuur"
+  temperature_command_topic: "woonkamer/woonkamer/thermostaat/temperature/set"
+  temperature_state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint2"
+  mode_state_topic: "woonkamer/woonkamer/thermostaat/boilerstatus"
+#  mode_state_template: "{% if value | float == 0 %} off {% else %} on {% endif %}"
+  modes:
+    - "No"
+    - "HW"
+    - "CH"
+  min_temp: 10
+  max_temp: 25
+  intial: 15
+  retain: True

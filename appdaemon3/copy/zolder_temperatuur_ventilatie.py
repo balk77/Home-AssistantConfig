@@ -19,8 +19,9 @@ class ZolderTemperatuurVentilatie(hass.Hass):
 
         # Disable input from user interface and show message "Valve is moving" instead
 
-        self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie", visible="False")
-        self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie_moving", visible="True")
+        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie", visible="False")
+        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie_moving", visible="True")
+        self.call_service("input_boolean/turn_on", entity_id="input_boolean.show_moving_valve")
 
         # Set time (seconds) for the valve to move from open to close, or close to open
         time_to_open = 29
@@ -89,5 +90,6 @@ class ZolderTemperatuurVentilatie(hass.Hass):
         self.run_in(self.turn_on_handler, PulseTime_sec)
 
     def turn_on_handler(self, kwargs):
-        self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie", visible="True")
-        self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie_moving", visible="False")
+        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie", visible="True")
+        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie_moving", visible="False")
+        self.call_service("input_boolean/turn_off", entity_id="input_boolean.show_moving_valve")

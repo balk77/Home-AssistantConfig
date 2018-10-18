@@ -45,6 +45,12 @@ appdaemon_alive:
 shower:
   name: Douche actief?
   initial: off
+showerfanrunout:
+  name: Naloop fan na douche
+  initial: off
+shower_alt:
+  name: Douche actief (temperatuur)?
+  initial: off
 nefit_programma:
   name: Nefit programma actief
   initial: on
@@ -80,3 +86,5 @@ switch_tv:
 show_moving_valve:
   name: Show Moving valve panel in frontend
   initial: off
+print_itho_reason:
+  name: Print Itho Reason
