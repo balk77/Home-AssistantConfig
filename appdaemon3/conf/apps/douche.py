@@ -8,7 +8,9 @@ class douche(hass.Hass):
         self.listen_state(self.inputhandler, "binary_sensor.hotwateron")
         self.listen_state(self.inputhandler, "sensor.hw_aanvoer")
         self.listen_state(self.runout_on, "input_boolean.shower", new="on", duration=60)
-        self.listen_state(self.runout_off, "input_boolean.shower", new="off", duration=30)
+        
+        self.listen_state(self.shower_off, "input_boolean.shower", new="off", duration=30)
+        self.listen_state(self.runout_off, "timer.fanrunout", new="idle", duration=10)
 
 
 
@@ -35,7 +37,8 @@ class douche(hass.Hass):
         # self.log("curr_shower_state")
         # self.log(curr_shower_state)
 
-        if (lamp == "on" and curr_shower_state == "off" and hotwateron_negative_gradient == "off" and
+        #if (lamp == "on" and curr_shower_state == "off" and hotwateron_negative_gradient == "off" and
+        if (lamp == "on" and hotwateron_negative_gradient == "off" and
             (
                 wk_boilerstatus == "HW" or 
                 (hotwateron_positive_gradient == "on" or hw_aanvoer_temp > 40) 
@@ -57,17 +60,38 @@ class douche(hass.Hass):
 
     def runout_on(self, entity, attribute, old, new, kwargs):
         #self.switch_runout(action="on")
-        self.log("runout = aan")
-        self.run_in(self.switch_runout, 1, action="on")
+        self.log("runout = aan, douche is aan")
+        # self.run_in(self.switch_runout, 1, action="on")
         #self.call_service("input_boolean/turn_on", entity_id="input_boolean.showerfanrunout")
+        # self.call_service("timer/cancel", entity_id="timer.fanrunout")
+        # self.call_service("timer/start", entity_id="timer.fanrunout", duration=900)
+        self.call_service("input_boolean/turn_on", entity_id="input_boolean.showerfanrunout")
+    
+
+            
+
+    def shower_off(self, entity, attribute, old, new, kwargs):
+        self.call_service("timer/cancel", entity_id="timer.fanrunout")
+        self.call_service("timer/start", entity_id="timer.fanrunout", duration=900)
+        self.call_service("input_boolean/turn_on", entity_id="input_boolean.showerfanrunout")
+        
+        self.log("runout = aan, douche is uit")
+        # self.run_in(self.switch_runout, 900, action="off")
 
     def runout_off(self, entity, attribute, old, new, kwargs):
         self.log("runout = uit")
-        self.run_in(self.switch_runout, 900, action="off")
+        self.call_service("input_boolean/turn_off", entity_id="input_boolean.showerfanrunout")
 
-    def switch_runout(self, kwargs):
-        self.log(kwargs['action'])
-        if kwargs['action'] == "on":
-            self.call_service("input_boolean/turn_on", entity_id="input_boolean.showerfanrunout")
-        elif kwargs['action'] == "off":
-            self.call_service("input_boolean/turn_off", entity_id="input_boolean.showerfanrunout")
+            
+#    def runout_off(self, entity, attribute, old, new, kwargs):
+#         self.log("runout = uit")
+#         self.run_in(self.switch_runout, 900, action="off")
+
+#     def switch_runout(self, kwargs):
+#         self.log(kwargs['action'])
+#         if kwargs['action'] == "on":
+#             self.call_service("input_boolean/turn_on", entity_id="input_boolean$
+#         elif kwargs['action'] == "off":
+#             self.call_service("input_boolean/turn_off", entity_id="input_boolea$
+
+

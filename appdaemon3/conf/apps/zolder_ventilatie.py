@@ -6,7 +6,7 @@ class ZolderVentilatie(hass.Hass):
         # Listen for state change of ventilation requirements
         self.listen_state(self.input_parse2, "input_number.zolder_ventilatie")
 
-        self.listen_state(self.input_parse, "sensor.wk_boilerstatus", new="HW")
+        #self.listen_state(self.input_parse, "sensor.wk_boilerstatus", new="HW")
         # DesiredPercentage = self.get_state("input_number.zolder_ventilatie")
     
     def input_parse(self, entity, attribute, old, new, kwargs):

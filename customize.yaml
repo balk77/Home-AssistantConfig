@@ -154,3 +154,7 @@ device_tracker.phone_sander:
   entity_picture: /local/sander.jpeg
 climate.woonkamer:
   target_temp_step: 0.5
+climate.kamer_fien:
+  target_temp_step: 0.5
+climate.kamer_dide:
+  target_temp_step: 0.5

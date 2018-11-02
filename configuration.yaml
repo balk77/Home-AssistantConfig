@@ -17,7 +17,7 @@ homeassistant:
   #packages: !include_dir_named packages
   auth_providers:
    - type: homeassistant
-   - type: legacy_api_password
+  #  - type: legacy_api_password
 
 
 
@@ -315,7 +315,17 @@ influxdb:
       - input_number
       - input_text
       - switch
+      - binary_sensor
   tags:
     source: hass
   tags_attributes:
     - friendly_name
+
+media_player:
+  - platform: spotify
+    client_id: a04f864bcee749f78738ad1c5780385e
+    client_secret: b1a820e6636a4bc1a4653a2a3f101e30
+
+timer:
+  fanrunout:
+    icon: mdi:fan

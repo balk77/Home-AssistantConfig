@@ -167,3 +167,15 @@ eettafellamp:
 douche:
   module: douche
   class: douche
+
+woonkamer_off_direct:
+  module: woonkamer_off
+  class: woonkamer_off
+  entity_id: group.woonkamer_direct
+  delay: 0
+
+woonkamer_off_delay:
+  module: woonkamer_off
+  class: woonkamer_off
+  entity_id: group.woonkamer_delay
+  delay: 10

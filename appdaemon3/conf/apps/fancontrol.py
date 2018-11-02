@@ -59,8 +59,20 @@ class fancontrol(hass.Hass):
             # self.log(desiredStateHW)
 
             desiredStateZOLDER = self.zolder_ventilatie_status()
+            showerfanrunout = self.get_state("input_boolean.showerfanrunout")
 
-            if desiredStateHUM == "full":
+            if showerfanrunout == "on":
+                self.call_service("input_number/set_value", entity_id="input_number.zolder_ventilatie", value=0)
+                if desiredStateHUM == "full":
+                    self.setfanstate("full")
+                    itho_reason="Humidity high, fan FULL, runout"
+                    self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=itho_reason)
+                else:
+                    self.setfanstate("high")
+                    itho_reason="Humidity high, fan high, runout"
+                    self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=itho_reason)
+                    
+            elif desiredStateHUM == "full":
                 # Close the ventilation for the attic to force airflow from bathroom
                 self.call_service("input_number/set_value", entity_id="input_number.zolder_ventilatie", value=0)
 

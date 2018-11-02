@@ -9,6 +9,15 @@ appdaemon:
     HASS:
       type: hass
       ha_url: "http://192.168.0.199:8123"
-      ha_key: !secret api_password
+      # ha_key: !secret api_password
+      token: !secret appdaemon_token
 hadashboard:
   dash_url: http://192.168.0.199:5050
+MQTT:
+      type: mqtt
+      verbose: True
+      client_host: '192.168.0.9'
+      client_port: 1883
+      # client_topics:
+      #   - hermes/intent/#
+      #   - hermes/hotword/#

@@ -119,49 +119,49 @@
   action:
     service: script.turn_on
     entity_id: script.woonkamer_medium
-- id: activeer_slaapstand
-  alias: Huis in slaapstand
-  trigger:
-  - platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.hank_knop_wk
-      scene_id: 3
-  - platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.keuken_koof
-      scene_id: 24
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.vakantie
-      state: 'off'
-    - condition: time
-      after: '20:00:00'
-      before: 04:00:00
-  action:
-  - service: script.turn_on
-    entity_id: script.woonkamer_off
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.huis_slaapstand
-- id: lampen_uit
-  alias: Lampen uit in woonkamer met Hank of dubbel klik
-  trigger:
-  - platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.hank_knop_wk
-      scene_id: 3
-  - platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.keuken_koof
-      scene_id: 24
-  action:
-  - service: script.turn_on
-    entity_id: script.woonkamer_off
+# - id: activeer_slaapstand
+#   alias: Huis in slaapstand
+#   trigger:
+#   - platform: event
+#     event_type: zwave.scene_activated
+#     event_data:
+#       entity_id: zwave.hank_knop_wk
+#       scene_id: 3
+#   - platform: event
+#     event_type: zwave.scene_activated
+#     event_data:
+#       entity_id: zwave.keuken_koof
+#       scene_id: 24
+#   condition:
+#     condition: and
+#     conditions:
+#     - condition: state
+#       entity_id: input_boolean.vakantie
+#       state: 'off'
+#     - condition: time
+#       after: '20:00:00'
+#       before: 04:00:00
+#   action:
+#   - service: script.turn_on
+#     entity_id: script.woonkamer_off
+#   - service: input_boolean.turn_on
+#     entity_id: input_boolean.huis_slaapstand
+# - id: lampen_uit
+#   alias: Lampen uit in woonkamer met Hank of dubbel klik
+#   trigger:
+#   - platform: event
+#     event_type: zwave.scene_activated
+#     event_data:
+#       entity_id: zwave.hank_knop_wk
+#       scene_id: 3
+#   - platform: event
+#     event_type: zwave.scene_activated
+#     event_data:
+#       entity_id: zwave.keuken_koof
+#       scene_id: 24
+#   action:
+#   - service: script.turn_on
+#     entity_id: script.woonkamer_off
 - id: hank_wk3_1
   alias: Hank wk3_1
   trigger:
@@ -784,9 +784,9 @@
 - id: douche_counter
   alias: Aantal keren douchen
   trigger:
-  - entity_id: sensor.wk_boilerstatus
+  - entity_id: input_boolean.shower
     platform: state
-    to: HW
+    to: "on"
     for:
       minutes: 2
   action:
@@ -854,6 +854,7 @@
     data:
       entity_id: light.keuken_aanrecht_groep
       brightness: 150
+      transition: 30
 
 # - id: Keuken_aanrecht_muur_4
 #   alias: Keuken aanrecht knop aan dim
@@ -913,128 +914,6 @@
     data:
       target: device/Nexus5X
       message: Keuken sensor reboot!
-# - id: douche_aan
-#   alias: Douche aan
-#   trigger:
-#   - entity_id: sensor.wk_boilerstatus
-#     for:
-#       seconds: 50
-#     platform: state
-#     to: HW
-#   condition:
-#     condition: state
-#     entity_id: light.badkamer_plafond_level
-#     state: 'on'
-#   action:
-#     service: input_boolean.turn_on
-#     data:
-#       entity_id: input_boolean.shower
-# - id: douche_uit
-#   alias: Douche uit
-#   trigger:
-#   - entity_id: sensor.wk_boilerstatus
-#     for:
-#       seconds: 10
-#     platform: state
-#     to: CH
-#   - entity_id: sensor.wk_boilerstatus
-#     for:
-#       seconds: 10
-#     platform: state
-#     to: 'No'
-#   condition:
-#     condition: state
-#     entity_id: light.badkamer_plafond_level
-#     state: 'on'
-#   action:
-#   - data:
-#       entity_id: input_boolean.showerfanrunout
-#     service: input_boolean.turn_on
-#   - data:
-#       entity_id: input_boolean.shower
-#     service: input_boolean.turn_off
-#   - delay: 00:15:00
-#   - data:
-#       entity_id: input_boolean.showerfanrunout
-#     service: input_boolean.turn_off
-# - id: douche_aan
-#   alias: Douche aan
-#   trigger:
-#   - entity_id: input_boolean.shower
-#     for:
-#       minutes: 1
-#     platform: state
-#     to: "on"
-#   action:
-#   - service: input_boolean.turn_on
-#     data:
-#       entity_id: input_boolean.showerfanrunout
-# - id: douche_uit
-#   alias: Douche uit
-#   trigger:
-#   - entity_id: input_boolean.shower
-#     for:
-#       seconds: 30
-#     platform: state
-#     to: "off"
-#   condition:
-#     condition: state
-#     entity_id: input_boolean.showerfanrunout
-#     state: 'on'
-#   action:
-#   - delay: "0:15:00"
-# #      minutes: 15
-#   - service: input_boolean.turn_off
-#     data:
-#       entity_id: input_boolean.showerfanrunout
-# - id: douche_aan_alt
-#   alias: Douche aan (temperatuur)
-#   trigger:
-#   - platform: state
-#     entity_id: binary_sensor.hotwateron
-#     to: 'on'
-#   - platform: numeric_state
-#     entity_id: sensor.hw_aanvoer
-#     above: 30
-#   - entity_id: sensor.wk_boilerstatus
-#     for:
-#       seconds: 50
-#     platform: state
-#     to: HW
-#   condition:
-#     conditions:
-#     - condition: state
-#       entity_id: binary_sensor.hotwateroff
-#       state: x
-#     - condition: state
-#       entity_id: light.badkamer_plafond_level
-#       state: 'on'
-#   action:
-#   - service: input_boolean.turn_on
-#     data:
-#       entity_id: input_boolean.shower_alt
-# - id: douche_uit_alt
-#   alias: Douche uit (temperatuur)
-#   trigger:
-#   - platform: state
-#     entity_id: binary_sensor.hotwateroff
-#     to: 'on'
-#   action:
-#   - service: input_boolean.turn_off
-#     data:
-#       entity_id: input_boolean.shower_alt
-# - id: test_double_click
-#   trigger:
-#   - platform: event
-#     event_type: zwave.scene_activated
-#     event_data:
-#       entity_id: zwave.keuken_koof
-#       scene_id: 24
-#   action:
-#   - service: notify.pushbullet
-#     data:
-#       target: device/Nexus5X
-#       message: Dubbel klik!
 - id: toggle_bankje
   alias: Toggle bankje aan/uit
   trigger:
