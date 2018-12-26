@@ -1,0 +1,19 @@
+- id: douche_counter
+  alias: Aantal keren douchen
+  trigger:
+  - entity_id: input_boolean.shower
+    platform: state
+    to: "on"
+    for:
+      minutes: 2
+  action:
+  - service: counter.increment
+    entity_id: counter.douches
+- id: reset_douche_counter
+  alias: Reset Douche Counter
+  trigger:
+    platform: time
+    at: '4:00:00'
+  action:
+  - service: counter.reset
+    entity_id: counter.douches

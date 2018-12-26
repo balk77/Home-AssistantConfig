@@ -9,13 +9,14 @@ class thermostaat_mqtt(hass.Hass):
         self.listen_state(self.inputhandler, "sensor.wk_thermostaat_hass_sp")
 
 
+
     def inputhandler(self, entity, attribute, old, new, kwargs):
         self.log("ping")
         temp_sp_hass = float(self.get_state("sensor.wk_thermostaat_hass_sp"))
 
         headers = {'Content-type': 'application/json'}
         #myurl = "http://127.0.0.1:8124"
-        myurl = "http://192.168.0.9:8124"
+        myurl = "http://192.168.0.194:8124"
         command1 = "/bridge/heatingCircuits/hc1/temperatureRoomManual"
         command2 = "/bridge/heatingCircuits/hc1/manualTempOverride/status"
         command3 = "/bridge/heatingCircuits/hc1/manualTempOverride/temperature"
@@ -45,6 +46,22 @@ class thermostaat_mqtt(hass.Hass):
 
         #self.set_state("input_boolean.nefit_programma", state="off")
 
+        self.run_in(self.test_physical_thermostat, 60)
+
+    def test_physical_thermostat(self, kwargs):
+        desired_sp = float(self.get_state("sensor.wk_thermostaat_hass_sp"))
+        actual_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
+        self.log("desired SP:")
+        self.log(desired_sp)
+        self.log("actual SP:")
+        self.log(actual_sp)
+
+        if desired_sp != actual_sp:
+            
+            self.log("retry setting temperature")
+            self.inputhandler(self,"x","x","x","x")
+            #self.call_service("homeassistant/turn_off", entity_id=entity_id)
+
 
 
 
@@ -52,7 +69,7 @@ class thermostaat_mqtt(hass.Hass):
 
         headers = {'Content-type': 'application/json'}
         #myurl = "http://127.0.0.1:8124"
-        myurl = "http://192.168.0.9:8124"
+        myurl = "http://192.168.0.194:8124"
         command2 = "/bridge/heatingCircuits/hc1/manualTempOverride/status"
 
         body2 = "off"

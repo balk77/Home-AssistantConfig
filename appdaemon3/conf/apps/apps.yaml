@@ -74,9 +74,9 @@ badkamer_abshumidity:
   abshumidity: sensor.badkamer_abshumidity
   topic: "eersteverdiep/badkamer/dht/abshumidity"
 
-thermostaatavond:
-  module: thermostaatavond
-  class: thermostaatavond
+# thermostaatavond:
+#   module: thermostaatavond
+#   class: thermostaatavond
 
 # thermostaat:
 #   module: thermostaat
@@ -179,3 +179,44 @@ woonkamer_off_delay:
   class: woonkamer_off
   entity_id: group.woonkamer_delay
   delay: 10
+
+convectorput:
+  module: convectorput
+  class: convectorput
+  min: 75
+  med: 125
+  max: 200
+
+# mqtttest:
+#   module: mqtttest
+#   class: mqtttest
+
+masterslavedide:
+  module: masterslavezolder
+  class: masterslavezolder
+  ventipv: sensor.temperatuur_dide_ventilatie
+  thermpv: sensor.slaapkamer_dide_gemeten_temperatuur
+  roomsp: sensor.slaapkamer_dide_gewenste_temperatuur_set
+  thermsp: "zolder/kamerdide/thermostaat/desiredTemperature/set"
+
+masterslavefien:
+  module: masterslavezolder
+  class: masterslavezolder
+  ventipv: sensor.temperatuur_fien_ventilatie
+  thermpv: sensor.slaapkamer_fien_gemeten_temperatuur
+  roomsp: sensor.slaapkamer_fien_gewenste_temperatuur_set
+  thermsp: "zolder/kamerfien/thermostaat/desiredTemperature/set"
+
+# masterslavedidepid:
+#   module: masterslavezolder1
+#   class: masterslavezolder
+#   ventipv: sensor.temperatuur_dide_ventilatie
+#   thermpv: sensor.slaapkamer_dide_gemeten_temperatuur
+#   roomsp: sensor.slaapkamer_dide_gewenste_temperatuur_set
+#   thermsp: "zolder/kamerdide/thermostaat/desiredTemperature/set"
+#   thermsp2: sensor.slaapkamer_fien_gewenste_temperatuur
+
+sousvide:
+  module: sousvide
+  class: sousvide
+  

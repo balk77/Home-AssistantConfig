@@ -18,7 +18,8 @@ wk_multisensor_battery_level_reminder:
 zolder_multisensor_battery_level_reminder:
   name: zolder_multisensor_battery_level_reminder
   initial: off
-zolder_multisensor_burglar:
+#zolder_multisensor_burglar:
+zolder_beweging:
   name: beweging_zolder1
   initial: off
 occupancy_simulation:
@@ -90,3 +91,11 @@ print_itho_reason:
   name: Print Itho Reason
 test:
   name: test
+convector_fan_disabled:
+  name: Convectorput fan disabled
+sousvide_active:
+  name: Sous Vide on/off
+sousvide_timer:
+  name: Activate Sous Vide timer
+pir_sensor_keuken:
+  name: Beweging in keuken

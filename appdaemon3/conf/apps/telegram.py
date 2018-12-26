@@ -70,7 +70,7 @@ class TelegramBotEventListener(hass.Hass):
     def receive_telegram_text(self, event_id, payload_event, *args):
         #self.set_state("sensor.print_itho_reason", state=0)
         
-        self.call_service("input_boolean/turn_off", event_id="input_boolean.print_itho_reason")
+        self.call_service("input_boolean/turn_off", entity_id="input_boolean.print_itho_reason")
         print_itho_reason = self.get_state("input_boolean.print_itho_reason")
         assert event_id == 'telegram_text'
         self.log(payload_event['chat_id'])
@@ -131,7 +131,7 @@ class TelegramBotEventListener(hass.Hass):
 
     def receive_telegram_callback(self, event_id, payload_event, *args):
         #self.set_state("sensor.print_itho_reason", state=0)
-        self.call_service("input_boolean/turn_off", event_id="input_boolean.print_itho_reason")
+        self.call_service("input_boolean/turn_off", entity_id="input_boolean.print_itho_reason")
         """Event listener for Telegram callback queries."""
         assert event_id == 'telegram_callback'
         data_callback = payload_event['data']
@@ -233,7 +233,7 @@ class TelegramBotEventListener(hass.Hass):
                               disable_notification=True,
                               inline_keyboard=keyboard)
             
-            self.call_service("input_boolean/turn_on", event_id="input_boolean.print_itho_reason")
+            self.call_service("input_boolean/turn_on", entity_id="input_boolean.print_itho_reason")
             #self.set_state("sensor.print_itho_reason", state=1)
             print_itho_reason = "On"
             #self.log("print_itho_reason: " + str(print_itho_reason))
@@ -254,4 +254,44 @@ class TelegramBotEventListener(hass.Hass):
         elif data_callback == "/ventilatie_set_full":
             self.call_service("input_select/select_option", entity_id="input_select.fanstate", option="full")
             #self.set_state("input_select.fanstate", state="full")
+            self.main_menu(payload_event = payload_event)
+        elif data_callback == "/verlichting":
+            user_id = payload_event['user_id']
+            modus = self.get_state("group.woonkamer")
+
+
+            if modus == "on":
+                modus2 = "uit"
+            else:
+                modus2 = "aan"
+
+            msg = 'Verlichtingmodus: ``` %s ```' % modus
+
+            # self.log(modus2)
+            keyboard = [[("Zet " + modus2, "/verlichting_set")]]
+
+            self.call_service('telegram_bot/send_message',
+                              title='*Verlichtingmodus*',
+                              target=user_id,
+                              message=msg,
+                              disable_notification=True,
+                              inline_keyboard=keyboard)
+        elif data_callback == "/verlichting_set":
+            modus = self.get_state("group.woonkamer")
+            if modus == "on":
+                self.turn_off("group.woonkamer")
+            else:
+                self.turn_on("script.woonkamer_low")
+            
+            modus = self.get_state("group.woonkamer")
+            if modus == "on":
+                modus = "aan"
+            else:
+                modus = "uit"
+            msg = "Woonkamer verlichting is nu " + modus
+            self.call_service('telegram_bot/send_message',
+                              title='*Verlichtingmodus*',
+                              target=user_id,
+                              message=msg,
+                              disable_notification=True)
             self.main_menu(payload_event = payload_event)

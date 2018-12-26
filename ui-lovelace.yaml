@@ -6,15 +6,17 @@ views:
     title: Home
     icon: mdi:home
     cards:
-      - id: 4a5e6975068b4fc2a4a7bac2767fb545  # Automatically created id
-        type: entities
+      - type: entities
+        id: 4a5e6975068b4fc2a4a7bac2767fb545  # Automatically created id
         entities:
-          - device_tracker.phone_linda
-          - device_tracker.phone_sander
-          - light.mbr_disco
-          - sun.sun
-          - sensor.mhz19_temperature
-          - sensor.mhz19_co2_value
+          - entity: device_tracker.phone_linda
+          - entity: device_tracker.phone_linda_wifi
+          - entity: device_tracker.phone_sander
+          - entity: device_tracker.phone_sander_wifi
+          - entity: light.mbr_disco
+          - entity: sun.sun
+          - entity: sensor.mhz19_temperature
+          - entity: sensor.mhz19_co2_value
       - id: fcb4fc39c70f419a84a1bb9805f597a0  # Automatically created id
         type: entities
         title: Woonkamer Scenes
@@ -97,6 +99,7 @@ views:
           - switch.schemerlamp_switch
           - light.wk_eettafel_plafond_level
           - light.wk_achter_plafond_level
+          - switch.kerstboom
       - id: 63af56963dce4a39a73062fd3caa05cf  # Automatically created id
         type: vertical-stack
         cards:
@@ -161,7 +164,6 @@ views:
               show_header_toggle: false
               entities:
                 - input_number.zolder_ventilatie
-
       # - type: entities
       #   title: Woonkamer Comfort
       #   show_header_toggle: false
@@ -169,13 +171,14 @@ views:
       #     - sensor.mhz19_temperature
       #     - sensor.wk_relhumidity
       #     - sensor.mhz19_co2_value
-      - type: picture-elements
-        elements:
-          - type: state-label
-            entity: input_text.itho_reason
-            style:
-              top: 82%
-              left: 79%
+      # - type: picture-elements
+      #   image: 20171020.svg
+      #   elements:
+      #     - type: state-label
+      #       entity: input_text.itho_reason
+      #       style:
+      #         top: 82%
+      #         left: 79%
       - id: 4cbb7d4f976b43ebac8c16f56ce35e99  # Automatically created id
         type: entities
         title: Badkamer Sensors
@@ -255,7 +258,9 @@ views:
             title: Temperatuur rond keteltemp
             show_header_toggle: false
             entities:
+              - sensor.ch_aanvoer
               - sensor.ch_retour
+              - sensor.thermostaat_ch_supply_temp
               - binary_sensor.hotwateron
               - input_boolean.shower
               # - sensor.ch_aanvoer
@@ -301,11 +306,11 @@ views:
         entities:
           - sensor.zolder_multisensor_temperature
           - sensor.filtered_fien_temperatuur
-          - sensor.slaapkamer_dide_gemeten_temperatuur
+          #/- sensor.slaapkamer_dide_gemeten_temperatuur
           - sensor.wk_delta_t
           - sensor.dark_sky_temperature
           - cover.level
-          - sensor.filtered_dide_temperatuur
+          #/- sensor.filtered_dide_temperatuur
           - sensor.zolder_delta_t
       - id: 3ed3eacd23cd4fe490b1ea7858183f21  # Automatically created id
         type: entities
@@ -328,3 +333,98 @@ views:
         show_header_toggle: false
         entities:
           - input_text.valvemoving
+  - title: Sous Vide
+    icon: mdi:pot
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: conditional
+            conditions:
+              - entity: "sensor.sous_vide_status"
+                state_not: "disconnected"
+            card:
+              type: entities
+              entities:
+                - input_datetime.sousvidefinish
+                - input_datetime.sousvidelengte
+                - input_number.sousvidetemp
+                - input_boolean.sousvide_timer
+          - type: conditional
+            conditions:
+              - entity: "sensor.sous_vide_status"
+                state_not: "disconnected"
+            card:
+              type: entities
+              entities:
+                - sensor.sous_vide_status
+                - sensor.sous_vide_target_temperature
+                - sensor.sous_vide_current_temperature
+                - input_boolean.sousvide_active
+          - type: conditional
+            conditions:
+              - entity: "sensor.sous_vide_status"
+                state: "disconnected"
+            card:
+              type: entities
+              entities:
+                - sensor.sous_vide_status
+          # - type: thermostat
+          #   entity: climate.sous_vide
+  - title: Heating
+    cards:
+      - type: entities
+        title: Boiler
+        show_header_toggle: false
+        entities:
+          - sensor.boiler_boottime
+          - sensor.boiler_updated
+          - type: divider
+          - input_number.boiler_wwtemp
+          - sensor.warm_water_current_temperature
+          - sensor.warm_water_activated
+          - sensor.warm_water_3way_valve
+          - type: divider
+          - sensor.boiler_temperature
+          - sensor.return_temperature
+          - sensor.current_flow_temperature
+          - sensor.pump_modulation
+          - sensor.ignition
+          - sensor.gas
+          - sensor.fan
+          - sensor.boiler_pump
+          - sensor.system_pressure
+          - sensor.burner_max_power
+          - sensor.burner_current_power
+          - binary_sensor.heating
+          - binary_sensor.tap_water
+
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Shower Monitor
+            show_header_toggle: false
+            entities:
+              - switch.shower_timer
+              - switch.long_shower_alert
+              - type: divider
+              - sensor.last_shower_duration
+              - sensor.showertime_time
+          - type: custom:button-card
+            color: auto
+            icon: mdi:shower-head
+            name: send a cold shot of shower water
+            style:
+              - text-transform: none
+              - color: rgb(28, 128, 199)
+              - font-weight: bold
+            entity: script.shower_coldshot
+            show_state: false
+
+      - type: vertical-stack
+        cards:
+          - type: history-graph
+            entities:
+              - sensor.current_room_temperature
+              - sensor.dark_sky_temperature
+          - type: thermostat
+            entity: climate.thermostat

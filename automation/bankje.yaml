@@ -1,0 +1,101 @@
+# - id: wk_muur1
+#   alias: WK Muur uit
+#   trigger:
+#   - entity_id: group.woonkamer_ex_muur
+#     from: 'on'
+#     platform: state
+#     to: 'off'
+#     for:
+#       seconds: 10
+#   action:
+#   - service: light.turn_off
+#     data:
+#       transition: 20
+#       entity_id: light.wk_muur_level
+- id: wk_muur2
+  alias: WK Muur aan op Beweging
+  trigger:
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '8'
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '3'
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: '{{ states.sun.sun.attributes.elevation  | int < 8 }}'
+    - condition: state
+      entity_id: input_boolean.huis_slaapstand
+      state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.wk_muur_level
+      brightness: 50
+  - service: switch.turn_on
+    data:
+      entity_id: switch.kerstboom
+- id: wk_muur3
+  alias: WK Muur na zonsopgang uit
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 8
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: group.woonkamer_ex_muur
+      state: 'off'
+    - condition: time
+      before: '12:00:00'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.wk_muur_level
+  - service: switch.turn_off
+    data:
+      entity_id: switch.kerstboom
+- id: wk_muur4
+  alias: WK Muur uit bij geen Beweging
+  trigger:
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '0'
+    for:
+      minutes: 10
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: '{{ states.sun.sun.attributes.elevation  | int > 8 }}'
+    - condition: state
+      entity_id: input_boolean.huis_slaapstand
+      state: 'off'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.wk_muur_level
+  - service: switch.turn_off
+    data:
+      entity_id: switch.kerstboom
+
+- id: toggle_bankje
+  alias: Toggle bankje aan/uit
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.keuken_koof
+      scene_id: 26
+  action:
+  - service: light.toggle
+    data:
+      transition: 3
+      entity_id: light.wk_muur_level
+  - service: switch.toggle
+    data:
+      entity_id: switch.kerstboom

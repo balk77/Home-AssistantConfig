@@ -142,6 +142,7 @@ class fancontrol(hass.Hass):
         humdelta_average = float(self.get_state("sensor.humdelta_sma"))
         humdelta = max(humdelta_single,humdelta_average)
         #self.log(humdelta)
+        desiredState = ""
 
         relhum = float(self.get_state("sensor.badkamer_relhumidity"))
         #humdelta = float(self.get_state("input_number.humdelta_dummy"))
@@ -191,8 +192,10 @@ class fancontrol(hass.Hass):
 
     def zolder_ventilatie_status(self):
         # als de zolder te warm is, zet fan aan
-        zolder_max_t = float(self.get_state("sensor.zolder_max_t"))
-        zolder_delta_t = float(self.get_state("sensor.zolder_delta_t"))
+        #zolder_max_t = float(self.get_state("sensor.zolder_max_t"))
+        zolder_max_t = 20
+        #zolder_delta_t = float(self.get_state("sensor.zolder_delta_t"))
+        zolder_delta_t = 1
 
         if zolder_delta_t < 0:
             if zolder_max_t >= 38:

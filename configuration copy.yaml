@@ -19,8 +19,7 @@ homeassistant:
    - type: homeassistant
   #  - type: legacy_api_password
 
-lovelace:
-  mode: yaml
+
 
 recorder:
   db_url: postgres://homeassistant:ereadsta@192.168.0.9/homeassistant
@@ -71,7 +70,7 @@ logger:
 
 # Enables the frontend
 frontend:
-  #javascript_version: latest
+  javascript_version: latest
   # extra_html_url:
   #   - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
   # extra_html_url_es5:
@@ -80,21 +79,6 @@ frontend:
 config:
 
 cloud:
-  # entity_config:
-  #   light.wk_muur_level:
-  #     name: Ledstrip Bankje
-  #     aliases:
-  #      - Ledstrip Muur
-  #     room: Huiskamer
-  #   light.badkamer_plafond_level:
-  #     name: Lamp badkamer
-  #     room: Badkamer
-  #   light.wk_eettafel_plafond_level:
-  #     name: Lamp eettafel
-  #     aliases:
-  #       - Eettafellamp
-  #     room: Huiskamer
-      
 
 http:
   # Uncomment this to add a password (recommended!)
@@ -155,9 +139,7 @@ device_tracker: !include includes/device_tracker.yaml
 
 group: !include includes/groups.yaml
 zone: !include includes/zones.yaml
-#automation: !include automations.yaml
-automation: !include_dir_merge_list automation
-
+automation: !include automations.yaml
 #automation: !include_dir_list automation/
 
 #light: !include_dir_list light/
@@ -207,12 +189,12 @@ mqtt:
 #    retain: true
 
 # Z-Wave config
-# zwave:
-#   usb_path: /dev/ttyACM0
-#   autoheal: false
-#   device_config:
-#     cover.level:
-#       invert_openclose_buttons: true
+zwave:
+  usb_path: /dev/ttyACM0
+  autoheal: false
+  device_config:
+    cover.level:
+      invert_openclose_buttons: true
 
 # IFTTT
 ifttt:
@@ -232,9 +214,14 @@ ifttt:
 #      - sensor.gas_consumption
 
 climate: !include includes/climate.yaml
+# climate:
+#   platform: nefit
+#   name: Heating
+#   serial: !secret nefit_serial
+#   accesskey: !secret nefit_accesskey
+#   password: ! secret nefit_password
 
-
-#/python_script:
+python_script:
 
 notify:
   - name: pushbullet
@@ -269,10 +256,6 @@ nest:
   binary_sensors:
     monitored_conditions:
       - 'online'
-
-wunderlist:
-  client_id: !secret wunderlist_client_id
-  access_token: !secret wunderlist_access_token
 
 input_select: !include includes/input_select.yaml
 input_number: !include includes/input_number.yaml
@@ -346,19 +329,3 @@ media_player:
 timer:
   fanrunout:
     icon: mdi:fan
-  zolder_motion:
-  
-
-# maxcube:
-#   gateways:
-#     - host: 192.168.0.128
-
-input_datetime:
-  sousvidefinish:
-    name: Sous Vide klaar
-    has_time: true
-    initial: "09:00"
-  sousvidelengte:
-    name: Sous Vide Lengte
-    has_time: true
-    initial: "00:45"

@@ -11,13 +11,24 @@ appdaemon:
       ha_url: "http://192.168.0.199:8123"
       # ha_key: !secret api_password
       token: !secret appdaemon_token
+    MQTT:
+     type: mqtt
+     client_host: 192.168.0.9
+    #  client_user: !secret mqtt_username
+    #  client_password: !secret mqtt_password
+     namespace: mqtt
+     client_topics:
+         - x/y/z
+         - "zolder/kamerdide/kamer/desiredTemperature/set"
+         - "zolder/kamerfien/kamer/desiredTemperature/set"
+    # MQTT:
+    #   type: mqtt
+    #   #verbose: True
+    #   client_host: '192.168.0.9'
+    #   client_port: 1883
+    #   #namepace: "appdaemon"
+    #   # client_topics:
+    #   #   - hermes/intent/#
+    #   #   - hermes/hotword/#
 hadashboard:
   dash_url: http://192.168.0.199:5050
-MQTT:
-      type: mqtt
-      verbose: True
-      client_host: '192.168.0.9'
-      client_port: 1883
-      # client_topics:
-      #   - hermes/intent/#
-      #   - hermes/hotword/#

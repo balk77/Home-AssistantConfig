@@ -54,3 +54,10 @@ zonnescherm:
 #   min: 5
 #   max: 40
 #   initial: 15
+sousvidetemp:
+    name: Sous Vide Target Temp
+    initial: 50
+    min: 20
+    max: 99
+    step: 0.5
+    mode: box

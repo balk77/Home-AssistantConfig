@@ -1,0 +1,23 @@
+- id: sous_vide_on
+  alias: Start Sous Vide unit
+  trigger:
+  - platform: state
+    entity_id: input_boolean.sousvide_active
+    to: 'on'
+  action:
+  - data:
+      payload: "running"
+      topic: "anova/command/run"
+    service: mqtt.publish
+- id: sous_vide_off
+  alias: Stop Sous Vide unit
+  trigger:
+  - platform: state
+    entity_id: input_boolean.sousvide_active
+    to: 'off'
+  action:
+  - data:
+      payload: "stopped"
+      topic: "anova/command/run"
+    service: mqtt.publish
+  

@@ -1,0 +1,434 @@
+- platform: yr
+- platform: mqtt
+  state_topic: 'p1data/electricity'
+  name: 'Current usage'
+  unit_of_measurement: 'W'
+  value_template: '{{ value_json.consumption }}'
+- platform: mqtt
+  name: "Temperatuur"
+  unit_of_measurement: '°C'
+  state_topic: "homie/Temperature/temperature/degrees"
+- platform: mqtt
+  name: 'wk_CO2'
+  unit_of_measurement: 'ppm'
+  #state_topic: "woonkamer/keuken/co2meter/PPM"
+  state_topic: "woonkamer/keuken_aanrecht/PPM"
+- platform: mqtt
+  name: 'wk_CO2_u'
+  unit_of_measurement: ''
+  state_topic: "woonkamer/keuken/co2meter/U"
+# - platform: mqtt
+#   name: 'wk_CO2_s'
+#   unit_of_measurement: ''
+#   state_topic: "woonkamer/keuken/co2meter/S"
+- platform: mqtt
+  name: 'mk_temp'
+  unit_of_measurement: '°C'
+  state_topic: "woonkamer/keuken/dht/Temperature"
+- platform: mqtt
+  name: 'wk_relhumidity'
+  unit_of_measurement: '%'
+  state_topic: "woonkamer/keuken/dht/relhumidity"
+- platform: mqtt
+  name: 'wk_abshumidity'
+  unit_of_measurement: 'mg/m3'
+  state_topic: "woonkamer/keuken/co2meter/abshumidity_dummy"
+# - platform: template
+#   sensors:
+#     wk_abshumidity:
+#       value_template: '{{ (6.112 * exp((17.67 * states.sensor.mk_temp.state)/(states.sensor.mk_temp.state+243.5)) * states.sensor.wk_relhumidity.state * 2.1674)/(273.15+states.sensor.mk_temp.state) | round(1) }}'
+#       unit_of_measurement: 'mg/m3'
+- platform: mqtt
+  name: 'wk_hix'
+  unit_of_measurement: '°C'
+  state_topic: "woonkamer/keuken/co2meter/hix"
+- platform: wunderground
+  api_key: !secret wunderground_api_key
+  pws_id: !secret wunderground_pws_id
+  monitored_conditions:
+    - temp_c
+- platform: mqtt
+  name: 'wk_boilerstatus'
+  state_topic: "woonkamer/woonkamer/thermostaat/boilerstatus"
+- platform: mqtt
+  name: 'wk_thermostaat_pv'
+  unit_of_measurement: '°C'
+  state_topic: "woonkamer/woonkamer/thermostaat/gemetentemperatuur"
+- platform: mqtt
+  name: 'wk_thermostaat_hass_sp'
+  unit_of_measurement: '°C'
+  state_topic: "woonkamer/woonkamer/thermostaat/temperature/set"
+# - platform: mqtt
+#   name: 'badkamer_temp'
+#   unit_of_measurement: '°C'
+#   state_topic: "eersteverdiep/badkamer/dht/temperature"
+# - platform: mqtt
+#   name: 'badkamer_relhumidity'
+#   unit_of_measurement: '%'
+#   state_topic: "eersteverdiep/badkamer/dht/relhumidity"
+- platform: mqtt
+  name: 'badkamer_abshumidity'
+  unit_of_measurement: 'mg/m3'
+  state_topic: "eersteverdiep/badkamer/dht/abshumidity"
+- platform: mqtt
+  name: "itho_ventilatie"
+  #state_topic: "hass/itho"
+  state_topic: "zolder/itho/State"
+- platform: mqtt
+  name: "itho_lastidindex"
+  state_topic: "zolder/itho/LastIDindex"
+- platform: mqtt
+  name: ITHO Laatste bediening
+  state_topic: "zolder/itho/LastIDindex"
+  value_template: >
+    {% if value|float==0 %}Hass{% endif %}
+    {% if value|float==1 %}Woonkamer{% endif %}
+    {% if value|float==2 %}Badkamer{% endif %}
+    {% if value|float==3 %}WC{% endif %}
+- platform: mqtt
+  name: "itho_ventilatie_status"
+  state_topic: "zolder/itho/remote"
+- platform: statistics
+  name: minhum_stat
+  entity_id: sensor.badkamer_relhumidity
+  sampling_size: 1500
+  max_age:
+    hours: 4
+- platform: statistics
+  name: badkamertemp_stat
+  entity_id: sensor.badkamer_temperatuur
+  sampling_size: 750
+  max_age:
+    hours: 2
+- platform: template
+  sensors:
+    minhum:
+      friendly_name: "Minimum humidity"
+      unit_of_measurement: '%'
+      value_template: "{{ states.sensor.minhum_stat_mean.attributes.min_value }}"
+- platform: template
+  sensors:
+    minbadkamertemp:
+      friendly_name: "Minimum badkamer temp"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.sensor.badkamertemp_stat_mean.attributes.min_value }}"
+# - platform: influxdb
+#   host: localhost
+#   username: admin
+#   password: admin
+#   queries:
+#     - name: "minhum"
+#       #unit_of_measurement: 'mg/m3'
+#       unit_of_measurement: '%'
+#       value_template: '{{ value | round(1) }}'
+#       group_function: min
+#       where: '"property" = ''relhumidity'' AND "sublocation" = ''badkamer'' and time > now() - 4h'
+#       measurement: 'sensors'
+#       #field: tmp
+#       database: sensors
+  #SELECT "value" FROM "sensors" WHERE "property" = 'abshumidity' AND "sublocation" = 'badkamer' AND $timeFilter
+#  - platform: template
+#    sensors:
+#      boiler_indicator:
+#        value_template: '{{ states.sensor.climate.heating.attributes.boiler_indicator }}'
+- platform: template
+  sensors:
+    humdelta:
+      value_template: '{{ (float(states.sensor.badkamer_relhumidity.state) - float(states.sensor.minhum.state)) | round(1) }}'
+      #unit_of_measurement: 'mg/m3'
+      unit_of_measurement: '%'
+    zolder_delta_t:
+      value_template: '{{ (float(states.sensor.dark_sky_temperature.state) - float(states.sensor.zolder_max_t.state)) | round(1) }}'
+      unit_of_measurement: '∆°C'
+    wk_multisensor_battery_level:
+      value_template: '{{ states.zwave.wk_multisensor.attributes.battery_level}}'
+    zolder_multisensor_battery_level:
+      value_template: '{{ states.zwave.zolder_multisensor.attributes.battery_level}}'
+    wk_delta_t:
+      value_template: '{{ (float(states.sensor.dark_sky_temperature.state) - float(states.sensor.wk_thermostaat_PV.state)) | round(1) }}'
+      unit_of_measurement: '∆°C'
+    washer_pwrup:
+      value_template: "{{ states('sensor.wasmachine_power') | int > 3.4 }}"
+    dryer_pwrup:
+      value_template: "{{ states('sensor.droger_power') | int > 20 }}"
+    hotwater:
+      value_template: "{{ states('sensor.wk_boilerstatus') }}"
+    azimuth:
+      value_template: '{{ float(states.sun.sun.attributes.azimuth) }}'
+    ch_delta:
+      value_template: '{{ (float(states.sensor.ch_aanvoer_delay.state) - float(states.sensor.ch_retour.state)) | round(1) }}'
+      unit_of_measurement: '°C'
+    keuken_verwarming_delta:
+      value_template: '{{ (float(states.sensor.keuken_verwarming_aanvoer.state) - float(states.sensor.keuken_verwarming_retour.state)) | round(1) }}'
+      unit_of_measurement: '°C'
+- platform: influxdb
+  host: 192.168.0.9
+  # username: admin
+  # password: admin
+  queries:
+    - name: "ch_aanvoer_delay"
+      unit_of_measurement: '°C'
+      value_template: '{{ value | round(1) }}'
+      # group_function: mean
+      where: '"entity_id"=''ch_aanvoer'' and time > now()-4m and time < now()-3m'
+      measurement: '"°C"'
+      database: home_assistant
+# - platform: influxdb
+#   host: 192.168.0.9
+#   # username: admin
+#   # password: admin
+#   queries:
+#     - name: "keuken_aanvoer_delay"
+#       unit_of_measurement: '°C'
+#       value_template: '{{ value | round(1) }}'
+#       # group_function: mean
+#       where: '"entity_id"=''ch_aanvoer'' and time > now()-3m and time < now()-2m'
+#       measurement: '"°C"'
+#       database: home_assistant
+- platform: min_max
+  name: zolder_max_t
+  entity_ids:
+    - sensor.filtered_dide_temperatuur
+    - sensor.filtered_fien_temperatuur
+    #- sensor.dide_temp
+    #- sensor.fien_temp
+    #- sensor.zolder_multisensor_temperature
+- platform: mqtt
+  name: wasmachine_energy
+  state_topic: "zolder/wasmachine/tele/sonoff/SENSOR"
+  value_template: "{{ value_json['ENERGY'].Today }}"
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: wasmachine_power
+  state_topic: "zolder/wasmachine/tele/sonoff/SENSOR"
+  value_template: "{{ value_json['ENERGY'].Power }}"
+  unit_of_measurement: "W"
+- platform: mqtt
+  name: wasmachine_voltage
+  state_topic: "zolder/wasmachine/tele/sonoff/SENSOR"
+  value_template: "{{ value_json['ENERGY'].Voltage }}"
+  unit_of_measurement: "V"
+- platform: mqtt
+  name: droger_energy
+  state_topic: "zolder/droger/tele/sonoff/SENSOR"
+  value_template: "{{ value_json['ENERGY'].Today }}"
+  unit_of_measurement: "kWh"
+- platform: mqtt
+  name: droger_power
+  state_topic: "zolder/droger/tele/sonoff/SENSOR"
+  value_template: "{{ value_json['ENERGY'].Power }}"
+  unit_of_measurement: "W"
+- platform: mqtt
+  name: droger_voltage
+  state_topic: "zolder/droger/tele/sonoff/SENSOR"
+  value_template: "{{ value_json['ENERGY'].Voltage }}"
+  unit_of_measurement: "V"
+- platform: version
+#  - platform: history_stats
+#    name: Prev. Fan status for BK humidity
+#    entity_id: sensor.bkfanhumidity
+#        icon_template: mdi:water-percent
+- platform: buienradar
+  name: Delft
+  timeframe: 30
+  monitored_conditions:
+    - symbol_1d
+    - temperature_1d
+    - rainchance_1d
+    - sunchance_1d
+    - rain_1d
+    - symbol
+    - temperature
+    - condition
+    - irradiance
+    - precipitation_forecast_total
+# - platform: command_line
+#   name: Occasion
+#   command: "/usr/bin/python3 ~/homeassistant/script/occasion.py"
+- platform: mqtt
+  name: 'thermostaat_activeprogram'
+  state_topic: "woonkamer/woonkamer/thermostaat/activeprogram"
+- platform: mqtt
+  name: 'thermostaat_tempsetpoint_raw'
+  state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint"
+- platform: mqtt
+  name: 'thermostaat_tempsetpoint'
+  state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint2"
+- platform: statistics
+  name: thermostaat_tempsetpoint
+  entity_id: sensor.thermostaat_tempsetpoint
+  sampling_size: 60
+  max_age:
+    hours: 1
+# - platform: statistics
+#   name: dark_sky_temperature
+#   entity_id: sensor.dark_sky_temperature
+#   sampling_size:
+#
+- platform: template
+  sensors:
+    maxtempsetpoint:
+      friendly_name: "Max Temp Setpoint"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.sensor.thermostaat_tempsetpoint_mean.attributes.max_value }}"
+# - platform: influxdb
+#   host: localhost
+#   username: admin
+#   password: admin
+#   queries:
+#     - name: "maxtempsetpoint"
+#       unit_of_measurement: 'degC'
+#       value_template: '{{ value | round(1) }}'
+#       group_function: max
+#       where: '"property" = ''tempsetpoint'' AND "sublocation" = ''woonkamer'' and time > now() - 1h'
+#       measurement: 'sensors'
+#       #field: tmp
+#       database: sensors
+- platform: mqtt
+  name: 'Slaapkamer Dide Gemeten Temperatuur'
+  unit_of_measurement: '°C'
+  state_topic: "zolder/kamerdide/thermostaat/actualTemperature"
+- platform: mqtt
+  name: 'Slaapkamer Dide Gewenste Temperatuur'
+  unit_of_measurement: '°C'
+  state_topic: "zolder/kamerdide/thermostaat/desiredTemperature"
+- platform: mqtt
+  name: 'Slaapkamer Fien Gemeten Temperatuur'
+  unit_of_measurement: '°C'
+  state_topic: "zolder/kamerfien/thermostaat/actualTemperature"
+- platform: mqtt
+  name: 'Slaapkamer Fien Gewenste Temperatuur'
+  unit_of_measurement: '°C'
+  state_topic: "zolder/kamerfien/thermostaat/desiredTemperature"
+- platform: mqtt
+  name: Valve position Dide
+  state_topic: zolder/kamerdide/thermostaat/valveposition
+- platform: mqtt
+  name: Valve position Fien
+  state_topic: zolder/kamerfien/thermostaat/valveposition
+# - platform: ical
+#   name: "Avalex kalender"
+#   url: "https://www.avalex.nl/ical/0503200000036956"
+# - platform: time_date
+#   display_options:
+#     - time
+- platform: template
+  sensors:
+    woonkamer_number_of_lights_on:
+      unit_of_measurement: 'Lights'
+      friendly_name: 'Lights on'
+      entity_id:
+        - light.wk_achter_plafond_level
+        - light.wk_eettafel_plafond_level
+        - light.wk_muur_level
+        - light.keuken_koof_level
+        - switch.schemerlamp_switch
+        - light.keuken_aanrecht_groep
+      value_template: >-
+        {%- for item in states.group.woonkamer.attributes.entity_id  if states(item) == "on" %}
+          {% if loop.last %}
+            {{loop.index}}
+          {% endif %}
+        {% endfor %}
+- platform: darksky
+  api_key: !secret darksky_api_key
+  monitored_conditions:
+      - summary
+      - icon
+      - precip_intensity
+      - temperature
+      - precip_probability
+      - wind_speed
+      #- temperature_max
+- platform: mqtt
+  name: 'dide_temp'
+  unit_of_measurement: '°C'
+  state_topic: "zolder/kamerdide/ventilatie/temperatuur"
+- platform: mqtt
+  name: 'fien_temp'
+  unit_of_measurement: '°C'
+  state_topic: "zolder/kamerfien/ventilatie/temperatuur"
+- platform: mqtt
+  state_topic: 'presence/owner/woonkamer/78:f8:82:47:36:ef'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Sander Woonkamer'
+- platform: mqtt
+  state_topic: 'presence/owner/woonkamer/bc:e6:3f:78:27:e3'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Linda Woonkamer'
+- platform: mqtt
+  state_topic: 'presence/owner/zolder/78:f8:82:47:36:ef'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Sander Zolder'
+- platform: mqtt
+  state_topic: 'presence/owner/zolder/bc:e6:3f:78:27:e3'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Linda Zolder'
+- platform: min_max
+  name: "Sander Home Occupancy Confidence"
+  type: mean
+  round_digits: 0
+  entity_ids:
+    - sensor.sander_woonkamer
+    - sensor.sander_zolder
+- platform: min_max
+  name: "Linda Home Occupancy Confidence"
+  type: mean
+  round_digits: 0
+  entity_ids:
+    - sensor.linda_woonkamer
+    - sensor.linda_zolder
+- platform: filter
+  name: Filtered Dide Temperatuur
+  entity_id: sensor.dide_temp
+  filters:
+    - filter: outlier
+      window_size: 4
+      radius: 5
+- platform: filter
+  name: Filtered Fien Temperatuur
+  entity_id: sensor.fien_temp
+  filters:
+    - filter: outlier
+      window_size: 4
+      radius: 5
+- platform: template
+  sensors:
+    badkamer_dewpoint2:
+      value_template: "{{ ((states.sensor.badkamer_temperatuur.state | float - ((100 - states.sensor.badkamer_relhumidity.state  | float) /5))) | round(1)}}"
+      unit_of_measurement: '°C'
+    dewpoint_delta:
+      value_template: "{{ (states.sensor.badkamer_temperatuur.state | float - states.sensor.badkamer_dewpoint.state | float) | round(1)}}"
+      unit_of_measurement: '°C'
+    badkamer_dewpoint_cor2:
+      value_template: "{{ ((states.sensor.minbadkamertemp.state | float - ((100 - states.sensor.badkamer_relhumidity.state  | float) /5))) | round(1)}}"
+      unit_of_measurement: '°C'
+    dewpoint_delta_cor:
+      value_template: "{{ (states.sensor.minbadkamertemp.state | float - states.sensor.badkamer_dewpoint.state | float) | round(1)}}"
+      unit_of_measurement: '°C'
+- platform: filter
+  name: badkamer_dewpoint
+  entity_id: sensor.badkamer_dewpoint2
+  filters:
+    - filter: outlier
+      window_size: 4
+      radius: 10
+- platform: filter
+  name: badkamer_dewpoint_cor
+  entity_id: sensor.badkamer_dewpoint_cor2
+  filters:
+    - filter: outlier
+      window_size: 4
+      radius: 10
+- platform: filter
+  name: humdelta_sma
+  entity_id: sensor.humdelta
+  filters:
+    - filter: time_simple_moving_average
+      window_size: 00:05
+      precision: 1
+      
