@@ -243,10 +243,10 @@ notify:
   - name: telegram
     platform: telegram
     chat_id: !secret telegram_chat_id1
-#  - name: chrome
-#    platform: html5
-#    gcm_api_key: !secret chrome_gcm_api_key
-#    gcm_sender_id: !secret chrome_gcm_sender_id
+  # - name: html5
+  #   platform: html5
+  #   gcm_api_key: !secret chrome_gcm_api_key
+  #   gcm_sender_id: !secret chrome_gcm_sender_id
 
 telegram_bot:
   - platform: polling
@@ -340,8 +340,8 @@ influxdb:
 
 media_player:
   - platform: spotify
-    client_id: a04f864bcee749f78738ad1c5780385e
-    client_secret: b1a820e6636a4bc1a4653a2a3f101e30
+    client_id: spotify_client_id
+    client_secret: spotify_client_secret
 
 timer:
   fanrunout:
