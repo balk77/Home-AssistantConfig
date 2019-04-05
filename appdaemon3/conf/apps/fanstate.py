@@ -7,7 +7,8 @@ class fanstate(hass.Hass):
 
         self.listen_state(self.setspeed, "input_select.fanstate")
         self.listen_state(self.setselector, "sensor.itho_lastidindex")
-        self.listen_state(self.setoverride, "input_select.override_fan_timer")
+        #self.listen_state(self.setoverride, "input_select.override_fan_timer")
+        self.listen_state(self.setoverride, "input_boolean.itho_remote_override")
 
 
     def setspeed(self, entity, attribute, old, new, kwargs):
@@ -86,23 +87,30 @@ class fanstate(hass.Hass):
         self.call_service("input_boolean/turn_off", entity_id="input_boolean.itho_remote_override")
         self.call_service("input_select/select_option", entity_id="input_select.override_fan_timer", option="Uit")
     
-    def setoverride(self, entity, attribute, old, new, kwargs):
-        selector = self.get_state("input_select.override_fan_timer")
-        self.log(selector)
+    # def override_delay(self, kwargs)
+    #     self.call_service("input_boolean/turn_off", entity_id="input_boolean.itho_remote_override")
 
-        if selector == "Uit":
-            self.run_in(self.setselector_delay, 1)
-        elif selector == "15 minuten":
-            self.call_service("input_boolean/turn_on", entity_id="input_boolean.itho_remote_override")
+    def setoverride(self, entity, attribute, old, new, kwargs):
+        automation_override = self.get_state("input_boolean.itho_remote_override")
+
+        if automation_override == "on":
             self.run_in(self.setselector_delay, 900)
-        elif selector == "30 minuten":
-            self.call_service("input_boolean/turn_on", entity_id="input_boolean.itho_remote_override")
-            self.run_in(self.setselector_delay, 1800)
-        elif selector == "een uur":
-            self.call_service("input_boolean/turn_on", entity_id="input_boolean.itho_remote_override")
-            self.run_in(self.setselector_delay, 3600)
-        elif selector == "vier uur":
-            self.call_service("input_boolean/turn_on", entity_id="input_boolean.itho_remote_override")
-            self.run_in(self.setselector_delay, 14400)
+        # selector = self.get_state("input_select.override_fan_timer")
+        # self.log(selector)
+
+        # if selector == "Uit":
+        #     self.run_in(self.setselector_delay, 1)
+        # elif selector == "15 minuten":
+        #     self.call_service("input_boolean/turn_on", entity_id="input_boolean.itho_remote_override")
+        #     self.run_in(self.setselector_delay, 900)
+        # elif selector == "30 minuten":
+        #     self.call_service("input_boolean/turn_on", entity_id="input_boolean.itho_remote_override")
+        #     self.run_in(self.setselector_delay, 1800)
+        # elif selector == "een uur":
+        #     self.call_service("input_boolean/turn_on", entity_id="input_boolean.itho_remote_override")
+        #     self.run_in(self.setselector_delay, 3600)
+        # elif selector == "vier uur":
+        #     self.call_service("input_boolean/turn_on", entity_id="input_boolean.itho_remote_override")
+        #     self.run_in(self.setselector_delay, 14400)
 
         

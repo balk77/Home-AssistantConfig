@@ -4,6 +4,7 @@ import datetime
 import time
 
 # https://www.raspberrypi.org/forums/viewtopic.php?t=92973
+# https://www.raspberrypi.org/forums/viewtopic.php?t=92973#p649179
 
 class masterslavezolder(hass.Hass):
 

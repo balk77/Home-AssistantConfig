@@ -25,13 +25,32 @@
 # NEFIT EMS script
 - platform: mqtt
   name: 'Tap Water'
-  state_topic: 'home/boiler/tapwater_active'
+  state_topic: 'home/ems-esp/tapwater_active'
   payload_on: "1"
   payload_off: "0"
 
 - platform: mqtt
   name: 'Heating'
-  state_topic: 'home/boiler/heating_active'
+  state_topic: 'home/ems-esp/heating_active'
   payload_on: "1"
   payload_off: "0"
 # END NEFIT EMS script
+- platform: mqtt
+  name: PIR Sensor Keuken
+  state_topic: keuken_aanrecht_rechts/binary_sensor/pir_sensor_keuken/state
+  availability_topic: keuken_aanrecht_rechts/status
+  device_class: motion
+- platform: template
+  sensors:
+    washer_pwrup:
+      # Tasmota:
+      # value_template: "{{ states('sensor.wasmachine_power') | int > 3.4 }}"
+      # zelfbouw:
+      friendly_name: "Wasmachine status"
+      value_template: "{{ states('sensor.power_meter_wasmachine') | int > 7 }}"
+    dryer_pwrup:
+      # Tasmota:
+      # value_template: "{{ states('sensor.droger_power') | int > 20 }}"
+      # zelfbouw:
+      value_template: "{{ states('sensor.power_meter_droger') | int > 20 }}"
+      friendly_name: "Droger status"

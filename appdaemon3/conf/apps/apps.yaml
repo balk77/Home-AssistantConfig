@@ -66,17 +66,18 @@ telegram:
 #   abshumidity: sensor.wk_abshumidity
 #   topic: "woonkamer/meterkast/dht/abshumidity"
 
-badkamer_abshumidity:
-  module: rel2abshumidity
-  class: rel2abs
-  temperature: sensor.badkamer_temperatuur
-  relhumidity: sensor.badkamer_relhumidity
-  abshumidity: sensor.badkamer_abshumidity
-  topic: "eersteverdiep/badkamer/dht/abshumidity"
+# badkamer_abshumidity:
+#   module: rel2abshumidity
+#   class: rel2abs
+#   temperature: sensor.badkamer_temperatuur
+#   relhumidity: sensor.badkamer_relhumidity
+#   abshumidity: sensor.badkamer_abshumidity
+#   topic: "eersteverdiep/badkamer/dht/abshumidity"
 
-# thermostaatavond:
-#   module: thermostaatavond
-#   class: thermostaatavond
+thermostaatavond:
+  module: thermostaatavond
+  class: thermostaatavond
+  
 
 # thermostaat:
 #   module: thermostaat
@@ -183,9 +184,9 @@ woonkamer_off_delay:
 convectorput:
   module: convectorput
   class: convectorput
-  min: 75
-  med: 125
-  max: 200
+  min: 165
+  med: 180
+  max: 220
 
 # mqtttest:
 #   module: mqtttest
@@ -195,17 +196,17 @@ masterslavedide:
   module: masterslavezolder
   class: masterslavezolder
   ventipv: sensor.temperatuur_dide_ventilatie
-  thermpv: sensor.slaapkamer_dide_gemeten_temperatuur
-  roomsp: sensor.slaapkamer_dide_gewenste_temperatuur_set
-  thermsp: "zolder/kamerdide/thermostaat/desiredTemperature/set"
+  thermpv: sensor.didethermpv
+  roomsp: input_number.slaapkamer_dide_setpoint
+  thermsp: climate.kamer_dide
 
 masterslavefien:
   module: masterslavezolder
   class: masterslavezolder
   ventipv: sensor.temperatuur_fien_ventilatie
-  thermpv: sensor.slaapkamer_fien_gemeten_temperatuur
-  roomsp: sensor.slaapkamer_fien_gewenste_temperatuur_set
-  thermsp: "zolder/kamerfien/thermostaat/desiredTemperature/set"
+  thermpv: sensor.didethermpv
+  roomsp: input_number.slaapkamer_dide_setpoint
+  thermsp: climate.kamer_fien
 
 # masterslavedidepid:
 #   module: masterslavezolder1
@@ -220,3 +221,37 @@ sousvide:
   module: sousvide
   class: sousvide
   
+# powerwasser:
+#   module: powermeter
+#   class: powermeter
+#   trigger: input_boolean.test
+#   # appliance: washer
+#   # kwhsensor: sensor.wasmachine_energy
+
+chflowcombined:
+  module: chflowcalc
+  class: chflowcalc
+  temp_combined: "sensor.ch_retour"
+  temp_1: "sensor.ch_retour_voor"
+  temp_2: "sensor.ch_retour_achter_en_badkamer"
+  combined_flow: ""
+  flowtopic_1: "zolder/ketel/chvoor/flow"
+  flowtopic_2: "zolder/ketel/chbadkamerachter/flow"
+  displaytopic_1: "zolder/ketel/chvoor/flowdisplay"
+  displaytopic_2: "zolder/ketel/chbadkamerachter/flowdisplay"
+
+chflowachterbadkamer:
+  module: chflowcalc
+  class: chflowcalc
+  temp_combined: "sensor.ch_retour_achter_en_badkamer"
+  temp_1: "sensor.ch_retour_achter"
+  temp_2: "sensor.ch_retour_badkamer"
+  combined_flow: "sensor.chflowbadkamerachter"
+  flowtopic_1: "zolder/ketel/chachter/flow"
+  flowtopic_2: "zolder/ketel/chbadkamer/flow"
+  displaytopic_1: "zolder/ketel/chachter/flowdisplay"
+  displaytopic_2: "zolder/ketel/chbadkamer/flowdisplay"
+
+showergasuse:
+  module: showergasuse
+  class: showergasuse

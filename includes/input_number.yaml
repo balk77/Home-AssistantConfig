@@ -11,12 +11,14 @@ slaapkamer_dide_setpoint:
   max: 25
   mode: slider
   step: 0.5
+  initial: 13
 slaapkamer_fien_setpoint:
   name: Slaapkamer Fien Setpoint
   min: 10
   max: 25
   mode: slider
   step: 0.5
+  initial: 13
 hass_tempsetpoint:
   name: Gewenste Temperatuur
   min: 15

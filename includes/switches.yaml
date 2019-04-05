@@ -15,9 +15,12 @@
 #        command_on: "curl -s -X GET 'http://192.168.0.9/admin/api.php?enable&auth=7d743a9898855f96908d8cdee797e634b3c8fb5144002a082e4cb3625ce00fe3'"
 #        command_off: "curl -s -X GET 'http://192.168.0.9/admin/api.php?disable=3600&auth=7d743a9898855f96908d8cdee797e634b3c8fb5144002a082e4cb3625ce00fe3'"
 #        command_state: "curl -s -X GET 'http://192.168.0.9/admin/api.php?status&auth=7d743a9898855f96908d8cdee797e634b3c8fb5144002a082e4cb3625ce00fe3'"
-      command_on: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?enable&auth='"
-      command_off: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?disable=3600&auth='"
-      command_state: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?status&auth='"
+      # command_on: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?enable&auth='"
+      # command_off: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?disable=3600&auth='"
+      # command_state: "/usr/bin/curl -s -X GET 'http://192.168.0.9/admin/api.php?status&auth='"
+      command_on: "/usr/bin/curl -s -X GET 'http://192.168.0.6/admin/api.php?enable&auth=c7239f4b7455c41e79fd02e7ea861564f2a586155c6b9561713203883a9cce6f'"
+      command_off: "/usr/bin/curl -s -X GET 'http://192.168.0.6/admin/api.php?disable=3600&auth=c7239f4b7455c41e79fd02e7ea861564f2a586155c6b9561713203883a9cce6f'"
+      command_state: "/usr/bin/curl -s -X GET 'http://192.168.0.6/admin/api.php?status&auth=c7239f4b7455c41e79fd02e7ea861564f2a586155c6b9561713203883a9cce6f'"
       value_template: "{{ value_json.status == 'enabled' }}"
 - platform: template
   switches:
@@ -38,3 +41,24 @@
           {% else %}
             mdi:fan-off
           {% endif %}
+# - platform: hadockermon
+#   host: 192.168.0.9
+#   port: 8126
+  # stats: true
+  # prefix: hadockermon
+  # exclude:
+  #   - 'dsmr-reader-docker'
+  #   - 'esphomeyaml'
+  #   - 'fhem-docker_fhem'
+  #   - 'mosquitto'
+  #   - 'grafana'
+  #   - 'ha-dockermon'
+  #   - 'influxdb'
+  #   - 'letsencrypt'
+  #   - 'nefit-easy-http-server'
+  #   - 'node-red-docker'
+  #   - 'pihole'
+  #   - 'portainer'
+  #   - 'raumfeldcontroller'
+  #   - 'unifi'
+

@@ -4,9 +4,9 @@
   - platform: time
     at: '2:00:00'
   condition:
-  - condition: state
-    entity_id: input_boolean.huis_slaapstand
-    state: 'off'
+    - condition: state
+      entity_id: input_boolean.huis_slaapstand
+      state: 'off'
   action:
   - service: ifttt.trigger
     data:
@@ -48,9 +48,9 @@
     platform: time
     at: '22:30'
   condition:
-  - condition: state
-    entity_id: input_boolean.occupancy_simulation
-    state: 'on'
+    - condition: state
+      entity_id: input_boolean.occupancy_simulation
+      state: 'on'
   action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.occupancy_simulation
@@ -92,13 +92,13 @@
   - platform: time
     at: '18:10:00'
   condition:
-  - condition: and
-    conditions:
-    - condition: sun
-      after: sunset
-    - condition: state
-      entity_id: group.woonkamer
-      state: 'off'
+    - condition: and
+      conditions:
+      - condition: sun
+        after: sunset
+      - condition: state
+        entity_id: group.woonkamer
+        state: 'off'
   action:
   - service: notify.pushbullet
     data:
@@ -137,13 +137,13 @@
     for:
       minutes: 60
   condition:
-  - condition: and
-    conditions:
-    - condition: time
-      after: '22:00:00'
-    - condition: template
-      value_template: '{{ states.sensor.woonkamer_number_of_lights_on.state | int
-        <= 2  }}'
+    - condition: and
+      conditions:
+      - condition: time
+        after: '22:00:00'
+      - condition: template
+        value_template: '{{ states.sensor.woonkamer_number_of_lights_on.state | int
+          <= 2  }}'
   action:
   - service: script.turn_on
     entity_id: script.woonkamer_off
@@ -162,3 +162,35 @@
   action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.vakantie
+- id: disable_cv_ketel
+  alias: Zet thermostaat van klokprogramma af en op 15oC
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.keuken_koof
+      scene_id: 14
+  action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.nefit_disable_clock_mode
+
+- id: enable_cv_ketel
+  alias: Zet thermostaat op klokprogramma
+  trigger:
+  - platform: mqtt
+    topic: keuken_aanrecht_rechts/binary_sensor/pir_sensor_keuken/state
+    payload: 'ON'
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '8'
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '3'
+  condition:
+    - condition: template
+      # is de boolean binnen de afgelopen 600 seconden geschakeld? Dan "FALSE"
+      value_template: '{{as_timestamp(now()) - as_timestamp(states.input_boolean.nefit_disable_clock_mode.last_changed) > 600 }}'
+
+  action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.nefit_disable_clock_mode

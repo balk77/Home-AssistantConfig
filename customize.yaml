@@ -179,3 +179,20 @@ sensor.boiler_updated:
   friendly_name: 'Data last received'
   icon: mdi:clock-start
 # END NEFIT EMS script
+sensor.chflowvoor:
+  friendly_name: "CH Flow Voor"
+sensor.chflowachter:
+  friendly_name: "CH Flow Achter"
+sensor.chflowbadkamerachter:
+  friendly_name: "CH Flow Badkamer en Achter"
+sensor.chflowbadkamer:
+  friendly_name: "CH Flow Badkamer en Achter"
+sensor.chflowvoordisplay:
+  friendly_name: "CH Flow Voor"
+sensor.chflowachterdisplay:
+  friendly_name: "CH Flow Achter"
+sensor.chflowbadkamerachterdisplay:
+  friendly_name: "CH Flow Badkamer en Achter"
+sensor.chflowbadkamerdisplay:
+  friendly_name: "CH Flow Badkamer en Achter"
+  

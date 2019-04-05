@@ -55,6 +55,9 @@ shower_alt:
 nefit_programma:
   name: Nefit programma actief
   initial: on
+nefit_disable_clock_mode:
+  name: Nefit disable clock mode
+  initial: off
 zolder_te_warm:
   name: Zolder te warm - ventilatie moet aan
   initial: off
@@ -93,9 +96,19 @@ test:
   name: test
 convector_fan_disabled:
   name: Convectorput fan disabled
+convector_fan:
+  name: Convectorput fan
+  initial: off
 sousvide_active:
   name: Sous Vide on/off
 sousvide_timer:
   name: Activate Sous Vide timer
 pir_sensor_keuken:
   name: Beweging in keuken
+killswitch:
+  name: Disable all Automation
+  initial: off
+wasmachine_alive:
+  name: wasmachine_alive
+droger_alive:
+  name: droger_alive

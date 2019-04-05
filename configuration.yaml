@@ -15,12 +15,12 @@ homeassistant:
   time_zone: !secret time_zone
   customize: !include customize.yaml
   #packages: !include_dir_named packages
-  auth_providers:
-   - type: homeassistant
-  #  - type: legacy_api_password
+  # auth_providers:
+  #  - type: homeassistant
+  ##  - type: legacy_api_password
 
 lovelace:
-  mode: yaml
+#   mode: yaml
 
 recorder:
   db_url: postgres://homeassistant:ereadsta@192.168.0.9/homeassistant
@@ -71,13 +71,10 @@ logger:
 
 # Enables the frontend
 frontend:
-  #javascript_version: latest
-  # extra_html_url:
-  #   - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
-  # extra_html_url_es5:
-  #   - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui-es5.html
 
 config:
+
+system_health:
 
 cloud:
   # entity_config:
@@ -94,11 +91,9 @@ cloud:
   #     aliases:
   #       - Eettafellamp
   #     room: Huiskamer
-      
+
 
 http:
-  # Uncomment this to add a password (recommended!)
-  api_password: !secret api_password
   # Uncomment this if you are using SSL or running in Docker etc
   #ssl_certificate: !secret ssl_ssl_certificate
   #ssl_key: !secret ssl_ssl_key
@@ -135,6 +130,7 @@ weather:
 sensor: !include includes/sensors.yaml
 binary_sensor: !include includes/binary_sensors.yaml
 switch: !include includes/switches.yaml
+fan: !include includes/fan.yaml
 
 counter:
   douches:
@@ -143,8 +139,8 @@ counter:
     icon: mdi:shower
 
 # Text to speech
-tts:
-  platform: google
+# tts:
+#   platform: google
 
 # google:
 #   client_id: !secret google_client_id
@@ -155,10 +151,10 @@ device_tracker: !include includes/device_tracker.yaml
 
 group: !include includes/groups.yaml
 zone: !include includes/zones.yaml
-#automation: !include automations.yaml
+
 automation: !include_dir_merge_list automation
 
-#automation: !include_dir_list automation/
+
 
 #light: !include_dir_list light/
 #script: !include_dir_list script/
@@ -191,45 +187,18 @@ mqtt:
   keepalive: 60
   discovery: true
   discovery_prefix: homeassistant
-#  username: USERNAME
-#  password: PASSWORD
-  protocol: 3.1
-  #discovery: "discovery/#"
-#  birth_message:
-#    topic: 'hass/status'
-#    payload: 'online'
-#    qos: 1
-#    retain: true
-#  will_message:
-#    topic: 'hass/status'
-#    payload: 'offline'
-#    qos: 1
-#    retain: true
 
 # Z-Wave config
-# zwave:
-#   usb_path: /dev/ttyACM0
-#   autoheal: false
-#   device_config:
-#     cover.level:
-#       invert_openclose_buttons: true
+zwave:
+  usb_path: /dev/ttyACM0
+  autoheal: false
+  device_config:
+    cover.level:
+      invert_openclose_buttons: true
 
-# IFTTT
-ifttt:
-  key: !secret ifttt_key
-
-#sensor:
-#  - platform: dsmr
-#    port: /dev/ttyP12
-#    dsmr_version: 2.2
-
-#group:
-#  meter_readings:
-#    name: Meter readings
-#    entities:
-#      - sensor.power_consumption_low
-#      - sensor.power_consumption_normal
-#      - sensor.gas_consumption
+# # IFTTT
+# ifttt:
+#   key: !secret ifttt_key
 
 climate: !include includes/climate.yaml
 
@@ -255,8 +224,8 @@ telegram_bot:
       - !secret telegram_chat_id1
 
 
-cast:
-  media_player:
+# cast:
+#   media_player:
 
 nest:
   client_id: !secret nest_client_id
@@ -287,10 +256,6 @@ rest_command:
     url: 'http://192.168.0.9:8181/zone/Woonkamer/volume/+5'
   vol_down:
     url: 'http://192.168.0.9:8181/zone/Woonkamer/volume/-5'
-  # dide_temperature_dag:
-  #   url: 'http://192.168.0.9:8388/fhem?cmd=set+ThermDide+desiredTemperature+17'
-  # dide_temperature_nacht:
-  #   url: 'http://192.168.0.9:8388/fhem?cmd=set+ThermDide+desiredTemperature+13'
 
 input_text:
   valvemoving:
@@ -299,12 +264,18 @@ input_text:
   itho_reason:
     name: Itho Reason
 
+# panel_custom:
+#   - name: zwavegraph2
+#     sidebar_title: Z-Wave Graph
+#     sidebar_icon: mdi:access-point-network
+#     url_path: zwave
 
 # panel_iframe:
 #   avalex:
 #     title: 'Avalex'
 #     url: 'https://calendar.google.com/calendar/embed?src=4uss0i67es2enb599kpt4692mtradusn%40import.calendar.google.com'
 #     icon: mdi:delete
+
 
 shopping_list:
 
@@ -340,14 +311,15 @@ influxdb:
 
 media_player:
   - platform: spotify
-    client_id: spotify_client_id
-    client_secret: spotify_client_secret
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
 
 timer:
   fanrunout:
     icon: mdi:fan
   zolder_motion:
-  
+  convectorput_runout:
+
 
 # maxcube:
 #   gateways:
@@ -362,3 +334,25 @@ input_datetime:
     name: Sous Vide Lengte
     has_time: true
     initial: "00:45"
+
+
+# lightingsm:
+#   convectorput:
+#     sensor: binary_sensor.heating             # required
+#     entity: input_boolean.convector_fan       # required, [entity,entities,entity_on]
+#     delay: 300                                # optional, overwrites default delay of 180s
+#     overrides:
+#       - input_boolean.convector_fan_disabled
+
+homematic:
+  local_ip: 192.168.0.9
+  local_port: 36845
+  interfaces:
+    wireless:
+      host: 192.168.0.9
+      port: 2001
+      callback_ip: 192.168.0.9
+      callback_port: 36845
+      resolvenames: json
+      username: !secret homematic_username
+      password: !secret homematic_password

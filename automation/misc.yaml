@@ -29,6 +29,7 @@
         available.
 - id: hass_startup
   alias: HA_Start
+  initial_state: 'on'
   trigger:
     platform: event
     event_type: homeassistant_start
@@ -41,6 +42,9 @@
     data_template:
       entity_id: input_number.zolder_ventilatie
       value: '100'
+  - delay: 00:02:00
+  - service: automation.turn_on
+    entity_id: group.all_automations
 - id: appdaemon_alive_1
   alias: appdaemon_alive_1
   trigger:
@@ -57,9 +61,8 @@
 - id: appdaemon_alive_2
   alias: appdaemon_alive_2
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: /5
-    seconds: 0
   action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.appdaemon_alive
@@ -103,7 +106,6 @@
   - entity_id: device_tracker.phone_sander
     platform: state
     to: not_home
-  condition: []
   action:
   - data:
       message: Sander verlaat het huis

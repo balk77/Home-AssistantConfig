@@ -24,19 +24,19 @@
   condition:
     condition: and
     conditions:
-    - condition: template
-      value_template: '{{ states.sun.sun.attributes.elevation  | int < 8 }}'
-    - condition: state
-      entity_id: input_boolean.huis_slaapstand
-      state: 'off'
+      - condition: template
+        value_template: '{{ states.sun.sun.attributes.elevation  | int < 8 }}'
+      - condition: state
+        entity_id: input_boolean.huis_slaapstand
+        state: 'off'
   action:
   - service: light.turn_on
     data:
       entity_id: light.wk_muur_level
       brightness: 50
-  - service: switch.turn_on
-    data:
-      entity_id: switch.kerstboom
+  # - service: switch.turn_on
+  #   data:
+  #     entity_id: switch.kerstboom
 - id: wk_muur3
   alias: WK Muur na zonsopgang uit
   trigger:
@@ -47,18 +47,18 @@
   condition:
     condition: and
     conditions:
-    - condition: state
-      entity_id: group.woonkamer_ex_muur
-      state: 'off'
-    - condition: time
-      before: '12:00:00'
+      - condition: state
+        entity_id: group.woonkamer_ex_muur
+        state: 'off'
+      - condition: time
+        before: '12:00:00'
   action:
   - service: light.turn_off
     data:
       entity_id: light.wk_muur_level
-  - service: switch.turn_off
-    data:
-      entity_id: switch.kerstboom
+  # - service: switch.turn_off
+  #   data:
+  #     entity_id: switch.kerstboom
 - id: wk_muur4
   alias: WK Muur uit bij geen Beweging
   trigger:
@@ -70,18 +70,18 @@
   condition:
     condition: and
     conditions:
-    - condition: template
-      value_template: '{{ states.sun.sun.attributes.elevation  | int > 8 }}'
-    - condition: state
-      entity_id: input_boolean.huis_slaapstand
-      state: 'off'
+      - condition: template
+        value_template: '{{ states.sun.sun.attributes.elevation  | int > 8 }}'
+      - condition: state
+        entity_id: input_boolean.huis_slaapstand
+        state: 'off'
   action:
   - service: light.turn_off
     data:
       entity_id: light.wk_muur_level
-  - service: switch.turn_off
-    data:
-      entity_id: switch.kerstboom
+  # - service: switch.turn_off
+  #   data:
+  #     entity_id: switch.kerstboom
 
 - id: toggle_bankje
   alias: Toggle bankje aan/uit
@@ -96,6 +96,6 @@
     data:
       transition: 3
       entity_id: light.wk_muur_level
-  - service: switch.toggle
-    data:
-      entity_id: switch.kerstboom
+  # - service: switch.toggle
+  #   data:
+  #     entity_id: switch.kerstboom

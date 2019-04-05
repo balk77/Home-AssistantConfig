@@ -47,5 +47,6 @@ class masterslavezolder(hass.Hass):
         
         
         
-        self.call_service("mqtt/publish", topic=self.args["thermsp"], payload=newsp)
+        #self.call_service("mqtt/publish", topic=self.args["thermsp"], payload=newsp)
+        self.call_service("climate/set_temperature", entity_id=self.args["thermsp"], temperature=newsp)
         #self.fire_event("heaty_set_temp", room_name="zolder", v=str(newsp), reschedule_delay=1)

@@ -7,114 +7,11 @@
   state_topic: "/eerste/slaapkamer/rgb/state"
   rgb: true
   effect: true
-  effect_list: [colorfade_slow, colorfade_fast, flash, firegrad, rainbowcycle]
-  flash: true
+  effect_list: [colorfade_slow, colorfade_fast, firegrad, rainbowcycle]
+  #flash: true
   optimistic: false
   qos: 0
-# - platform: mqtt
-#   #platform: mqtt_json
-#   schema: json
-#   command_topic: "/eerste/slaapkamer/rgb/set1"
-#   brightness: true
-#   name: mqtt_json_slaapkamer1
-#   state_topic: "/eerste/slaapkamer/rgb/state"
-#   rgb: true
-#   effect: true
-#   effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
-#   flash: true
-#   optimistic: false
-#   qos: 0
-# - platform: mqtt
-#   #platform: mqtt_json
-#   schema: json
-#   command_topic: "/eerste/slaapkamer/rgb/set2"
-#   brightness: true
-#   name: mqtt_json_slaapkamer2
-#   state_topic: "/eerste/slaapkamer/rgb/state"
-#   rgb: true
-#   effect: true
-#   effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
-#   flash: true
-#   optimistic: false
-#   qos: 0
-# - platform: mqtt
-#   #platform: mqtt_json
-#   schema: json
-#   command_topic: "/eerste/slaapkamer/rgb/set3"
-#   brightness: true
-#   name: mqtt_json_slaapkamer3
-#   state_topic: "/eerste/slaapkamer/rgb/state"
-#   rgb: true
-#   effect: true
-#   effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
-#   flash: true
-#   optimistic: false
-#   qos: 0
-# - platform: mqtt
-#   #platform: mqtt_json
-#   schema: json
-#   command_topic: "/eerste/slaapkamer/rgb/set4"
-#   brightness: true
-#   name: mqtt_json_slaapkamer4
-#   state_topic: "/eerste/slaapkamer/rgb/state"
-#   rgb: true
-#   effect: true
-#   effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
-#   flash: true
-#   optimistic: false
-#   qos: 0
-# - platform: mqtt
-#   #platform: mqtt_json
-#   schema: json
-#   command_topic: "/eerste/slaapkamer/rgb/set5"
-#   brightness: true
-#   name: mqtt_json_slaapkamer5
-#   state_topic: "/eerste/slaapkamer/rgb/state"
-#   rgb: true
-#   effect: true
-#   effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
-#   flash: true
-#   optimistic: false
-#   qos: 0
-# - platform: mqtt
-#   #platform: mqtt_json
-#   schema: json
-#   command_topic: "/eerste/slaapkamer/rgb/set6"
-#   brightness: true
-#   name: mqtt_json_slaapkamer6
-#   state_topic: "/eerste/slaapkamer/rgb/state"
-#   rgb: true
-#   effect: true
-#   effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
-#   flash: true
-#   optimistic: false
-#   qos: 0
-# - platform: mqtt
-#   #platform: mqtt_json
-#   schema: json
-#   command_topic: "/eerste/slaapkamer/rgb/set7"
-#   brightness: true
-#   name: mqtt_json_slaapkamer7
-#   state_topic: "/eerste/slaapkamer/rgb/state"
-#   rgb: true
-#   effect: true
-#   effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
-#   flash: true
-#   optimistic: false
-#   qos: 0
-# - platform: mqtt
-#   #platform: mqtt_json
-#   schema: json
-#   command_topic: "/eerste/slaapkamer/rgb/set8"
-#   brightness: true
-#   name: mqtt_json_slaapkamer8
-#   state_topic: "/eerste/slaapkamer/rgb/state"
-#   rgb: true
-#   effect: true
-#   effect_list: [colorfade_slow, colorfade_fast, flash, firegrad]
-#   flash: true
-#   optimistic: false
-#   qos: 0
+
 # - platform: group
 #   name: Woonkamer verlichting (groep)
 #   entities:
@@ -125,8 +22,8 @@
 - platform: group
   name: Keuken Aanrecht (groep)
   entities:
-    - light.keuken_aanrecht_rechts_2
-    - light.keuken_aanrecht_links_2
+    - light.keuken_aanrecht_rechts
+    - light.keuken_aanrecht_links
 # - platform: mqtt_json
 #   name: "MBR Disco"
 #   state_topic: "eersteverdiep/mbr/disco/light"
@@ -156,3 +53,26 @@
 #   rgb: true
 #   optimistic: false
 #   qos: 0
+
+
+- platform: mqtt
+  name: Convectorput
+  state_topic: convectorput/light/convectorput/state
+  command_topic: convectorput/light/convectorput/command
+  availability_topic: convectorput/status
+  schema: json
+  brightness: true
+- platform: mqtt
+  name: Keuken Aanrecht Links
+  state_topic: keuken_aanrecht_links/light/keuken_aanrecht_links/state
+  command_topic: keuken_aanrecht_links/light/keuken_aanrecht_links/command
+  availability_topic: keuken_aanrecht_links/status
+  schema: json
+  brightness: true
+- platform: mqtt
+  name: Keuken Aanrecht Rechts
+  state_topic: keuken_aanrecht_rechts/light/keuken_aanrecht_rechts/state
+  command_topic: keuken_aanrecht_rechts/light/keuken_aanrecht_rechts/command
+  availability_topic: keuken_aanrecht_rechts/status
+  schema: json
+  brightness: true

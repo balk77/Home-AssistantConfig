@@ -18,12 +18,14 @@ class thermostaatavond(hass.Hass):
         now = datetime.datetime.now()
         maxtempsetpoint = self.get_state("sensor.maxtempsetpoint")
 
+        nefit_disable_clock_mode = self.get_state("input_boolean.nefit_disable_clock_mode")
+
         if (now.hour >= 20 or now.hour < 2 ):
             avond = 1
         else:
             avond = 0
 
-        if (temp_sp < 15.1 and avond == 1 and thermostaat_activeprogram == "0" and lights_woonkamer == "on"):
+        if (temp_sp < 15.1 and avond == 1 and thermostaat_activeprogram == "0" and lights_woonkamer == "on" and nefit_disable_clock_mode == "off"):
             self.call_service("mqtt/publish", topic="woonkamer/woonkamer/thermostaat/temperature/set", payload=maxtempsetpoint, retain=True)
 
     def inputhandler2(self, entity, attribute, old, new, kwargs):

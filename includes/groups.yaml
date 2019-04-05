@@ -63,7 +63,7 @@ woonkamer:
     - switch.schemerlamp_switch
     #- switch.fibaro_switch_switch # zet deze aan om de kerstboom te schakelen
     - light.keuken_aanrecht_groep
-    - switch.kerstboom
+    # - switch.kerstboom
 
 woonkamer_delay:
   name: Woonkamer
@@ -82,7 +82,7 @@ woonkamer_direct:
     - light.wk_muur_level
     - light.keuken_koof_level
     - switch.schemerlamp_switch
-    - switch.kerstboom
+    # - switch.kerstboom
     #- switch.fibaro_switch_switch # zet deze aan om de kerstboom te schakelen
     
 
@@ -256,7 +256,7 @@ wasmachine:
     - sensor.wasmachine_energy
     - sensor.wasmachine_power
     - sensor.wasmachine_voltage
-    - sensor.washer_pwrup
+    - binary_sensor.washer_pwrup
     - input_boolean.washer_switch
 
 droger:
@@ -265,7 +265,7 @@ droger:
     - sensor.droger_energy
     - sensor.droger_power
     - sensor.droger_voltage
-    - sensor.dryer_pwrup
+    - binary_sensor.dryer_pwrup
     - input_boolean.dryer_switch
 
 algemeen:

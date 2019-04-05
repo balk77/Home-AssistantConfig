@@ -149,9 +149,8 @@ input_number:
 automation:
 - alias: battery_notification
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/15'
-      seconds: 00
     - platform: state
       entity_id:
         - input_number.battery_alert_threshold_min
@@ -217,9 +216,8 @@ automation:
 
 - alias: battery_notification_clear
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/15'
-      seconds: 00
     - platform: state
       entity_id:
         - input_number.battery_alert_threshold_min

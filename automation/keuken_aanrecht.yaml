@@ -16,7 +16,6 @@
     from: 'off'
     platform: state
     to: 'on'
-  condition: []
   action:
   - data:
       brightness: 255
@@ -71,14 +70,14 @@
     for:
       seconds: '240'
   condition:
-  - condition: state
-    entity_id: light.keuken_aanrecht_groep
-    state: 'on'
-  - condition: time
-    after: '20:00:00'
-  - condition: state
-    entity_id: input_boolean.huis_slaapstand
-    state: 'off'
+    - condition: state
+      entity_id: light.keuken_aanrecht_groep
+      state: 'on'
+    - condition: time
+      after: '20:00:00'
+    - condition: state
+      entity_id: input_boolean.huis_slaapstand
+      state: 'off'
   action:
     - service: light.turn_on
       data:
@@ -122,10 +121,11 @@
       after: '5:45:00'
       before: '6:45:00'
     - condition: template
+      # is de lamp binnen de afgelopen 30 seconden geschakeld? Dan "FALSE"
+      value_template: '{{as_timestamp(now()) - as_timestamp(states.light.keuken_aanrecht_groep.last_changed) > 30 }}'
     - condition: sun
       before: sunrise
-    # is de lamp binnen de afgelopen 30 seconden geschakeld? Dan "FALSE"
-      value_template: '{{as_timestamp(now()) - as_timestamp(states.light.keuken_aanrecht_groep.last_changed) > 30 }}'
+    
   action:
     - service: light.turn_on
       data:

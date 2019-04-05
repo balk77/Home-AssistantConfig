@@ -17,3 +17,5 @@
   action:
   - service: counter.reset
     entity_id: counter.douches
+# - id: overloop uit
+#   alias: Overloop uit na 

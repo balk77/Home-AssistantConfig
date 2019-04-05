@@ -15,9 +15,9 @@
     platform: time
     at: '20:00:00'
   condition:
-  - entity_id: sensor.wk_multisensor_battery_level
-    condition: numeric_state
-    below: 25
+    - entity_id: sensor.wk_multisensor_battery_level
+      condition: numeric_state
+      below: 25
   action:
     service: notify.pushbullet
     data:
@@ -41,9 +41,9 @@
     platform: time
     at: '20:00:00'
   condition:
-  - entity_id: sensor.zolder_multisensor_battery_level
-    condition: numeric_state
-    below: 25
+    - entity_id: sensor.zolder_multisensor_battery_level
+      condition: numeric_state
+      below: 25
   action:
     service: notify.pushbullet
     data:

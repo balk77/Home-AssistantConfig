@@ -99,7 +99,7 @@ views:
           - switch.schemerlamp_switch
           - light.wk_eettafel_plafond_level
           - light.wk_achter_plafond_level
-          - switch.kerstboom
+          # - switch.kerstboom
       - id: 63af56963dce4a39a73062fd3caa05cf  # Automatically created id
         type: vertical-stack
         cards:
@@ -208,20 +208,18 @@ views:
         show_header_toggle: false
         entities:
           - input_boolean.washer_switch
-          - sensor.washer_pwrup
-          - sensor.wasmachine_power
-          - sensor.wasmachine_energy
-          - sensor.wasmachine_voltage
+          - binary_sensor.washer_pwrup
+          - sensor.power_meter_wasmachine
+          - sensor.total_daily_energy_wasmachine
       - id: 34c01dc086be4247a5563c763e8b61a1  # Automatically created id
         type: entities
         title: Droger
         show_header_toggle: false
         entities:
           - input_boolean.dryer_switch
-          - sensor.dryer_pwrup
-          - sensor.droger_power
-          - sensor.droger_energy
-          - sensor.droger_voltage
+          - binary_sensor.dryer_pwrup
+          - sensor.power_meter_droger
+          - sensor.total_daily_energy_droger
   - id: 5  # Automatically created id
     title: Nefit
     icon: mdi:radiator
@@ -297,6 +295,115 @@ views:
             name: Keuken Verwarming delta
             height: 75
             line_color: '#d62502'
+          - type: sensor
+            entity: sensor.convector_delta
+            name: Convectorput Delta
+            height: 75
+            line_color: '#d62502'
+      
+  - title: Ketel DCS
+    cards:
+      - type: picture-elements
+        image: /local/cvketel.png
+        elements:
+          # achterhuis
+          - type: state-label
+            entity: sensor.ch_retour_achter
+            style:
+              top: 57%
+              left: 90%
+          - type: state-label
+            entity: sensor.ch_delta_achterhuis
+            style:
+              top: 65%
+              left: 90%
+          - type: state-label
+            entity: sensor.chflowachterdisplay
+            style:
+              top: 52%
+              left: 90%
+          # voorhuis
+          - type: state-label
+            entity: sensor.ch_retour_voor
+            style:
+              top: 57%
+              left: 10%
+          - type: state-label
+            entity: sensor.ch_delta_voorhuis
+            style:
+              top: 65%
+              left: 10%
+          - type: state-label
+            entity: sensor.chflowvoordisplay
+            style:
+              top: 52%
+              left: 9%
+          # achter en badkamer
+          - type: state-label
+            entity: sensor.ch_retour_achter_en_badkamer
+            style:
+              top: 57%
+              left: 62%
+          - type: state-label
+            entity: sensor.ch_delta_achterhuis_en_badkamer
+            style:
+              top: 65%
+              left: 62%
+          - type: state-label
+            entity: sensor.chflowbadkamerachterdisplay
+            style:
+              top: 52%
+              left: 62%
+          
+          # badkamer
+          - type: state-label
+            entity: sensor.ch_retour_badkamer
+            style:
+              top: 85%
+              left: 62%
+          - type: state-label
+            entity: sensor.ch_delta_badkamer
+            style:
+              top: 93%
+              left: 62%
+          - type: state-label
+            entity: sensor.chflowbadkamerdisplay
+            style:
+              top: 80%
+              left: 62%
+          # ketel
+          - type: state-label
+            entity: sensor.ch_retour
+            style:
+              top: 25%
+              left: 32%
+          - type: state-label
+            entity: sensor.ch_aanvoer
+            style:
+              top: 7%
+              left: 32%
+          - type: state-label
+            entity: sensor.ch_delta
+            style:
+              top: 16%
+              left: 32%
+          - type: state-label
+            entity: sensor.boiler_pump
+            style:
+              top: 18%
+              left: 85%
+          - type: state-label
+            entity: sensor.pump_modulation
+            style:
+              top: 23%
+              left: 86%
+          - type: state-label
+            entity: sensor.wk_boilerstatus
+            style:
+              top: 15%
+              left: 11%
+              
+              
   - id: 6  # Automatically created id
     title: Zolder
     icon: mdi:human-child
@@ -306,11 +413,11 @@ views:
         entities:
           - sensor.zolder_multisensor_temperature
           - sensor.filtered_fien_temperatuur
-          #/- sensor.slaapkamer_dide_gemeten_temperatuur
+          - sensor.slaapkamer_dide_gemeten_temperatuur
           - sensor.wk_delta_t
           - sensor.dark_sky_temperature
           - cover.level
-          #/- sensor.filtered_dide_temperatuur
+          - sensor.filtered_dide_temperatuur
           - sensor.zolder_delta_t
       - id: 3ed3eacd23cd4fe490b1ea7858183f21  # Automatically created id
         type: entities
