@@ -14,6 +14,7 @@ class zonnescherm(hass.Hass):
         azimuth = float(self.get_state("sensor.azimuth"))
         irradiance = float(self.get_state("sensor.delft_irradiance"))
         precipitation = float(self.get_state("sensor.delft_precipitation_forecast_total"))
+        manual_override = self.get_state("input_boolean.rolluik_manual")
 
         if 54 < azimuth < 234:
             sun_at_back = True
@@ -24,7 +25,7 @@ class zonnescherm(hass.Hass):
 
         if precipitation > 0.1:
             self.open_cover()
-        elif irradiance > 600 and sun_at_back:
+        elif irradiance > 550 and sun_at_back and manual_override == "off":
             self.close_cover()
         elif not sun_at_back:
             self.open_cover()

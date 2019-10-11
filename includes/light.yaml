@@ -55,24 +55,24 @@
 #   qos: 0
 
 
-- platform: mqtt
-  name: Convectorput
-  state_topic: convectorput/light/convectorput/state
-  command_topic: convectorput/light/convectorput/command
-  availability_topic: convectorput/status
-  schema: json
-  brightness: true
-- platform: mqtt
-  name: Keuken Aanrecht Links
-  state_topic: keuken_aanrecht_links/light/keuken_aanrecht_links/state
-  command_topic: keuken_aanrecht_links/light/keuken_aanrecht_links/command
-  availability_topic: keuken_aanrecht_links/status
-  schema: json
-  brightness: true
-- platform: mqtt
-  name: Keuken Aanrecht Rechts
-  state_topic: keuken_aanrecht_rechts/light/keuken_aanrecht_rechts/state
-  command_topic: keuken_aanrecht_rechts/light/keuken_aanrecht_rechts/command
-  availability_topic: keuken_aanrecht_rechts/status
-  schema: json
-  brightness: true
+# - platform: mqtt
+#   name: Convectorput
+#   state_topic: convectorput/light/convectorput/state
+#   command_topic: convectorput/light/convectorput/command
+#   availability_topic: convectorput/status
+#   schema: json
+#   brightness: true
+# - platform: mqtt
+#   name: Keuken Aanrecht Links
+#   state_topic: keuken_aanrecht_links/light/keuken_aanrecht_links/state
+#   command_topic: keuken_aanrecht_links/light/keuken_aanrecht_links/command
+#   availability_topic: keuken_aanrecht_links/status
+#   schema: json
+#   brightness: true
+# - platform: mqtt
+#   name: Keuken Aanrecht Rechts
+#   state_topic: keuken_aanrecht_rechts/light/keuken_aanrecht_rechts/state
+#   command_topic: keuken_aanrecht_rechts/light/keuken_aanrecht_rechts/command
+#   availability_topic: keuken_aanrecht_rechts/status
+#   schema: json
+#   brightness: true

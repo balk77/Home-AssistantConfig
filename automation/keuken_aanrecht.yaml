@@ -45,9 +45,9 @@
 - id: keuken_aanrecht_pir_vol
   alias: Keuken aanrecht vol bij Beweging
   trigger:
-    platform: mqtt
-    topic: keuken_aanrecht_rechts/binary_sensor/pir_sensor_keuken/state
-    payload: 'ON'
+    platform: state
+    entity_id: binary_sensor.pir_sensor_keuken
+    to: 'on'
   condition:
     condition: state
     entity_id: light.keuken_aanrecht_groep
@@ -94,9 +94,9 @@
     topic: keuken_aanrecht_links/boot
     payload: reboot
   action:
-    service: notify.pushbullet
+    service: notify.telegram
     data:
-      target: device/Nexus5X
+      ## target: device/Nexus5X
       message: Keuken sensor reboot!
 - id: keuken_aanrecht_geen_beweging
   alias: Keuken aanrecht geen Beweging
@@ -113,9 +113,9 @@
 - id: keuken_aanrecht_aan_ochtend
   alias: Keuken aanrecht aan in ochtend
   trigger:
-    platform: mqtt
-    topic: keuken_aanrecht_rechts/binary_sensor/pir_sensor_keuken/state
-    payload: 'ON'
+    platform: state
+    entity_id: binary_sensor.pir_sensor_keuken
+    to: 'on'
   condition:
     - condition: time
       after: '5:45:00'

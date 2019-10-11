@@ -112,3 +112,7 @@ wasmachine_alive:
   name: wasmachine_alive
 droger_alive:
   name: droger_alive
+tap_water_delay:
+  name: tap water reported by EMS board
+rolluik_manual:
+  name: Zolder rolluik handbediening

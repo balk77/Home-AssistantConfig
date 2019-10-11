@@ -20,14 +20,14 @@ wasmachine:
   class: wasserdroger
   trigger: input_boolean.washer_switch
   appliance: washer
-  kwhsensor: sensor.wasmachine_energy
+  kwhsensor: sensor.total_daily_energy_wasmachine
 
 droger:
   module: wasserdroger
   class: wasserdroger
   trigger: input_boolean.dryer_switch #input_boolean.droger_test
   appliance: dryer
-  kwhsensor: sensor.droger_energy
+  kwhsensor: sensor.total_daily_energy_wasmachine
 
 humdelta:
   module: sensorexport

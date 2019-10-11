@@ -35,11 +35,11 @@
   payload_on: "1"
   payload_off: "0"
 # END NEFIT EMS script
-- platform: mqtt
-  name: PIR Sensor Keuken
-  state_topic: keuken_aanrecht_rechts/binary_sensor/pir_sensor_keuken/state
-  availability_topic: keuken_aanrecht_rechts/status
-  device_class: motion
+# - platform: mqtt
+#   name: PIR Sensor Keuken
+#   state_topic: keuken_aanrecht_rechts/binary_sensor/pir_sensor_keuken/state
+#   availability_topic: keuken_aanrecht_rechts/status
+#   device_class: motion
 - platform: template
   sensors:
     washer_pwrup:

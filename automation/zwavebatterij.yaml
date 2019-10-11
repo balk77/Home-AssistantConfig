@@ -5,9 +5,9 @@
     platform: numeric_state
     below: 25
   action:
-    service: notify.pushbullet
+    service: notify.telegram
     data:
-      target: device/Nexus5X
+      # target: device/Nexus5X
       message: "wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}"
 - id: wk_multisensor_battery2
   alias: wk_multisensor_battery2
@@ -19,9 +19,9 @@
       condition: numeric_state
       below: 25
   action:
-    service: notify.pushbullet
+    service: notify.telegram
     data:
-      target: device/Nexus5X
+      # target: device/Nexus5X
       message: "wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level}}"
         
 - id: zolder_multisensor_battery1
@@ -31,9 +31,9 @@
     platform: numeric_state
     below: 25
   action:
-    service: notify.pushbullet
+    service: notify.telegram
     data:
-      target: device/Nexus5X
+      # target: device/Nexus5X
       message: "zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}"
 - id: zolder_multisensor_battery2
   alias: zolder_multisensor_battery2
@@ -45,7 +45,7 @@
       condition: numeric_state
       below: 25
   action:
-    service: notify.pushbullet
+    service: notify.telegram
     data:
-      target: device/Nexus5X
+      # target: device/Nexus5X
       message: "zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level}}"

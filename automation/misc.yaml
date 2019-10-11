@@ -22,9 +22,9 @@
     platform: state
     entity_id: updater.updater
   action:
-    service: notify.pushbullet
+    service: notify.telegram
     data:
-      target: device/Nexus5X
+      # target: device/Nexus5X
       message: Version {{ states('sensor.current_version') }} for Home Assistant is
         available.
 - id: hass_startup
@@ -54,9 +54,9 @@
     for:
       minutes: 5
   action:
-  - service: notify.pushbullet
+  - service: notify.telegram
     data:
-      target: device/Nexus5X
+      # target: device/Nexus5X
       message: Appdaemon draait niet
 - id: appdaemon_alive_2
   alias: appdaemon_alive_2
@@ -96,9 +96,9 @@
     for:
       minutes: 1
   action:
-    service: notify.pushbullet
+    service: notify.telegram
     data:
-      target: device/Nexus5X
+      # target: device/Nexus5X
       message: Raumfeld offline
 - id: sander_gaat_weg
   alias: Sander gaat weg
@@ -109,5 +109,39 @@
   action:
   - data:
       message: Sander verlaat het huis
-      target: device/Nexus5X
-    service: notify.pushbullet
+      # target: device/Nexus5X
+    service: notify.telegram
+- id: restart_ems-esp
+  alias: restart EMS ESP device
+  trigger:
+    platform: time
+    at: "03:00:00"
+  action:
+    - service: mqtt.publish
+      data:
+        payload: 1
+        topic: home/ems-esp/restart
+- id: rolluik_manual
+  alias: Manual operation rolluik zolder
+  trigger:
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.zolder_rolluik
+        scene_id: 16
+    - platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: zwave.zolder_rolluik
+        scene_id: 26
+  action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.rolluik_manual
+- id: rolluik_reset
+  alias: rolluik reset
+  trigger:
+    platform: time
+    at: '22:00:00'
+  action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.rolluik_manual

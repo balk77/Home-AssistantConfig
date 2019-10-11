@@ -17,7 +17,7 @@ class wasserdroger(hass.Hass):
         timestamp = str(round(time.time()))
         appliance = self.args["appliance"]
 
-        path = '/home/sander/'+appliance+'.csv'
+        path = '/conf/'+appliance+'.csv'
         f = open(path,'a')
         #self.log(timestamp+";"+str(format_decimal(kwh, locale='de'))+";"+appliance+" "+self.action+"\n")
         self.log("action schrijf:")

@@ -58,9 +58,9 @@
     entity_id: group.woonkamer
   - service: switch.turn_off
     entity_id: group.woonkamer
-  - service: notify.pushbullet
+  - service: notify.telegram
     data:
-      target: device/Nexus5X
+      # target: device/Nexus5X
       message: Lampen in huis gaan uit
 - id: reset_huis_slaapstand
   alias: Reset huis_slaapstand
@@ -100,9 +100,9 @@
         entity_id: group.woonkamer
         state: 'off'
   action:
-  - service: notify.pushbullet
+  - service: notify.telegram
     data:
-      target: device/Nexus5X
+      # target: device/Nexus5X
       message: Lampen in huis gaan aan - aanwezigheidssimulatie
   - service: input_boolean.turn_on
     entity_id: input_boolean.occupancy_simulation
@@ -122,9 +122,9 @@
     - condition: time
       before: '22:30:00'
   action:
-  - service: notify.pushbullet
+  - service: notify.telegram
     data:
-      target: device/Nexus5X
+      # target: device/Nexus5X
       message: Lampen in huis gaan aan - aanwezigheidssimulatie
   - service: input_boolean.turn_on
     entity_id: input_boolean.occupancy_simulation

@@ -22,6 +22,8 @@ homeassistant:
 lovelace:
 #   mode: yaml
 
+person:
+
 recorder:
   db_url: postgres://homeassistant:ereadsta@192.168.0.9/homeassistant
   purge_interval: 2
@@ -31,7 +33,7 @@ recorder:
       # - automation
       - weblink
       - updater
-      - device_tracker
+      #- device_tracker
     entities:
       - sun.sun # Don't record sun data
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
@@ -77,27 +79,14 @@ config:
 system_health:
 
 cloud:
-  # entity_config:
-  #   light.wk_muur_level:
-  #     name: Ledstrip Bankje
-  #     aliases:
-  #      - Ledstrip Muur
-  #     room: Huiskamer
-  #   light.badkamer_plafond_level:
-  #     name: Lamp badkamer
-  #     room: Badkamer
-  #   light.wk_eettafel_plafond_level:
-  #     name: Lamp eettafel
-  #     aliases:
-  #       - Eettafellamp
-  #     room: Huiskamer
+
 
 
 http:
   # Uncomment this if you are using SSL or running in Docker etc
   #ssl_certificate: !secret ssl_ssl_certificate
   #ssl_key: !secret ssl_ssl_key
-  #base_url: !secret ssl_base_url
+  base_url: !secret ssl_base_url
 
 api:
 
@@ -138,14 +127,7 @@ counter:
     step: 1
     icon: mdi:shower
 
-# Text to speech
-# tts:
-#   platform: google
 
-# google:
-#   client_id: !secret google_client_id
-#   client_secret: !secret google_client_secret
-#   track_new_calendar: false
 
 device_tracker: !include includes/device_tracker.yaml
 
@@ -166,18 +148,7 @@ script: !include includes/script/scripts.yaml
 input_boolean: !include includes/input_booleans.yaml
 scene: !include_dir_list scenes
 
-# emulated_hue:
-#   host_ip: 192.168.0.9
-#   listen_port: 8300
-#   # advertise_ip: 192.168.0.99
-#   # advertise_port: 80
-#   expose_by_default: true
-#   exposed_domains:
-#     - light
 
-
-# android_ip_webcam:
-#   - host: 192.168.0.56
 
 # MQTT config
 mqtt:
@@ -206,9 +177,6 @@ climate: !include includes/climate.yaml
 #/python_script:
 
 notify:
-  - name: pushbullet
-    platform: pushbullet
-    api_key: !secret pushbullet_api_key
   - name: telegram
     platform: telegram
     chat_id: !secret telegram_chat_id1
@@ -248,15 +216,6 @@ input_number: !include includes/input_number.yaml
 light: !include includes/light.yaml
 
 
-
-rest_command:
-  play_pause:
-    url: 'http://192.168.0.9:8181/zone/Woonkamer/play_pause'
-  vol_up:
-    url: 'http://192.168.0.9:8181/zone/Woonkamer/volume/+5'
-  vol_down:
-    url: 'http://192.168.0.9:8181/zone/Woonkamer/volume/-5'
-
 input_text:
   valvemoving:
     name: "Action:"
@@ -264,31 +223,10 @@ input_text:
   itho_reason:
     name: Itho Reason
 
-# panel_custom:
-#   - name: zwavegraph2
-#     sidebar_title: Z-Wave Graph
-#     sidebar_icon: mdi:access-point-network
-#     url_path: zwave
-
-# panel_iframe:
-#   avalex:
-#     title: 'Avalex'
-#     url: 'https://calendar.google.com/calendar/embed?src=4uss0i67es2enb599kpt4692mtradusn%40import.calendar.google.com'
-#     icon: mdi:delete
 
 
 shopping_list:
 
-# emulated_hue:
-#   listen_port: 80
-#   advertise_ip: 192.168.0.199
-#   advertise_port: 80
-#   expose_by_default: true
-#   # entities:
-#   #   light.keuken_aanrecht_groep:
-#   #     hidden: false
-#   exposed_domains:
-#     - light
 
 influxdb:
   host: 192.168.0.9
@@ -336,13 +274,6 @@ input_datetime:
     initial: "00:45"
 
 
-# lightingsm:
-#   convectorput:
-#     sensor: binary_sensor.heating             # required
-#     entity: input_boolean.convector_fan       # required, [entity,entities,entity_on]
-#     delay: 300                                # optional, overwrites default delay of 180s
-#     overrides:
-#       - input_boolean.convector_fan_disabled
 
 homematic:
   local_ip: 192.168.0.9
@@ -356,3 +287,4 @@ homematic:
       resolvenames: json
       username: !secret homematic_username
       password: !secret homematic_password
+

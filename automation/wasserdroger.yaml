@@ -24,10 +24,6 @@
     entity_id: input_boolean.washer_switch
     state: 'on'
   action:
-  - service: notify.pushbullet
-    data:
-      target: device/Nexus5X
-      message: Wasmachine is klaar!
   - service: notify.telegram
     data:
       message: Wasmachine is klaar!
@@ -59,71 +55,20 @@
     entity_id: input_boolean.dryer_switch
     state: 'on'
   action:
-  - service: notify.pushbullet
-    data:
-      target: device/Nexus5X
-      message: Droger is klaar!
   - service: notify.telegram
     data:
       message: Droger is klaar!
   - service: input_boolean.turn_off
     entity_id: input_boolean.dryer_switch
-- id: wasmachine_03
-  alias: wasmachine alive on
-  trigger:
-    platform: mqtt
-    topic: zolder/wasmachine/power
-  action:
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.wasmachine_alive
-- id: wasmachine_04
-  alias: wasmachine alive 'off'
-  trigger:
-    platform: time_pattern
-    minutes: 5
-  action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.wasmachine_alive
 - id: wasmachine_05
   alias: notify if wasmachine meting is uit
   trigger:
-    platform: time
-    at: "20:15:00"
-  condition:
-    condition: state
-    entity_id: input_boolean.wasmachine_alive
-    state: 'off'
+    platform: state
+    entity_id: binary_sensor.powermeterwmdrstatus
+    to: "off"
   action:
   - service: notify.telegram
     data:
       message: Wasmachine meting staat uit!
-- id: droger_03
-  alias: droger alive on
-  trigger:
-    platform: mqtt
-    topic: zolder/droger/power
-  action:
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.droger_alive
-- id: droger_04
-  alias: droger alive 'off'
-  trigger:
-    platform: time_pattern
-    minutes: 5
-  action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.droger_alive
-- id: droger_05
-  alias: notify if droger meting is uit
-  trigger:
-    platform: time
-    at: "20:15:00"
-  condition:
-    condition: state
-    entity_id: input_boolean.droger_alive
-    state: 'off'
-  action:
-  - service: notify.telegram
-    data:
-      message: Droger meting staat uit!
+
 
