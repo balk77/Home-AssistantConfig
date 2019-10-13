@@ -48,26 +48,30 @@
 #     service: script.turn_on
 #     entity_id: script.woonkamer_full
 
-- id: hank_wk1
-  alias: Hank wk1
-  trigger:
-    platform: event
-    event_type: zwave.scene_activated
-    event_data:
-      entity_id: zwave.hank_knop_wk
-      scene_id: 1
-  action:
-    service: light.turn_on
-    entity_id: light.wk_eettafel_plafond_level
-    data_template:
-        brightness: >
-            {% if is_state('light.wk_eettafel_plafond_level', 'off') %}
-            50
-            {% else %} 
-            {% set suggested = states.light.wk_eettafel_plafond_level.attributes.brightness|int + 50 %}
-            {% if suggested < 254 %}
-            {{ suggested }}
-            {% else %}
-            0
-            {% endif %}
-            {% endif %}
+
+
+
+
+# - id: hank_wk1
+#   alias: Hank wk1
+#   trigger:
+#     platform: event
+#     event_type: zwave.scene_activated
+#     event_data:
+#       entity_id: zwave.hank_knop_wk
+#       scene_id: 1
+#   action:
+#     service: light.turn_on
+#     entity_id: light.wk_eettafel_plafond_level
+#     data_template:
+#         brightness: >
+#             {% if is_state('light.wk_eettafel_plafond_level', 'off') %}
+#             50
+#             {% else %} 
+#             {% set suggested = states.light.wk_eettafel_plafond_level.attributes.brightness|int + 50 %}
+#             {% if suggested < 254 %}
+#             {{ suggested }}
+#             {% else %}
+#             0
+#             {% endif %}
+#             {% endif %}

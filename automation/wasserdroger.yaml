@@ -1,74 +1,74 @@
-- id: wasmachine_01
-  alias: Washer Start
-  trigger:
-    platform: state
-    entity_id: binary_sensor.washer_pwrup
-    from: 'off'
-    to: 'on'
-    for:
-      minutes: 3
-  action:
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.washer_switch
-- id: wasmachine_02
-  alias: Wasmachine Klaar
-  trigger:
-    platform: state
-    entity_id: binary_sensor.washer_pwrup
-    from: 'on'
-    to: 'off'
-    for:
-      minutes: 3
-  condition:
-    condition: state
-    entity_id: input_boolean.washer_switch
-    state: 'on'
-  action:
-  - service: notify.telegram
-    data:
-      message: Wasmachine is klaar!
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.washer_switch
-- id: droger_01
-  alias: Dryer Start
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dryer_pwrup
-    from: 'off'
-    to: 'on'
-    for:
-      minutes: 3
-  action:
-    service: input_boolean.turn_on
-    entity_id: input_boolean.dryer_switch
-- id: droger_02
-  alias: Droger Klaar
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dryer_pwrup
-    from: 'on'
-    to: 'off'
-    for:
-      minutes: 3
-  condition:
-    condition: state
-    entity_id: input_boolean.dryer_switch
-    state: 'on'
-  action:
-  - service: notify.telegram
-    data:
-      message: Droger is klaar!
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.dryer_switch
-- id: wasmachine_05
-  alias: notify if wasmachine meting is uit
-  trigger:
-    platform: state
-    entity_id: binary_sensor.powermeterwmdrstatus
-    to: "off"
-  action:
-  - service: notify.telegram
-    data:
-      message: Wasmachine meting staat uit!
+# - id: wasmachine_01
+#   alias: Washer Start
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.washer_pwrup
+#     from: 'off'
+#     to: 'on'
+#     for:
+#       minutes: 3
+#   action:
+#   - service: input_boolean.turn_on
+#     entity_id: input_boolean.washer_switch
+# - id: wasmachine_02
+#   alias: Wasmachine Klaar
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.washer_pwrup
+#     from: 'on'
+#     to: 'off'
+#     for:
+#       minutes: 3
+#   condition:
+#     condition: state
+#     entity_id: input_boolean.washer_switch
+#     state: 'on'
+#   action:
+#   - service: notify.telegram
+#     data:
+#       message: Wasmachine is klaar!
+#   - service: input_boolean.turn_off
+#     entity_id: input_boolean.washer_switch
+# - id: droger_01
+#   alias: Dryer Start
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.dryer_pwrup
+#     from: 'off'
+#     to: 'on'
+#     for:
+#       minutes: 3
+#   action:
+#     service: input_boolean.turn_on
+#     entity_id: input_boolean.dryer_switch
+# - id: droger_02
+#   alias: Droger Klaar
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.dryer_pwrup
+#     from: 'on'
+#     to: 'off'
+#     for:
+#       minutes: 3
+#   condition:
+#     condition: state
+#     entity_id: input_boolean.dryer_switch
+#     state: 'on'
+#   action:
+#   - service: notify.telegram
+#     data:
+#       message: Droger is klaar!
+#   - service: input_boolean.turn_off
+#     entity_id: input_boolean.dryer_switch
+# - id: wasmachine_05
+#   alias: notify if wasmachine meting is uit
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.powermeterwmdrstatus
+#     to: "off"
+#   action:
+#   - service: notify.telegram
+#     data:
+#       message: Wasmachine meting staat uit!
 
 

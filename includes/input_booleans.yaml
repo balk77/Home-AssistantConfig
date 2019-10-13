@@ -2,6 +2,14 @@ washer_switch:
     name: Toggle Washer Automation
     initial: off
     icon: mdi:washing-machine
+washer_pwrup:
+  name: Wasmachine powered on
+  initial: off
+  icon: mdi:washing-machine
+dryer_pwrup:
+  name: Droger powered on
+  initial: off
+  icon: mdi:tumble-dryer
 dryer_switch:
     name: Toggle Dryer Automation
     initial: off

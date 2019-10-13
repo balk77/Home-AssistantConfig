@@ -1,0 +1,548 @@
+- platform: yr
+- platform: mqtt
+  state_topic: 'p1data/electricity'
+  name: 'Current usage'
+  unit_of_measurement: 'W'
+  value_template: '{{ value_json.consumption }}'
+# - platform: wunderground
+#   api_key: !secret wunderground_api_key
+#   pws_id: !secret wunderground_pws_id
+#   monitored_conditions:
+#     - temp_c
+# - platform: mqtt
+#   name: 'wk_boilerstatus'
+#   state_topic: "woonkamer/woonkamer/thermostaat/boilerstatus"
+
+- platform: mqtt
+  name: 'wk_thermostaat_pv'
+  unit_of_measurement: '°C'
+  #state_topic: "woonkamer/woonkamer/thermostaat/gemetentemperatuur"
+  state_topic: 'home/ems-esp/thermostat_data'
+  value_template: "{{ value_json.thermostat_currtemp }}"
+
+- platform: mqtt
+  name: 'wk_thermostaat_hass_sp'
+  unit_of_measurement: '°C'
+  state_topic: "woonkamer/woonkamer/thermostaat/temperature/set"
+
+- platform: mqtt
+  name: "itho_ventilatie"
+  #state_topic: "hass/itho"
+  state_topic: "zolder/itho/State"
+#- platform: mqtt
+#  name : Snelheid
+#  state_topic: "ITHO/Fan/State"
+  value_template: >
+    {% if value|float==0 %}Standby{% endif %}
+    {% if value|float==1 %}Laag{% endif %}
+    {% if value|float==2 %}Medium{% endif %}
+    {% if value|float==3 %}Hoog{% endif %}
+    {% if value|float==4 %}Full{% endif %}
+    {% if value|float>=11 %}Hoog(T){% endif %}
+- platform: mqtt
+  name: Itho timer
+  state_topic: "zolder/itho/Timer"
+  value_template: "{{value}}"
+  unit_of_measurement: 's'
+- platform: mqtt
+  name: "itho_lastidindex"
+  state_topic: "zolder/itho/LastIDindex"
+- platform: mqtt
+  name: ITHO Laatste bediening
+  state_topic: "zolder/itho/LastIDindex"
+  value_template: >
+    {% if value|float==0 %}Hass{% endif %}
+    {% if value|float==1 %}Woonkamer{% endif %}
+    {% if value|float==2 %}Badkamer{% endif %}
+    {% if value|float==3 %}WC{% endif %}
+- platform: mqtt
+  name: "itho_ventilatie_status"
+  state_topic: "zolder/itho/remote"
+- platform: statistics
+  name: minhum_stat_mean
+  entity_id: sensor.badkamer_relhumidity
+  sampling_size: 1500
+  max_age:
+    hours: 4
+- platform: statistics
+  name: badkamertemp_stat_mean
+  entity_id: sensor.badkamer_temperatuur
+  sampling_size: 750
+  max_age:
+    hours: 2
+- platform: mqtt
+  #friendly_name: "CH Flow Voor"
+  # Appdaemon generated
+  name: 'chflowvoor'
+  unit_of_measurement: '%'
+  state_topic: "zolder/ketel/chvoor/flow"
+- platform: mqtt
+  #friendly_name: "CH Flow Achter"
+  # Appdaemon generated
+  name: 'chflowachter'
+  unit_of_measurement: '%'
+  state_topic: "zolder/ketel/chachter/flow"
+- platform: mqtt
+  #friendly_name: "CH Flow Badkamer en Achter"
+  # Appdaemon generated
+  name: 'chflowbadkamerachter'
+  unit_of_measurement: '%'
+  state_topic: "zolder/ketel/chbadkamerachter/flow"
+- platform: mqtt
+  #friendly_name: "CH Flow Badkamer en Achter"
+  # Appdaemon generated
+  name: 'chflowbadkamer'
+  unit_of_measurement: '%'
+  state_topic: "zolder/ketel/chbadkamer/flow"
+- platform: mqtt
+  #friendly_name: "CH Flow Voor"
+  # Appdaemon generated
+  name: 'chflowvoordisplay'
+  unit_of_measurement: '%'
+  state_topic: "zolder/ketel/chvoor/flowdisplay"
+- platform: mqtt
+  #friendly_name: "CH Flow Achter"
+  # Appdaemon generated
+  name: 'chflowachterdisplay'
+  unit_of_measurement: '%'
+  state_topic: "zolder/ketel/chachter/flowdisplay"
+- platform: mqtt
+  #friendly_name: "CH Flow Badkamer en Achter"
+  # Appdaemon generated
+  name: 'chflowbadkamerachterdisplay'
+  unit_of_measurement: '%'
+  state_topic: "zolder/ketel/chbadkamerachter/flowdisplay"
+- platform: mqtt
+  #friendly_name: "CH Flow Badkamer en Achter"
+  # Appdaemon generated
+  name: 'chflowbadkamerdisplay'
+  unit_of_measurement: '%'
+  state_topic: "zolder/ketel/chbadkamer/flowdisplay"
+- platform: template
+  sensors:
+    minhum:
+      #friendly_name: "Minimum humidity"
+      unit_of_measurement: '%'
+      value_template: "{{ states.sensor.minhum_stat_mean.attributes.min_value }}"
+    minbadkamertemp:
+      #friendly_name: "Minimum badkamer temp"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.sensor.badkamertemp_stat_mean.attributes.min_value }}"
+    boiler_boottime:
+      value_template: '{{ as_timestamp(states.automation.see_if_boiler_restarts.attributes.last_triggered) | timestamp_custom("%H:%M:%S %d/%m/%y") }}'
+    humdelta:
+      value_template: '{{ (float(states.sensor.badkamer_relhumidity.state) - float(states.sensor.minhum.state)) | round(1) }}'
+      #unit_of_measurement: 'mg/m3'
+      unit_of_measurement: '%'
+#/     zolder_delta_t:
+#/       value_template: '{{ (float(states.sensor.dark_sky_temperature.state) - float(states.sensor.zolder_max_t.state)) | round(1) }}'
+#/       unit_of_measurement: '∆°C'
+    wk_multisensor_battery_level:
+      value_template: '{{ states.zwave.wk_multisensor.attributes.battery_level | float }}'
+    zolder_multisensor_battery_level:
+      value_template: '{{ states.zwave.zolder_multisensor.attributes.battery_level | float}}'
+    # wk_delta_t:
+    #   value_template: '{{ (float(states.sensor.dark_sky_temperature.state) - float(states.sensor.wk_thermostaat_pv.state)) | round(1) }}'
+    #   unit_of_measurement: '∆°C'
+    hotwater:
+      value_template: "{{ states('sensor.wk_boilerstatus') }}"
+    azimuth:
+      value_template: '{{ float(states.sun.sun.attributes.azimuth) }}'
+    maxtempsetpoint:
+      friendly_name: "Max Temp Setpoint"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.sensor.thermostaat_tempsetpoint_mean.attributes.max_value }}"
+    didethermpv:
+      friendly_name: "Dide thermostaat Present Value"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.climate.kamer_dide.attributes.current_temperature }}"
+    fienthermpv:
+      friendly_name: "Fien thermostaat Present Value"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.climate.kamer_fien.attributes.current_temperature }}"
+    woonkamer_number_of_lights_on:
+      unit_of_measurement: 'Lights'
+      friendly_name: 'Lights on'
+      entity_id:
+        - light.wk_achter_plafond_level
+        - light.wk_eettafel_plafond_level
+        - light.wk_muur_level
+        - light.keuken_koof_level
+        - switch.schemerlamp_switch
+        - light.keuken_aanrecht_groep
+      value_template: >-
+        {%- for item in states.group.woonkamer.attributes.entity_id  if states(item) == "on" %}
+          {% if loop.last %}
+            {{loop.index}}
+          {% endif %}
+        {% endfor %}
+    wk_boilerstatus:
+      value_template: >-
+        {% if is_state('binary_sensor.tap_water', 'on') %} HW {% elif  is_state('binary_sensor.heating', 'on') %} CH {% else %} No {% endif %}
+    
+- platform: influxdb
+  host: 192.168.0.9
+  # username: admin
+  # password: admin
+  queries:
+    - name: "ch_aanvoer_delay"
+      unit_of_measurement: '°C'
+      value_template: '{{ value | round(1) }}'
+      # group_function: mean
+      group_function: last
+      where: '"entity_id"=''ch_aanvoer'' and time > now()-24m and time < now()-3m'
+      measurement: '"°C"'
+      database: home_assistant
+
+- platform: version
+
+- platform: buienradar
+  name: Delft
+  timeframe: 30
+  monitored_conditions:
+    - symbol_1d
+    - temperature_1d
+    - rainchance_1d
+    - sunchance_1d
+    - rain_1d
+    - symbol
+    - temperature
+    - condition
+    - irradiance
+    - precipitation_forecast_total
+# - platform: command_line
+#   name: Occasion
+#   command: "/usr/bin/python3 ~/homeassistant/script/occasion.py"
+- platform: mqtt
+  name: 'thermostaat_activeprogram'
+  state_topic: "woonkamer/woonkamer/thermostaat/activeprogram"
+# - platform: mqtt
+#   name: 'thermostaat_tempsetpoint_raw'
+#   state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint"
+- platform: mqtt
+  state_topic: 'home/ems-esp/thermostat_data'
+  name: 'thermostaat_tempsetpoint_raw'
+#  name: 'Current Set Temperature'
+  unit_of_measurement: '°C'
+  value_template: "{{ value_json.thermostat_seltemp }}"
+
+
+
+
+- platform: mqtt
+  name: 'thermostaat_tempsetpoint'
+  state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint2"
+- platform: mqtt
+  name: 'thermostaat_ch_supply_temp'
+  state_topic: "woonkamer/woonkamer/thermostaat/supplytemp"
+  unit_of_measurement: '°C'
+- platform: statistics
+  name: thermostaat_tempsetpoint_mean
+  entity_id: sensor.thermostaat_tempsetpoint
+  sampling_size: 1000
+  max_age:
+    hours: 1
+
+    
+
+    
+- platform: darksky
+  api_key: !secret darksky_api_key
+  monitored_conditions:
+      - summary
+      - icon
+      - precip_intensity
+      - temperature
+      - precip_probability
+      - wind_speed
+      #- temperature_max
+- platform: mqtt
+  name: 'dide_temp'
+  unit_of_measurement: '°C'
+  state_topic: "zolder/kamerdide/ventilatie/temperatuur"
+- platform: mqtt
+  name: 'fien_temp'
+  unit_of_measurement: '°C'
+  state_topic: "zolder/kamerfien/ventilatie/temperatuur"
+- platform: mqtt
+  state_topic: 'presence/owner/woonkamer/80:5a:04:0e:7a:91'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Sander Woonkamer'
+- platform: mqtt
+  state_topic: 'presence/owner/woonkamer/x'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Linda Woonkamer'
+- platform: mqtt
+  state_topic: 'presence/owner/zolder/80:5a:04:0e:7a:91'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Sander Zolder'
+- platform: mqtt
+  state_topic: 'presence/owner/zolder/x'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Linda Zolder'
+- platform: min_max
+  name: "Sander Home Occupancy Confidence"
+  type: mean
+  round_digits: 0
+  entity_ids:
+    - sensor.sander_woonkamer
+    - sensor.sander_zolder
+- platform: min_max
+  name: "Linda Home Occupancy Confidence"
+  type: mean
+  round_digits: 0
+  entity_ids:
+    - sensor.linda_woonkamer
+    - sensor.linda_zolder
+- platform: filter
+  name: Filtered Dide Temperatuur
+  entity_id: sensor.dide_temp
+  filters:
+    - filter: outlier
+      window_size: 4
+      radius: 5
+- platform: filter
+  name: Filtered Fien Temperatuur
+  entity_id: sensor.fien_temp
+  filters:
+    - filter: outlier
+      window_size: 4
+      radius: 5
+
+- platform: filter
+  name: badkamer_dewpoint
+  entity_id: sensor.badkamer_dewpoint2
+  filters:
+    - filter: outlier
+      window_size: 4
+      radius: 10
+- platform: filter
+  name: badkamer_dewpoint_cor
+  entity_id: sensor.badkamer_dewpoint_cor2
+  filters:
+    - filter: outlier
+      window_size: 4
+      radius: 10
+- platform: filter
+  name: humdelta_sma
+  entity_id: sensor.humdelta
+  filters:
+    - filter: time_simple_moving_average
+      window_size: 00:05
+      precision: 1
+# Sous Vide Sensors:
+- platform: mqtt
+  name: "Sous Vide status"
+  state_topic: "anova/status"
+  value_template: "{{ value_json.state }}"
+- platform: mqtt
+  name: "Sous Vide target temperature"
+  state_topic: "anova/status"
+  unit_of_measurement: '°C'
+  value_template: "{{ value_json.target_temp }}"
+- platform: mqtt
+  name: "Sous Vide current temperature"
+  state_topic: "anova/status"
+  unit_of_measurement: '°C'
+  value_template: "{{ value_json.current_temp }}"
+# einde Sous Vide
+
+# NEFIT EMS script
+- platform: mqtt
+  state_topic: 'home/ems-esp/thermostat_data'
+  name: 'Current Room Temperature'
+  unit_of_measurement: '°C'
+  value_template: "{{ value_json.thermostat_currtemp }}"
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/thermostat_data'
+  name: 'Current Set Temperature'
+  unit_of_measurement: '°C'
+  value_template: "{{ value_json.thermostat_seltemp }}"
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/thermostat_data'
+  name: 'Current Mode'
+  value_template: "{{ value_json.thermostat_mode }}"
+
+# last time boiler was started
+
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/showertime'
+  name: 'Last shower duration'
+  force_update: true
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Warm Water selected temperature'
+  unit_of_measurement: '°C'
+  value_template: '{{ value_json.wWSelTemp }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Warm Water current temperature'
+  unit_of_measurement: '°C'
+  value_template: '{{ value_json.wWCurTmp }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Warm Water activated'
+  value_template: '{{ value_json.wWActivated }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Warm Water 3-way valve'
+  value_template: '{{ value_json.wWHeat }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Current flow temperature'
+  unit_of_measurement: '°C'
+  value_template: '{{ value_json.curFlowTemp }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Return temperature'
+  unit_of_measurement: '°C'
+  value_template: '{{ value_json.retTemp }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Gas'
+  value_template: '{{ value_json.burnGas }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Boiler pump'
+  value_template: '{{ value_json.heatPmp }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Fan'
+  value_template: '{{ value_json.fanWork }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Ignition'
+  value_template: '{{ value_json.ignWork }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Circulation pump'
+  value_template: '{{ value_json.wWCirc }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Burner max power'
+  unit_of_measurement: '%'
+  value_template: '{{ value_json.selBurnPow }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Burner max power'
+  unit_of_measurement: '%'
+  value_template: '{{ value_json.selBurnPow }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Burner current power'
+  unit_of_measurement: '%'
+  value_template: '{{ value_json.curBurnPow }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'System Pressure'
+  unit_of_measurement: 'bar'
+  value_template: '{{ value_json.sysPress }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Boiler temperature'
+  unit_of_measurement: '°C'
+  value_template: '{{ value_json.boilTemp }}'
+
+- platform: mqtt
+  state_topic: 'home/ems-esp/boiler_data'
+  name: 'Pump modulation'
+  unit_of_measurement: '%'
+  value_template: '{{ value_json.pumpMod }}'
+
+
+    
+#
+
+- platform: statistics
+  name: wasmachine_energy_stats_mean
+  entity_id: sensor.total_daily_energy_wasmachine
+  sampling_size: 2
+  precision: 5
+
+- platform: history_stats
+  name: Douche aan dit uur
+  entity_id: input_boolean.shower
+  state: 'on'
+  type: time
+  end: '{{ now() }}'
+  duration:
+    hours: 1
+- platform: mqtt
+  state_topic: 'dsmr/reading/gas'
+  name: 'Gas meter'
+  unit_of_measurement: 'm3'
+  value_template: '{{ value | float }}'
+- platform: statistics
+  name: uurstats_temperatuur_mean
+  entity_id: sensor.delft_temperature
+  max_age:
+    minutes: 60
+  sampling_size: 1000
+- platform: statistics
+  name: uurstats_gas_mean
+  entity_id: sensor.gas_meter
+  max_age:
+    minutes: 60
+  sampling_size: 1000
+
+# - platform: mqtt
+#   name: Convector aanvoer temperatuur
+#   state_topic: woonkamer/convector/aanvoer/temperatuur
+#   availability_topic: convectorput/status
+#   unit_of_measurement: °C
+# - platform: mqtt
+#   name: Convector retour temperatuur
+#   state_topic: woonkamer/convector/retour/temperatuur
+#   availability_topic: convectorput/status
+#   unit_of_measurement: °C
+# - platform: mqtt
+#   name: Convector Delta
+#   state_topic: zolder/convector/convdelta/temperatuur
+#   availability_topic: convectorput/status
+#   unit_of_measurement: ∆°C
+# Example configuration.yaml entry
+- platform: nederlandse_spoorwegen
+  email: !secret email
+  password: !secret ns_password
+  routes:
+    - name: Hoofddorp - Delft
+      from: Hfd
+      to: Dt
+    - name: Delft - Hoofddorp
+      from: Dt
+      to: Hfd
+- platform: afvalbeheer
+  wastecollector: Avalex
+  resources:
+    - restafval
+    - gft
+  postcode: !secret postcode
+  streetnumber: !secret huisnummer
+  dateformat: '%d-%m-%Y'
+  # dateonly: 0                      (optional)
+  # nameprefix: 1                    (optional)
+  # builtinicons: 0                  (optional)
+  dutch: 1

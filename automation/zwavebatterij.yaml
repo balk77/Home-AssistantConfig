@@ -1,51 +1,51 @@
-- id: wk_multisensor_battery1
-  alias: wk_multisensor_battery1
-  trigger:
-  - entity_id: sensor.wk_multisensor_battery_level
-    platform: numeric_state
-    below: 25
-  action:
-    service: notify.telegram
-    data:
-      # target: device/Nexus5X
-      message: "wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}"
-- id: wk_multisensor_battery2
-  alias: wk_multisensor_battery2
-  trigger:
-    platform: time
-    at: '20:00:00'
-  condition:
-    - entity_id: sensor.wk_multisensor_battery_level
-      condition: numeric_state
-      below: 25
-  action:
-    service: notify.telegram
-    data:
-      # target: device/Nexus5X
-      message: "wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level}}"
+# - id: wk_multisensor_battery1
+#   alias: wk_multisensor_battery1
+#   trigger:
+#   - entity_id: sensor.wk_multisensor_battery_level
+#     platform: numeric_state
+#     below: 25
+#   action:
+#     service: notify.telegram
+#     data:
+#       # target: device/Nexus5X
+#       message: "wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}"
+# - id: wk_multisensor_battery2
+#   alias: wk_multisensor_battery2
+#   trigger:
+#     platform: time
+#     at: '20:00:00'
+#   condition:
+#     - entity_id: sensor.wk_multisensor_battery_level
+#       condition: numeric_state
+#       below: 25
+#   action:
+#     service: notify.telegram
+#     data:
+#       # target: device/Nexus5X
+#       message: "wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level}}"
         
-- id: zolder_multisensor_battery1
-  alias: zolder_multisensor_battery1
-  trigger:
-  - entity_id: sensor.zolder_multisensor_battery_level
-    platform: numeric_state
-    below: 25
-  action:
-    service: notify.telegram
-    data:
-      # target: device/Nexus5X
-      message: "zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}"
-- id: zolder_multisensor_battery2
-  alias: zolder_multisensor_battery2
-  trigger:
-    platform: time
-    at: '20:00:00'
-  condition:
-    - entity_id: sensor.zolder_multisensor_battery_level
-      condition: numeric_state
-      below: 25
-  action:
-    service: notify.telegram
-    data:
-      # target: device/Nexus5X
-      message: "zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level}}"
+# - id: zolder_multisensor_battery1
+#   alias: zolder_multisensor_battery1
+#   trigger:
+#   - entity_id: sensor.zolder_multisensor_battery_level
+#     platform: numeric_state
+#     below: 25
+#   action:
+#     service: notify.telegram
+#     data:
+#       # target: device/Nexus5X
+#       message: "zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level }}"
+# - id: zolder_multisensor_battery2
+#   alias: zolder_multisensor_battery2
+#   trigger:
+#     platform: time
+#     at: '20:00:00'
+#   condition:
+#     - entity_id: sensor.zolder_multisensor_battery_level
+#       condition: numeric_state
+#       below: 25
+#   action:
+#     service: notify.telegram
+#     data:
+#       # target: device/Nexus5X
+#       message: "zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level}}"

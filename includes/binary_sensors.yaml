@@ -1,10 +1,10 @@
 - platform: workday
   country: NL
   workdays: [ mon, tue, wed, thu, fri ]
-- platform: ping
-  host: 192.168.0.196
-  scan_interval: 30
-  name: ping_raumfeld
+# - platform: ping
+#   host: 192.168.0.196
+#   scan_interval: 30
+#   name: ping_raumfeld
 - platform: trend
   sensors:
     hotwateron:

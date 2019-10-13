@@ -1,147 +1,147 @@
-- id: itho_1
-  alias: Restart ITHO on false status
-  trigger:
-  - entity_id: sensor.itho_ventilatie_status
-    for:
-      seconds: 20
-    platform: state
-    to: 'false'
-  action:
-  - data:
-      payload: restart
-      topic: hass/itho/cmd
-    service: mqtt.publish
-  - delay: 00:01:00
-  - data:
-      payload: State,1
-      topic: hass/itho/cmd
-    service: mqtt.publish
-- id: updater
-  alias: Update Available Notifications
-  trigger:
-    platform: state
-    entity_id: updater.updater
-  action:
-    service: notify.telegram
-    data:
-      # target: device/Nexus5X
-      message: Version {{ states('sensor.current_version') }} for Home Assistant is
-        available.
-- id: hass_startup
-  alias: HA_Start
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: homeassistant_start
-  action:
-  - service: group.set_visibility
-    entity_id: group.zolder_ventilatie_moving
-    data:
-      visible: false
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.zolder_ventilatie
-      value: '100'
-  - delay: 00:02:00
-  - service: automation.turn_on
-    entity_id: group.all_automations
-- id: appdaemon_alive_1
-  alias: appdaemon_alive_1
-  trigger:
-  - platform: state
-    entity_id: input_boolean.appdaemon_alive
-    to: 'off'
-    for:
-      minutes: 5
-  action:
-  - service: notify.telegram
-    data:
-      # target: device/Nexus5X
-      message: Appdaemon draait niet
-- id: appdaemon_alive_2
-  alias: appdaemon_alive_2
-  trigger:
-    platform: time_pattern
-    minutes: /5
-  action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.appdaemon_alive
-- id: pingpong
-  alias: Telegram bot that reply pong to ping
-  hide_entity: true
-  trigger:
-    platform: event
-    event_type: telegram_command
-    event_data:
-      command: /ping
-  action:
-  - service: notify.telegram
-    data:
-      message: 'pong
+# - id: itho_1
+#   alias: Restart ITHO on false status
+#   trigger:
+#   - entity_id: sensor.itho_ventilatie_status
+#     for:
+#       seconds: 20
+#     platform: state
+#     to: 'false'
+#   action:
+#   - data:
+#       payload: restart
+#       topic: hass/itho/cmd
+#     service: mqtt.publish
+#   - delay: 00:01:00
+#   - data:
+#       payload: State,1
+#       topic: hass/itho/cmd
+#     service: mqtt.publish
+# - id: updater
+#   alias: Update Available Notifications
+#   trigger:
+#     platform: state
+#     entity_id: updater.updater
+#   action:
+#     service: notify.telegram
+#     data:
+#       # target: device/Nexus5X
+#       message: Version {{ states('sensor.current_version') }} for Home Assistant is
+#         available.
+# - id: hass_startup
+#   alias: HA_Start
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: homeassistant_start
+#   action:
+#   - service: group.set_visibility
+#     entity_id: group.zolder_ventilatie_moving
+#     data:
+#       visible: false
+#   - service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.zolder_ventilatie
+#       value: '100'
+#   - delay: 00:02:00
+#   - service: automation.turn_on
+#     entity_id: group.all_automations
+# - id: appdaemon_alive_1
+#   alias: appdaemon_alive_1
+#   trigger:
+#   - platform: state
+#     entity_id: input_boolean.appdaemon_alive
+#     to: 'off'
+#     for:
+#       minutes: 5
+#   action:
+#   - service: notify.telegram
+#     data:
+#       # target: device/Nexus5X
+#       message: Appdaemon draait niet
+# - id: appdaemon_alive_2
+#   alias: appdaemon_alive_2
+#   trigger:
+#     platform: time_pattern
+#     minutes: /5
+#   action:
+#   - service: input_boolean.turn_off
+#     entity_id: input_boolean.appdaemon_alive
+# - id: pingpong
+#   alias: Telegram bot that reply pong to ping
+#   hide_entity: true
+#   trigger:
+#     platform: event
+#     event_type: telegram_command
+#     event_data:
+#       command: /ping
+#   action:
+#   - service: notify.telegram
+#     data:
+#       message: 'pong
 
-        pang'
-- id: heal_network
-  alias: heal at 2:32am
-  trigger:
-    platform: time
-    at: '2:32:00'
-  action:
-    service: zwave.heal_network
-- id: ping_raumfeld
-  alias: Ping Raumfeld
-  trigger:
-    platform: state
-    entity_id: binary_sensor.ping_raumfeld
-    to: 'off'
-    for:
-      minutes: 1
-  action:
-    service: notify.telegram
-    data:
-      # target: device/Nexus5X
-      message: Raumfeld offline
-- id: sander_gaat_weg
-  alias: Sander gaat weg
-  trigger:
-  - entity_id: device_tracker.phone_sander
-    platform: state
-    to: not_home
-  action:
-  - data:
-      message: Sander verlaat het huis
-      # target: device/Nexus5X
-    service: notify.telegram
-- id: restart_ems-esp
-  alias: restart EMS ESP device
-  trigger:
-    platform: time
-    at: "03:00:00"
-  action:
-    - service: mqtt.publish
-      data:
-        payload: 1
-        topic: home/ems-esp/restart
-- id: rolluik_manual
-  alias: Manual operation rolluik zolder
-  trigger:
-    - platform: event
-      event_type: zwave.scene_activated
-      event_data:
-        entity_id: zwave.zolder_rolluik
-        scene_id: 16
-    - platform: event
-      event_type: zwave.scene_activated
-      event_data:
-        entity_id: zwave.zolder_rolluik
-        scene_id: 26
-  action:
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.rolluik_manual
-- id: rolluik_reset
-  alias: rolluik reset
-  trigger:
-    platform: time
-    at: '22:00:00'
-  action:
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.rolluik_manual
+#         pang'
+# - id: heal_network
+#   alias: heal at 2:32am
+#   trigger:
+#     platform: time
+#     at: '2:32:00'
+#   action:
+#     service: zwave.heal_network
+# - id: ping_raumfeld
+#   alias: Ping Raumfeld
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.ping_raumfeld
+#     to: 'off'
+#     for:
+#       minutes: 1
+#   action:
+#     service: notify.telegram
+#     data:
+#       # target: device/Nexus5X
+#       message: Raumfeld offline
+# - id: sander_gaat_weg
+#   alias: Sander gaat weg
+#   trigger:
+#   - entity_id: device_tracker.phone_sander
+#     platform: state
+#     to: not_home
+#   action:
+#   - data:
+#       message: Sander verlaat het huis
+#       # target: device/Nexus5X
+#     service: notify.telegram
+# - id: restart_ems-esp
+#   alias: restart EMS ESP device
+#   trigger:
+#     platform: time
+#     at: "03:00:00"
+#   action:
+#     - service: mqtt.publish
+#       data:
+#         payload: 1
+#         topic: home/ems-esp/restart
+# - id: rolluik_manual
+#   alias: Manual operation rolluik zolder
+#   trigger:
+#     - platform: event
+#       event_type: zwave.scene_activated
+#       event_data:
+#         entity_id: zwave.zolder_rolluik
+#         scene_id: 16
+#     - platform: event
+#       event_type: zwave.scene_activated
+#       event_data:
+#         entity_id: zwave.zolder_rolluik
+#         scene_id: 26
+#   action:
+#   - service: input_boolean.turn_on
+#     entity_id: input_boolean.rolluik_manual
+# - id: rolluik_reset
+#   alias: rolluik reset
+#   trigger:
+#     platform: time
+#     at: '22:00:00'
+#   action:
+#   - service: input_boolean.turn_off
+#     entity_id: input_boolean.rolluik_manual

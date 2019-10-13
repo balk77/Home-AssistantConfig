@@ -1,0 +1,817 @@
+- id: wk_muur2
+  alias: WK Muur aan op Beweging
+  trigger:
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '8'
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '3'
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: '{{ states.sun.sun.attributes.elevation  | int < 8 }}'
+    - condition: state
+      entity_id: input_boolean.huis_slaapstand
+      state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.wk_muur_level
+      brightness: 50
+- id: wk_muur3
+  alias: WK Muur na zonsopgang uit
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    above: 8
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: group.woonkamer_ex_muur
+      state: 'off'
+    - condition: time
+      before: '12:00:00'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.wk_muur_level
+- id: wk_muur4
+  alias: WK Muur uit bij geen Beweging
+  trigger:
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '0'
+    for:
+      minutes: 10
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: '{{ states.sun.sun.attributes.elevation  | int > 8 }}'
+    - condition: state
+      entity_id: input_boolean.huis_slaapstand
+      state: 'off'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.wk_muur_level
+- id: toggle_bankje
+  alias: Toggle bankje aan/uit
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.keuken_koof
+      scene_id: 26
+  action:
+  - service: light.toggle
+    data:
+      transition: 3
+      entity_id: light.wk_muur_level
+- id: douche_counter
+  alias: Aantal keren douchen
+  trigger:
+  - entity_id: input_boolean.shower
+    platform: state
+    to: 'on'
+    for:
+      minutes: 2
+  action:
+  - service: counter.increment
+    data:
+      entity_id: counter.douches
+- id: reset_douche_counter
+  alias: Reset Douche Counter
+  trigger:
+    platform: time
+    at: '4:00:00'
+  action:
+  - service: counter.reset
+    data:
+      entity_id: counter.douches
+- id: hank_wk1
+  alias: Hank wk1
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.hank_knop_wk
+      scene_id: 1
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: light.wk_eettafel_plafond_level
+      brightness: '{% if is_state(''light.wk_eettafel_plafond_level'', ''off'') %}
+        50 {% else %}  {% set suggested = states.light.wk_eettafel_plafond_level.attributes.brightness|int
+        + 50 %} {% if suggested < 254 %} {{ suggested }} {% else %} 0 {% endif %}
+        {% endif %}
+
+        '
+- id: irremoteprevious
+  alias: IR Remote Previous
+  trigger:
+  - entity_id: binary_sensor.ir_remote_previous
+    platform: state
+  action:
+  - data:
+      entity_id: media_player.spotify
+    service: media_player.media_previous_track
+- id: irremotenext
+  alias: IR Remote Next
+  trigger:
+  - entity_id: binary_sensor.ir_remote_next
+    platform: state
+  action:
+  - data:
+      entity_id: media_player.spotify
+    service: media_player.media_next_track
+- id: irremoteplaypause
+  alias: IR Remote Play/Pause
+  trigger:
+  - entity_id: binary_sensor.ir_remote_playpause
+    platform: state
+  action:
+  - data:
+      entity_id: media_player.spotify
+    service: media_player.media_play_pause
+- id: irremotevoldown
+  alias: IR Remote Volume Down
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ir_remote_voldown
+  action:
+    service: media_player.volume_down
+    data:
+      entity_id: media_player.spotify
+- id: irremotevolup
+  alias: IR Remote Volume Up
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ir_remote_volup
+  action:
+    service: media_player.volume_up
+    data:
+      entity_id: media_player.spotify
+- id: Keuken_aanrecht_muur_1
+  alias: Keuken aanrecht knop bediening
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.wk_achter_plafond
+      scene_id: 26
+  action:
+    service: light.toggle
+    data:
+      entity_id: light.keuken_aanrecht_groep
+- id: Keuken_aanrecht_muur_2
+  alias: Keuken aanrecht knop aan max
+  trigger:
+  - entity_id: light.keuken_aanrecht_groep
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - data:
+      brightness: 255
+      entity_id: light.keuken_aanrecht_groep
+    service: light.turn_on
+- id: Keuken_aanrecht_muur_3
+  alias: Keuken aanrecht dim om 20:00
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+  - condition: state
+    entity_id: light.keuken_aanrecht_groep
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.pir_sensor_keuken
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.keuken_aanrecht_groep
+      brightness: 150
+      transition: 30
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.pir_sensor_keuken
+- id: keuken_aanrecht_pir_vol
+  alias: Keuken aanrecht vol bij Beweging
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_sensor_keuken
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: light.keuken_aanrecht_groep
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.keuken_aanrecht_groep
+      brightness: 255
+      transition: 1
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.pir_sensor_keuken
+- id: keuken_aanrecht_pir_dim
+  alias: Keuken aanrecht dim bij geen Beweging
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_sensor_keuken
+    to: 'off'
+    for:
+      seconds: '240'
+  condition:
+  - condition: state
+    entity_id: light.keuken_aanrecht_groep
+    state: 'on'
+  - condition: time
+    after: '20:00:00'
+  - condition: state
+    entity_id: input_boolean.huis_slaapstand
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.keuken_aanrecht_groep
+      brightness: 150
+      transition: 30
+- id: keuken_aanrecht_reboot
+  alias: Keuken aanrecht sensor reboot
+  trigger:
+  - platform: mqtt
+    topic: keuken_aanrecht_rechts/boot
+    payload: reboot
+  - platform: mqtt
+    topic: keuken_aanrecht_links/boot
+    payload: reboot
+  action:
+    service: notify.telegram
+    data:
+      message: Keuken sensor reboot!
+- id: keuken_aanrecht_geen_beweging
+  alias: Keuken aanrecht geen Beweging
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_sensor_keuken
+    to: 'off'
+    for:
+      seconds: '240'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.pir_sensor_keuken
+- id: keuken_aanrecht_aan_ochtend
+  alias: Keuken aanrecht aan in ochtend
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_sensor_keuken
+    to: 'on'
+  condition:
+  - condition: time
+    after: '5:45:00'
+    before: '6:45:00'
+  - condition: template
+    value_template: '{{as_timestamp(now()) - as_timestamp(states.light.keuken_aanrecht_groep.last_changed)
+      > 30 }}'
+  - condition: sun
+    before: sunrise
+  action:
+  - service: light.turn_on
+    data:
+      brightness: 255
+      entity_id: light.keuken_aanrecht_groep
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.pir_sensor_keuken
+- id: keuken_aanrecht_uit_ochtend
+  alias: Keuken aanrecht uit in ochtend
+  trigger:
+    platform: state
+    entity_id: input_boolean.pir_sensor_keuken
+    to: 'off'
+  condition:
+  - condition: time
+    after: '5:45:00'
+    before: '6:50:00'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.keuken_aanrecht_groep
+- id: itho_1
+  alias: Restart ITHO on false status
+  trigger:
+  - entity_id: sensor.itho_ventilatie_status
+    for:
+      seconds: 20
+    platform: state
+    to: 'false'
+  action:
+  - data:
+      payload: restart
+      topic: hass/itho/cmd
+    service: mqtt.publish
+  - delay: 00:01:00
+  - data:
+      payload: State,1
+      topic: hass/itho/cmd
+    service: mqtt.publish
+- id: updater
+  alias: Update Available Notifications
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: notify.telegram
+    data:
+      message: Version {{ states('sensor.current_version') }} for Home Assistant is
+        available.
+- id: hass_startup
+  alias: HA_Start
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: homeassistant_start
+  action:
+  - service: group.set_visibility
+    data:
+      entity_id: group.zolder_ventilatie_moving
+      visible: false
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.zolder_ventilatie
+      value: '100'
+  - delay: 00:02:00
+  - service: automation.turn_on
+    data:
+      entity_id: group.all_automations
+- id: appdaemon_alive_1
+  alias: appdaemon_alive_1
+  description: Checks if appdaemon status is off for > 5 minutes
+  trigger:
+  - entity_id: input_boolean.appdaemon_alive
+    for:
+      minutes: 5
+    platform: state
+    to: 'off'
+  action:
+  - data:
+      message: Appdaemon draait niet
+    service: notify.telegram
+- id: appdaemon_alive_2
+  alias: appdaemon_alive_2
+  description: Switch off "appdaemon alive" boolean every 5 minutes
+  trigger:
+  - minutes: /5
+    platform: time_pattern
+  action:
+  - data:
+      entity_id: input_boolean.appdaemon_alive
+    service: input_boolean.turn_off
+- id: pingpong
+  alias: Telegram bot that reply pong to ping
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: /ping
+  action:
+  - service: notify.telegram
+    data:
+      message: 'pong
+
+        pang'
+- id: heal_network
+  description: Heal z-wave network every night
+  alias: heal at 2:32am
+  trigger:
+    platform: time
+    at: '2:32:00'
+  action:
+    service: zwave.heal_network
+- id: sander_gaat_weg
+  alias: Sander gaat weg
+  trigger:
+  - entity_id: device_tracker.phone_sander
+    platform: state
+    to: not_home
+  action:
+  - data:
+      message: Sander verlaat het huis
+    service: notify.telegram
+- id: restart_ems-esp
+  alias: restart EMS ESP device
+  trigger:
+    platform: time
+    at: 03:00:00
+  action:
+  - service: mqtt.publish
+    data:
+      payload: 1
+      topic: home/ems-esp/restart
+- id: rolluik_manual
+  alias: Manual operation rolluik zolder
+  description: Override automatische bediening rolluik
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.zolder_rolluik
+      scene_id: 16
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.zolder_rolluik
+      scene_id: 26
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.rolluik_manual
+- id: rolluik_reset
+  alias: rolluik reset
+  description: Reset override automatische bediening rolluik
+  trigger:
+    platform: time
+    at: '22:00:00'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.rolluik_manual
+- id: sous_vide_on
+  alias: Start Sous Vide unit
+  trigger:
+  - platform: state
+    entity_id: input_boolean.sousvide_active
+    to: 'on'
+  action:
+  - data:
+      payload: running
+      topic: anova/command/run
+    service: mqtt.publish
+- id: sous_vide_off
+  alias: Stop Sous Vide unit
+  trigger:
+  - platform: state
+    entity_id: input_boolean.sousvide_active
+    to: 'off'
+  action:
+  - data:
+      payload: stopped
+      topic: anova/command/run
+    service: mqtt.publish
+- id: wasmachine_01
+  alias: Washer Start
+  trigger:
+    platform: state
+    entity_id: binary_sensor.washer_pwrup
+    from: 'off'
+    to: 'on'
+    for:
+      minutes: 3
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.washer_switch
+- id: wasmachine_02
+  alias: Wasmachine Klaar
+  trigger:
+    platform: state
+    entity_id: binary_sensor.washer_pwrup
+    from: 'on'
+    to: 'off'
+    for:
+      minutes: 3
+  condition:
+    condition: state
+    entity_id: input_boolean.washer_switch
+    state: 'on'
+  action:
+  - service: notify.telegram
+    data:
+      message: Wasmachine is klaar!
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.washer_switch
+- id: droger_01
+  alias: Dryer Start
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dryer_pwrup
+    from: 'off'
+    to: 'on'
+    for:
+      minutes: 3
+  action:
+    service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.dryer_switch
+- id: droger_02
+  alias: Droger Klaar
+  trigger:
+    platform: state
+    entity_id: binary_sensor.dryer_pwrup
+    from: 'on'
+    to: 'off'
+    for:
+      minutes: 3
+  condition:
+    condition: state
+    entity_id: input_boolean.dryer_switch
+    state: 'on'
+  action:
+  - service: notify.telegram
+    data:
+      message: Droger is klaar!
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.dryer_switch
+- id: wasmachine_05
+  alias: notify if wasmachine meting is uit
+  trigger:
+  - entity_id: binary_sensor.powermeterwmdrstatus
+    for: 2 minutes
+    platform: state
+    to: 'off'
+  action:
+  - data:
+      message: Wasmachine meting staat uit!
+    service: notify.telegram
+- id: thermostaat_3
+  alias: Thermostaat 3
+  trigger:
+  - platform: time
+    at: '2:00:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.huis_slaapstand
+    state: 'off'
+  action:
+  - service: ifttt.trigger
+    data:
+      event: SetTemp
+      value1: 15
+  - service: input_number.set_value
+    data_template:
+      entity_id: input_number.iftt_temp_triggered_sp
+      value: 15
+  - delay: 00:00:01
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.iftt_temp_triggered
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.huis_slaapstand
+- id: occupancy_sim_on
+  alias: Simulate Occupancy - on
+  trigger:
+  - platform: state
+    entity_id: input_boolean.occupancy_simulation
+    to: 'on'
+  action:
+    service: script.turn_on
+    data:
+      entity_id: script.woonkamer_low
+- id: occupancy_sim_off
+  alias: occupancy_sim_off
+  trigger:
+  - platform: state
+    entity_id: sensor.wk_multisensor_burglar
+    to: '8'
+  - platform: state
+    entity_id: sensor.wk_multisensor_burglar
+    to: '3'
+  action:
+    service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.occupancy_simulation
+- id: occupancy_sim_goodnight
+  alias: occupancy_sim_goodnight
+  trigger:
+    platform: time
+    at: '22:30'
+  condition:
+  - condition: state
+    entity_id: input_boolean.occupancy_simulation
+    state: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.occupancy_simulation
+  - service: light.turn_off
+    data:
+      entity_id: group.woonkamer
+  - service: switch.turn_off
+    data:
+      entity_id: group.woonkamer
+  - service: notify.telegram
+    data:
+      message: Lampen in huis gaan uit
+- id: reset_huis_slaapstand
+  alias: Reset huis_slaapstand
+  trigger:
+    platform: time
+    at: 04:00:00
+  action:
+    service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.huis_slaapstand
+- id: set_huis_slaapstand
+  alias: Set huis_slaapstand
+  trigger:
+    platform: state
+    entity_id: group.woonkamer
+    to: 'off'
+  condition:
+    condition: or
+    conditions:
+    - condition: time
+      after: '21:00:00'
+    - condition: time
+      before: '4:00:00'
+  action:
+    service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.huis_slaapstand
+- id: notify_when_not_home_1
+  alias: Notify and activate Occupancy Simulation 1
+  trigger:
+  - platform: time
+    at: '18:10:00'
+  condition:
+  - condition: and
+    conditions:
+    - condition: sun
+      after: sunset
+    - condition: state
+      entity_id: group.woonkamer
+      state: 'off'
+  action:
+  - service: notify.telegram
+    data:
+      message: Lampen in huis gaan aan - aanwezigheidssimulatie
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.occupancy_simulation
+- id: notify_when_not_home_2
+  alias: Notify and activate Occupancy Simulation 2
+  trigger:
+  - platform: sun
+    event: sunset
+  condition:
+  - condition: and
+    conditions:
+    - condition: time
+      after: '18:10:00'
+    - condition: state
+      entity_id: group.woonkamer
+      state: 'off'
+    - condition: time
+      before: '22:30:00'
+  action:
+  - service: notify.telegram
+    data:
+      message: Lampen in huis gaan aan - aanwezigheidssimulatie
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.occupancy_simulation
+- id: vals_woonkamer_on
+  alias: Detect vals aantal lampen aan in woonkamer
+  trigger:
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '0'
+    for:
+      minutes: 60
+  condition:
+  - condition: and
+    conditions:
+    - condition: time
+      after: '22:00:00'
+    - condition: template
+      value_template: '{{ states.sensor.woonkamer_number_of_lights_on.state | int
+        <= 2  }}'
+  action:
+  - service: script.turn_on
+    data:
+      entity_id: script.woonkamer_off
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.huis_slaapstand
+- id: back_from_vacation
+  alias: Terug van Vakantie
+  trigger:
+  - entity_id: device_tracker.phone_sander
+    platform: state
+    to: home
+  condition:
+    condition: state
+    entity_id: input_boolean.vakantie
+    state: 'on'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.vakantie
+- id: disable_cv_ketel
+  alias: Zet thermostaat van klokprogramma af en op 15oC
+  trigger:
+    platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: zwave.keuken_koof
+      scene_id: 14
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.nefit_disable_clock_mode
+- id: enable_cv_ketel
+  alias: Zet thermostaat op klokprogramma
+  trigger:
+  - platform: mqtt
+    topic: keuken_aanrecht_rechts/binary_sensor/pir_sensor_keuken/state
+    payload: 'ON'
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '8'
+  - entity_id: sensor.wk_multisensor_burglar
+    platform: state
+    to: '3'
+  condition:
+  - condition: template
+    value_template: '{{as_timestamp(now()) - as_timestamp(states.input_boolean.nefit_disable_clock_mode.last_changed)
+      > 600 }}'
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.nefit_disable_clock_mode
+- id: wk_multisensor_battery1
+  alias: wk_multisensor_battery1
+  trigger:
+  - entity_id: sensor.wk_multisensor_battery_level
+    platform: numeric_state
+    below: 25
+  action:
+    service: notify.telegram
+    data:
+      message: wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level
+        }}
+- id: wk_multisensor_battery2
+  alias: wk_multisensor_battery2
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+  - entity_id: sensor.wk_multisensor_battery_level
+    condition: numeric_state
+    below: 25
+  action:
+    service: notify.telegram
+    data:
+      message: wk_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level}}
+- id: zolder_multisensor_battery1
+  alias: zolder_multisensor_battery1
+  trigger:
+  - entity_id: sensor.zolder_multisensor_battery_level
+    platform: numeric_state
+    below: 25
+  action:
+    service: notify.telegram
+    data:
+      message: zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level
+        }}
+- id: zolder_multisensor_battery2
+  alias: zolder_multisensor_battery2
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+  - entity_id: sensor.zolder_multisensor_battery_level
+    condition: numeric_state
+    below: 25
+  action:
+    service: notify.telegram
+    data:
+      message: zolder_multisensor batterij niveau is {{ states.zwave.wk_multisensor.attributes.battery_level}}
+- id: '1570865076657'
+  alias: New Automation
+  description: ''
+  trigger:
+  - above: '101'
+    device_id: 69caa2b4298c40cdb5c533e6fa6c84d0
+    domain: sensor
+    entity_id: sensor.badkamer_relhumidity
+    platform: device
+    type: value
+  condition: []
+  action:
+  - device_id: 94c3de4c261c4efd846582f15eec7c24
+    domain: switch
+    entity_id: switch.schemerlamp_switch
+    type: turn_off
