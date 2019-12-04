@@ -7,9 +7,9 @@ hello_world:
 #   module: test
 #   class: test
 
-zolder_ventilatie:
-  module: zolder_ventilatie
-  class: ZolderVentilatie
+# zolder_ventilatie:
+#   module: zolder_ventilatie
+#   class: ZolderVentilatie
 
 fancontrol:
   module: fancontrol
@@ -29,14 +29,14 @@ droger:
   appliance: dryer
   kwhsensor: sensor.total_daily_energy_wasmachine
 
-humdelta:
-  module: sensorexport
-  class: sensorexport
-  trigger: sensor.humdelta
-  location: eersteverdiep
-  sublocation: badkamer
-  sensor: dht
-  property: humdelta
+# humdelta:
+#   module: sensorexport
+#   class: sensorexport
+#   trigger: sensor.humdelta
+#   location: eersteverdiep
+#   sublocation: badkamer
+#   sensor: dht
+#   property: humdelta
 
 appdaemonalive:
   module: appdaemonalive
@@ -228,29 +228,32 @@ sousvide:
 #   # appliance: washer
 #   # kwhsensor: sensor.wasmachine_energy
 
-chflowcombined:
-  module: chflowcalc
-  class: chflowcalc
-  temp_combined: "sensor.ch_retour"
-  temp_1: "sensor.ch_retour_voor"
-  temp_2: "sensor.ch_retour_achter_en_badkamer"
-  combined_flow: ""
-  flowtopic_1: "zolder/ketel/chvoor/flow"
-  flowtopic_2: "zolder/ketel/chbadkamerachter/flow"
-  displaytopic_1: "zolder/ketel/chvoor/flowdisplay"
-  displaytopic_2: "zolder/ketel/chbadkamerachter/flowdisplay"
 
-chflowachterbadkamer:
-  module: chflowcalc
-  class: chflowcalc
-  temp_combined: "sensor.ch_retour_achter_en_badkamer"
-  temp_1: "sensor.ch_retour_achter"
-  temp_2: "sensor.ch_retour_badkamer"
-  combined_flow: "sensor.chflowbadkamerachter"
-  flowtopic_1: "zolder/ketel/chachter/flow"
-  flowtopic_2: "zolder/ketel/chbadkamer/flow"
-  displaytopic_1: "zolder/ketel/chachter/flowdisplay"
-  displaytopic_2: "zolder/ketel/chbadkamer/flowdisplay"
+# Uitgezet omdat de sensoren toch niet werken
+# chflowcombined:
+#   module: chflowcalc
+#   class: chflowcalc
+#   temp_combined: "sensor.ch_retour"
+#   temp_1: "sensor.ch_retour_voor"
+#   temp_2: "sensor.ch_retour_achter_en_badkamer"
+#   combined_flow: ""
+#   flowtopic_1: "zolder/ketel/chvoor/flow"
+#   flowtopic_2: "zolder/ketel/chbadkamerachter/flow"
+#   displaytopic_1: "zolder/ketel/chvoor/flowdisplay"
+#   displaytopic_2: "zolder/ketel/chbadkamerachter/flowdisplay"
+
+# chflowachterbadkamer:
+#   module: chflowcalc
+#   class: chflowcalc
+#   temp_combined: "sensor.ch_retour_achter_en_badkamer"
+#   temp_1: "sensor.ch_retour_achter"
+#   temp_2: "sensor.ch_retour_badkamer"
+#   combined_flow: "sensor.chflowbadkamerachter"
+#   flowtopic_1: "zolder/ketel/chachter/flow"
+#   flowtopic_2: "zolder/ketel/chbadkamer/flow"
+#   displaytopic_1: "zolder/ketel/chachter/flowdisplay"
+#   displaytopic_2: "zolder/ketel/chbadkamer/flowdisplay"
+
 
 showergasuse:
   module: showergasuse

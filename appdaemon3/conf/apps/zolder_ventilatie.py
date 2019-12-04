@@ -23,8 +23,6 @@ class ZolderVentilatie(hass.Hass):
 
         # Disable input from user interface and show message "Valve is moving" instead
 
-        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie", visible="False")
-        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie_moving", visible="True")
         self.call_service("input_boolean/turn_on", entity_id="input_boolean.show_moving_valve")
 
         # Set time (seconds) for the valve to move from open to close, or close to open
@@ -70,23 +68,25 @@ class ZolderVentilatie(hass.Hass):
         # Actual commands to valve, via MQTT
 
         if direction == "open":
-            # stop valve closing
-            self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/Power1", payload="off")
-            # send required move time
-            self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/PulseTime2", payload=PulseTime)
-            # initiate movement for $PulseTime seconds
-            self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/Power2", payload="on")
+            
+            # start to open valve
+            self.call_service("cover/open_cover", entity_id="cover.zolder_ventilatie")
+            # Stop after `PulseTime_sec`
+            self.run_in(self.stop_valve, PulseTime_sec)
+            # Hide frontend element
+            self.run_in(self.turn_on_handler, PulseTime_sec)
         elif direction == "close":
-            # stop valve opening
-            self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/Power2", payload="off")
-            # send required move time
-            self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/PulseTime1", payload=PulseTime)
-            # initiate movement for $PulseTime seconds
-            self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/Power1", payload="on")
+            # start to close valve
+            self.call_service("cover/close_cover", entity_id="cover.zolder_ventilatie")
+            # Stop after `PulseTime_sec`
+            self.run_in(self.stop_valve, PulseTime_sec)
+            # Hide frontend element
+            self.run_in(self.turn_on_handler, PulseTime_sec)
         elif direction == "stay":
             # stop valve closing and opening
-            self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/Power1", payload="off")
-            self.call_service("mqtt/publish", topic="/zolder/ventilatie/sonoff/cmnd/Power2", payload="off")
+            
+            self.run_in(self.stop_valve, PulseTime_sec)
+            
         # write DesiredPercentage value to Home Assistant for next time
         self.set_value("input_number.zolder_ventilatie_old", DesiredPercentage)
 
@@ -94,6 +94,10 @@ class ZolderVentilatie(hass.Hass):
         self.run_in(self.turn_on_handler, PulseTime_sec)
 
     def turn_on_handler(self, kwargs):
-        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie", visible="True")
-        # self.call_service("group/set_visibility", entity_id="group.zolder_ventilatie_moving", visible="False")
         self.call_service("input_boolean/turn_off", entity_id="input_boolean.show_moving_valve")
+
+    def stop_valve(self, kwargs):
+
+        self.call_service("cover/stop_cover", entity_id="cover.zolder_ventilatie")
+
+

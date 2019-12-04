@@ -114,8 +114,11 @@
 - id: irremoteprevious
   alias: IR Remote Previous
   trigger:
-  - entity_id: binary_sensor.ir_remote_previous
-    platform: state
+  - device_id: a43998b5638e4de98cbdbba88684fc3b
+    domain: binary_sensor
+    entity_id: binary_sensor.ir_remote_previous
+    platform: device
+    type: turned_on
   action:
   - data:
       entity_id: media_player.spotify
@@ -123,8 +126,11 @@
 - id: irremotenext
   alias: IR Remote Next
   trigger:
-  - entity_id: binary_sensor.ir_remote_next
-    platform: state
+  - device_id: a43998b5638e4de98cbdbba88684fc3b
+    domain: binary_sensor
+    entity_id: binary_sensor.ir_remote_next
+    platform: device
+    type: turned_on
   action:
   - data:
       entity_id: media_player.spotify
@@ -132,8 +138,11 @@
 - id: irremoteplaypause
   alias: IR Remote Play/Pause
   trigger:
-  - entity_id: binary_sensor.ir_remote_playpause
-    platform: state
+  - device_id: 1e1abf6192354ed4a54b11c3f8ea4679
+    domain: binary_sensor
+    entity_id: binary_sensor.ir_remote_playpause
+    platform: device
+    type: turned_on
   action:
   - data:
       entity_id: media_player.spotify
@@ -141,21 +150,27 @@
 - id: irremotevoldown
   alias: IR Remote Volume Down
   trigger:
-    platform: state
+  - device_id: a43998b5638e4de98cbdbba88684fc3b
+    domain: binary_sensor
     entity_id: binary_sensor.ir_remote_voldown
+    platform: device
+    type: turned_on
   action:
-    service: media_player.volume_down
-    data:
+  - data:
       entity_id: media_player.spotify
+    service: media_player.volume_down
 - id: irremotevolup
   alias: IR Remote Volume Up
   trigger:
-    platform: state
+  - device_id: a43998b5638e4de98cbdbba88684fc3b
+    domain: binary_sensor
     entity_id: binary_sensor.ir_remote_volup
+    platform: device
+    type: turned_on
   action:
-    service: media_player.volume_up
-    data:
+  - data:
       entity_id: media_player.spotify
+    service: media_player.volume_up
 - id: Keuken_aanrecht_muur_1
   alias: Keuken aanrecht knop bediening
   trigger:
@@ -537,7 +552,7 @@
   alias: notify if wasmachine meting is uit
   trigger:
   - entity_id: binary_sensor.powermeterwmdrstatus
-    for: 2 minutes
+    for: 00:02
     platform: state
     to: 'off'
   action:
@@ -734,9 +749,9 @@
 - id: enable_cv_ketel
   alias: Zet thermostaat op klokprogramma
   trigger:
-  - platform: mqtt
-    topic: keuken_aanrecht_rechts/binary_sensor/pir_sensor_keuken/state
-    payload: 'ON'
+  - platform: state
+    entity_id: binary_sensor.pir_sensor_keuken
+    to: 'on'
   - entity_id: sensor.wk_multisensor_burglar
     platform: state
     to: '8'

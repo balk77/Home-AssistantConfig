@@ -19,7 +19,7 @@ class masterslavezolder(hass.Hass):
         self.main()
 
     def main(self):
-
+        
         ventipv = float(self.get_state(self.args["ventipv"]))
         thermpv = float(self.get_state(self.args["thermpv"]))
         roomsp = float(self.get_state(self.args["roomsp"]))

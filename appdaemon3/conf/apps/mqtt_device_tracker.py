@@ -6,6 +6,7 @@ class mqtt_device_tracker(hass.Hass):
         self.listen_state(self.inputhandler, self.args["trigger"])
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
+        
         confidence = float(self.get_state(self.args["trigger"]))
         state = self.get_state(self.args["device"])
         device_topic = self.args["device_topic"]

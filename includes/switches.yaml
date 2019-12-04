@@ -9,6 +9,18 @@
       turn_off:
         service: switch.turn_off
         entity_id: switch.zolder_off
+# - platform: template
+#   switches:
+#     pihole:
+#       friendly_name: 'Pi Hole'
+#       turn_on:
+#         service: pi_hole.enable
+#       turn_off:
+#         service: pi_hole.disable
+#         data:
+#           duration: '00:60:00'
+
+
 - platform: command_line
   switches:
     pihole_switch:

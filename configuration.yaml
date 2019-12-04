@@ -1,23 +1,23 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home Linda en Sander
-  # Location required to calculate the time the sun rises and sets
-  latitude: !secret latitude
-  longitude: !secret longitude
+  # # Name of the location where Home Assistant is running
+  # name: Home Linda en Sander
+  # # Location required to calculate the time the sun rises and sets
+  # latitude: !secret latitude
+  # longitude: !secret longitude
 
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 0
+  # # Impacts weather/sunrise data (altitude above sea level in meters)
+  # elevation: 0
 
 
-  # metric for Metric, imperial for Imperial
-  unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: !secret time_zone
-  customize: !include customize.yaml
-  #packages: !include_dir_named packages
-  # auth_providers:
-  #  - type: homeassistant
-  ##  - type: legacy_api_password
+  # # metric for Metric, imperial for Imperial
+  # unit_system: metric
+  # # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  # time_zone: !secret time_zone
+  # customize: !include customize.yaml
+  # #packages: !include_dir_named packages
+  # # auth_providers:
+  # #  - type: homeassistant
+  # ##  - type: legacy_api_password
 
 lovelace:
 #   mode: yaml
@@ -120,6 +120,7 @@ sensor: !include includes/sensors.yaml
 binary_sensor: !include includes/binary_sensors.yaml
 switch: !include includes/switches.yaml
 fan: !include includes/fan.yaml
+plant: !include includes/plant.yaml
 
 counter:
   douches:
@@ -147,7 +148,8 @@ script: !include includes/script/scripts.yaml
   #- !include script/mbr.yaml
 #script: !include script/group_visibility.yaml
 input_boolean: !include includes/input_booleans.yaml
-scene: !include_dir_list scenes
+scene: !include scenes.yaml
+#scene_old: !include_dir_list scenes
 
 
 
@@ -260,9 +262,6 @@ timer:
   convectorput_runout:
 
 
-# maxcube:
-#   gateways:
-#     - host: 192.168.0.128
 
 input_datetime:
   sousvidefinish:
@@ -289,3 +288,15 @@ homematic:
       username: !secret homematic_username
       password: !secret homematic_password
 
+# maxcube:
+#   gateways:
+#     - host: 192.168.0.222
+#       port: 2323
+
+
+# Example configuration.yaml entry
+pi_hole:
+  host: '192.168.0.6'
+  ssl: false
+  verify_ssl: false
+  api_key: !secret pihole_api

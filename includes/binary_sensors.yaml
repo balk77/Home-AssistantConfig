@@ -5,22 +5,22 @@
 #   host: 192.168.0.196
 #   scan_interval: 30
 #   name: ping_raumfeld
-- platform: trend
-  sensors:
-    hotwateron:
-      entity_id: sensor.hw_aanvoer
-      friendly_name: Warm Water gaat aan
-      min_gradient: 0.2
-      sample_duration: 60
-      max_samples: 2
-      #device_class: moisture
-    hotwateroff:
-      entity_id: sensor.hw_aanvoer
-      friendly_name: Warm Water gaat uit
-      min_gradient: -0.01
-      sample_duration: 60
-      max_samples: 2
-      #device_class: moisture
+# - platform: trend
+#   sensors:
+#     hotwateron:
+#       entity_id: sensor.hw_aanvoer
+#       friendly_name: Warm Water gaat aan
+#       min_gradient: 0.2
+#       sample_duration: 60
+#       max_samples: 2
+#       #device_class: moisture
+#     hotwateroff:
+#       entity_id: sensor.hw_aanvoer
+#       friendly_name: Warm Water gaat uit
+#       min_gradient: -0.01
+#       sample_duration: 60
+#       max_samples: 2
+#       #device_class: moisture
 
 # NEFIT EMS script
 - platform: mqtt

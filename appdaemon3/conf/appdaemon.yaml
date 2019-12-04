@@ -2,6 +2,8 @@
 log:
   logfile: STDOUT
   errorfile: STDERR
+  log_size: 10000000
+  log_generations: 3
 appdaemon:
   api_port: 5001
   threads: 10

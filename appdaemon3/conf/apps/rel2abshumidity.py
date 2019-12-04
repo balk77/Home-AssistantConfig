@@ -6,6 +6,7 @@ class rel2abs(hass.Hass):
         self.listen_state(self.inputhandler, self.args["relhumidity"])
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
+        
         exception = 0 
         try:
             temperature = float(self.get_state(self.args["temperature"]))

@@ -21,5 +21,6 @@ class mqtttest(hass.Hass):
     
 
   def mqtt_callback(self, event_name, data, kwargs):
+    
     # do something with the received payload
     self.log(data['payload'])

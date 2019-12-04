@@ -1,0 +1,27 @@
+- id: '1574591819338'
+  name: Test
+  entities:
+    light.keuken_koof_level:
+      state: 'off'
+    zwave.keuken_koof:
+      state: ready
+- id: '1574707074031'
+  name: Woonkamer mid
+  entities:
+    light.keuken_aanrecht_groep:
+      brightness: 255
+      state: 'on'
+    light.wk_eettafel_plafond_level:
+      brightness: 150
+      state: 'on'
+    light.wk_muur_level:
+      brightness: 49
+      state: 'on'
+    switch.schemerlamp_switch:
+      state: 'on'
+    zwave.schemerlamp:
+      state: ready
+    zwave.wk_eettafel_plafond:
+      state: ready
+    zwave.wk_muur:
+      state: ready

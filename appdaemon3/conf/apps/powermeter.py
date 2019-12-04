@@ -10,7 +10,7 @@ class powermeter(hass.Hass):
     
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
-
+        
         newstate = self.get_state("sensor.ch_aanvoer")
         newtime = self.now()
 

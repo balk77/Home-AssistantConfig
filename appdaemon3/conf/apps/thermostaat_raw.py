@@ -8,7 +8,7 @@ class thermostaat_raw(hass.Hass):
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
         reading = self.get_state("sensor.thermostaat_tempsetpoint_raw")
-        #self.log(reading)
+        self.log(reading)
         if reading != "undefined":
             try:
                 temp_sp_thermostaat = float(reading)

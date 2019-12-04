@@ -1,16 +1,16 @@
-- platform: mqtt
-  #platform: mqtt_json
-  schema: json
-  command_topic: "/eerste/slaapkamer/rgb/set"
-  brightness: true
-  name: mqtt_json_slaapkamer
-  state_topic: "/eerste/slaapkamer/rgb/state"
-  rgb: true
-  effect: true
-  effect_list: [colorfade_slow, colorfade_fast, firegrad, rainbowcycle]
-  #flash: true
-  optimistic: false
-  qos: 0
+# - platform: mqtt
+#   #platform: mqtt_json
+#   schema: json
+#   command_topic: "/eerste/slaapkamer/rgb/set"
+#   brightness: true
+#   name: mqtt_json_slaapkamer
+#   state_topic: "/eerste/slaapkamer/rgb/state"
+#   rgb: true
+#   effect: true
+#   effect_list: [colorfade_slow, colorfade_fast, firegrad, rainbowcycle]
+#   #flash: true
+#   optimistic: false
+#   qos: 0
 
 # - platform: group
 #   name: Woonkamer verlichting (groep)

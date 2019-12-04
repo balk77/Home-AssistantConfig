@@ -15,6 +15,7 @@ class douche(hass.Hass):
         self.listen_state(self.shower_off, "input_boolean.shower", new="off", duration=30)
         self.listen_state(self.runout_off, "timer.fanrunout", new="idle", duration=10)
 
+
     def emstap(self, entity, attribute, old, new, kwargs):
         emstap = self.get_state("binary_sensor.tap_water")
         if emstap == "on":
@@ -24,7 +25,7 @@ class douche(hass.Hass):
 
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
-        
+        # self.log("ping")
         wk_boilerstatus = self.get_state("sensor.wk_boilerstatus")
         hotwateron_positive_gradient = self.get_state("binary_sensor.hotwateron")
         hotwateron_negative_gradient = self.get_state("binary_sensor.hotwateroff")
@@ -48,7 +49,8 @@ class douche(hass.Hass):
         # self.log(curr_shower_state)
 
         #if (lamp == "on" and curr_shower_state == "off" and hotwateron_negative_gradient == "off" and
-        if (lamp == "on" and hotwateron_negative_gradient == "off" and
+        # if (lamp == "on" and hotwateron_negative_gradient == "off" and
+        if (lamp == "on"  and
             (
                 wk_boilerstatus == "HW" or 
                 (hotwateron_positive_gradient == "on" or hw_aanvoer_temp > 40) 

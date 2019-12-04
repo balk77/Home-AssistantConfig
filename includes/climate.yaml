@@ -10,7 +10,7 @@
 #     - "on"
 #   min_temp: 10
 #   max_temp: 25
-#   intial: 13
+#   initial: 13
 #   retain: True
 # - platform: mqtt
 #   name: Kamer Fien
@@ -24,60 +24,60 @@
 #     - "on"
 #   min_temp: 10
 #   max_temp: 25
-#   intial: 13
+#   initial: 13
 #   retain: True
 - platform: mqtt
   name: Woonkamer
   #current_temperature_topic: "woonkamer/woonkamer/thermostaat/gemetentemperatuur"
   current_temperature_topic: "home/ems-esp/thermostat_data"
-  current_temperature_template: "{{ value_json.thermostat_currtemp }}"
+  current_temperature_template: "{{ value_json.hc1.currtemp }}"
   temperature_command_topic: "woonkamer/woonkamer/thermostaat/temperature/set"
   temperature_state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint2"
   mode_state_topic: "woonkamer/woonkamer/thermostaat/boilerstatus"
-#  mode_state_template: "{% if value | float == 0 %} off {% else %} on {% endif %}"
+  mode_state_template: "{% if value == 'CH' %} heat {% else %} off {% endif %}"
+  #mode_state_template: "{% if value | float == 0 %} off {% else %} on {% endif %}"
   modes:
-    - "No"
-    - "HW"
-    - "CH"
+    - "off"
+    - "heat"
   min_temp: 10
   max_temp: 25
   initial: 15
   retain: True
-- platform: mqtt
-  name: Sous vide
-  modes:
-    - disconnected
-    - stopped
-    - running
-  current_temperature_topic: anova/status
-  current_temperature_template: "{{ value_json.current_temp }}"
-  temperature_state_topic: anova/status
-  temperature_state_template: "{{ value_json.target_temp }}"
-  mode_state_topic: anova/status
-  mode_state_template: "{{ value_json.state }}"
-  mode_command_topic: anova/command/run
-  temperature_command_topic: anova/command/temp
-  min_temp: 20
-  max_temp: 99
+# - platform: mqtt
+#   name: Sous vide
+#   modes:
+#     - disconnected
+#     - stopped
+#     - running
+#   current_temperature_topic: anova/status
+#   current_temperature_template: "{{ value_json.current_temp }}"
+#   temperature_state_topic: anova/status
+#   temperature_state_template: "{{ value_json.target_temp }}"
+#   mode_state_topic: anova/status
+#   mode_state_template: "{{ value_json.state }}"
+#   mode_command_topic: anova/command/run
+#   temperature_command_topic: anova/command/temp
+#   min_temp: 20
+#   max_temp: 99
 # NEFIT EMS script
 # https://github.com/proddy/EMS-ESP-Boiler  
-- platform: mqtt
-  name: Thermostat
-  modes:
-    - low
-    - manual
-    - auto
+# - platform: mqtt
+#   name: Thermostat
+#   modes:
+#     - "off"
+#     - heat
+#     - auto
 
-  mode_state_topic: "home/ems-esp/thermostat_data"
-  current_temperature_topic: "home/ems-esp/thermostat_data"
-  temperature_state_topic: "home/ems-esp/thermostat_data"
+#   mode_state_topic: "home/ems-esp/thermostat_data"
+#   current_temperature_topic: "home/ems-esp/thermostat_data"
+#   temperature_state_topic: "home/ems-esp/thermostat_data"
 
-  temperature_command_topic: "home/ems-esp/thermostat_cmd_temp"
-  mode_command_topic: "home/ems-esp/thermostat_cmd_mode"
+#   temperature_command_topic: "home/ems-esp/thermostat_cmd_temp"
+#   mode_command_topic: "home/ems-esp/thermostat_cmd_mode"
 
-  mode_state_template: "{{ value_json.thermostat_mode }}"
-  current_temperature_template: "{{ value_json.thermostat_currtemp }}"
-  temperature_state_template: "{{ value_json.thermostat_seltemp }}"
+#   mode_state_template: "{{ value_json.thermostat_mode }}"
+#   current_temperature_template: "{{ value_json.thermostat_currtemp }}"
+#   temperature_state_template: "{{ value_json.thermostat_seltemp }}"
 
-  temp_step: 0.5
+#   temp_step: 0.5
 # End of NEFIT EMS script
