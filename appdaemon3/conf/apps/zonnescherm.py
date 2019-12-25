@@ -5,7 +5,7 @@ class zonnescherm(hass.Hass):
     def initialize(self):
         # Listen for state change of ventilation requirements
         self.listen_state(self.input_parse, "sensor.azimuth")
-        self.run_at_sunset(self.open_cover)
+        self.run_at_sunset(self.open_cover())
         #self.listen_state(self.input_parse, "sensor.badkamer_abshumidity")
 
         # DesiredPercentage = self.get_state("input_number.zolder_ventilatie")

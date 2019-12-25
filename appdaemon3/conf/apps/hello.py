@@ -9,8 +9,11 @@ class HelloWorld(hass.Hass):
 
   def initialize(self):
      self.log("Hello from AppDaemon")
-     self.log("You are now ready to run Apps!m")
-     self.log("")
-     self.log("")
-     self.log(self.sun_up()) 
+    #  self.log("You are now ready to run Apps!m")
+    #  self.log("")
+    #  self.log("")
+    #  self.log(self.sun_up()) 
+     
+    #  self.notify("lalalalla")
+    
 

@@ -11,6 +11,7 @@ class fancontrol(hass.Hass):
         # Listen for state change of ventilation requirements
         # self.log("   ")
         self.itho_reason_old = "x"
+        itho_reason = "x"
 
         # Change in humidity_level
         self.listen_state(self.main, "sensor.humdelta")
@@ -21,7 +22,7 @@ class fancontrol(hass.Hass):
         #self.listen_state(self.boiler_to_low, "sensor.wk_boilerstatus", old="HW")
 
         # change in attic temperature
-        self.listen_state(self.main,"sensor.zolder_max_t")
+        # self.listen_state(self.main,"sensor.zolder_max_t")
 
         self.listen_state(self.main, "input_boolean.shower")
         self.listen_state(self.main, "input_boolean.showerfanrunout")
@@ -52,6 +53,8 @@ class fancontrol(hass.Hass):
     def main(self, entity, attribute, old, new, kwargs):
         # self.log(self.itho_reason_old)
 
+        itho_reason="x"
+
         #self.log(self.get_state("input_boolean.vakantie"))
         if self.get_state("input_boolean.vakantie") == "off":
 
@@ -72,11 +75,11 @@ class fancontrol(hass.Hass):
                 if desiredStateHUM == "full":
                     self.setfanstate("full")
                     itho_reason="Humidity high, fan FULL, runout"
-                    # self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=itho_reason)
+                    
                 else:
                     self.setfanstate("high")
                     itho_reason="Humidity high, fan high, runout"
-                    # self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=itho_reason)
+                    
                     
             elif desiredStateHUM == "full":
                 # Close the ventilation for the attic to force airflow from bathroom
@@ -87,7 +90,7 @@ class fancontrol(hass.Hass):
                 # self.setfanstate("full")
                 self.setfanstate("High")
                 itho_reason="Humidity high, fan FULL"
-                # self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=itho_reason)
+                
                 
                 self.call_service("input_boolean/turn_on", entity_id="input_boolean.shower")
             elif desiredStateZOLDER == "full":
@@ -95,14 +98,14 @@ class fancontrol(hass.Hass):
                 self.call_service("cover/open_cover", entity_id="cover.zolder_ventilatie")
 
                 itho_reason="Zolder temp high, fan FULL"
-                # self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=itho_reason)
+                
                 # self.setfanstate("full")
                 self.setfanstate("High")
             elif desiredStateZOLDER == "high":
                 
                 self.call_service("cover/open_cover", entity_id="cover.zolder_ventilatie")
                 itho_reason="Zolder temp high, fan HIGH"
-                # self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=itho_reason)
+                
                 # self.setfanstate("high")
                 self.setfanstate("High")
             
@@ -115,7 +118,7 @@ class fancontrol(hass.Hass):
                 # self.setfanstate("high")
                 self.setfanstate("High")
                 itho_reason="Douche actief, fan HIGH"
-                # self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=itho_reason)
+                
             elif desiredStateHUM == "high":
                 # Close the ventilation for the attic to force airflow from bathroom
                 
@@ -126,7 +129,7 @@ class fancontrol(hass.Hass):
                 # self.setfanstate("high")
                 self.setfanstate("High")
                 itho_reason="Humidity high, fan HIGH"
-                #self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=itho_reason)
+                
                 
 
             elif desiredStateHUM == "medium" or desiredStateZOLDER == "medium": 
@@ -141,7 +144,7 @@ class fancontrol(hass.Hass):
                 elif desiredStateZOLDER == "medium":
                     msg = "zolder temp = medium, fan MED"
                     
-                #self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=msg)
+                
                 # self.setfanstate("medium")
                 self.setfanstate("Medium")
             elif desiredStateHW == "low" or desiredStateHUM == "low" or desiredStateZOLDER == "low":
@@ -150,7 +153,7 @@ class fancontrol(hass.Hass):
                 self.call_service("cover/open_cover", entity_id="cover.zolder_ventilatie")
                 
                 itho_reason="fan LOW"
-                #self.call_service("input_text/set_value", entity_id="input_text.itho_reason", value=itho_reason)
+                
                 # self.setfanstate("low")
                 self.setfanstate("Low")
             

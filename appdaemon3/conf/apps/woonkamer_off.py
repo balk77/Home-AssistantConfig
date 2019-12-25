@@ -23,7 +23,8 @@ class woonkamer_off(hass.Hass):
     self.call_service("input_boolean/turn_off", entity_id="input_boolean.vakantie")
 
     # activate house sleep mode between 20:00 and 4:00
-    if now.hour >= 20 or now.hour <= 4:
+    if self.now_is_between("20:00:00", "04:00:00"):
+    # if now.hour >= 20 or now.hour <= 4:
       self.call_service("input_boolean/turn_on", entity_id="input_boolean.huis_slaapstand")
 
     # self.log("aan en weer uit")

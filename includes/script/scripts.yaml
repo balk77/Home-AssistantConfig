@@ -2,9 +2,9 @@ woonkamer_low:
   alias: Woonkamer Low
   sequence:
     - service: light.turn_on
-      entity_id: light.keuken_aanrecht_groep
+      entity_id: light.wk_eettafel_plafond_level
       data:
-        brightness: 150
+        brightness: 120
     - delay:
         milliseconds: 100
     - service: switch.turn_on
@@ -27,8 +27,10 @@ woonkamer_low:
         milliseconds: 100
     - service: light.turn_off
       entity_id: light.wk_eettafel_plafond_level
-    # - delay:
-    #     milliseconds: 100
+    - delay:
+        milliseconds: 100
+    - service: switch.turn_on
+      entity_id: switch.kerstboom
     # - service: light.turn_off
     #   entity_id: light.keuken_plafond_level
     - delay:
@@ -162,3 +164,13 @@ mbr_low:
         milliseconds: 600000
     - service: light.turn_off
       entity_id: light.mbr_plafond_level
+all_lights_off:
+  alias: All Lights Off
+  sequence:
+    - service: light.turn_off
+      entity_id: group.all_lights
+    - service: switch.turn_off
+      entity_id: switch.schemerlamp_switch
+    - service: switch.turn_off
+      entity_id: switch.kerstboom
+    

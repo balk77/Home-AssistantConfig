@@ -17,7 +17,7 @@ class badkamerlight(hass.Hass):
         self.call_service("zwave/set_config_parameter", node_id=kwargs["node_id"],parameter=kwargs["parameter"],value=kwargs["value"])
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
-        now = datetime.datetime.now()
+        # now = datetime.datetime.now()
         workday_sensor = self.get_state("binary_sensor.workday_sensor")
         douchecounter = float(self.get_state("counter.douches"))
 
@@ -25,23 +25,23 @@ class badkamerlight(hass.Hass):
         # self.run_in(self.setlightfade, 20, brightness=255, transition=30)
 
 
-        if workday_sensor == "on" and now.hour >= 0 and now.hour < 5:
+        if workday_sensor == "on" and self.now_is_between("0:00:00", "05:00:00"):
             self.setlight(brightness=26, transition=0)
             self.run_in(self.changesetting, 1,node_id=13,parameter=19,value=10)
-        elif workday_sensor == "off" and now.hour >= 0 and now.hour < 7:
+        elif workday_sensor == "off" and self.now_is_between("0:00:00", "07:00:00"):
             self.setlight(brightness=26, transition=0)
             self.run_in(self.changesetting, 1,node_id=13,parameter=19,value=10)
         # test of Linda en Sander beiden gedoucht hebben
         elif douchecounter < 2:
-            if workday_sensor == "on" and now.hour >= 5 and now.hour < 8:
+            if workday_sensor == "on" and self.now_is_between("5:00:00", "08:00:00"):
                 self.setlight(brightness=26, transition=0)
                 self.run_in(self.setlightfade, 20, brightness=255, transition=30)
                 self.run_in(self.changesetting, 1,node_id=13,parameter=19,value=10)
-            elif workday_sensor == "on" and now.hour >= 8 and self.sun_down() and now.hour < 11:
+            elif workday_sensor == "on" and self.sun_down() and self.now_is_between("8:00:00", "11:00:00"):
                 self.setlight(brightness=26, transition=0)
                 self.run_in(self.setlightfade, 20, brightness=255, transition=30)
                 self.run_in(self.changesetting, 1,node_id=13,parameter=19,value=10)
-            elif workday_sensor == "off" and now.hour >= 7 and self.sun_down() and now.hour < 11:
+            elif workday_sensor == "off" and self.sun_down() and self.now_is_between("7:00:00", "11:00:00"):
                 self.setlight(brightness=26, transition=0)
                 self.run_in(self.setlightfade, 20, brightness=255, transition=30)
                 self.run_in(self.changesetting, 1,node_id=13,parameter=19,value=10)

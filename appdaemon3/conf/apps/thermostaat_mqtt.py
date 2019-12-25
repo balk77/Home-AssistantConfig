@@ -5,7 +5,7 @@ import requests
 class thermostaat_mqtt(hass.Hass):
     def initialize(self):
         
-        self.listen_state(self.program_enable, "input_boolean.nefit_programma",new="on")
+        # self.listen_state(self.program_enable, "input_boolean.nefit_programma",new="on")
         self.listen_state(self.inputhandler, "sensor.wk_thermostaat_hass_sp")
         #self.listen_state(self.manualorclockmode, "input_boolean.nefit_disable_clock_mode")
         self.listen_state(self.nefit_disable_clock_mode, "input_boolean.nefit_disable_clock_mode", new="on")
@@ -17,7 +17,11 @@ class thermostaat_mqtt(hass.Hass):
     def inputhandler(self, entity, attribute, old, new, kwargs):
         self.log("ping")
         temp_sp_hass = float(self.get_state("sensor.wk_thermostaat_hass_sp"))
-        self.run_in(self.temperatureset,0,temp_sp_hass=temp_sp_hass)
+        vakantie = self.get_state("input_boolean.vakantie")
+        if vakantie == "off":
+            self.run_in(self.temperatureset,0,temp_sp_hass=temp_sp_hass)
+        else:
+            self.log("Vakantiemodus actief; thermostaat uitgeschakeld.")
     
     def temperatureset(self, kwargs):
         temp_sp_hass = kwargs["temp_sp_hass"]
@@ -51,8 +55,6 @@ class thermostaat_mqtt(hass.Hass):
         self.log(r3.text)
 
         self.call_service("input_boolean/turn_off", entity_id="input_boolean.nefit_programma")
-
-        #self.set_state("input_boolean.nefit_programma", state="off")
 
         self.run_in(self.test_physical_thermostat, 60)
 

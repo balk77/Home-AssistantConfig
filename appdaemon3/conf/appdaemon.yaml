@@ -4,6 +4,7 @@ log:
   errorfile: STDERR
   log_size: 10000000
   log_generations: 3
+notify: telegram
 appdaemon:
   api_port: 5001
   threads: 10
@@ -20,9 +21,18 @@ appdaemon:
     #  client_password: !secret mqtt_password
      namespace: mqtt
      client_topics:
-         - x/y/z
-         - "zolder/kamerdide/kamer/desiredTemperature/set"
-         - "zolder/kamerfien/kamer/desiredTemperature/set"
+        - x/y/z
+        - x/x/x
+        - "zolder/kamerdide/kamer/desiredTemperature/set"
+        - "zolder/kamerfien/kamer/desiredTemperature/set"
+        # topics Fien
+        - "homegear/climate/plain/1/1/ACTUAL_TEMPERATURE"
+        - "homegear/climate/plain/1/1/SET_TEMPERATURE"
+        - "homegear/climate/set/1/1/SET_TEMPERATURE"
+        # topics Dide
+        - "homegear/climate/plain/2/1/ACTUAL_TEMPERATURE"
+        - "homegear/climate/plain/2/1/SET_TEMPERATURE"
+        - "homegear/climate/set/2/1/SET_TEMPERATURE"
     # MQTT:
     #   type: mqtt
     #   #verbose: True

@@ -20,7 +20,7 @@
 - platform: template
   fans:
     itho:
-      friendly_name: "Itho"
+      friendly_name: "Itho ESPhome"
       value_template: >
         {{ "off" if states('sensor.fanspeed') == 'Low' else "on" }}
       speed_template: "{{ states('sensor.fanspeed') }}"
@@ -38,6 +38,34 @@
           entity_id: >
             {% set mapper = { 'Timer 1':'switch.fansendtimer1','Timer 2':'switch.fansendtimer2','Timer 3':'switch.fansendtimer3','High':'switch.fansendhigh', 'Medium':'switch.fansendmedium', 'Low':'switch.fansendlow' } %}
             {{ mapper[speed] if speed in mapper else switch.fansendlow }}
+      speeds:
+        - 'Low'
+        - 'Medium'
+        - 'High'
+        - 'Timer 1'
+        - 'Timer 2'
+        - 'Timer 3'
+- platform: template
+  fans:
+    itho_front:
+      friendly_name: "Itho Frontend"
+      value_template: >
+        {{ "off" if states('input_select.fanspeed_front') == 'Low' else "on" }}
+      speed_template: "{{ states('input_select.fanspeed_front') }}"
+      turn_on:
+        service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.fansendhigh_front
+      turn_off:
+        service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.fansendlow_front
+      set_speed:
+        service: input_boolean.turn_on
+        data_template:
+          entity_id: >
+            {% set mapper = { 'Timer 1':'input_boolean.fansendtimer1_front','Timer 2':'input_boolean.fansendtimer2_front','Timer 3':'input_boolean.fansendtimer3_front','High':'input_boolean.fansendhigh_front', 'Medium':'input_boolean.fansendmedium_front', 'Low':'input_boolean.fansendlow_front' } %}
+            {{ mapper[speed] if speed in mapper else input_boolean.fansendlow_front }}
       speeds:
         - 'Low'
         - 'Medium'

@@ -8,7 +8,7 @@ class douche(hass.Hass):
         self.listen_state(self.inputhandler, "input_boolean.tap_water_delay")
         self.listen_state(self.emstap, "binary_sensor.tap_water", new="on", duration=20)
         self.listen_state(self.emstap, "binary_sensor.tap_water", new="off")
-        self.listen_state(self.inputhandler, "binary_sensor.hotwateron")
+        # self.listen_state(self.inputhandler, "binary_sensor.hotwateron")
         self.listen_state(self.inputhandler, "sensor.hw_aanvoer")
         self.listen_state(self.runout_on, "input_boolean.shower", new="on", duration=60)
         
@@ -27,8 +27,8 @@ class douche(hass.Hass):
     def inputhandler(self, entity, attribute, old, new, kwargs):
         # self.log("ping")
         wk_boilerstatus = self.get_state("sensor.wk_boilerstatus")
-        hotwateron_positive_gradient = self.get_state("binary_sensor.hotwateron")
-        hotwateron_negative_gradient = self.get_state("binary_sensor.hotwateroff")
+        # hotwateron_positive_gradient = self.get_state("binary_sensor.hotwateron")
+        # hotwateron_negative_gradient = self.get_state("binary_sensor.hotwateroff")
         if self.get_state("sensor.hw_aanvoer") == "unavailable" or self.get_state("sensor.hw_aanvoer") == "unknown":
             self.log("sensor.hw_aanvoer  = unavailable")
             hw_aanvoer_temp = 20
@@ -39,21 +39,16 @@ class douche(hass.Hass):
         curr_shower_state = self.get_state("input_boolean.shower")
         tap_water_delay = self.get_state("input_boolean.tap_water_delay")
         #curr_shower_state = self.get_state("input_boolean.shower_alt")
-        self.log("wk_boilerstatus")
-        # self.log(wk_boilerstatus)
-        # self.log("hotwateron_positive_gradient")
-        # self.log(hotwateron_positive_gradient)
-        # self.log("hotwateron_negative_gradient")
-        # self.log(hotwateron_negative_gradient)
-        # self.log("curr_shower_state")
-        # self.log(curr_shower_state)
+        # self.log("wk_boilerstatus: "+wk_boilerstatus)
+        
+        # self.log("curr_shower_state: "+curr_shower_state)
 
         #if (lamp == "on" and curr_shower_state == "off" and hotwateron_negative_gradient == "off" and
         # if (lamp == "on" and hotwateron_negative_gradient == "off" and
         if (lamp == "on"  and
             (
-                wk_boilerstatus == "HW" or 
-                (hotwateron_positive_gradient == "on" or hw_aanvoer_temp > 40) 
+                wk_boilerstatus == "HW" 
+                # or (hotwateron_positive_gradient == "on" or hw_aanvoer_temp > 40) 
                 
             )):
             self.call_service("input_boolean/turn_on", entity_id="input_boolean.shower") 

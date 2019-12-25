@@ -1,151 +1,151 @@
-- id: beweging_zolder1
-  alias: Beweging zolder aan
-  trigger:
-  - platform: state
-    entity_id: sensor.zolder_multisensor_burglar
-    to: '8'
-  - platform: state
-    entity_id: sensor.zolder_multisensor_burglar
-    to: '3'
-  action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.zolder_beweging
-    - service: timer.start
-      entity_id: timer.zolder_motion
-      data:
-        duration: 900
-- id: beweging_zolder2
-  alias: Beweging zolder uit
-  trigger:
-    - platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.zolder_motion
-  action:
-    service: input_boolean.turn_off
-    entity_id: input_boolean.zolder_beweging
+# - id: beweging_zolder1
+#   alias: Beweging zolder aan
+#   trigger:
+#   - platform: state
+#     entity_id: sensor.zolder_multisensor_burglar
+#     to: '8'
+#   - platform: state
+#     entity_id: sensor.zolder_multisensor_burglar
+#     to: '3'
+#   action:
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.zolder_beweging
+#     - service: timer.start
+#       entity_id: timer.zolder_motion
+#       data:
+#         duration: 900
+# - id: beweging_zolder2
+#   alias: Beweging zolder uit
+#   trigger:
+#     - platform: event
+#       event_type: timer.finished
+#       event_data:
+#         entity_id: timer.zolder_motion
+#   action:
+#     service: input_boolean.turn_off
+#     entity_id: input_boolean.zolder_beweging
 
-- id: thermo_zolder2a
-  alias: Thermostaat Zolder ochtend laat
-  trigger:
-  - entity_id: input_boolean.zolder_beweging
-    platform: state
-    to: 'on'
-  condition:
-    - condition: or
-      conditions:
-        - condition: and
-          conditions:
-            - condition: time
-              after: '7:30:00'
-              before: '17:00:00'
-            - condition: state
-              entity_id: "binary_sensor.workday_sensor"
-              state: "off"
-        - condition: and
-          conditions:
-            - condition: time
-              after: '6:30:00'
-              before: '17:00:00'
-            - condition: state
-              entity_id: "binary_sensor.workday_sensor"
-              state: "on"
-  # action:
-  # - event: heaty_set_temp
-  #   event_data:
-  #     room_name: zolder
-  #     v: "18"
-  #     reschedule_delay: 1
-  action:
-  - service: climate.set_temperature
-    data_template:
-      entity_id: climate.kamer_dide
-      temperature: 17
-  - service: climate.set_temperature
-    data_template:
-      entity_id: climate.kamer_fien
-      temperature: 17
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.slaapkamer_dide_setpoint
-      value: 17
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.slaapkamer_fien_setpoint
-      value: 17
+# - id: thermo_zolder2a
+#   alias: Thermostaat Zolder ochtend laat
+#   trigger:
+#   - entity_id: input_boolean.zolder_beweging
+#     platform: state
+#     to: 'on'
+#   condition:
+#     - condition: or
+#       conditions:
+#         - condition: and
+#           conditions:
+#             - condition: time
+#               after: '7:30:00'
+#               before: '17:00:00'
+#             - condition: state
+#               entity_id: "binary_sensor.workday_sensor"
+#               state: "off"
+#         - condition: and
+#           conditions:
+#             - condition: time
+#               after: '6:30:00'
+#               before: '17:00:00'
+#             - condition: state
+#               entity_id: "binary_sensor.workday_sensor"
+#               state: "on"
+#   # action:
+#   # - event: heaty_set_temp
+#   #   event_data:
+#   #     room_name: zolder
+#   #     v: "18"
+#   #     reschedule_delay: 1
+#   action:
+#   - service: climate.set_temperature
+#     data_template:
+#       entity_id: climate.kamer_dide
+#       temperature: 18
+#   - service: climate.set_temperature
+#     data_template:
+#       entity_id: climate.kamer_fien
+#       temperature: 18
+#   - service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.slaapkamer_dide_setpoint
+#       value: 18
+#   - service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.slaapkamer_fien_setpoint
+#       value: 18
 
 
-- id: thermo_zolder2a
-  alias: Thermostaat Zolder ochtend laat weer uit
-  trigger:
-  - entity_id: input_boolean.zolder_beweging
-    platform: state
-    to: 'off'
-  condition:
-    - condition: or
-      conditions:
-        - condition: and
-          conditions:
-            - condition: time
-              after: '7:30:00'
-              before: '17:00:00'
-            - condition: state
-              entity_id: "binary_sensor.workday_sensor"
-              state: "off"
-        - condition: and
-          conditions:
-            - condition: time
-              after: '6:30:00'
-              before: '17:00:00'
-            - condition: state
-              entity_id: "binary_sensor.workday_sensor"
-              state: "on"
-  # action:
-  # - event: heaty_set_temp
-  #   event_data:
-  #     room_name: zolder
-  #     v: "18"
-  #     reschedule_delay: 1
-  action:
-  - service: climate.set_temperature
-    data_template:
-      entity_id: climate.kamer_dide
-      temperature: 13
-  - service: climate.set_temperature
-    data_template:
-      entity_id: climate.kamer_fien
-      temperature: 13
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.slaapkamer_dide_setpoint
-      value: 13
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.slaapkamer_fien_setpoint
-      value: 13
+# - id: thermo_zolder2a
+#   alias: Thermostaat Zolder ochtend laat weer uit
+#   trigger:
+#   - entity_id: input_boolean.zolder_beweging
+#     platform: state
+#     to: 'off'
+#   condition:
+#     - condition: or
+#       conditions:
+#         - condition: and
+#           conditions:
+#             - condition: time
+#               after: '7:30:00'
+#               before: '17:00:00'
+#             - condition: state
+#               entity_id: "binary_sensor.workday_sensor"
+#               state: "off"
+#         - condition: and
+#           conditions:
+#             - condition: time
+#               after: '6:30:00'
+#               before: '17:00:00'
+#             - condition: state
+#               entity_id: "binary_sensor.workday_sensor"
+#               state: "on"
+#   # action:
+#   # - event: heaty_set_temp
+#   #   event_data:
+#   #     room_name: zolder
+#   #     v: "18"
+#   #     reschedule_delay: 1
+#   action:
+#   - service: climate.set_temperature
+#     data_template:
+#       entity_id: climate.kamer_dide
+#       temperature: 13
+#   - service: climate.set_temperature
+#     data_template:
+#       entity_id: climate.kamer_fien
+#       temperature: 13
+#   - service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.slaapkamer_dide_setpoint
+#       value: 13
+#   - service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.slaapkamer_fien_setpoint
+#       value: 13
 
-- id: thermo_zolder1
-  alias: thermo_zolder1
-  trigger:
-  - platform: time
-    at: '17:00:00'
-  action:
-  - service: climate.set_temperature
-    data_template:
-      entity_id: climate.kamer_dide
-      temperature: 17
-  - service: climate.set_temperature
-    data_template:
-      entity_id: climate.kamer_fien
-      temperature: 17
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.slaapkamer_dide_setpoint
-      value: 17
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.slaapkamer_fien_setpoint
-      value: 17
+# - id: thermo_zolder1
+#   alias: thermo_zolder1
+#   trigger:
+#   - platform: time
+#     at: '17:00:00'
+#   action:
+#   - service: climate.set_temperature
+#     data_template:
+#       entity_id: climate.kamer_dide
+#       temperature: 18
+#   - service: climate.set_temperature
+#     data_template:
+#       entity_id: climate.kamer_fien
+#       temperature: 18
+#   - service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.slaapkamer_dide_setpoint
+#       value: 18
+#   - service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.slaapkamer_fien_setpoint
+#       value: 18
 
 # - id: thermo_zolder2a
 #   alias: Thermostaat Zolder ochtend laat
@@ -203,27 +203,27 @@
 #       entity_id: climate.kamer_fien
 #       temperature: 13
 
-- id: thermo_zolder_uit
-  alias: Thermostaat Zolder uit
-  trigger:
-    platform: time
-    at: '19:00:00'
-  action:
-  - service: climate.set_temperature
-    data_template:
-      entity_id: climate.kamer_dide
-      temperature: 13
-  - service: climate.set_temperature
-    data_template:
-      entity_id: climate.kamer_fien
-      temperature: 13
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.slaapkamer_dide_setpoint
-      value: 13
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.slaapkamer_fien_setpoint
-      value: 13
+# - id: thermo_zolder_uit
+#   alias: Thermostaat Zolder uit
+#   trigger:
+#     platform: time
+#     at: '19:00:00'
+#   action:
+#   - service: climate.set_temperature
+#     data_template:
+#       entity_id: climate.kamer_dide
+#       temperature: 13
+#   - service: climate.set_temperature
+#     data_template:
+#       entity_id: climate.kamer_fien
+#       temperature: 13
+#   - service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.slaapkamer_dide_setpoint
+#       value: 13
+#   - service: input_number.set_value
+#     data_template:
+#       entity_id: input_number.slaapkamer_fien_setpoint
+#       value: 13
 
 

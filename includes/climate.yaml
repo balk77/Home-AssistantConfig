@@ -1,3 +1,23 @@
+- platform: generic_thermostat
+  name: Kamer Fien
+  heater: input_boolean.frontend_climate_fien
+  target_sensor: sensor.fienthermpv
+  min_temp: 10
+  max_temp: 25
+  target_temp: 13
+  # temp_step: 0.5
+  # modes: ["auto","off"]
+  # send_if_off: true
+- platform: generic_thermostat
+  name: Kamer Dide
+  heater: input_boolean.frontend_climate_dide
+  target_sensor: sensor.didethermpv
+  min_temp: 10
+  max_temp: 25
+  target_temp: 13
+  # temp_step: 0.5
+  # modes: ["auto","off"]
+  # send_if_off: true
 # - platform: mqtt
 #   name: Kamer Dide
 #   current_temperature_topic: "zolder/kamerdide/ventilatie/temperatuur"
@@ -26,6 +46,36 @@
 #   max_temp: 25
 #   initial: 13
 #   retain: True
+- platform: mqtt
+  name: Kamer Fien raw
+  retain: false
+  send_if_off: true
+  current_temperature_topic: homegear/climate/plain/1/1/ACTUAL_TEMPERATURE
+  temperature_state_topic: homegear/climate/plain/1/1/SET_TEMPERATURE
+  temperature_command_topic: homegear/climate/set/1/1/SET_TEMPERATURE
+  min_temp: 10
+  max_temp: 25
+  temp_step: 0.5
+  modes: ["auto","off"]
+  mode_state_topic: homegear/climate/plain/1/1/CONTROL_MODE
+  mode_state_template:  >-
+    {% set values = { '0':'auto', '1':'off'} %}
+    {{ values[value] if value in values.keys() else 'off' }}
+- platform: mqtt
+  name: Kamer Dide raw
+  retain: false
+  send_if_off: true
+  current_temperature_topic: homegear/climate/plain/2/1/ACTUAL_TEMPERATURE
+  temperature_state_topic: homegear/climate/plain/2/1/SET_TEMPERATURE
+  temperature_command_topic: homegear/climate/set/2/1/SET_TEMPERATURE
+  min_temp: 10
+  max_temp: 25
+  temp_step: 0.5
+  modes: ["auto","off"]
+  mode_state_topic: homegear/climate/plain/2/1/CONTROL_MODE
+  mode_state_template:  >-
+    {% set values = { '0':'auto', '1':'off'} %}
+    {{ values[value] if value in values.keys() else 'off' }}
 - platform: mqtt
   name: Woonkamer
   #current_temperature_topic: "woonkamer/woonkamer/thermostaat/gemetentemperatuur"

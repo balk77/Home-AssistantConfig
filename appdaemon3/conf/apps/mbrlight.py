@@ -7,7 +7,7 @@ class mbrlight(hass.Hass):
         self.listen_state(self.inputhandler, "light.mbr_plafond_level", old="off", new="on")
         self.listen_state(self.inputhandler2, "counter.douches", old="1", new="2")
 
-        dimtime = datetime.time(22, 0, 0)
+        dimtime = datetime.time(1, 0, 0)
         brighttime = datetime.time(8, 0, 0)
         self.run_daily(self.changesetting, dimtime,node_id=14,parameter=19,value=4)
         self.run_daily(self.changesetting, brighttime,node_id=14,parameter=19,value=99)
@@ -21,16 +21,16 @@ class mbrlight(hass.Hass):
         now = datetime.datetime.now()
         counterdouches = float(self.get_state("counter.douches"))
         self.log(counterdouches)
-
-        if 11 < now.hour <= 22:
+        if self.now_is_between("11:00:00", "22:00:00"):
+        # if 11 < now.hour <= 22:
             self.turn_on("light.mbr_plafond_level", brightness=254, transition=1)
             self.run_in(self.changesetting, 1,node_id=14,parameter=19,value=99)
             self.log("MBR max tussen 11 en 22")
-        elif now.hour < 22 and counterdouches >= 2:
+        elif self.now_is_between("7:00:00", "22:00:00") and counterdouches >= 2:
             self.turn_on("light.mbr_plafond_level", brightness=254, transition=1)
             self.run_in(self.changesetting, 1,node_id=14,parameter=19,value=99)
             self.log("MBR max counterdouches = 2")
-        elif 7 <= now.hour < 22 and self.sun_up():
+        elif self.now_is_between("7:00:00", "22:00:00") and self.sun_up():
             self.turn_on("light.mbr_plafond_level", brightness=254, transition=1)
             self.run_in(self.changesetting, 1,node_id=14,parameter=19,value=99)
 
@@ -47,11 +47,11 @@ class mbrlight(hass.Hass):
 
 
     def inputhandler2(self, entity, attribute, old, new, kwargs):
-        now = datetime.datetime.now()
+        # now = datetime.datetime.now()
 
         mbr_light = self.get_state("light.mbr_plafond_level")
 
-        if now.hour < 12 and mbr_light == "on":
+        if self.now_is_between("7:00:00", "12:00:00") and mbr_light == "on":
             self.turn_on("light.mbr_plafond_level", brightness=254, transition=1)
             self.changesetting(node_id=14,parameter=19,value=99)
             self.log("MBR max terwijl licht al aan is. douchesv= 2")

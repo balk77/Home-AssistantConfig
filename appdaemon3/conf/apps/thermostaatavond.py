@@ -11,12 +11,16 @@ class thermostaatavond(hass.Hass):
         
 
     def switchon(self, entity, attribute, old, new, kwargs):
-        self.log("ping")
+        # self.log("ping")
         
-        now = datetime.datetime.now()
+        # now = datetime.datetime.now()
 
-        if (now.hour >= 20 or now.hour < 2 ):
+        # if (now.hour >= 20 or now.hour < 2 ):
+        if self.now_is_between("20:00:00", "02:00:00"):
             avond = 1
+
+            self.log("avond: ")
+            self.log(avond)
 
             maxtempsetpoint = self.get_state("sensor.maxtempsetpoint")
             nefit_disable_clock_mode = self.get_state("input_boolean.nefit_disable_clock_mode")
@@ -25,7 +29,7 @@ class thermostaatavond(hass.Hass):
             thermostaat_activeprogram = self.get_state("sensor.thermostaat_activeprogram") 
 
             if (temp_sp < 15.1 and thermostaat_activeprogram == "0" and lights_woonkamer == "on" and nefit_disable_clock_mode == "off"):
-                self.log("setting temperature to:" + maxtempsetpoint)
+                self.log("setting temperature to: " + maxtempsetpoint)
                 self.call_service("mqtt/publish", topic="woonkamer/woonkamer/thermostaat/temperature/set", payload=maxtempsetpoint, retain=True)
         else:
             avond = 0
@@ -37,9 +41,10 @@ class thermostaatavond(hass.Hass):
     def switchoff(self, entity, attribute, old, new, kwargs):
         # Zet verwarming uit wanneer lichten uit gaan tussen 20:00 en 2:00
         
-        now = datetime.datetime.now()
+        # now = datetime.datetime.now()
         
-        if (now.hour >= 20 or now.hour < 2 ):
+        # if (now.hour >= 20 or now.hour < 2 ):
+        if self.now_is_between("20:00:00", "02:00:00"):
             avond = 1
             lights_woonkamer = self.get_state("group.woonkamer")
             thermostaat_activeprogram = self.get_state("sensor.thermostaat_activeprogram")

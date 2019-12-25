@@ -50,9 +50,9 @@ badkamerlight:
   module: badkamerlight
   class: badkamerlight
 
-fanstate:
-  module: fanstate
-  class: fanstate
+# fanstate:
+#   module: fanstate
+#   class: fanstate
 
 telegram:
   module: telegram
@@ -113,27 +113,28 @@ Occupancy Simulator:
   module: occusim
   class: OccuSim
   log: 1
-  notify: 1
-  enable: input_boolean.vakantie,on
-  test: 1
+  # notify: 1
+  enable: input_boolean.occupancy_simulation,on
+  # test: 0
   dump_times: 1
   #reset_time: 02:00:00
 
 
   step_evening_name: Evening
-  step_evening_start: sunset - 1:00:00
+  step_evening_start: sunset - 01:01:00
+  # step_evening_on_1: light.wk_muur_level
   step_evening_on_1: script.woonkamer_low
   #step_evening_off_1: script.woonkamer_off
-  step_evening_start_offset: 00:10:00
+  step_evening_start_offset: "00:10:00"
 
   random_keuken_start: Evening
-  random_keuken_on: switch.keuken_aanrecht_switch
-  random_keuken_off: switch.keuken_aanrecht_switch
+  random_keuken_on: light.keuken_aanrecht_groep
+  random_keuken_off: light.keuken_aanrecht_groep
   random_keuken_number: '1'
   random_keuken_name: Keuken aanrecht
   random_keuken_end: keukeneind
-  random_keuken_maxduration: 00:30:01
-  random_keuken_minduration: 00:10:00
+  random_keuken_maxduration: "00:30:01"
+  random_keuken_minduration: "00:10:00"
 
   step_keukeneind_name: keukeneind
   step_keukeneind_start: "21:30:00"
@@ -143,19 +144,19 @@ Occupancy Simulator:
   step_night_start: '22:10:00'
   step_night_end: '22:58:00'
   step_night_name: Night
-  step_night_on_1: script.woonkamer_off
-  step_night_on_2: script.mbr_low
+  step_night_on_1: script.all_lights_off
+  # step_night_on_2: script.mbr_low
 
-  step_morningon_days: mon,tue,wed,thu,fri
-  step_morningon_start: "05:50:00"
-  step_morningon_end: "06:05:00"
-  step_morningon_name: Morning on
-  step_morningon_on_1: switch.keuken_aanrecht_switch
+  # step_morningon_days: mon,tue,wed,thu,fri
+  # step_morningon_start: "05:50:00"
+  # step_morningon_end: "06:05:00"
+  # step_morningon_name: Morning on
+  # step_morningon_on_1: switch.keuken_aanrecht_switch
 
-  step_morningoff_relative: Morning on
-  step_morningoff_start_offset: 00:10:00
-  step_morningoff_name: Morning off
-  step_morningoff_off_1: switch.keuken_aanrecht_switch
+  # step_morningoff_relative: Morning on
+  # step_morningoff_start_offset: "00:10:00"
+  # step_morningoff_name: Morning off
+  # step_morningoff_off_1: switch.keuken_aanrecht_switch
 
 vakantie:
   module: vakantie
@@ -205,7 +206,7 @@ masterslavefien:
   class: masterslavezolder
   ventipv: sensor.temperatuur_fien_ventilatie
   thermpv: sensor.didethermpv
-  roomsp: input_number.slaapkamer_dide_setpoint
+  roomsp: input_number.slaapkamer_fien_setpoint
   thermsp: climate.kamer_fien
 
 # masterslavedidepid:
@@ -255,6 +256,61 @@ sousvide:
 #   displaytopic_2: "zolder/ketel/chbadkamer/flowdisplay"
 
 
-showergasuse:
-  module: showergasuse
-  class: showergasuse
+# showergasuse:
+#   module: showergasuse
+#   class: showergasuse
+
+# Apps
+itho:
+  module: itho
+  class: itho
+
+pseudo_thermostat_fien:
+  module: zolder_pseudo_thermostat
+  class: zolderpseudothermostat
+  sptopic: "homegear/climate/plain/1/1/SET_TEMPERATURE"
+  frontendsp: sensor.fienthermsp_fe
+  raw_climate_device: climate.kamer_fien_raw
+  frontend_climate_device: climate.kamer_fien
+  settopic: "homegear/climate/set/1/1/SET_TEMPERATURE"
+  timeout: 3600
+  weekend_morning_switch: "07:30:00"
+  weekend_afternoon_switch: "17:02:00"
+  weekend_sleeptime_switch: "19:00:00"
+  week_morning_switch: "06:30:00" 
+  week_afternoon_switch: "17:02:00"
+  week_sleeptime_switch: "19:00:00"
+  input_number_setpoint: input_number.slaapkamer_fien_setpoint
+  temp_high_sp: 18
+  temp_low_sp: 13
+  thermostaat_override: input_boolean.thermostaat_fien_override
+  thermostat_raw_sp: sensor.fienthermsp_raw
+
+pseudo_thermostat_dide:
+  module: zolder_pseudo_thermostat
+  class: zolderpseudothermostat
+  sptopic: "homegear/climate/plain/2/1/SET_TEMPERATURE"
+  frontendsp: sensor.didethermsp_fe
+  raw_climate_device: climate.kamer_dide_raw
+  frontend_climate_device: climate.kamer_dide
+  settopic: "homegear/climate/set/2/1/SET_TEMPERATURE"
+  timeout: 3600
+  weekend_morning_switch: "07:30:00"
+  weekend_afternoon_switch: "17:02:00"
+  weekend_sleeptime_switch: "19:00:00"
+  week_morning_switch: "06:30:00" 
+  week_afternoon_switch: "17:02:00"
+  week_sleeptime_switch: "19:00:00"
+  input_number_setpoint: input_number.slaapkamer_dide_setpoint
+  temp_high_sp: 18
+  temp_low_sp: 13
+  thermostaat_override: input_boolean.thermostaat_dide_override
+  thermostat_raw_sp: sensor.didethermsp_raw
+
+# scheduletest:
+#   module: scheduletest
+#   class: scheduletest
+#   weekend_afternoon_switch: "7:33:00"
+#   weekend_sleeptime_switch: "7:34:00"
+#   week_afternoon_switch: "7:35:00"
+#   week_sleeptime_switch: "7:36:00"

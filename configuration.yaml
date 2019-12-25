@@ -1,23 +1,4 @@
 homeassistant:
-  # # Name of the location where Home Assistant is running
-  # name: Home Linda en Sander
-  # # Location required to calculate the time the sun rises and sets
-  # latitude: !secret latitude
-  # longitude: !secret longitude
-
-  # # Impacts weather/sunrise data (altitude above sea level in meters)
-  # elevation: 0
-
-
-  # # metric for Metric, imperial for Imperial
-  # unit_system: metric
-  # # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  # time_zone: !secret time_zone
-  # customize: !include customize.yaml
-  # #packages: !include_dir_named packages
-  # # auth_providers:
-  # #  - type: homeassistant
-  # ##  - type: legacy_api_password
 
 lovelace:
 #   mode: yaml
@@ -73,6 +54,7 @@ logger:
 
 # Enables the frontend
 frontend:
+  themes: !include_dir_merge_named themes
 
 config:
 
@@ -177,7 +159,7 @@ zwave:
 climate: !include includes/climate.yaml
 
 
-#/python_script:
+
 
 notify:
   - name: telegram
@@ -275,26 +257,19 @@ input_datetime:
 
 
 
-homematic:
-  local_ip: 192.168.0.9
-  local_port: 36845
-  interfaces:
-    wireless:
-      host: 192.168.0.9
-      port: 2001
-      callback_ip: 192.168.0.9
-      callback_port: 36845
-      resolvenames: json
-      username: !secret homematic_username
-      password: !secret homematic_password
+# homematic:
+#   local_ip: 192.168.0.9
+#   local_port: 36845
+#   interfaces:
+#     wireless:
+#       host: 192.168.0.9
+#       port: 2001
+#       callback_ip: 192.168.0.9
+#       callback_port: 36845
+#       resolvenames: json
+#       username: !secret homematic_username
+#       password: !secret homematic_password
 
-# maxcube:
-#   gateways:
-#     - host: 192.168.0.222
-#       port: 2323
-
-
-# Example configuration.yaml entry
 pi_hole:
   host: '192.168.0.6'
   ssl: false

@@ -4,14 +4,7 @@
   name: 'Current usage'
   unit_of_measurement: 'W'
   value_template: '{{ value_json.consumption }}'
-# - platform: wunderground
-#   api_key: !secret wunderground_api_key
-#   pws_id: !secret wunderground_pws_id
-#   monitored_conditions:
-#     - temp_c
-# - platform: mqtt
-#   name: 'wk_boilerstatus'
-#   state_topic: "woonkamer/woonkamer/thermostaat/boilerstatus"
+
 
 - platform: mqtt
   name: 'wk_thermostaat_pv'
@@ -24,40 +17,10 @@
   name: 'wk_thermostaat_hass_sp'
   unit_of_measurement: '°C'
   state_topic: "woonkamer/woonkamer/thermostaat/temperature/set"
+  force_update: true
 
-- platform: mqtt
-  name: "itho_ventilatie"
-  #state_topic: "hass/itho"
-  state_topic: "zolder/itho/State"
-#- platform: mqtt
-#  name : Snelheid
-#  state_topic: "ITHO/Fan/State"
-  value_template: >
-    {% if value|float==0 %}Standby{% endif %}
-    {% if value|float==1 %}Laag{% endif %}
-    {% if value|float==2 %}Medium{% endif %}
-    {% if value|float==3 %}Hoog{% endif %}
-    {% if value|float==4 %}Full{% endif %}
-    {% if value|float>=11 %}Hoog(T){% endif %}
-- platform: mqtt
-  name: Itho timer
-  state_topic: "zolder/itho/Timer"
-  value_template: "{{value}}"
-  unit_of_measurement: 's'
-- platform: mqtt
-  name: "itho_lastidindex"
-  state_topic: "zolder/itho/LastIDindex"
-- platform: mqtt
-  name: ITHO Laatste bediening
-  state_topic: "zolder/itho/LastIDindex"
-  value_template: >
-    {% if value|float==0 %}Hass{% endif %}
-    {% if value|float==1 %}Woonkamer{% endif %}
-    {% if value|float==2 %}Badkamer{% endif %}
-    {% if value|float==3 %}WC{% endif %}
-- platform: mqtt
-  name: "itho_ventilatie_status"
-  state_topic: "zolder/itho/remote"
+
+
 - platform: statistics
   name: minhum_stat_mean
   entity_id: sensor.badkamer_relhumidity
@@ -155,11 +118,27 @@
     didethermpv:
       friendly_name: "Dide thermostaat Present Value"
       unit_of_measurement: '°C'
-      value_template: "{{ states.climate.kamer_dide.attributes.current_temperature }}"
+      value_template: "{{ states.climate.kamer_dide_raw.attributes.current_temperature }}"
+    didethermsp_raw:
+      friendly_name: "Dide thermostaat Raw Set Point"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.climate.kamer_dide_raw.attributes.temperature }}"
+    didethermsp_fe:
+      friendly_name: "Dide thermostaat frontend Set Point"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.climate.kamer_dide.attributes.temperature }}"
     fienthermpv:
       friendly_name: "Fien thermostaat Present Value"
       unit_of_measurement: '°C'
-      value_template: "{{ states.climate.kamer_fien.attributes.current_temperature }}"
+      value_template: "{{ states.climate.kamer_fien_raw.attributes.current_temperature }}"
+    fienthermsp_raw:
+      friendly_name: "Fien thermostaat Raw Set Point"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.climate.kamer_fien_raw.attributes.temperature }}"
+    fienthermsp_fe:
+      friendly_name: "Fien thermostaat frontend Set Point"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.climate.kamer_fien.attributes.temperature }}"
     woonkamer_number_of_lights_on:
       unit_of_measurement: 'Lights'
       friendly_name: 'Lights on'
@@ -182,8 +161,6 @@
     
 - platform: influxdb
   host: 192.168.0.9
-  # username: admin
-  # password: admin
   queries:
     - name: "ch_aanvoer_delay"
       unit_of_measurement: '°C'
@@ -210,12 +187,11 @@
     - condition
     - irradiance
     - precipitation_forecast_total
-# - platform: command_line
-#   name: Occasion
-#   command: "/usr/bin/python3 ~/homeassistant/script/occasion.py"
+
 - platform: mqtt
   name: 'thermostaat_activeprogram'
   state_topic: "woonkamer/woonkamer/thermostaat/activeprogram"
+  force_update: true
 # - platform: mqtt
 #   name: 'thermostaat_tempsetpoint_raw'
 #   state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint"
@@ -238,6 +214,7 @@
   name: 'thermostaat_ch_supply_temp'
   state_topic: "woonkamer/woonkamer/thermostaat/supplytemp"
   unit_of_measurement: '°C'
+  force_update: true
 - platform: statistics
   name: thermostaat_tempsetpoint_mean
   entity_id: sensor.thermostaat_tempsetpoint

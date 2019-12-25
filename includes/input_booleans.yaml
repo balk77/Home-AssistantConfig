@@ -124,3 +124,23 @@ tap_water_delay:
   name: tap water reported by EMS board
 rolluik_manual:
   name: Zolder rolluik handbediening
+fansendtimer1_front:
+  initial: off
+fansendtimer2_front:
+  initial: off
+fansendtimer3_front:
+  initial: off
+fansendlow_front:
+  initial: off
+fansendmedium_front:
+  initial: off
+fansendhigh_front:
+  initial: off
+frontend_climate_fien:
+  initial: off
+frontend_climate_dide:
+  initial: off
+thermostaat_fien_override:
+  initial: off
+thermostaat_dide_override:
+  initial: off

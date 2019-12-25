@@ -12,7 +12,7 @@ class showergasuse(hass.Hass):
     def initialize(self):
         
         
-        self.listen_state(self.inputhandler, "input_boolean.test",new="on")
+        self.listen_state(self.inputhandler, "input_boolean.test",new="onnnnn")
         
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
