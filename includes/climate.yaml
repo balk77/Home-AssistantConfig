@@ -77,22 +77,38 @@
     {% set values = { '0':'auto', '1':'off'} %}
     {{ values[value] if value in values.keys() else 'off' }}
 - platform: mqtt
+  name: dummy
+  current_temperature_topic: "dummy/current_temperature_topic"
+  temperature_command_topic: "dummy/temperature_command_topic"
+  # temperature_state_topic: "dummy/temperature_command_topic"
+  mode_state_topic: "dummy/mode_state_topic"
+  # modes: --> with = unable to set
+  #   - "off"
+  #   - "heat"
+  # min_temp: 10 
+  # max_temp: 25
+  # initial: 15
+  # retain: True
+  # temp_step: 0.5
+
+- platform: mqtt
   name: Woonkamer
   #current_temperature_topic: "woonkamer/woonkamer/thermostaat/gemetentemperatuur"
   current_temperature_topic: "home/ems-esp/thermostat_data"
   current_temperature_template: "{{ value_json.hc1.currtemp }}"
   temperature_command_topic: "woonkamer/woonkamer/thermostaat/temperature/set"
-  temperature_state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint2"
-  mode_state_topic: "woonkamer/woonkamer/thermostaat/boilerstatus"
-  mode_state_template: "{% if value == 'CH' %} heat {% else %} off {% endif %}"
+  # temperature_state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint2"
+  # mode_state_topic: "woonkamer/woonkamer/thermostaat/boilerstatus"
+  # mode_state_template: "{% if value == 'CH' %} heat {% else %} off {% endif %}"
   #mode_state_template: "{% if value | float == 0 %} off {% else %} on {% endif %}"
-  modes:
-    - "off"
-    - "heat"
+  # modes:
+  #   - "off"
+  #   - "heat"
   min_temp: 10
   max_temp: 25
   initial: 15
   retain: True
+  temp_step: 0.5
 # - platform: mqtt
 #   name: Sous vide
 #   modes:

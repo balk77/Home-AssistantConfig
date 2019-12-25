@@ -6,13 +6,31 @@ class thermostaat_mqtt(hass.Hass):
     def initialize(self):
         
         # self.listen_state(self.program_enable, "input_boolean.nefit_programma",new="on")
-        self.listen_state(self.inputhandler, "sensor.wk_thermostaat_hass_sp")
+
+        # TIJDELIJK UIT:
+        # self.listen_state(self.inputhandler, "sensor.wk_thermostaat_hass_sp")
+
         #self.listen_state(self.manualorclockmode, "input_boolean.nefit_disable_clock_mode")
         self.listen_state(self.nefit_disable_clock_mode, "input_boolean.nefit_disable_clock_mode", new="on")
         self.listen_state(self.nefit_enable_clock_mode, "input_boolean.nefit_disable_clock_mode", new="off")
 
+        self.handle = self.listen_event(self.inputhandler_event, "call_service", domain = "climate", service = "set_temperature")
 
 
+    def inputhandler_event(self, event_name, data, kwargs):
+        # self.log("ping")
+        entity_id = data['service_data']['entity_id']
+        temperature = data['service_data']['temperature']
+        # self.log(entity_id)
+        # self.log(temperature)
+        
+        if entity_id == "climate.woonkamer":
+            self.log("ping")
+            vakantie = self.get_state("input_boolean.vakantie")
+            if vakantie == "off":
+                self.run_in(self.temperatureset,0,temp_sp_hass=temperature)
+            else:
+                self.log("Vakantiemodus actief; thermostaat uitgeschakeld.")
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
         self.log("ping")
@@ -24,7 +42,7 @@ class thermostaat_mqtt(hass.Hass):
             self.log("Vakantiemodus actief; thermostaat uitgeschakeld.")
     
     def temperatureset(self, kwargs):
-        temp_sp_hass = kwargs["temp_sp_hass"]
+        temp_sp_hass = float(kwargs["temp_sp_hass"])
 
         headers = {'Content-type': 'application/json'}
         #myurl = "http://127.0.0.1:8124"
@@ -39,20 +57,21 @@ class thermostaat_mqtt(hass.Hass):
         self.log("new setpoint & command:")
         self.log(body1)
         self.log(body2)
+        self.log(body3)
 
         #if(temp_sp_hass != temp_sp_thermostaat):
 
         r1 = requests.post(myurl+command1, verify=False, json={"value": body1}, headers = headers)
         self.log(r1.status_code)
-        self.log(r1.text)
+        self.log("r1"+r1.text)
 
         r2 = requests.post(myurl+command2, verify=False, json={"value": body2}, headers = headers)
         self.log(r2.status_code)
-        self.log(r2.text)
+        self.log("r2"+r2.text)
 
         r3 = requests.post(myurl+command3, verify=False, json={"value": body3}, headers = headers)
         self.log(r3.status_code)
-        self.log(r3.text)
+        self.log("r3"+r3.text)
 
         self.call_service("input_boolean/turn_off", entity_id="input_boolean.nefit_programma")
 

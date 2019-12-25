@@ -30,7 +30,8 @@ class thermostaatavond(hass.Hass):
 
             if (temp_sp < 15.1 and thermostaat_activeprogram == "0" and lights_woonkamer == "on" and nefit_disable_clock_mode == "off"):
                 self.log("setting temperature to: " + maxtempsetpoint)
-                self.call_service("mqtt/publish", topic="woonkamer/woonkamer/thermostaat/temperature/set", payload=maxtempsetpoint, retain=True)
+                self.call_service("climate/set_temperature", entity_id="climate.woonkamer", temperature=maxtempsetpoint)
+                # self.call_service("mqtt/publish", topic="woonkamer/woonkamer/thermostaat/temperature/set", payload=maxtempsetpoint, retain=True)
         else:
             avond = 0
 
@@ -50,13 +51,14 @@ class thermostaatavond(hass.Hass):
             thermostaat_activeprogram = self.get_state("sensor.thermostaat_activeprogram")
             if (thermostaat_activeprogram == "0" and lights_woonkamer == "off"):
                 payload = 15
-                self.call_service("mqtt/publish", topic="woonkamer/woonkamer/thermostaat/temperature/set", payload=payload, retain=True)
+                self.call_service("climate/set_temperature", entity_id="climate.woonkamer", temperature=payload)
+                # self.call_service("mqtt/publish", topic="woonkamer/woonkamer/thermostaat/temperature/set", payload=payload, retain=True)
             
             
                 self.call_service("input_boolean/turn_on", entity_id="input_boolean.huis_slaapstand")
             
-                self.call_service("input_boolean/turn_on", entity_id="input_boolean.iftt_temp_triggered")
-                self.call_service("input_number/set_value", entity_id="input_number.iftt_temp_triggered_sp", value=15)
+                # self.call_service("input_boolean/turn_on", entity_id="input_boolean.iftt_temp_triggered")
+                # self.call_service("input_number/set_value", entity_id="input_number.iftt_temp_triggered_sp", value=15)
         else:
             avond = 0
 

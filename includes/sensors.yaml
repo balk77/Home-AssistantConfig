@@ -206,10 +206,17 @@
 
 
 
-- platform: mqtt
-  name: 'thermostaat_tempsetpoint'
-  state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint2"
-  force_update: true
+# - platform: mqtt
+#   name: 'thermostaat_tempsetpoint'
+#   state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint2"
+#   force_update: true
+- platform: template
+  sensors:
+    thermostaat_tempsetpoint:
+      friendly_name: "Thermostaat Temperature Setpoint"
+      unit_of_measurement: '°C'
+      value_template: "{{ states.climate.woonkamer.attributes.temperature }}"
+
 - platform: mqtt
   name: 'thermostaat_ch_supply_temp'
   state_topic: "woonkamer/woonkamer/thermostaat/supplytemp"
