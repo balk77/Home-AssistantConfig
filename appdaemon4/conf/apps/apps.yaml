@@ -1,0 +1,330 @@
+# Apps
+hello_world:
+  module: hello
+  class: HelloWorld
+
+# test:
+#   module: test
+#   class: test
+
+# zolder_ventilatie:
+#   module: zolder_ventilatie
+#   class: ZolderVentilatie
+
+fancontrol:
+  module: fancontrol
+  class: fancontrol
+
+wasmachine:
+  module: wasserdroger
+  class: wasserdroger
+  trigger: input_boolean.washer_switch
+  appliance: washer
+  kwhsensor: sensor.total_daily_energy_wasmachine
+
+droger:
+  module: wasserdroger
+  class: wasserdroger
+  trigger: input_boolean.dryer_switch #input_boolean.droger_test
+  appliance: dryer
+  kwhsensor: sensor.total_daily_energy_wasmachine
+
+# humdelta:
+#   module: sensorexport
+#   class: sensorexport
+#   trigger: sensor.humdelta
+#   location: eersteverdiep
+#   sublocation: badkamer
+#   sensor: dht
+#   property: humdelta
+
+appdaemonalive:
+  module: appdaemonalive
+  class: appdaemonalive
+
+mbrlight:
+  module: mbrlight
+  class: mbrlight
+
+badkamerlight:
+  module: badkamerlight
+  class: badkamerlight
+
+# fanstate:
+#   module: fanstate
+#   class: fanstate
+
+telegram:
+  module: telegram
+  class: TelegramBotEventListener
+
+# wk_abshumidity:
+#   module: rel2abshumidity
+#   class: rel2abs
+#   temperature: sensor.mk_temp
+#   relhumidity: sensor.wk_relhumidity
+#   abshumidity: sensor.wk_abshumidity
+#   topic: "woonkamer/meterkast/dht/abshumidity"
+
+# badkamer_abshumidity:
+#   module: rel2abshumidity
+#   class: rel2abs
+#   temperature: sensor.badkamer_temperatuur
+#   relhumidity: sensor.badkamer_relhumidity
+#   abshumidity: sensor.badkamer_abshumidity
+#   topic: "eersteverdiep/badkamer/dht/abshumidity"
+
+thermostaatavond:
+  module: thermostaatavond
+  class: thermostaatavond
+  
+
+# thermostaat:
+#   module: thermostaat
+#   class: thermostaat
+
+thermostaat_mqtt:
+  module: thermostaat_mqtt
+  class: thermostaat_mqtt
+
+sander_device_tracker:
+  module: mqtt_device_tracker
+  class: mqtt_device_tracker
+  trigger: sensor.sander_home_occupancy_confidence
+  device: device_tracker.phone_sander
+  device_topic: "location/sander"
+
+linda_device_tracker:
+  module: mqtt_device_tracker
+  class: mqtt_device_tracker
+  trigger: sensor.linda_home_occupancy_confidence
+  device: device_tracker.phone_linda
+  device_topic: "location/linda"
+
+thermostaat_raw:
+  module: thermostaat_raw
+  class: thermostaat_raw
+
+# zonnescherm:
+#   module: zonnescherm
+#   class: zonnescherm
+
+# sunup:
+#   module: sunup
+#   class: sunup
+
+# Occupancy Simulator:
+#   module: occusim
+#   class: OccuSim
+#   log: 1
+#   notify: 1
+#   notify_protocol: "telegram"
+#   enable: input_boolean.occupancy_simulation,on
+#   # test: 0
+#   dump_times: 1
+#   #reset_time: 02:00:00
+
+
+#   step_evening_name: Evening
+#   step_evening_start: sunset - 01:01:00
+#   # step_evening_on_1: light.wk_muur_level
+#   step_evening_on_1: scene.woonkamer_low
+#   #step_evening_off_1: script.woonkamer_off
+#   step_evening_start_offset: "00:10:00"
+
+#   random_keuken_start: Evening
+#   random_keuken_on: light.keuken_aanrecht_groep
+#   random_keuken_off: light.keuken_aanrecht_groep
+#   random_keuken_number: '1'
+#   random_keuken_name: Keuken aanrecht
+#   random_keuken_end: keukeneind
+#   random_keuken_maxduration: "00:30:01"
+#   random_keuken_minduration: "00:10:00"
+
+#   step_keukeneind_name: keukeneind
+#   step_keukeneind_start: "21:30:00"
+
+
+
+#   step_night_start: '22:10:00'
+#   step_night_end: '22:58:00'
+#   step_night_name: Night
+#   step_night_on_1: scene.alle_lichten_uit
+#   # step_night_on_2: script.mbr_low
+
+#   # step_morningon_days: mon,tue,wed,thu,fri
+#   # step_morningon_start: "05:50:00"
+#   # step_morningon_end: "06:05:00"
+#   # step_morningon_name: Morning on
+#   # step_morningon_on_1: switch.keuken_aanrecht_switch
+
+#   # step_morningoff_relative: Morning on
+#   # step_morningoff_start_offset: "00:10:00"
+#   # step_morningoff_name: Morning off
+#   # step_morningoff_off_1: switch.keuken_aanrecht_switch
+
+vakantie:
+  module: vakantie
+  class: vakantie
+
+eettafellamp:
+  module: eettafellamp
+  class: eettafellamp
+
+douche:
+  module: douche
+  class: douche
+
+woonkamer_off_direct:
+  module: woonkamer_off
+  class: woonkamer_off
+  entity_id: group.woonkamer_direct
+  delay: 0
+
+woonkamer_off_delay:
+  module: woonkamer_off
+  class: woonkamer_off
+  entity_id: group.woonkamer_delay
+  delay: 10
+
+convectorput:
+  module: convectorput
+  class: convectorput
+  min: 165
+  med: 180
+  max: 220
+
+# mqtttest:
+#   module: mqtttest
+#   class: mqtttest
+
+masterslavedide:
+  module: masterslavezolder
+  class: masterslavezolder
+  ventipv: sensor.temperatuur_dide_ventilatie
+  thermpv: sensor.didethermpv
+  roomsp: input_number.slaapkamer_dide_setpoint
+  thermsp: climate.kamer_dide
+
+masterslavefien:
+  module: masterslavezolder
+  class: masterslavezolder
+  ventipv: sensor.temperatuur_fien_ventilatie
+  thermpv: sensor.didethermpv
+  roomsp: input_number.slaapkamer_fien_setpoint
+  thermsp: climate.kamer_fien
+
+# masterslavedidepid:
+#   module: masterslavezolder1
+#   class: masterslavezolder
+#   ventipv: sensor.temperatuur_dide_ventilatie
+#   thermpv: sensor.slaapkamer_dide_gemeten_temperatuur
+#   roomsp: sensor.slaapkamer_dide_gewenste_temperatuur_set
+#   thermsp: "zolder/kamerdide/thermostaat/desiredTemperature/set"
+#   thermsp2: sensor.slaapkamer_fien_gewenste_temperatuur
+
+sousvide:
+  module: sousvide
+  class: sousvide
+  
+# powerwasser:
+#   module: powermeter
+#   class: powermeter
+#   trigger: input_boolean.test
+#   # appliance: washer
+#   # kwhsensor: sensor.wasmachine_energy
+
+
+# Uitgezet omdat de sensoren toch niet werken
+# chflowcombined:
+#   module: chflowcalc
+#   class: chflowcalc
+#   temp_combined: "sensor.ch_retour"
+#   temp_1: "sensor.ch_retour_voor"
+#   temp_2: "sensor.ch_retour_achter_en_badkamer"
+#   combined_flow: ""
+#   flowtopic_1: "zolder/ketel/chvoor/flow"
+#   flowtopic_2: "zolder/ketel/chbadkamerachter/flow"
+#   displaytopic_1: "zolder/ketel/chvoor/flowdisplay"
+#   displaytopic_2: "zolder/ketel/chbadkamerachter/flowdisplay"
+
+# chflowachterbadkamer:
+#   module: chflowcalc
+#   class: chflowcalc
+#   temp_combined: "sensor.ch_retour_achter_en_badkamer"
+#   temp_1: "sensor.ch_retour_achter"
+#   temp_2: "sensor.ch_retour_badkamer"
+#   combined_flow: "sensor.chflowbadkamerachter"
+#   flowtopic_1: "zolder/ketel/chachter/flow"
+#   flowtopic_2: "zolder/ketel/chbadkamer/flow"
+#   displaytopic_1: "zolder/ketel/chachter/flowdisplay"
+#   displaytopic_2: "zolder/ketel/chbadkamer/flowdisplay"
+
+
+# showergasuse:
+#   module: showergasuse
+#   class: showergasuse
+
+# Apps
+itho:
+  module: itho
+  class: itho
+
+pseudo_thermostat_fien:
+  module: zolder_pseudo_thermostat
+  class: zolderpseudothermostat
+  sptopic: "homegear/climate/plain/1/1/SET_TEMPERATURE"
+  frontendsp: sensor.fienthermsp_fe
+  raw_climate_device: climate.kamer_fien_raw
+  frontend_climate_device: climate.kamer_fien
+  settopic: "homegear/climate/set/1/1/SET_TEMPERATURE"
+  timeout: 3600
+  weekend_morning_switch: "07:30:00"
+  weekend_afternoon_switch: "17:02:00"
+  weekend_sleeptime_switch: "19:00:00"
+  week_morning_switch: "06:30:00" 
+  week_afternoon_switch: "17:02:00"
+  week_sleeptime_switch: "19:00:00"
+  input_number_setpoint: input_number.slaapkamer_fien_setpoint
+  temp_high_sp: input_number.temp_high_sp_fien
+  temp_low_sp: input_number.temp_low_sp_fien
+  thermostaat_override: input_boolean.thermostaat_fien_override
+  thermostat_raw_sp: sensor.fienthermsp_raw
+
+pseudo_thermostat_dide:
+  module: zolder_pseudo_thermostat
+  class: zolderpseudothermostat
+  # sptopic: "homegear/climate/plain/2/1/SET_TEMPERATURE"
+  frontendsp: sensor.didethermsp_fe
+  # raw_climate_device: climate.kamer_dide_raw
+  raw_climate_device: climate.thermostaat_dide
+  frontend_climate_device: climate.kamer_dide
+  # settopic: "homegear/climate/set/2/1/SET_TEMPERATURE"
+  timeout: 3600
+  weekend_morning_switch: "07:30:00"
+  weekend_afternoon_switch: "17:02:00"
+  weekend_sleeptime_switch: "19:00:00"
+  week_morning_switch: "06:30:00" 
+  week_afternoon_switch: "17:02:00"
+  week_sleeptime_switch: "19:00:00"
+  input_number_setpoint: input_number.slaapkamer_dide_setpoint
+  temp_high_sp: input_number.temp_high_sp_dide
+  temp_low_sp: input_number.temp_low_sp_dide
+  thermostaat_override: input_boolean.thermostaat_dide_override
+  thermostat_raw_sp: sensor.didethermsp_raw
+
+# scheduletest:
+#   module: scheduletest
+#   class: scheduletest
+#   weekend_afternoon_switch: "7:33:00"
+#   weekend_sleeptime_switch: "7:34:00"
+#   week_afternoon_switch: "7:35:00"
+#   week_sleeptime_switch: "7:36:00"
+
+# zwavecheck:
+#   module: zwavecheck
+#   class: zwavecheck
+
+# pidtempcontroller:
+#   module: pidtempcontroller
+#   class: pidtempcontroller

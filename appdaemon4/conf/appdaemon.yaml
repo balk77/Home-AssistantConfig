@@ -1,0 +1,46 @@
+# secrets: /home/sander/hass/homeassistant
+# log:
+#   logfile: STDOUT
+#   errorfile: STDERR
+#   log_size: 10000000
+#   log_generations: 3
+appdaemon:
+  # api_port: 5001
+
+  threads: 10
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  time_zone: !secret time_zone
+  client_topics: None
+  plugins:
+    HASS:
+      type: hass
+      ha_url: "http://192.168.0.9:8123"
+      # ha_key: !secret api_password
+      token: !secret appdaemon_token
+http:
+  url: http://localhost:5050
+admin:
+api:
+    # MQTT:
+    #  type: mqtt
+    #  client_host: 192.168.0.9
+    # #  client_user: !secret mqtt_username
+    # #  client_password: !secret mqtt_password
+    #  namespace: mqtt
+    #  client_topics:
+    #      - x/y/z
+    #      - "zolder/kamerdide/kamer/desiredTemperature/set"
+    #      - "zolder/kamerfien/kamer/desiredTemperature/set"
+    # MQTT:
+    #   type: mqtt
+    #   #verbose: True
+    #   client_host: '192.168.0.9'
+    #   client_port: 1883
+    #   #namepace: "appdaemon"
+    #   # client_topics:
+    #   #   - hermes/intent/#
+    #   #   - hermes/hotword/#
+# hadashboard:
+#   dash_url: http://192.168.0.199:5050

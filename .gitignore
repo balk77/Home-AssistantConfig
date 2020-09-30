@@ -39,7 +39,6 @@ appdaemon/log/
 nest.conf*
 appdaemon3/log/
 appdaemon3/conf/apps/secrets.yaml
-appdaemon4/
 .spotify*
 appdaemon3/conf/dryer.csv
 appdaemon3/conf/washer.csv
