@@ -1,0 +1,15 @@
+
+- platform: "mqtt"
+  # availability_topic: "zigbee2mqtt/bridge/state"
+  name: "level_mqtt_ozw"
+  command_topic: "OpenZWave/1/command/setvalue/"
+  set_position_topic: "OpenZWave/1/command/setvalue/"
+  set_position_template: "{ \"Value\": {{ position }}, \"ValueIDKey\": 407470097 }"
+  position_topic: "OpenZWave/1/node/24/instance/1/commandclass/38/value/407470097/"
+  value_template: "{{ value_json.Value }}"
+  position_open: 99
+  position_closed: 0
+  payload_open: "{ \"Value\": 99, \"ValueIDKey\": 407470097 }"
+  payload_close: "{ \"Value\": 0, \"ValueIDKey\": 407470097 }"
+
+

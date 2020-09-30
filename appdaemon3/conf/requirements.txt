@@ -1,4 +1,0 @@
-babel
-hass-apps
-psycopg2
-config

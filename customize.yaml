@@ -103,9 +103,6 @@ input_boolean.huis_slaapstand:
     icon: if (state === "on") return "mdi:sleep"; else return "mdi:alarm";
 sensor.itho_ventilatie:
   friendly_name: Werkelijke ITHO status
-input_boolean.itho_remote_override:
-  friendly_name: ITHO Remote Override
-  icon: mdi:fan
 sensor.zolder_multisensor_temperature:
   friendly_name: Zolder Temperatuur
 sensor.slaapkamer_dide_gemeten_temperatuur:
@@ -126,8 +123,8 @@ script.woonkamer_medium:
 script.woonkamer_full:
   friendly_name: Woonkamer Full
   can_cancel: false
-sensor.delft_irradiance:
-  friendly_name: Zoninstraling
+# sensor.delft_irradiance:
+#   friendly_name: Zoninstraling
 sensor.delft_precipitation_forecast_total:
   friendly_name: Regen komend uur
 input_number.hass_tempsetpoint:
@@ -195,4 +192,5 @@ sensor.chflowbadkamerachterdisplay:
   friendly_name: "CH Flow Badkamer en Achter"
 sensor.chflowbadkamerdisplay:
   friendly_name: "CH Flow Badkamer en Achter"
-  
+cover.level:
+  invert_openclose_buttons: true

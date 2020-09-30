@@ -45,21 +45,45 @@ random_minute:
   min: 0
   max: 59
   mode: slider
-humdelta_dummy:
-  min: 0
-  max: 20
-zonnescherm:
-  # 0 is omhoog, 255 is down
-  min: 0
-  max: 255
+# humdelta_dummy:
+#   min: 0
+#   max: 20
+# zonnescherm:
+#   # 0 is omhoog, 255 is down
+#   min: 0
+#   max: 255
 # thermostaat_setpoint:
 #   min: 5
 #   max: 40
 #   initial: 15
 sousvidetemp:
-    name: Sous Vide Target Temp
-    initial: 50
-    min: 20
-    max: 99
-    step: 0.5
-    mode: box
+  name: Sous Vide Target Temp
+  initial: 50
+  min: 20
+  max: 99
+  step: 0.5
+  mode: box
+temp_high_sp_fien:
+  name: Naar hoog - Fien
+  step: 0.5
+  min: 10
+  max: 25
+  mode: box
+temp_high_sp_dide:
+  name: Naar hoog - Dide
+  step: 0.5
+  min: 10
+  max: 25
+  mode: box
+temp_low_sp_fien:
+  name: Naar laag - Fien
+  step: 0.5
+  min: 10
+  max: 25
+  mode: box
+temp_low_sp_dide:
+  name: Naar laag - Dide
+  step: 0.5
+  min: 10
+  max: 25
+  mode: box

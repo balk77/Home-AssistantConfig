@@ -1,4 +1,23 @@
 homeassistant:
+  # # Name of the location where Home Assistant is running
+  # name: Home Linda en Sander
+  # # Location required to calculate the time the sun rises and sets
+  # latitude: !secret latitude
+  # longitude: !secret longitude
+
+  # # Impacts weather/sunrise data (altitude above sea level in meters)
+  # elevation: 0
+
+
+  # # metric for Metric, imperial for Imperial
+  # unit_system: metric
+  # # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  # time_zone: !secret time_zone
+  # # customize: !include customize.yaml
+  # #packages: !include_dir_named packages
+  # # auth_providers:
+  # #  - type: homeassistant
+  # ##  - type: legacy_api_password
 
 lovelace:
 #   mode: yaml
@@ -7,7 +26,6 @@ person:
 
 recorder:
   db_url: postgres://homeassistant:ereadsta@192.168.0.9/homeassistant
-  purge_interval: 2
   purge_keep_days: 7
   exclude:
     domains:
@@ -41,6 +59,10 @@ recorder:
 
 logger:
   default: info
+  # default: debug
+  # logs:
+    # homeassistant.components.esphome: debug
+    # homeassistant.bootstrap: debug
     #critical
   # info
 #  logs:
@@ -68,7 +90,7 @@ http:
   # Uncomment this if you are using SSL or running in Docker etc
   #ssl_certificate: !secret ssl_ssl_certificate
   #ssl_key: !secret ssl_ssl_key
-  base_url: !secret ssl_base_url
+  # base_url: !secret ssl_base_url
 
 api:
 
@@ -78,8 +100,8 @@ updater:
 # Discover some devices automatically
 discovery:
   ignore:
-    - plex_mediaserver
     - google_cast
+mobile_app:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
@@ -94,9 +116,7 @@ logbook:
 sun:
 
 weather:
-- platform: darksky
-  api_key: !secret darksky_api_key
-- platform: buienradar
+  - platform: buienradar
 
 sensor: !include includes/sensors.yaml
 binary_sensor: !include includes/binary_sensors.yaml
@@ -115,10 +135,10 @@ counter:
 device_tracker: !include includes/device_tracker.yaml
 
 group: !include includes/groups.yaml
-zone: !include includes/zones.yaml
+# zone: !include includes/zones.yaml
 
 automation: !include automations.yaml
-automation old: !include_dir_merge_list automation
+# automation old: !include_dir_merge_list automation
 
 
 
@@ -132,7 +152,7 @@ script: !include includes/script/scripts.yaml
 input_boolean: !include includes/input_booleans.yaml
 scene: !include scenes.yaml
 #scene_old: !include_dir_list scenes
-
+cover: !include includes/cover.yaml
 
 
 # MQTT config
@@ -145,12 +165,12 @@ mqtt:
   discovery_prefix: homeassistant
 
 # Z-Wave config
-zwave:
-  usb_path: /dev/ttyACM0
-  autoheal: false
-  device_config:
-    cover.level:
-      invert_openclose_buttons: true
+# zwave:
+#   usb_path: /dev/ttyACM0
+#   autoheal: false
+#   device_config:
+#     cover.level:
+#       invert_openclose_buttons: true
 
 # # IFTTT
 # ifttt:
@@ -192,9 +212,7 @@ nest:
     monitored_conditions:
       - 'online'
 
-wunderlist:
-  client_id: !secret wunderlist_client_id
-  access_token: !secret wunderlist_access_token
+
 
 input_select: !include includes/input_select.yaml
 input_number: !include includes/input_number.yaml
@@ -202,9 +220,9 @@ light: !include includes/light.yaml
 
 
 input_text:
-  valvemoving:
-    name: "Action:"
-    initial: Valve is moving
+  # valvemoving:
+  #   name: "Action:"
+  #   initial: Valve is moving
   itho_reason:
     name: Itho Reason
 
@@ -232,15 +250,13 @@ influxdb:
   tags_attributes:
     - friendly_name
 
-media_player:
-  - platform: spotify
-    client_id: !secret spotify_client_id
-    client_secret: !secret spotify_client_secret
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
 
 timer:
   fanrunout:
     icon: mdi:fan
-  zolder_motion:
   convectorput_runout:
 
 
@@ -275,3 +291,9 @@ pi_hole:
   ssl: false
   verify_ssl: false
   api_key: !secret pihole_api
+
+rest_command:
+  qt_openzwave_restart:
+    url: "http://192.168.0.9:8126/container/qt-openzwave/restart"
+    # method: POST
+    # content_type: "application/x-www-form-urlencoded"

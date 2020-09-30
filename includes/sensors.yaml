@@ -1,4 +1,3 @@
-- platform: yr
 - platform: mqtt
   state_topic: 'p1data/electricity'
   name: 'Current usage'
@@ -18,6 +17,7 @@
   unit_of_measurement: '°C'
   state_topic: "woonkamer/woonkamer/thermostaat/temperature/set"
   force_update: true
+
 
 
 
@@ -86,59 +86,63 @@
     minhum:
       #friendly_name: "Minimum humidity"
       unit_of_measurement: '%'
-      value_template: "{{ states.sensor.minhum_stat_mean.attributes.min_value }}"
+      value_template: '{{ state_attr("sensor.minhum_stat_mean","min_value") }}'
     minbadkamertemp:
       #friendly_name: "Minimum badkamer temp"
       unit_of_measurement: '°C'
-      value_template: "{{ states.sensor.badkamertemp_stat_mean.attributes.min_value }}"
-    boiler_boottime:
-      value_template: '{{ as_timestamp(states.automation.see_if_boiler_restarts.attributes.last_triggered) | timestamp_custom("%H:%M:%S %d/%m/%y") }}'
-    humdelta:
-      value_template: '{{ (float(states.sensor.badkamer_relhumidity.state) - float(states.sensor.minhum.state)) | round(1) }}'
+      value_template: '{{ state_attr("sensor.badkamertemp_stat_mean", "min_value") }}'
+    # boiler_boottime:
+    #   value_template: '{{ as_timestamp(states.automation.see_if_boiler_restarts.attributes.last_triggered) | timestamp_custom("%H:%M:%S %d/%m/%y") }}'
+    humdelta_old:
+      # value_template: '{{ (float(states.sensor.badkamer_relhumidity.state) - float(states.sensor.minhum.state)) | round(1) }}'
+      
+      # value_template: '{{ (float(states("sensor.badkamer_relhumidity")) - float(states("sensor.minhum"))) | round(1) }}'
+      # value_template: '{{ (float(states("sensor.badkamer_relhumidity")) - float(state_attr("sensor.minhum_stat_mean","min_value"))) | round(1) }}'
+      value_template: '{{ (states("sensor.badkamer_relhumidity") - state_attr("sensor.minhum_stat_mean","min_value")) | round(1) }}'
+      
+      
+      # value_template: '{{ (states("sensor.badkamer_relhumidity") - states("sensor.minhum")) | round(1) }}'
       #unit_of_measurement: 'mg/m3'
       unit_of_measurement: '%'
 #/     zolder_delta_t:
 #/       value_template: '{{ (float(states.sensor.dark_sky_temperature.state) - float(states.sensor.zolder_max_t.state)) | round(1) }}'
 #/       unit_of_measurement: '∆°C'
-    wk_multisensor_battery_level:
-      value_template: '{{ states.zwave.wk_multisensor.attributes.battery_level | float }}'
-    zolder_multisensor_battery_level:
-      value_template: '{{ states.zwave.zolder_multisensor.attributes.battery_level | float}}'
+
     # wk_delta_t:
     #   value_template: '{{ (float(states.sensor.dark_sky_temperature.state) - float(states.sensor.wk_thermostaat_pv.state)) | round(1) }}'
     #   unit_of_measurement: '∆°C'
     hotwater:
       value_template: "{{ states('sensor.wk_boilerstatus') }}"
     azimuth:
-      value_template: '{{ float(states.sun.sun.attributes.azimuth) }}'
+      value_template: "{{ float(state_attr('sun.sun', 'azimuth')) }}"
     maxtempsetpoint:
       friendly_name: "Max Temp Setpoint"
       unit_of_measurement: '°C'
-      value_template: "{{ states.sensor.thermostaat_tempsetpoint_mean.attributes.max_value }}"
+      value_template: "{{ state_attr('sensor.thermostaat_tempsetpoint_mean','max_value') }}"
     didethermpv:
       friendly_name: "Dide thermostaat Present Value"
       unit_of_measurement: '°C'
-      value_template: "{{ states.climate.kamer_dide_raw.attributes.current_temperature }}"
+      value_template: "{{ state_attr('climate.kamer_dide_raw','current_temperature') }}"
     didethermsp_raw:
       friendly_name: "Dide thermostaat Raw Set Point"
       unit_of_measurement: '°C'
-      value_template: "{{ states.climate.kamer_dide_raw.attributes.temperature }}"
+      value_template: "{{ state_attr('climate.kamer_dide_raw','temperature') }}"
     didethermsp_fe:
       friendly_name: "Dide thermostaat frontend Set Point"
       unit_of_measurement: '°C'
-      value_template: "{{ states.climate.kamer_dide.attributes.temperature }}"
+      value_template: "{{ state_attr('climate.kamer_dide','temperature') }}"
     fienthermpv:
       friendly_name: "Fien thermostaat Present Value"
       unit_of_measurement: '°C'
-      value_template: "{{ states.climate.kamer_fien_raw.attributes.current_temperature }}"
+      value_template: "{{ state_attr('climate.kamer_fien_raw', 'current_temperature') }}"
     fienthermsp_raw:
       friendly_name: "Fien thermostaat Raw Set Point"
       unit_of_measurement: '°C'
-      value_template: "{{ states.climate.kamer_fien_raw.attributes.temperature }}"
+      value_template: "{{ state_attr('climate.kamer_fien_raw', 'temperature') }}"
     fienthermsp_fe:
       friendly_name: "Fien thermostaat frontend Set Point"
       unit_of_measurement: '°C'
-      value_template: "{{ states.climate.kamer_fien.attributes.temperature }}"
+      value_template: "{{ state_attr('climate.kamer_fien', 'temperature') }}"
     woonkamer_number_of_lights_on:
       unit_of_measurement: 'Lights'
       friendly_name: 'Lights on'
@@ -150,7 +154,7 @@
         - switch.schemerlamp_switch
         - light.keuken_aanrecht_groep
       value_template: >-
-        {%- for item in states.group.woonkamer.attributes.entity_id  if states(item) == "on" %}
+        {%- for item in state_attr('group.woonkamer','entity_id')  if states(item) == "on" %}
           {% if loop.last %}
             {{loop.index}}
           {% endif %}
@@ -158,6 +162,23 @@
     wk_boilerstatus:
       value_template: >-
         {% if is_state('binary_sensor.tap_water', 'on') %} HW {% elif  is_state('binary_sensor.heating', 'on') %} CH {% else %} No {% endif %}
+# - platform: template
+#   sensors:
+    thermostaat_tempsetpoint:
+      friendly_name: "Thermostaat Temperature Setpoint"
+      unit_of_measurement: '°C'
+      # value_template: "{{ states.climate.woonkamer.attributes.temperature }}"
+      value_template: "{{ state_attr('climate.woonkamer', 'temperature') }}"
+# - platform: template
+#   sensors:
+    showertime_time:
+      value_template: '{{ as_timestamp(states.sensor.last_shower_duration.last_updated) | int | timestamp_custom("%-I:%M on %a %-d %b") }}'
+
+    boiler_updated:
+      value_template: '{{ as_timestamp(states.sensor.boiler_temperature.last_updated) | timestamp_custom("%H:%M on %d/%b") }}'
+
+    # boiler_boottime:
+    #   value_template: '{{ as_timestamp(states.automation.see_if_boiler_restarts.attributes.last_triggered) | timestamp_custom("%H:%M:%S %d/%m/%y") }}'
     
 - platform: influxdb
   host: 192.168.0.9
@@ -210,12 +231,7 @@
 #   name: 'thermostaat_tempsetpoint'
 #   state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint2"
 #   force_update: true
-- platform: template
-  sensors:
-    thermostaat_tempsetpoint:
-      friendly_name: "Thermostaat Temperature Setpoint"
-      unit_of_measurement: '°C'
-      value_template: "{{ states.climate.woonkamer.attributes.temperature }}"
+
 
 - platform: mqtt
   name: 'thermostaat_ch_supply_temp'
@@ -224,7 +240,8 @@
   force_update: true
 - platform: statistics
   name: thermostaat_tempsetpoint_mean
-  entity_id: sensor.thermostaat_tempsetpoint
+  # entity_id: sensor.thermostaat_tempsetpoint
+  entity_id: sensor.current_set_temperature
   sampling_size: 1000
   max_age:
     hours: 1
@@ -352,6 +369,7 @@
   name: 'Current Set Temperature'
   unit_of_measurement: '°C'
   value_template: "{{ value_json.hc1.seltemp }}" 
+  force_update: true
 
 - platform: mqtt
   state_topic: 'home/ems-esp/thermostat_data'
@@ -469,16 +487,6 @@
   state_topic: "home/ems-esp/shower_data"
   value_template: "{{ value_json.duration | is_defined }}"
 
-- platform: template
-  sensors:
-    showertime_time:
-      value_template: '{{ as_timestamp(states.sensor.last_shower_duration.last_updated) | int | timestamp_custom("%-I:%M on %a %-d %b") }}'
-
-    boiler_updated:
-      value_template: '{{ as_timestamp(states.sensor.boiler_temperature.last_updated) | timestamp_custom("%H:%M on %d/%b") }}'
-
-    boiler_boottime:
-      value_template: '{{ as_timestamp(states.automation.see_if_boiler_restarts.attributes.last_triggered) | timestamp_custom("%H:%M:%S %d/%m/%y") }}'
 
 # general
 
@@ -537,8 +545,7 @@
 #   unit_of_measurement: ∆°C
 # Example configuration.yaml entry
 - platform: nederlandse_spoorwegen
-  email: !secret email
-  password: !secret ns_password
+  api_key: !secret ns_api_key
   routes:
     - name: Hoofddorp - Delft
       from: Hfd
@@ -572,3 +579,28 @@
     - type: load_5m
     - type: load_15m
     - type: processor_use
+
+- platform: mqtt
+  name: 'lichtknop_wk_links_boven'
+  state_topic: 'OpenZWave/1/node/9/instance/1/commandclass/43/value/155893779/'
+  value_template: "{{ value_json.Value }}"
+# - platform: mqtt
+#   name: 'lichtknop_wk_midden'
+#   state_topic: 'OpenZWave/1/node/12/instance/1/commandclass/43/value/206225427/'
+#   value_template: "{{ value_json.Value }}"
+- platform: mqtt
+  name: 'rolluik_handbediening'
+  state_topic: 'OpenZWave/1/node/24/instance/1/commandclass/43/value/407552019/'
+  value_template: "{{ value_json.Value }}"
+- platform: mqtt
+  name: wk_multisensor_battery_level
+  state_topic: 'OpenZWave/1/node/3/instance/1/commandclass/128/value/56623121/'
+  value_template: "{{ value_json.Value }}"
+- platform: mqtt
+  name: zolder_multisensor_battery_level
+  state_topic: 'OpenZWave/1/node/15/instance/1/commandclass/128/value/257949713/'
+  value_template: "{{ value_json.Value }}"
+- platform: mqtt
+  name: qtopenzwavestatus
+  state_topic: 'OpenZWave/1/status/'
+  value_template: "{{ value_json.Status }}"

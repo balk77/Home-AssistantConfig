@@ -82,14 +82,7 @@
   temperature_command_topic: "dummy/temperature_command_topic"
   # temperature_state_topic: "dummy/temperature_command_topic"
   mode_state_topic: "dummy/mode_state_topic"
-  # modes: --> with = unable to set
-  #   - "off"
-  #   - "heat"
-  # min_temp: 10 
-  # max_temp: 25
-  # initial: 15
-  # retain: True
-  # temp_step: 0.5
+
 
 - platform: mqtt
   name: Woonkamer
@@ -109,22 +102,7 @@
   initial: 15
   retain: True
   temp_step: 0.5
-# - platform: mqtt
-#   name: Sous vide
-#   modes:
-#     - disconnected
-#     - stopped
-#     - running
-#   current_temperature_topic: anova/status
-#   current_temperature_template: "{{ value_json.current_temp }}"
-#   temperature_state_topic: anova/status
-#   temperature_state_template: "{{ value_json.target_temp }}"
-#   mode_state_topic: anova/status
-#   mode_state_template: "{{ value_json.state }}"
-#   mode_command_topic: anova/command/run
-#   temperature_command_topic: anova/command/temp
-#   min_temp: 20
-#   max_temp: 99
+
 # NEFIT EMS script
 # https://github.com/proddy/EMS-ESP-Boiler  
 # - platform: mqtt

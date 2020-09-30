@@ -1,10 +1,3 @@
-- id: '1574591819338'
-  name: Test
-  entities:
-    light.keuken_koof_level:
-      state: 'off'
-    zwave.keuken_koof:
-      state: ready
 - id: '1574707074031'
   name: Woonkamer mid
   entities:
@@ -25,3 +18,101 @@
       state: ready
     zwave.wk_muur:
       state: ready
+- id: '1595614379547'
+  name: Woonkamer Low
+  entities:
+    light.wk_eettafel_plafond_level:
+      brightness: 116
+      friendly_name: Woonkamer Eettafel
+      node_id: 21
+      state: 'on'
+      supported_features: 33
+    light.wk_muur_level:
+      brightness: 85
+      friendly_name: Woonkamer Muur
+      node_id: 20
+      state: 'on'
+      supported_features: 33
+    switch.schemerlamp_switch:
+      friendly_name: Schemerlamp
+      node_id: 8
+      state: 'on'
+- id: '1595614479012'
+  name: Woonkamer Off
+  entities:
+    light.keuken_aanrecht_groep:
+      entity_id:
+      - light.keuken_aanrecht_rechts
+      - light.keuken_aanrecht_links
+      friendly_name: Keuken Aanrecht (groep)
+      state: 'off'
+      supported_features: 41
+    light.keuken_koof_level:
+      friendly_name: Keuken Koof
+      node_id: 9
+      state: 'off'
+      supported_features: 33
+    light.wk_achter_plafond_level:
+      friendly_name: Woonkamer Achter Plafond
+      node_id: 12
+      state: 'off'
+      supported_features: 33
+    light.wk_eettafel_plafond_level:
+      friendly_name: Woonkamer Eettafel
+      node_id: 21
+      state: 'off'
+      supported_features: 33
+    light.wk_muur_level:
+      friendly_name: Woonkamer Muur
+      node_id: 20
+      state: 'off'
+      supported_features: 33
+    switch.schemerlamp_switch:
+      friendly_name: Schemerlamp
+      node_id: 8
+      state: 'off'
+- id: '1595614945540'
+  name: Alle lichten uit
+  entities:
+    light.badkamer_plafond_level:
+      friendly_name: Badkamer
+      node_id: 13
+      state: 'off'
+      supported_features: 33
+    light.keuken_aanrecht_links:
+      friendly_name: Keuken Aanrecht Links
+      state: 'off'
+      supported_features: 41
+    light.keuken_aanrecht_rechts:
+      friendly_name: Keuken Aanrecht Rechts
+      state: 'off'
+      supported_features: 41
+    light.keuken_koof_level:
+      friendly_name: Keuken Koof
+      node_id: 9
+      state: 'off'
+      supported_features: 33
+    light.mbr_plafond_level:
+      friendly_name: MBR Plafond
+      node_id: 14
+      state: 'off'
+      supported_features: 33
+    light.wk_achter_plafond_level:
+      friendly_name: Woonkamer Achter Plafond
+      node_id: 12
+      state: 'off'
+      supported_features: 33
+    light.wk_eettafel_plafond_level:
+      friendly_name: Woonkamer Eettafel
+      node_id: 21
+      state: 'off'
+      supported_features: 33
+    light.wk_muur_level:
+      friendly_name: Woonkamer Muur
+      node_id: 20
+      state: 'off'
+      supported_features: 33
+    switch.schemerlamp_switch:
+      friendly_name: Schemerlamp
+      node_id: 8
+      state: 'off'

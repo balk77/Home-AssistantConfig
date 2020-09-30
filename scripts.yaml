@@ -1,5 +1,14 @@
-'1504251137786':
-  alias: group_visibility
+'1595356867395':
+  alias: Woonkamer Low2
   sequence:
+  - data:
+      brightness: 88
+    entity_id: light.wk_muur_level
+    service: light.turn_on
+  - delay: 00:00:01
   - data: {}
-    service: group.set_visibility
+    entity_id: switch.schemerlamp_switch
+    service: switch.turn_on
+  - delay: 00:00:05
+  - data: {}
+    service: script.all_lights_off

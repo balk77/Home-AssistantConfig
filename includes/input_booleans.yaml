@@ -78,30 +78,14 @@ sander_occupancy:
 linda_occupancy:
   name: Linda is thuis
   initial: off
-azimuth_backside:
-  name: Zon schijnt tegen achterkant huis
-  initial: off
+# azimuth_backside:
+#   name: Zon schijnt tegen achterkant huis
+  # initial: off
 vakantie:
   name: Vakantie
   initial: off
-#  icon_template: "{% if is_state('input_boolean.vakantie', 'on') %}mdi:airplane-takeoff{% else %}mdi:home{% endif  %}"
-#  icon: mdi:airplane-takeoff
-
-## Love Lace test
-
-switch_ac_kitchen:
-  name: AC kitchen
-switch_ac_livingroom:
-  name: AC living room
-switch_tv:
-  name: TV
-show_moving_valve:
-  name: Show Moving valve panel in frontend
-  initial: off
 print_itho_reason:
   name: Print Itho Reason
-test:
-  name: test
 convector_fan_disabled:
   name: Convectorput fan disabled
 convector_fan:
@@ -122,8 +106,8 @@ droger_alive:
   name: droger_alive
 tap_water_delay:
   name: tap water reported by EMS board
-rolluik_manual:
-  name: Zolder rolluik handbediening
+# rolluik_manual:
+#   name: Zolder rolluik handbediening
 fansendtimer1_front:
   initial: off
 fansendtimer2_front:
@@ -143,4 +127,10 @@ frontend_climate_dide:
 thermostaat_fien_override:
   initial: off
 thermostaat_dide_override:
+  initial: off
+humidity_to_full:
+  initial: off
+humidity_to_high:
+  initial: off
+humidity_to_medium:
   initial: off
