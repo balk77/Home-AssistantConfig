@@ -40,7 +40,7 @@ nest.conf*
 appdaemon3/log/
 appdaemon3/conf/apps/secrets.yaml
 .spotify*
-appdaemon3/conf/dryer.csv
-appdaemon3/conf/washer.csv
+appdaemon4/conf/dryer.csv
+appdaemon4/conf/washer.csv
 .gitignore
 image/*
