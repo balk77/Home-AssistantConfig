@@ -42,3 +42,5 @@ appdaemon3/conf/apps/secrets.yaml
 .spotify*
 appdaemon3/conf/dryer.csv
 appdaemon3/conf/washer.csv
+.gitignore
+image/*
