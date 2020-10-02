@@ -1,56 +1,27 @@
 - platform: workday
   country: NL
   workdays: [ mon, tue, wed, thu, fri ]
-# - platform: ping
-#   host: 192.168.0.196
-#   scan_interval: 30
-#   name: ping_raumfeld
-# - platform: trend
-#   sensors:
-#     hotwateron:
-#       entity_id: sensor.hw_aanvoer
-#       friendly_name: Warm Water gaat aan
-#       min_gradient: 0.2
-#       sample_duration: 60
-#       max_samples: 2
-#       #device_class: moisture
-#     hotwateroff:
-#       entity_id: sensor.hw_aanvoer
-#       friendly_name: Warm Water gaat uit
-#       min_gradient: -0.01
-#       sample_duration: 60
-#       max_samples: 2
-#       #device_class: moisture
+
 
 # NEFIT EMS script
 - platform: mqtt
-  name: 'Tap Water'
-  state_topic: 'home/ems-esp/tapwater_active'
+  name: tap_water
+  state_topic: 'ems-esp/tapwater_active'
   payload_on: "1"
   payload_off: "0"
 
 - platform: mqtt
-  name: 'Heating'
-  state_topic: 'home/ems-esp/heating_active'
+  name: heating
+  state_topic: 'ems-esp/heating_active'
   payload_on: "1"
   payload_off: "0"
 # END NEFIT EMS script
-# - platform: mqtt
-#   name: PIR Sensor Keuken
-#   state_topic: keuken_aanrecht_rechts/binary_sensor/pir_sensor_keuken/state
-#   availability_topic: keuken_aanrecht_rechts/status
-#   device_class: motion
+
 - platform: template
   sensors:
     washer_pwrup:
-      # Tasmota:
-      # value_template: "{{ states('sensor.wasmachine_power') | int > 3.4 }}"
-      # zelfbouw:
       friendly_name: "Wasmachine status"
       value_template: "{{ states('sensor.power_meter_wasmachine') | int > 7 }}"
     dryer_pwrup:
-      # Tasmota:
-      # value_template: "{{ states('sensor.droger_power') | int > 20 }}"
-      # zelfbouw:
       value_template: "{{ states('sensor.power_meter_droger') | int > 20 }}"
       friendly_name: "Droger status"

@@ -24,7 +24,7 @@ class thermostaat_mqtt(hass.Hass):
         # self.log(entity_id)
         # self.log(temperature)
         
-        if entity_id == "climate.woonkamer":
+        if entity_id == "climate.hc1":
             # self.log("ping")
             vakantie = self.get_state("input_boolean.vakantie")
             if vakantie == "off":

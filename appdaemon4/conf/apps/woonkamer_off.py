@@ -77,17 +77,3 @@ class woonkamer_off(hass.Hass):
     else:
       self.counter = 0
       
-
-
-  #  def runout_off(self, entity, attribute, old, new, kwargs):
-  #       self.log("runout = uit")
-  #       self.run_in(self.switch_runout, 900, action="off")
-
-  #   def switch_runout(self, kwargs):
-  #       self.log(kwargs['action'])
-  #       if kwargs['action'] == "on":
-  #           self.call_service("input_boolean/turn_on", entity_id="input_boolean$
-  #       elif kwargs['action'] == "off":
-  #           self.call_service("input_boolean/turn_off", entity_id="input_boolea$
-
-

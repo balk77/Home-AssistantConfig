@@ -268,21 +268,5 @@ class fancontrol(hass.Hass):
 
 
     def setfanstate(self, desiredState):
-        # self.log("desiredState: "+desiredState)
-        # if desiredState == "full" or desiredState == "high":
-        #     desiredState = "High"
-        # elif desiredState == "medium":
-        #     desiredState = "Medium"
-        # elif desiredState == "low":
-        #     desiredState = "Low"
-        # self.log("desiredState")
-        # self.log(desiredState)
-
-        
-
-
         self.call_service("fan/turn_on", entity_id="fan.itho",speed=desiredState)
-        # curState = self.get_state("input_select.fanstate")
-        # if desiredState != curState:
-        #     self.call_service("input_select/select_option", entity_id="input_select.fanstate", option=desiredState)
             

@@ -3,15 +3,16 @@ import appdaemon.plugins.hass.hassapi as hass
 class thermostaat_raw(hass.Hass):
     def initialize(self):
 
-        # self.listen_state(self.inputhandler, "sensor.thermostaat_tempsetpoint_raw")
-        self.listen_state(self.inputhandler, "sensor.current_set_temperature")
+        self.listen_state(self.inputhandler, "sensor.thermostaat_tempsetpoint_raw")
+        # self.listen_state(self.inputhandler, "sensor.current_set_temperature")
         
 
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
-        reading = self.get_state("sensor.current_set_temperature")
+        # reading = self.get_state("sensor.current_set_temperature")
+        reading = self.get_state("sensor.thermostaat_tempsetpoint_raw")
 
-        self.call_service("climate/set_temperature", entity_id="climate.woonkamer", temperature=reading)
+        # self.call_service("climate/set_temperature", entity_id="climate.hc1", temperature=reading)
 
         self.log(reading)
         # if reading != "undefined":

@@ -43,4 +43,6 @@ appdaemon3/conf/apps/secrets.yaml
 appdaemon4/conf/dryer.csv
 appdaemon4/conf/washer.csv
 .gitignore
-/image/*
+image
+.DS_Store
+._.DS_Store
