@@ -29,15 +29,6 @@ droger:
   appliance: dryer
   kwhsensor: sensor.total_daily_energy_wasmachine
 
-# humdelta:
-#   module: sensorexport
-#   class: sensorexport
-#   trigger: sensor.humdelta
-#   location: eersteverdiep
-#   sublocation: badkamer
-#   sensor: dht
-#   property: humdelta
-
 appdaemonalive:
   module: appdaemonalive
   class: appdaemonalive
@@ -58,21 +49,6 @@ telegram:
   module: telegram
   class: TelegramBotEventListener
 
-# wk_abshumidity:
-#   module: rel2abshumidity
-#   class: rel2abs
-#   temperature: sensor.mk_temp
-#   relhumidity: sensor.wk_relhumidity
-#   abshumidity: sensor.wk_abshumidity
-#   topic: "woonkamer/meterkast/dht/abshumidity"
-
-# badkamer_abshumidity:
-#   module: rel2abshumidity
-#   class: rel2abs
-#   temperature: sensor.badkamer_temperatuur
-#   relhumidity: sensor.badkamer_relhumidity
-#   abshumidity: sensor.badkamer_abshumidity
-#   topic: "eersteverdiep/badkamer/dht/abshumidity"
 
 thermostaatavond:
   module: thermostaatavond
@@ -105,13 +81,6 @@ thermostaat_raw:
   module: thermostaat_raw
   class: thermostaat_raw
 
-# zonnescherm:
-#   module: zonnescherm
-#   class: zonnescherm
-
-# sunup:
-#   module: sunup
-#   class: sunup
 
 # Occupancy Simulator:
 #   module: occusim
@@ -223,9 +192,9 @@ masterslavefien:
 #   thermsp: "zolder/kamerdide/thermostaat/desiredTemperature/set"
 #   thermsp2: sensor.slaapkamer_fien_gewenste_temperatuur
 
-sousvide:
-  module: sousvide
-  class: sousvide
+# sousvide:
+#   module: sousvide
+#   class: sousvide
   
 # powerwasser:
 #   module: powermeter
@@ -321,10 +290,13 @@ pseudo_thermostat_dide:
 #   week_afternoon_switch: "7:35:00"
 #   week_sleeptime_switch: "7:36:00"
 
-# zwavecheck:
-#   module: zwavecheck
-#   class: zwavecheck
 
 # pidtempcontroller:
 #   module: pidtempcontroller
 #   class: pidtempcontroller
+
+maxsetpoint:
+  module: maxsetpoint
+  class: maxsetpoint
+  max_age: 3600 # seconds
+  interval: 60 # seconds

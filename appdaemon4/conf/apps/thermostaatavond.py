@@ -23,7 +23,8 @@ class thermostaatavond(hass.Hass):
             self.log("avond: ")
             self.log(avond)
 
-            maxtempsetpoint = self.get_state("sensor.maxtempsetpoint")
+            # maxtempsetpoint = self.get_state("sensor.maxtempsetpoint")
+            maxtempsetpoint = self.get_state("input_number.max_temperature_setpoint")
             nefit_disable_clock_mode = self.get_state("input_boolean.nefit_disable_clock_mode")
             temp_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
             lights_woonkamer = self.get_state("group.woonkamer")

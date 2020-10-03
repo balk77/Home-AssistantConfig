@@ -3,22 +3,12 @@ woonkamer_ex_muur:
   entities:
     - light.wk_achter_plafond_level
     - light.wk_eettafel_plafond_level
-    #- light.keuken_plafond_level
     - light.keuken_koof_level
     # - switch.schemerlamp_switch
     - light.keuken_aanrecht_groep
     - light.lichtsnoer
-    #- switch.keuken_aanrecht_switch
-# woonkamer_ex_muur:
-#   name: Woonkamer verlichting exclusief muur
-#   entities:
-#     - light.wk_achter_plafond_level
-#     - light.wk_eettafel_plafond_level
-#     #- light.keuken_plafond_level
-#     - light.keuken_koof_level
-#     - switch.schemerlamp_switch
-#     - light.keuken_aanrecht_groep
-#     #- switch.keuken_aanrecht_switch
+    # - switch.kerstboom
+
 woonkamer_delay:
   name: Woonkamer Delay
   entities:
@@ -33,15 +23,7 @@ woonkamer_direct:
     # - switch.schemerlamp_switch
     - light.lichtsnoer
     # - switch.kerstboom
-# woonkamer_direct:
-#   name: Woonkamer Direct
-#   entities:
-#     - light.wk_achter_plafond_level
-#     - light.wk_eettafel_plafond_level
-#     - light.wk_muur_level
-#     - light.keuken_koof_level
-#     - switch.schemerlamp_switch
-#     # - switch.kerstboom
+
 woonkamer:
   name: Woonkamer
   entities:
