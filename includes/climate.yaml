@@ -10,11 +10,14 @@
   # send_if_off: true
 - platform: generic_thermostat
   name: Kamer Dide
-  heater: input_boolean.frontend_climate_dide
-  target_sensor: sensor.didethermpv
+  heater: input_boolean.radiator_dide
+  target_sensor: sensor.temperatuur_dide_ventilatie
   min_temp: 10
   max_temp: 25
+  initial_hvac_mode: "heat"
   target_temp: 13
+
+
   # temp_step: 0.5
   # modes: ["auto","off"]
   # send_if_off: true
@@ -61,21 +64,21 @@
   mode_state_template:  >-
     {% set values = { '0':'auto', '1':'off'} %}
     {{ values[value] if value in values.keys() else 'off' }}
-- platform: mqtt
-  name: Kamer Dide raw
-  retain: false
-  send_if_off: true
-  current_temperature_topic: homegear/climate/plain/2/1/ACTUAL_TEMPERATURE
-  temperature_state_topic: homegear/climate/plain/2/1/SET_TEMPERATURE
-  temperature_command_topic: homegear/climate/set/2/1/SET_TEMPERATURE
-  min_temp: 10
-  max_temp: 25
-  temp_step: 0.5
-  modes: ["auto","off"]
-  mode_state_topic: homegear/climate/plain/2/1/CONTROL_MODE
-  mode_state_template:  >-
-    {% set values = { '0':'auto', '1':'off'} %}
-    {{ values[value] if value in values.keys() else 'off' }}
+# - platform: mqtt
+#   name: Kamer Dide raw
+#   retain: false
+#   send_if_off: true
+#   current_temperature_topic: homegear/climate/plain/2/1/ACTUAL_TEMPERATURE
+#   temperature_state_topic: homegear/climate/plain/2/1/SET_TEMPERATURE
+#   temperature_command_topic: homegear/climate/set/2/1/SET_TEMPERATURE
+#   min_temp: 10
+#   max_temp: 25
+#   temp_step: 0.5
+#   modes: ["auto","off"]
+#   mode_state_topic: homegear/climate/plain/2/1/CONTROL_MODE
+#   mode_state_template:  >-
+#     {% set values = { '0':'auto', '1':'off'} %}
+#     {{ values[value] if value in values.keys() else 'off' }}
 - platform: mqtt
   name: dummy
   current_temperature_topic: "dummy/current_temperature_topic"

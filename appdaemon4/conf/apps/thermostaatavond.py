@@ -28,7 +28,7 @@ class thermostaatavond(hass.Hass):
             # if (temp_sp < 15.1 and thermostaat_activeprogram == "0" and lights_woonkamer == "on" and nefit_disable_clock_mode == "off"):
             if (temp_sp < 15.1  and huis_slaapstand == "off" and nefit_disable_clock_mode == "off"):
                 self.log("setting temperature to: " + maxtempsetpoint)
-                self.call_service("climate/set_temperature", entity_id="climate.hc1", temperature=maxtempsetpoint)
+                self.call_service("climate/set_temperature", entity_id="climate.thermostat_hc1", temperature=maxtempsetpoint)
                 
         else:
             avond = 0
@@ -43,7 +43,7 @@ class thermostaatavond(hass.Hass):
             # if (thermostaat_activeprogram == "0" and lights_woonkamer == "off"):
             
             payload = 15
-            self.call_service("climate/set_temperature", entity_id="climate.hc1", temperature=payload)
+            self.call_service("climate/set_temperature", entity_id="climate.thermostat_hc1", temperature=payload)
         else:
             avond = 0
 

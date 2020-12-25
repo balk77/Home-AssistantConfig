@@ -236,6 +236,8 @@ influxdb:
   max_retries: 3
   default_measurement: state
   include:
+    entities:
+      - cover.radiator_dide
     domains:
       - sensor
       - light
@@ -245,6 +247,7 @@ influxdb:
       - input_text
       - switch
       - binary_sensor
+      - cover
   tags:
     source: hass
   tags_attributes:
@@ -295,5 +298,11 @@ pi_hole:
 rest_command:
   qt_openzwave_restart:
     url: "http://192.168.0.9:8126/container/qt-openzwave/restart"
+  appdaemon_restart:
+    url: "http://192.168.0.9:8126/container/appdaemon4/restart"
     # method: POST
     # content_type: "application/x-www-form-urlencoded"
+
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg

@@ -4,10 +4,12 @@ class douche(hass.Hass):
     def initialize(self):
         
 
-        self.listen_state(self.inputhandler, "sensor.wk_boilerstatus", duration=60)
+        self.listen_state(self.inputhandler, "binary_sensor.warm_water_dhw_active", duration=60)
         self.listen_state(self.inputhandler, "input_boolean.tap_water_delay")
-        self.listen_state(self.emstap, "binary_sensor.tap_water", new="on", duration=20)
-        self.listen_state(self.emstap, "binary_sensor.tap_water", new="off")
+        # self.listen_state(self.emstap, "binary_sensor.tap_water", new="on", duration=20)
+        # self.listen_state(self.emstap, "binary_sensor.tap_water", new="off")
+        self.listen_state(self.emstap, "binary_sensor.warm_water_dhw_active", new="on", duration=20)
+        self.listen_state(self.emstap, "binary_sensor.warm_water_dhw_active", new="off")
         # self.listen_state(self.inputhandler, "binary_sensor.hotwateron")
         self.listen_state(self.inputhandler, "sensor.current_flow_temperature")
         self.listen_state(self.runout_on, "input_boolean.shower", new="on", duration=60)
@@ -19,7 +21,7 @@ class douche(hass.Hass):
 
 
     def emstap(self, entity, attribute, old, new, kwargs):
-        emstap = self.get_state("binary_sensor.tap_water")
+        emstap = self.get_state("binary_sensor.warm_water_dhw_active")
         if emstap == "on":
             self.call_service("input_boolean/turn_on", entity_id="input_boolean.tap_water_delay") 
         else:
@@ -28,7 +30,7 @@ class douche(hass.Hass):
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
         # self.log("ping")
-        wk_boilerstatus = self.get_state("sensor.wk_boilerstatus")
+        warm_water_dhw_active = self.get_state("binary_sensor.warm_water_dhw_active")
         
         if self.get_state("sensor.current_flow_temperature") == "unavailable" or self.get_state("sensor.current_flow_temperature") == "unknown":
             self.log("sensor.current_flow_temperature  = unavailable")
@@ -46,7 +48,7 @@ class douche(hass.Hass):
 
         if (lamp == "on"  and
             (
-                wk_boilerstatus == "HW" 
+                warm_water_dhw_active == "on" 
                 
             )):
             self.call_service("input_boolean/turn_on", entity_id="input_boolean.shower") 
@@ -56,9 +58,9 @@ class douche(hass.Hass):
             self.call_service("input_boolean/turn_on", entity_id="input_boolean.shower") 
         elif (curr_shower_state == "on" and
             (
-                wk_boilerstatus == "CH" or 
-                wk_boilerstatus == "No" or 
-                hotwateron_negative_gradient == "on" or
+                
+                warm_water_dhw_active == "No" or 
+                # hotwateron_negative_gradient == "on" or
                 tap_water_delay == "off"
                 
             )):

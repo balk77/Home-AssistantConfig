@@ -24,7 +24,7 @@ class thermostaat_mqtt(hass.Hass):
         # self.log(entity_id)
         # self.log(temperature)
         
-        if entity_id == "climate.hc1":
+        if entity_id == "climate.thermostat_hc1":
             # self.log("ping")
             vakantie = self.get_state("input_boolean.vakantie")
             if vakantie == "off":
@@ -78,9 +78,9 @@ class thermostaat_mqtt(hass.Hass):
         self.run_in(self.test_physical_thermostat, 60)
 
     def test_physical_thermostat(self, kwargs):
-        desired_sp = float(self.get_state("sensor.wk_thermostaat_hass_sp"))
+        desired_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
         try:
-            actual_sp = float(self.get_state("sensor.current_set_temperature"))
+            actual_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
         except:
             actual_sp = float(self.get_state("sensor.thermostaat_tempsetpoint"))
             

@@ -23,19 +23,23 @@
   entities:
     light.wk_eettafel_plafond_level:
       brightness: 116
-      friendly_name: Woonkamer Eettafel
       node_id: 21
-      state: 'on'
+      friendly_name: Woonkamer Eettafel
       supported_features: 33
+      state: 'on'
     light.wk_muur_level:
       brightness: 85
-      friendly_name: Woonkamer Muur
       node_id: 20
-      state: 'on'
+      friendly_name: Woonkamer Muur
       supported_features: 33
+      state: 'on'
     switch.schemerlamp_switch:
-      friendly_name: Schemerlamp
       node_id: 8
+      friendly_name: Schemerlamp
+      state: 'off'
+    switch.kerstboom:
+      node_id: 4
+      friendly_name: Kerstboom
       state: 'on'
 - id: '1595614479012'
   name: Woonkamer Off

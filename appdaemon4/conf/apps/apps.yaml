@@ -167,19 +167,19 @@ convectorput:
 #   module: mqtttest
 #   class: mqtttest
 
-masterslavedide:
-  module: masterslavezolder
-  class: masterslavezolder
-  ventipv: sensor.temperatuur_dide_ventilatie
-  thermpv: sensor.didethermpv
-  roomsp: input_number.slaapkamer_dide_setpoint
-  thermsp: climate.kamer_dide
+# masterslavedide:
+#   module: masterslavezolder
+#   class: masterslavezolder
+#   ventipv: sensor.temperatuur_dide_ventilatie
+#   thermpv: sensor.didethermpv
+#   roomsp: input_number.slaapkamer_dide_setpoint
+#   thermsp: climate.kamer_dide
 
 masterslavefien:
   module: masterslavezolder
   class: masterslavezolder
   ventipv: sensor.temperatuur_fien_ventilatie
-  thermpv: sensor.didethermpv
+  thermpv: sensor.fienthermpv
   roomsp: input_number.slaapkamer_fien_setpoint
   thermsp: climate.kamer_fien
 
@@ -261,12 +261,12 @@ pseudo_thermostat_fien:
   thermostat_raw_sp: sensor.fienthermsp_raw
 
 pseudo_thermostat_dide:
-  module: zolder_pseudo_thermostat
+  module: zolder_pseudo_thermostat_zwave
   class: zolderpseudothermostat
   # sptopic: "homegear/climate/plain/2/1/SET_TEMPERATURE"
   frontendsp: sensor.didethermsp_fe
   # raw_climate_device: climate.kamer_dide_raw
-  raw_climate_device: climate.thermostaat_dide
+  # raw_climate_device: climate.thermostaat_dide
   frontend_climate_device: climate.kamer_dide
   # settopic: "homegear/climate/set/2/1/SET_TEMPERATURE"
   timeout: 3600
@@ -275,7 +275,7 @@ pseudo_thermostat_dide:
   weekend_sleeptime_switch: "19:00:00"
   week_morning_switch: "06:30:00" 
   week_afternoon_switch: "17:02:00"
-  week_sleeptime_switch: "19:00:00"
+  week_sleeptime_switch: "18:30:00"
   input_number_setpoint: input_number.slaapkamer_dide_setpoint
   temp_high_sp: input_number.temp_high_sp_dide
   temp_low_sp: input_number.temp_low_sp_dide
@@ -295,8 +295,33 @@ pseudo_thermostat_dide:
 #   module: pidtempcontroller
 #   class: pidtempcontroller
 
+# maxsetpoint:
+#   module: maxsetpoint
+#   class: maxsetpoint
+#   max_age: 3600 # seconds
+#   interval: 60 # seconds
+
 maxsetpoint:
-  module: maxsetpoint
-  class: maxsetpoint
+  module: minmaxstats
+  class: minmaxstats
   max_age: 3600 # seconds
   interval: 60 # seconds
+  initial_value: 15
+  stat_type: max
+  # enity_id: sensor.thermostaat_tempsetpoint
+  enity_id: sensor.thermostaat_tempsetpoint_raw
+  input_number: input_number.max_temperature_setpoint
+
+minhum:
+  module: minmaxstats
+  class: minmaxstats
+  max_age: 14400 # seconds
+  interval: 300 # seconds
+  initial_value: 99
+  stat_type: min
+  enity_id: sensor.badkamer_relhumidity
+  input_number: input_number.minhum
+
+pid2cover:
+  module: pid2cover
+  class: pid2cover 

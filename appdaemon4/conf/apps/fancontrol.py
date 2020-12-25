@@ -19,7 +19,7 @@ class fancontrol(hass.Hass):
         #self.listen_state(self.main, "input_number.humdelta_dummy")
 
         # change in boiler status
-        self.listen_state(self.main, "sensor.wk_boilerstatus")
+        self.listen_state(self.main, "binary_sensor.warm_water_dhw_active")
         #self.listen_state(self.boiler_to_low, "sensor.wk_boilerstatus", old="HW")
 
         # change in attic temperature
@@ -29,7 +29,7 @@ class fancontrol(hass.Hass):
         self.listen_state(self.main, "input_boolean.showerfanrunout")
         #desiredStateHW = self.boilerstatus
         #self.log(self.get_state("input_boolean.vakantie"))
-        self.listen_state(self.main, "input_boolean.test")
+        # self.listen_state(self.main, "input_boolean.test")
 
 
     def send_message(self, **kwargs):

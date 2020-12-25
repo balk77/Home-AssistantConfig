@@ -9,7 +9,7 @@
   name: 'wk_thermostaat_pv'
   unit_of_measurement: '°C'
   #state_topic: "woonkamer/woonkamer/thermostaat/gemetentemperatuur"
-  state_topic: 'home/ems-esp/thermostat_data'
+  state_topic: 'ems-esp/thermostat_data'
   value_template: "{{ value_json.hc1.currtemp }}"
 
 # - platform: mqtt
@@ -21,12 +21,12 @@
 
 
 
-- platform: statistics
-  name: minhum_stat_mean
-  entity_id: sensor.badkamer_relhumidity
-  sampling_size: 1500
-  max_age:
-    hours: 4
+# - platform: statistics
+#   name: minhum_stat_mean
+#   entity_id: sensor.badkamer_relhumidity
+#   sampling_size: 1500
+#   max_age:
+#     hours: 4
 - platform: statistics
   name: badkamertemp_stat_mean
   entity_id: sensor.badkamer_temperatuur
@@ -83,20 +83,20 @@
   state_topic: "zolder/ketel/chbadkamer/flowdisplay"
 - platform: template
   sensors:
-    minhum:
-      #friendly_name: "Minimum humidity"
-      unit_of_measurement: '%'
-      value_template: '{{ state_attr("sensor.minhum_stat_mean","min_value") }}'
+    # minhum:
+    #   #friendly_name: "Minimum humidity"
+    #   unit_of_measurement: '%'
+    #   value_template: '{{ state_attr("sensor.minhum_stat_mean","min_value") }}'
     minbadkamertemp:
       #friendly_name: "Minimum badkamer temp"
       unit_of_measurement: '°C'
       value_template: '{{ state_attr("sensor.badkamertemp_stat_mean", "min_value") }}'
     # boiler_boottime:
     #   value_template: '{{ as_timestamp(states.automation.see_if_boiler_restarts.attributes.last_triggered) | timestamp_custom("%H:%M:%S %d/%m/%y") }}'
-    humdelta_old:
-      value_template: '{{ (states("sensor.badkamer_relhumidity") - state_attr("sensor.minhum_stat_mean","min_value")) | round(1) }}'
-      #unit_of_measurement: 'mg/m3'
-      unit_of_measurement: '%'
+    # humdelta_old:
+    #   value_template: '{{ (states("sensor.badkamer_relhumidity") - state_attr("sensor.minhum_stat_mean","min_value")) | round(1) }}'
+    #   #unit_of_measurement: 'mg/m3'
+    #   unit_of_measurement: '%'
 #/     zolder_delta_t:
 #/       value_template: '{{ (float(states.sensor.dark_sky_temperature.state) - float(states.sensor.zolder_max_t.state)) | round(1) }}'
 #/       unit_of_measurement: '∆°C'
@@ -112,18 +112,18 @@
       friendly_name: "Max Temp Setpoint"
       unit_of_measurement: '°C'
       value_template: "{{ state_attr('sensor.thermostaat_tempsetpoint_mean','max_value') }}"
-    didethermpv:
-      friendly_name: "Dide thermostaat Present Value"
-      unit_of_measurement: '°C'
-      value_template: "{{ state_attr('climate.kamer_dide_raw','current_temperature') }}"
-    didethermsp_raw:
-      friendly_name: "Dide thermostaat Raw Set Point"
-      unit_of_measurement: '°C'
-      value_template: "{{ state_attr('climate.kamer_dide_raw','temperature') }}"
-    didethermsp_fe:
-      friendly_name: "Dide thermostaat frontend Set Point"
-      unit_of_measurement: '°C'
-      value_template: "{{ state_attr('climate.kamer_dide','temperature') }}"
+    # didethermpv:
+    #   friendly_name: "Dide thermostaat Present Value"
+    #   unit_of_measurement: '°C'
+    #   value_template: "{{ state_attr('climate.kamer_dide_raw','current_temperature') }}"
+    # didethermsp_raw:
+    #   friendly_name: "Dide thermostaat Raw Set Point"
+    #   unit_of_measurement: '°C'
+    #   value_template: "{{ state_attr('climate.kamer_dide_raw','temperature') }}"
+    # didethermsp_fe:
+    #   friendly_name: "Dide thermostaat frontend Set Point"
+    #   unit_of_measurement: '°C'
+    #   value_template: "{{ state_attr('climate.kamer_dide','temperature') }}"
     fienthermpv:
       friendly_name: "Fien thermostaat Present Value"
       unit_of_measurement: '°C'
@@ -139,29 +139,33 @@
     woonkamer_number_of_lights_on:
       unit_of_measurement: 'Lights'
       friendly_name: 'Lights on'
-      entity_id:
-        - light.wk_achter_plafond_level
-        - light.wk_eettafel_plafond_level
-        - light.wk_muur_level
-        - light.keuken_koof_level
-        - switch.schemerlamp_switch
-        - light.keuken_aanrecht_groep
+      # entity_id:
+      #   - light.wk_achter_plafond_level
+      #   - light.wk_eettafel_plafond_level
+      #   - light.wk_muur_level
+      #   - light.keuken_koof_level
+      #   - switch.schemerlamp_switch
+      #   - light.keuken_aanrecht_groep
       value_template: >-
         {%- for item in state_attr('group.woonkamer','entity_id')  if states(item) == "on" %}
-          {% if loop.last %}
-            {{loop.index}}
-          {% endif %}
+            {% if loop.last %}
+              {{loop.index}}
+            {% endif %}
+          {% else %}
+            {{ 0 }}
+          {{ endif}}
         {% endfor %}
     wk_boilerstatus:
       value_template: >-
-        {% if is_state('binary_sensor.tap_water', 'on') %} HW {% elif  is_state('binary_sensor.heating', 'on') %} CH {% else %} No {% endif %}
+        {% if is_state('binary_sensor.warm_water_dhw_active', 'on') %} HW {% elif  is_state('binary_sensor.heating_active', 'on') %} CH {% else %} No {% endif %}
+    # {% if is_state('binary_sensor.tap_water', 'on') %} HW {% elif  is_state('binary_sensor.heating', 'on') %} CH {% else %} No {% endif %}
 # - platform: template
 #   sensors:
     thermostaat_tempsetpoint:
       friendly_name: "Thermostaat Temperature Setpoint"
       unit_of_measurement: '°C'
       # value_template: "{{ states.climate.woonkamer.attributes.temperature }}"
-      value_template: "{{ state_attr('climate.hc1', 'temperature') }}"
+      value_template: "{{ state_attr('climate.thermostat_hc1', 'temperature') }}"
 # - platform: template
 #   sensors:
     showertime_time:
@@ -210,7 +214,8 @@
 #   name: 'thermostaat_tempsetpoint_raw'
 #   state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint"
 - platform: mqtt
-  state_topic: 'homeassistant/climate/ems-esp/hc1/state'
+  # state_topic: 'homeassistant/climate/ems-esp/hc1/state'
+  state_topic: 'ems-esp/thermostat_data'
   name: 'thermostaat_tempsetpoint_raw'
 #  name: 'Current Set Temperature'
   unit_of_measurement: '°C'
@@ -493,11 +498,11 @@
     
 # #
 
-- platform: statistics
-  name: wasmachine_energy_stats_mean
-  entity_id: sensor.total_daily_energy_wasmachine
-  sampling_size: 2
-  precision: 5
+# - platform: statistics
+#   name: wasmachine_energy_stats_mean
+#   entity_id: sensor.total_daily_energy_wasmachine
+#   sampling_size: 2
+#   precision: 5
 
 - platform: history_stats
   name: Douche aan dit uur

@@ -1,23 +1,23 @@
 
-override_fan_timer:
-  name: Override fan timer
-  options:
-    - Uit
-    - 15 minuten
-    - 30 minuten
-    - een uur
-    - vier uur
-  initial: Uit
-fanspeed_front:
-  name: Itho Fan State
-  options:
-    - 'Low'
-    - 'Medium'
-    - 'High'
-    - 'Timer 1'
-    - 'Timer 2'
-    - 'Timer 3'
-  initial: "Low"
+# override_fan_timer:
+#   name: Override fan timer
+#   options:
+#     - Uit
+#     - 15 minuten
+#     - 30 minuten
+#     - een uur
+#     - vier uur
+#   initial: Uit
+# fanspeed_front:
+#   name: Itho Fan State
+#   options:
+#     - 'Low'
+#     - 'Medium'
+#     - 'High'
+#     - 'Timer 1'
+#     - 'Timer 2'
+#     - 'Timer 3'
+#   initial: "Low"
 convector_fanspeed:
   name: Convector Fan State
   options:

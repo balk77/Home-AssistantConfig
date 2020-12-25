@@ -12,7 +12,7 @@ class thermostaat_raw(hass.Hass):
         # reading = self.get_state("sensor.current_set_temperature")
         reading = self.get_state("sensor.thermostaat_tempsetpoint_raw")
 
-        # self.call_service("climate/set_temperature", entity_id="climate.hc1", temperature=reading)
+        # self.call_service("climate/set_temperature", entity_id="climate.thermostat_hc1", temperature=reading)
 
         self.log(reading)
         # if reading != "undefined":

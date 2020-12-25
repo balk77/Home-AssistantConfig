@@ -1,25 +1,23 @@
-washer_switch:
-    name: Toggle Washer Automation
-    initial: off
-    icon: mdi:washing-machine
-washer_pwrup:
-  name: Wasmachine powered on
-  initial: off
-  icon: mdi:washing-machine
-dryer_pwrup:
-  name: Droger powered on
-  initial: off
-  icon: mdi:tumble-dryer
-dryer_switch:
-    name: Toggle Dryer Automation
-    initial: off
-    icon: mdi:tumble-dryer
+# washer_switch:
+#     name: Toggle Washer Automation
+#     initial: off
+#     icon: mdi:washing-machine
+# washer_pwrup:
+#   name: Wasmachine powered on
+#   initial: off
+#   icon: mdi:washing-machine
+# dryer_pwrup:
+#   name: Droger powered on
+#   initial: off
+#   icon: mdi:tumble-dryer
+# dryer_switch:
+#     name: Toggle Dryer Automation
+#     initial: off
+#     icon: mdi:tumble-dryer
 itho_not_low:
   name: Itho not low
   initial: off
-iftt_temp_triggered:
-  name: IFTTT Set Temperature triggered
-  initial: off
+
 wk_multisensor_battery_level_reminder:
   name: wk_multisensor_battery_level_reminder
   initial: off
@@ -108,22 +106,22 @@ tap_water_delay:
   name: tap water reported by EMS board
 # rolluik_manual:
 #   name: Zolder rolluik handbediening
-fansendtimer1_front:
-  initial: off
-fansendtimer2_front:
-  initial: off
-fansendtimer3_front:
-  initial: off
-fansendlow_front:
-  initial: off
-fansendmedium_front:
-  initial: off
-fansendhigh_front:
-  initial: off
+# fansendtimer1_front:
+#   initial: off
+# fansendtimer2_front:
+#   initial: off
+# fansendtimer3_front:
+#   initial: off
+# fansendlow_front:
+#   initial: off
+# fansendmedium_front:
+#   initial: off
+# fansendhigh_front:
+#   initial: off
 frontend_climate_fien:
   initial: off
-frontend_climate_dide:
-  initial: off
+# frontend_climate_dide:
+#   initial: off
 thermostaat_fien_override:
   initial: off
 thermostaat_dide_override:

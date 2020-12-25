@@ -7,7 +7,7 @@ woonkamer_ex_muur:
     # - switch.schemerlamp_switch
     - light.keuken_aanrecht_groep
     - light.lichtsnoer
-    # - switch.kerstboom
+    - switch.kerstboom
 
 woonkamer_delay:
   name: Woonkamer Delay
@@ -22,7 +22,7 @@ woonkamer_direct:
     - light.keuken_koof_level
     # - switch.schemerlamp_switch
     - light.lichtsnoer
-    # - switch.kerstboom
+    - switch.kerstboom
 
 woonkamer:
   name: Woonkamer

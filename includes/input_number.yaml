@@ -1,17 +1,11 @@
-iftt_temp_triggered_sp:
-#test:
-  name: IFTTT Set Temperature SP
-  min: 0
-  max: 25
-  mode: box
-  step: 0.5
-slaapkamer_dide_setpoint:
-  name: Slaapkamer Dide Setpoint
-  min: 10
-  max: 25
-  mode: slider
-  step: 0.5
-  initial: 13
+
+# slaapkamer_dide_setpoint:
+#   name: Slaapkamer Dide Setpoint
+#   min: 10
+#   max: 25
+#   mode: slider
+#   step: 0.5
+#   initial: 13
 slaapkamer_fien_setpoint:
   name: Slaapkamer Fien Setpoint
   min: 10
@@ -25,16 +19,6 @@ hass_tempsetpoint:
   max: 25
   mode: slider
   step: 0.5
-zolder_ventilatie:
-  name: Ventilatie op zolder
-  min: 0
-  max: 100
-  mode: slider
-zolder_ventilatie_old:
-  name: Vorige waarde van ventilatie op zolder
-  min: 0
-  max: 100
-  mode: box
 random_hour:
   name: Random hour - bed time
   min: 21
@@ -62,28 +46,4 @@ sousvidetemp:
   min: 20
   max: 99
   step: 0.5
-  mode: box
-temp_high_sp_fien:
-  name: Naar hoog - Fien
-  step: 0.5
-  min: 10
-  max: 25
-  mode: box
-temp_high_sp_dide:
-  name: Naar hoog - Dide
-  step: 0.5
-  min: 10
-  max: 25
-  mode: box
-temp_low_sp_fien:
-  name: Naar laag - Fien
-  step: 0.5
-  min: 10
-  max: 25
-  mode: box
-temp_low_sp_dide:
-  name: Naar laag - Dide
-  step: 0.5
-  min: 10
-  max: 25
   mode: box

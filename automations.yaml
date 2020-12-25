@@ -357,21 +357,6 @@
       message: Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version')
         }} is available.
     service: notify.telegram
-- id: hass_startup
-  alias: HA_Start
-  initial_state: 'on'
-  trigger:
-    platform: event
-    event_type: homeassistant_start
-  action:
-  - service: input_number.set_value
-    data_template:
-      entity_id: input_number.zolder_ventilatie
-      value: '100'
-  - delay: 00:02:00
-  - service: automation.turn_on
-    data:
-      entity_id: all
 - id: appdaemon_alive_1
   alias: 'VOID appdaemon: off for 5 minutes'
   description: Checks if appdaemon status is off for > 5 minutes
@@ -407,6 +392,19 @@
   - choose:
     - conditions:
       - condition: state
+        entity_id: counter.appdaemon_disconnected
+        state: '2'
+      sequence:
+      - service: notify.telegram
+        data:
+          message: Appdaemon restart
+      - service: counter.reset
+        data: {}
+        entity_id: counter.appdaemon_disconnected
+      - service: rest_command.appdaemon_restart
+        data: {}
+    - conditions:
+      - condition: state
         entity_id: input_boolean.appdaemon_alive
         for: 0:01:00
         state: 'off'
@@ -414,10 +412,16 @@
       - data:
           message: Appdaemon draait niet
         service: notify.telegram
+      - service: counter.increment
+        data: {}
+        entity_id: counter.appdaemon_disconnected
     default:
     - data:
         entity_id: input_boolean.appdaemon_alive
       service: input_boolean.turn_off
+    - service: counter.reset
+      data: {}
+      entity_id: counter.appdaemon_disconnected
   mode: single
 - id: pingpong
   alias: Telegram bot that reply pong to ping
@@ -508,7 +512,7 @@
 - id: wasmachine_01
   alias: 'Wasmachine/droger: Washer Start'
   trigger:
-  - entity_id: binary_sensor.washer_pwrup
+  - entity_id: input_boolean.washer_pwrup
     for: 0:03:00
     from: 'off'
     platform: state
@@ -520,7 +524,7 @@
 - id: wasmachine_02
   alias: 'Wasmachine/droger: Wasmachine Klaar'
   trigger:
-  - entity_id: binary_sensor.washer_pwrup
+  - entity_id: input_boolean.washer_pwrup
     for: 0:03:00
     from: 'on'
     platform: state
@@ -539,7 +543,7 @@
 - id: droger_01
   alias: 'Wasmachine/droger: Dryer Start'
   trigger:
-  - entity_id: binary_sensor.dryer_pwrup
+  - entity_id: input_boolean.dryer_pwrup
     for: 0:03:00
     from: 'off'
     platform: state
@@ -551,7 +555,7 @@
 - id: droger_02
   alias: 'Wasmachine/droger: Droger Klaar'
   trigger:
-  - entity_id: binary_sensor.dryer_pwrup
+  - entity_id: input_boolean.dryer_pwrup
     for: 0:03:00
     from: 'on'
     platform: state
@@ -1108,7 +1112,7 @@
     type: turn_off
   mode: single
 - id: '1599078314001'
-  alias: 'Thermostaat Dide: Refresh Node '
+  alias: 'Thermostaat Kikkerkamer: Refresh Node '
   description: https://github.com/OpenZWave/open-zwave/issues/1971
   trigger:
   - platform: mqtt
@@ -1197,3 +1201,157 @@
   - data: {}
     service: rest_command.qt_openzwave_restart
   mode: single
+- id: '1602229469049'
+  alias: 'Dide thermostaat: set target temp from climate'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: climate.kamer_dide
+    attribute: temperature
+  condition: []
+  action:
+  - service: input_number.set_value
+    data:
+      value: '{{ state_attr("climate.kamer_dide","temperature") }}'
+      entity_id: input_number.slaapkamer_dide_setpoint
+  mode: single
+- id: '1602231387187'
+  alias: 'Dide thermostaat: set target temp from input_number'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_number.slaapkamer_dide_setpoint
+  condition: []
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: '{{ states("input_number.slaapkamer_dide_setpoint") }}'
+      entity_id: climate.kamer_dide
+  mode: single
+- id: '1602617783292'
+  alias: 'Dide radiator: reset integraal'
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.burner_current_power
+    above: '0'
+  condition: []
+  action:
+  - service: input_number.set_value
+    data:
+      value: 99999
+    entity_id: input_number.dide_radiator_intgegraal
+  - service: input_number.set_value
+    data:
+      value: 600
+    entity_id: input_number.dide_radiator_intgegraal
+  mode: single
+- id: '1602700723627'
+  alias: Reset Radiator Dide
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.temperatuur_dide_ventilatie
+    above: '21'
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.delft_temperature
+    below: '18'
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    entity_id: input_boolean.reset_radiator_dide
+  - service: input_boolean.turn_off
+    data: {}
+    entity_id: input_boolean.reset_radiator_dide
+  mode: single
+- id: '1605727689331'
+  alias: Thermostaat Kikkerkamer
+  description: ''
+  trigger:
+  - platform: time
+    at: '7:00'
+  - platform: time
+    at: '17:30'
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: time
+        after: '6:58'
+        before: '7:02'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      sequence:
+      - service: climate.set_temperature
+        data:
+          temperature: 20
+        entity_id: climate.thermostaat_kikkerkamer
+    - conditions:
+      - condition: time
+        after: '17:28'
+        before: '17:32'
+      sequence:
+      - service: climate.set_temperature
+        data:
+          temperature: 15
+        entity_id: climate.thermostaat_kikkerkamer
+    default: []
+  mode: single
+- id: '1607378152285'
+  alias: Babyfoon
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: automation.beweging_zolder_uit
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_pocophone_f1
+    data:
+      message: command_volume_level
+      title: '10'
+      data:
+        channel: music_stream
+  - service: notify.mobile_app_pocophone_f1
+    data:
+      title: Geluid bij Fien
+      message: TTS
+      data:
+        ttl: 0
+        channel: babyfoon
+        importance: high
+  mode: single
+- id: '1607431633647'
+  alias: babyfoon aan/uit
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.babyfoon
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.babyfoon
+        state: 'on'
+      sequence:
+      - service: ffmpeg.start
+        data: {}
+        entity_id: binary_sensor.ffmpeg_noise
+    default:
+    - service: ffmpeg.stop
+      data: {}
+      entity_id: binary_sensor.ffmpeg_noise
+  mode: single
+- id: '1608068029362'
+  alias: Battery Level Notification woonkamer
+  description: ''
+  use_blueprint:
+    path: jazakrzewski/send-notification-for-battery-level.yaml
+    input:
+      battery_level: 100
+      notify_device: e0f94f78bff548d189dd5109b894c38a
+      battery_entity: sensor.woonkamer_multisensor_battery_level_2
+      message: ping
