@@ -176,6 +176,8 @@
 
     # boiler_boottime:
     #   value_template: '{{ as_timestamp(states.automation.see_if_boiler_restarts.attributes.last_triggered) | timestamp_custom("%H:%M:%S %d/%m/%y") }}'
+    convector_delta_sp:
+      value_template: "{{ (float(states('sensor.thermostaat_tempsetpoint')) - float(states('sensor.wk_thermostaat_pv'))) | round(1) }}"
     
 # - platform: influxdb
 #   host: 192.168.0.9

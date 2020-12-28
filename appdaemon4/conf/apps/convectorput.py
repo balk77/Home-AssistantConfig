@@ -39,16 +39,19 @@ class convectorput(hass.Hass):
 
                     setpoint = float(self.get_state("sensor.thermostaat_tempsetpoint"))
                     
-                    if 1 < (setpoint - actual_temp) < 2 and currentstate != "Medium":
+                    # if 1 < (setpoint - actual_temp) < 2 and currentstate != "Medium":
+                    if 1 < (setpoint - actual_temp) < 2:
                         self.call_service("input_select/select_option", entity_id="input_select.convector_fanspeed", option="Medium")
                         self.turn_on("light.convectorput", brightness=self.args["med"]+20)
                         self.handle = self.run_in(self.runfan, 5, speed=self.args["med"])
                         # self.log("Convectorput aan (medium)")
-                    if setpoint - actual_temp >= 2 and currentstate != "High":
+                    # if setpoint - actual_temp >= 2 and currentstate != "High":
+                    if setpoint - actual_temp >= 2:
                         self.call_service("input_select/select_option", entity_id="input_select.convector_fanspeed", option="High")
                         self.turn_on("light.convectorput", brightness=self.args["max"])
                         # self.log("Convectorput aan (max)")
-                    elif currentstate != "Low":
+                    # elif currentstate != "Low":
+                    else:
                         self.call_service("input_select/select_option", entity_id="input_select.convector_fanspeed", option="Low")
                         self.turn_on("light.convectorput", brightness=self.args["min"]+20)
                         self.handle = self.run_in(self.runfan, 5, speed=self.args["min"])

@@ -156,12 +156,12 @@ woonkamer_off_delay:
   entity_id: group.woonkamer_delay
   delay: 10
 
-convectorput:
-  module: convectorput
-  class: convectorput
-  min: 165
-  med: 180
-  max: 220
+# convectorput:
+#   module: convectorput
+#   class: convectorput
+#   min: 165
+#   med: 180
+#   max: 220
 
 # mqtttest:
 #   module: mqtttest

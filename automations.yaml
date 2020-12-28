@@ -1355,3 +1355,62 @@
       notify_device: e0f94f78bff548d189dd5109b894c38a
       battery_entity: sensor.woonkamer_multisensor_battery_level_2
       message: ping
+- id: '1609087245674'
+  alias: deurbel notificatie
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.doorbell_button
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_pocophone_f1
+    data: {}
+  mode: single
+- id: '1609134677541'
+  alias: Convectorput
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /1
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.convector_aanvoer_temperatuur
+        above: '35'
+      - condition: numeric_state
+        entity_id: sensor.convector_delta_sp
+        above: '2'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 220
+        entity_id: light.convectorput
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.convector_aanvoer_temperatuur
+        above: '35'
+      - condition: numeric_state
+        entity_id: sensor.convector_delta_sp
+        above: '1'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 180
+        entity_id: light.convectorput
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.convector_aanvoer_temperatuur
+        below: '35'
+      sequence:
+      - service: light.turn_off
+        data: {}
+        entity_id: light.convectorput
+    default:
+    - service: light.turn_on
+      data:
+        brightness: 165
+      entity_id: light.convectorput
+  mode: single

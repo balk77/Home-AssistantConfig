@@ -65,7 +65,7 @@ class fancontrol(hass.Hass):
             desiredStateHW = self.boilerstatus()
             # self.log("Douche status:")
             
-            # self.log("fancontrol: "+desiredStateHUM)
+            self.log("fancontrol: "+desiredStateHUM)
 
             
 
@@ -268,5 +268,6 @@ class fancontrol(hass.Hass):
 
 
     def setfanstate(self, desiredState):
+        self.log(desiredState)
         self.call_service("fan/turn_on", entity_id="fan.itho",speed=desiredState)
             

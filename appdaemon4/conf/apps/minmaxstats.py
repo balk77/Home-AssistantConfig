@@ -28,7 +28,7 @@ class minmaxstats(hass.Hass):
         if len(self.array) >= self.max_array_size:
             self.array.pop(0)
         
-        self.log(min(self.array))
+        # self.log(min(self.array))
         self.array.append(newdatapoint)
 
         if self.stat_type == "max":
