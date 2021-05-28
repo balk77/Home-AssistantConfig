@@ -14,8 +14,9 @@ class minmaxstats(hass.Hass):
 
         max_age = self.args["max_age"]
         interval = self.args["interval"]
+        self.log(interval)
         self.max_array_size = max_age/interval
-        # self.log(self.max_array_size)
+        self.log(self.max_array_size)
 
         self.run_every(self.inputhandler, "now", interval)
 
@@ -23,6 +24,7 @@ class minmaxstats(hass.Hass):
     def inputhandler(self, kwargs):
         # self.log(self.get_state(self.args["enity_id"]))
         newdatapoint = float(self.get_state(self.args["enity_id"]))
+        # newdatapoint = self.get_state(self.args["enity_id"])
         
         
         if len(self.array) >= self.max_array_size:
@@ -32,20 +34,26 @@ class minmaxstats(hass.Hass):
         self.array.append(newdatapoint)
 
         if self.stat_type == "max":
-            if max(self.array) > self.datapoint:
+            if max(self.array) != self.datapoint:
                 update = True
                 self.datapoint = max(self.array)
                 # self.log(max(self.array))
             else:
                 update = False
         elif self.stat_type == "min":
-            if min(self.array) < self.datapoint:
+            # self.log("minlog: {}".format(min(self.array)))
+            # self.log("datapoint: {}".format(self.datapoint))
+            # self.log("lala")
+            if min(self.array) != self.datapoint:
                 update = True
                 self.datapoint = min(self.array)
                 # self.log(min(self.array))
+                # self.log("update required")
+                
             else:
                 update = False
-            
+        
+        # self.log(update)
 
         if update:
             self.call_service("input_number/set_value",entity_id=self.args["input_number"],value=self.datapoint)

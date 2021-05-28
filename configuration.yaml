@@ -22,10 +22,12 @@ homeassistant:
 lovelace:
 #   mode: yaml
 
+my:
+
 person:
 
 recorder:
-  db_url: postgres://homeassistant:ereadsta@192.168.0.9/homeassistant
+  db_url: postgresql://homeassistant:ereadsta@192.168.0.9/homeassistant
   purge_keep_days: 7
   exclude:
     domains:
@@ -145,7 +147,8 @@ automation: !include automations.yaml
 #light: !include_dir_list light/
 #script: !include_dir_list script/
 #script: !include script/badkamer_script.yaml
-script: !include includes/script/scripts.yaml
+script: !include scripts.yaml
+#script: !include includes/script/scripts.yaml
 #  - !include script/woonkamer.yaml
   #- !include script/mbr.yaml
 #script: !include script/group_visibility.yaml
@@ -189,6 +192,7 @@ notify:
   #   platform: html5
   #   gcm_api_key: !secret chrome_gcm_api_key
   #   gcm_sender_id: !secret chrome_gcm_sender_id
+ 
 
 telegram_bot:
   - platform: polling
@@ -253,9 +257,9 @@ influxdb:
   tags_attributes:
     - friendly_name
 
-# spotify:
-#   client_id: !secret spotify_client_id
-#   client_secret: !secret spotify_client_secret
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
 
 timer:
   fanrunout:
@@ -275,20 +279,6 @@ input_datetime:
     initial: "00:45"
 
 
-
-# homematic:
-#   local_ip: 192.168.0.9
-#   local_port: 36845
-#   interfaces:
-#     wireless:
-#       host: 192.168.0.9
-#       port: 2001
-#       callback_ip: 192.168.0.9
-#       callback_port: 36845
-#       resolvenames: json
-#       username: !secret homematic_username
-#       password: !secret homematic_password
-
 pi_hole:
   host: '192.168.0.6'
   ssl: false
@@ -296,13 +286,21 @@ pi_hole:
   api_key: !secret pihole_api
 
 rest_command:
-  qt_openzwave_restart:
-    url: "http://192.168.0.9:8126/container/qt-openzwave/restart"
   appdaemon_restart:
     url: "http://192.168.0.9:8126/container/appdaemon4/restart"
+  nodered_restart:
+    url: "http://192.168.0.9:8126/container/nodered/restart"
     # method: POST
     # content_type: "application/x-www-form-urlencoded"
+  reload_zwavejs: 
+    url: !secret reload_zwavejs_url
+    method: POST
+    headers:
+      authorization: !secret reload_zwavejs_token
+      content-type: application/json
 
 
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
+
+

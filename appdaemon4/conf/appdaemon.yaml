@@ -7,12 +7,12 @@
 appdaemon:
   # api_port: 5001
 
-  threads: 10
+  # threads: 10
   latitude: !secret latitude
   longitude: !secret longitude
   elevation: !secret elevation
   time_zone: !secret time_zone
-  client_topics: None
+  # client_topics: None
   plugins:
     HASS:
       type: hass
@@ -27,7 +27,6 @@ api:
     #  type: mqtt
     #  client_host: 192.168.0.9
     # #  client_user: !secret mqtt_username
-    # #  client_password: !secret mqtt_password
     #  namespace: mqtt
     #  client_topics:
     #      - x/y/z

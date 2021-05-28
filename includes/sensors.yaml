@@ -22,7 +22,7 @@
 
 
 # - platform: statistics
-#   name: minhum_stat_mean
+#   name: minhum_stat_mean_test
 #   entity_id: sensor.badkamer_relhumidity
 #   sampling_size: 1500
 #   max_age:
@@ -104,6 +104,9 @@
     # wk_delta_t:
     #   value_template: '{{ (float(states.sensor.dark_sky_temperature.state) - float(states.sensor.wk_thermostaat_pv.state)) | round(1) }}'
     #   unit_of_measurement: '∆°C'
+    # humdelta_test:
+    #   value_template: '{{ (states("sensor.badkamer_relhumidity")|float - state_attr("sensor.minhum_stat_mean_test","min_value")) | round(1) }}'
+    #   unit_of_measurement: '%'
     hotwater:
       value_template: "{{ states('sensor.wk_boilerstatus') }}"
     azimuth:
@@ -178,6 +181,10 @@
     #   value_template: '{{ as_timestamp(states.automation.see_if_boiler_restarts.attributes.last_triggered) | timestamp_custom("%H:%M:%S %d/%m/%y") }}'
     convector_delta_sp:
       value_template: "{{ (float(states('sensor.thermostaat_tempsetpoint')) - float(states('sensor.wk_thermostaat_pv'))) | round(1) }}"
+    setpoint_kamer_dide:
+      value_template: "{{ state_attr('climate.kamer_dide', 'temperature')}}"
+    setpoint_kamer_fien:
+      value_template: "{{ state_attr('climate.kamer_fien', 'temperature')}}"
     
 # - platform: influxdb
 #   host: 192.168.0.9
@@ -362,26 +369,6 @@
   
 # # thermostat HC1
 
-# - platform: mqtt
-#   state_topic: 'home/ems-esp/thermostat_data'
-#   name: 'Current Room Temperature'
-#   unit_of_measurement: '°C'
-#   value_template: "{{ value_json.hc1.currtemp }}"
-
-# - platform: mqtt
-#   state_topic: 'home/ems-esp/thermostat_data'
-#   name: 'Current Set Temperature'
-#   unit_of_measurement: '°C'
-#   value_template: "{{ value_json.hc1.seltemp }}" 
-#   force_update: true
-
-# - platform: mqtt
-#   state_topic: 'home/ems-esp/thermostat_data'
-#   name: 'Current Mode'
-#   value_template: "{{ value_json.hc1.mode }}" 
-
-#   # boiler
-
 
 - platform: mqtt
   state_topic: 'ems-esp/boiler_data'
@@ -500,11 +487,6 @@
     
 # #
 
-# - platform: statistics
-#   name: wasmachine_energy_stats_mean
-#   entity_id: sensor.total_daily_energy_wasmachine
-#   sampling_size: 2
-#   precision: 5
 
 - platform: history_stats
   name: Douche aan dit uur
@@ -532,22 +514,7 @@
     minutes: 60
   sampling_size: 1000
 
-# - platform: mqtt
-#   name: Convector aanvoer temperatuur
-#   state_topic: woonkamer/convector/aanvoer/temperatuur
-#   availability_topic: convectorput/status
-#   unit_of_measurement: °C
-# - platform: mqtt
-#   name: Convector retour temperatuur
-#   state_topic: woonkamer/convector/retour/temperatuur
-#   availability_topic: convectorput/status
-#   unit_of_measurement: °C
-# - platform: mqtt
-#   name: Convector Delta
-#   state_topic: zolder/convector/convdelta/temperatuur
-#   availability_topic: convectorput/status
-#   unit_of_measurement: ∆°C
-# Example configuration.yaml entry
+
 - platform: nederlandse_spoorwegen
   api_key: !secret ns_api_key
   routes:
@@ -557,20 +524,7 @@
     - name: Delft - Hoofddorp
       from: Dt
       to: Hfd
-# - platform: afvalbeheer
-#   wastecollector: Avalex
-#   resources:
-#     - restafval
-#     - gft
-#   postcode: !secret postcode
-#   streetnumber: !secret huisnummer
-#   dateformat: '%d-%m-%Y'
-#   # dateonly: 0                      (optional)
-#   # nameprefix: 1                    (optional)
-#   # builtinicons: 0                  (optional)
-#   dutch: 1
 
-  # test
 
 
 - platform: systemmonitor
@@ -585,26 +539,18 @@
     - type: processor_use
 
 - platform: mqtt
-  name: 'lichtknop_wk_links_boven'
-  state_topic: 'OpenZWave/1/node/9/instance/1/commandclass/43/value/155893779/'
-  value_template: "{{ value_json.Value }}"
-# - platform: mqtt
-#   name: 'lichtknop_wk_midden'
-#   state_topic: 'OpenZWave/1/node/12/instance/1/commandclass/43/value/206225427/'
-#   value_template: "{{ value_json.Value }}"
+  name: 'Hank Button 1'
+  state_topic: "zwavejsmqtt/33/91/0/scene/001"
+  value_template: "{% if value_json.value == 0 %} 1 {% elif value_json.value == 2 %} 2 {% else %} 0 {% endif %}"
 - platform: mqtt
-  name: 'rolluik_handbediening'
-  state_topic: 'OpenZWave/1/node/24/instance/1/commandclass/43/value/407552019/'
-  value_template: "{{ value_json.Value }}"
+  name: 'Hank Button 2'
+  state_topic: "zwavejsmqtt/33/91/0/scene/002"
+  value_template: "{% if value_json.value == 0 %} 1 {% elif value_json.value == 2 %} 2 {% else %} 0 {% endif %}"
 - platform: mqtt
-  name: wk_multisensor_battery_level
-  state_topic: 'OpenZWave/1/node/3/instance/1/commandclass/128/value/56623121/'
-  value_template: "{{ value_json.Value }}"
+  name: 'Hank Button 3'
+  state_topic: "zwavejsmqtt/33/91/0/scene/003"
+  value_template: "{% if value_json.value == 0 %} 1 {% elif value_json.value == 2 %} 2 {% else %} 0 {% endif %}"
 - platform: mqtt
-  name: zolder_multisensor_battery_level
-  state_topic: 'OpenZWave/1/node/15/instance/1/commandclass/128/value/257949713/'
-  value_template: "{{ value_json.Value }}"
-- platform: mqtt
-  name: qtopenzwavestatus
-  state_topic: 'OpenZWave/1/status/'
-  value_template: "{{ value_json.Status }}"
+  name: 'Hank Button 4'
+  state_topic: "zwavejsmqtt/33/91/0/scene/004"
+  value_template: "{% if value_json.value == 0 %} 1 {% elif value_json.value == 2 %} 2 {% else %} 0 {% endif %}"

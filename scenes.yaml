@@ -80,43 +80,41 @@
   entities:
     light.badkamer_plafond_level:
       friendly_name: Badkamer
-      node_id: 13
-      state: 'off'
       supported_features: 33
+      state: 'off'
     light.keuken_aanrecht_links:
       friendly_name: Keuken Aanrecht Links
-      state: 'off'
       supported_features: 41
+      state: 'off'
     light.keuken_aanrecht_rechts:
       friendly_name: Keuken Aanrecht Rechts
-      state: 'off'
       supported_features: 41
-    light.keuken_koof_level:
-      friendly_name: Keuken Koof
-      node_id: 9
       state: 'off'
+    light.keuken_koof_level:
+      friendly_name: 'Keuken Koof: Current value'
       supported_features: 33
+      state: 'off'
     light.mbr_plafond_level:
       friendly_name: MBR Plafond
-      node_id: 14
-      state: 'off'
       supported_features: 33
+      state: 'off'
     light.wk_achter_plafond_level:
-      friendly_name: Woonkamer Achter Plafond
-      node_id: 12
-      state: 'off'
+      friendly_name: 'Woonkamer Achter Plafond: Current value'
       supported_features: 33
+      state: 'off'
     light.wk_eettafel_plafond_level:
-      friendly_name: Woonkamer Eettafel
-      node_id: 21
-      state: 'off'
+      friendly_name: 'Woonkamer Eettafel: Current value'
       supported_features: 33
+      state: 'off'
     light.wk_muur_level:
-      friendly_name: Woonkamer Muur
-      node_id: 20
-      state: 'off'
+      friendly_name: 'Woonkamer Muur: Current value'
       supported_features: 33
-    switch.schemerlamp_switch:
-      friendly_name: Schemerlamp
-      node_id: 8
+      state: 'off'
+    light.lichtsnoer_current_value_2_5:
+      friendly_name: 'Lichtsnoer: Current value (2)'
+      supported_features: 33
+      state: 'off'
+    light.lichtsnoer:
+      friendly_name: 'Lichtsnoer: Current value'
+      supported_features: 33
       state: 'off'

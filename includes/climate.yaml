@@ -1,13 +1,13 @@
-- platform: generic_thermostat
-  name: Kamer Fien
-  heater: input_boolean.frontend_climate_fien
-  target_sensor: sensor.fienthermpv
-  min_temp: 10
-  max_temp: 25
-  target_temp: 13
-  # temp_step: 0.5
-  # modes: ["auto","off"]
-  # send_if_off: true
+# - platform: generic_thermostat
+#   name: Kamer Fien
+#   heater: input_boolean.frontend_climate_fien
+#   target_sensor: sensor.fienthermpv
+#   min_temp: 10
+#   max_temp: 25
+#   target_temp: 13
+#   # temp_step: 0.5
+#   # modes: ["auto","off"]
+#   # send_if_off: true
 - platform: generic_thermostat
   name: Kamer Dide
   heater: input_boolean.radiator_dide
@@ -16,115 +16,33 @@
   max_temp: 25
   initial_hvac_mode: "heat"
   target_temp: 13
+  precision: 0.5
 
 
-  # temp_step: 0.5
-  # modes: ["auto","off"]
-  # send_if_off: true
+ 
 # - platform: mqtt
-#   name: Kamer Dide
-#   current_temperature_topic: "zolder/kamerdide/ventilatie/temperatuur"
-#   temperature_command_topic: "zolder/kamerdide/kamer/desiredTemperature/set"
-#   temperature_state_topic: "zolder/kamerdide/thermostaat/desiredTemperature"
-#   mode_state_topic: "zolder/kamerdide/thermostaat/valveposition"
-#   mode_state_template: "{% if value | float == 0 %} off {% else %} on {% endif %}"
-#   modes:
-#     - "off"
-#     - "on"
-#   min_temp: 10
-#   max_temp: 25
-#   initial: 13
-#   retain: True
-# - platform: mqtt
-#   name: Kamer Fien
-#   current_temperature_topic: "zolder/kamerfien/ventilatie/temperatuur"
-#   temperature_command_topic: "zolder/kamerfien/kamer/desiredTemperature/set"
-#   temperature_state_topic: "zolder/kamerfien/thermostaat/desiredTemperature"
-#   mode_state_topic: "zolder/kamerfien/thermostaat/valveposition"
-#   mode_state_template: "{% if value | float == 0 %} off {% else %} on {% endif %}"
-#   modes:
-#     - "off"
-#     - "on"
-#   min_temp: 10
-#   max_temp: 25
-#   initial: 13
-#   retain: True
-- platform: mqtt
-  name: Kamer Fien raw
-  retain: false
-  send_if_off: true
-  current_temperature_topic: homegear/climate/plain/1/1/ACTUAL_TEMPERATURE
-  temperature_state_topic: homegear/climate/plain/1/1/SET_TEMPERATURE
-  temperature_command_topic: homegear/climate/set/1/1/SET_TEMPERATURE
-  min_temp: 10
-  max_temp: 25
-  temp_step: 0.5
-  modes: ["auto","off"]
-  mode_state_topic: homegear/climate/plain/1/1/CONTROL_MODE
-  mode_state_template:  >-
-    {% set values = { '0':'auto', '1':'off'} %}
-    {{ values[value] if value in values.keys() else 'off' }}
-# - platform: mqtt
-#   name: Kamer Dide raw
+#   name: Kamer Fien raw
 #   retain: false
 #   send_if_off: true
-#   current_temperature_topic: homegear/climate/plain/2/1/ACTUAL_TEMPERATURE
-#   temperature_state_topic: homegear/climate/plain/2/1/SET_TEMPERATURE
-#   temperature_command_topic: homegear/climate/set/2/1/SET_TEMPERATURE
+#   current_temperature_topic: homegear/climate/plain/1/1/ACTUAL_TEMPERATURE
+#   temperature_state_topic: homegear/climate/plain/1/1/SET_TEMPERATURE
+#   temperature_command_topic: homegear/climate/set/1/1/SET_TEMPERATURE
 #   min_temp: 10
 #   max_temp: 25
 #   temp_step: 0.5
 #   modes: ["auto","off"]
-#   mode_state_topic: homegear/climate/plain/2/1/CONTROL_MODE
+#   mode_state_topic: homegear/climate/plain/1/1/CONTROL_MODE
 #   mode_state_template:  >-
 #     {% set values = { '0':'auto', '1':'off'} %}
 #     {{ values[value] if value in values.keys() else 'off' }}
-- platform: mqtt
-  name: dummy
-  current_temperature_topic: "dummy/current_temperature_topic"
-  temperature_command_topic: "dummy/temperature_command_topic"
-  # temperature_state_topic: "dummy/temperature_command_topic"
-  mode_state_topic: "dummy/mode_state_topic"
 
 
 # - platform: mqtt
-#   name: Woonkamer
-#   #current_temperature_topic: "woonkamer/woonkamer/thermostaat/gemetentemperatuur"
-#   current_temperature_topic: "home/ems-esp/thermostat_data"
-#   current_temperature_template: "{{ value_json.hc1.currtemp }}"
-#   temperature_command_topic: "woonkamer/woonkamer/thermostaat/temperature/set"
-#   # temperature_state_topic: "woonkamer/woonkamer/thermostaat/tempsetpoint2"
-#   # mode_state_topic: "woonkamer/woonkamer/thermostaat/boilerstatus"
-#   # mode_state_template: "{% if value == 'CH' %} heat {% else %} off {% endif %}"
-#   #mode_state_template: "{% if value | float == 0 %} off {% else %} on {% endif %}"
-#   # modes:
-#   #   - "off"
-#   #   - "heat"
-#   min_temp: 10
-#   max_temp: 25
-#   initial: 15
-#   retain: True
-#   temp_step: 0.5
+#   name: dummy
+#   current_temperature_topic: "dummy/current_temperature_topic"
+#   temperature_command_topic: "dummy/temperature_command_topic"
+#   # temperature_state_topic: "dummy/temperature_command_topic"
+#   mode_state_topic: "dummy/mode_state_topic"
 
-# NEFIT EMS script
-# https://github.com/proddy/EMS-ESP-Boiler  
-# - platform: mqtt
-#   name: Thermostat
-#   modes:
-#     - "off"
-#     - heat
-#     - auto
 
-#   mode_state_topic: "home/ems-esp/thermostat_data"
-#   current_temperature_topic: "home/ems-esp/thermostat_data"
-#   temperature_state_topic: "home/ems-esp/thermostat_data"
 
-#   temperature_command_topic: "home/ems-esp/thermostat_cmd_temp"
-#   mode_command_topic: "home/ems-esp/thermostat_cmd_mode"
-
-#   mode_state_template: "{{ value_json.thermostat_mode }}"
-#   current_temperature_template: "{{ value_json.thermostat_currtemp }}"
-#   temperature_state_template: "{{ value_json.thermostat_seltemp }}"
-
-#   temp_step: 0.5
-# End of NEFIT EMS script

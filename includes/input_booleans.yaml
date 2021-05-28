@@ -1,19 +1,4 @@
-# washer_switch:
-#     name: Toggle Washer Automation
-#     initial: off
-#     icon: mdi:washing-machine
-# washer_pwrup:
-#   name: Wasmachine powered on
-#   initial: off
-#   icon: mdi:washing-machine
-# dryer_pwrup:
-#   name: Droger powered on
-#   initial: off
-#   icon: mdi:tumble-dryer
-# dryer_switch:
-#     name: Toggle Dryer Automation
-#     initial: off
-#     icon: mdi:tumble-dryer
+
 itho_not_low:
   name: Itho not low
   initial: off
@@ -24,9 +9,9 @@ wk_multisensor_battery_level_reminder:
 zolder_multisensor_battery_level_reminder:
   name: zolder_multisensor_battery_level_reminder
   initial: off
-#zolder_multisensor_burglar:
+# zolder_multisensor_burglar:
 zolder_beweging:
-  name: beweging_zolder1
+  name: Beweging Zolder
   initial: off
 occupancy_simulation:
   name: Simuleer bewoning tijdens afwezigheid
@@ -34,12 +19,7 @@ occupancy_simulation:
 zolder_ventilatie:
   name: Zolder ventilatie
   initial: on
-# wasser_test:
-#   name: wasser_test
-#   initial: off
-# droger_test:
-#   name: droger_test
-#   initial: off
+
 huis_slaapstand:
   name: Slaapstand Huis
   initial: off
@@ -104,20 +84,7 @@ droger_alive:
   name: droger_alive
 tap_water_delay:
   name: tap water reported by EMS board
-# rolluik_manual:
-#   name: Zolder rolluik handbediening
-# fansendtimer1_front:
-#   initial: off
-# fansendtimer2_front:
-#   initial: off
-# fansendtimer3_front:
-#   initial: off
-# fansendlow_front:
-#   initial: off
-# fansendmedium_front:
-#   initial: off
-# fansendhigh_front:
-#   initial: off
+
 frontend_climate_fien:
   initial: off
 # frontend_climate_dide:

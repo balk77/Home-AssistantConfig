@@ -1,19 +1,19 @@
-# Apps
-hello_world:
-  module: hello
-  class: HelloWorld
+# # Apps
+# hello_world:
+#   module: hello
+#   class: HelloWorld
 
-# test:
-#   module: test
-#   class: test
+test:
+  module: test
+  class: test
 
 # zolder_ventilatie:
 #   module: zolder_ventilatie
 #   class: ZolderVentilatie
 
-fancontrol:
-  module: fancontrol
-  class: fancontrol
+# fancontrol:
+#   module: fancontrol
+#   class: fancontrol
 
 wasmachine:
   module: wasserdroger
@@ -45,9 +45,9 @@ badkamerlight:
 #   module: fanstate
 #   class: fanstate
 
-telegram:
-  module: telegram
-  class: TelegramBotEventListener
+# telegram:
+#   module: telegram
+#   class: TelegramBotEventListener
 
 
 thermostaatavond:
@@ -63,23 +63,23 @@ thermostaat_mqtt:
   module: thermostaat_mqtt
   class: thermostaat_mqtt
 
-sander_device_tracker:
-  module: mqtt_device_tracker
-  class: mqtt_device_tracker
-  trigger: sensor.sander_home_occupancy_confidence
-  device: device_tracker.phone_sander
-  device_topic: "location/sander"
+# sander_device_tracker:
+#   module: mqtt_device_tracker
+#   class: mqtt_device_tracker
+#   trigger: sensor.sander_home_occupancy_confidence
+#   device: device_tracker.phone_sander
+#   device_topic: "location/sander"
 
-linda_device_tracker:
-  module: mqtt_device_tracker
-  class: mqtt_device_tracker
-  trigger: sensor.linda_home_occupancy_confidence
-  device: device_tracker.phone_linda
-  device_topic: "location/linda"
+# linda_device_tracker:
+#   module: mqtt_device_tracker
+#   class: mqtt_device_tracker
+#   trigger: sensor.linda_home_occupancy_confidence
+#   device: device_tracker.phone_linda
+#   device_topic: "location/linda"
 
-thermostaat_raw:
-  module: thermostaat_raw
-  class: thermostaat_raw
+# thermostaat_raw:
+#   module: thermostaat_raw
+#   class: thermostaat_raw
 
 
 # Occupancy Simulator:
@@ -140,9 +140,9 @@ eettafellamp:
   module: eettafellamp
   class: eettafellamp
 
-douche:
-  module: douche
-  class: douche
+# douche:
+#   module: douche
+#   class: douche
 
 woonkamer_off_direct:
   module: woonkamer_off
@@ -175,13 +175,13 @@ woonkamer_off_delay:
 #   roomsp: input_number.slaapkamer_dide_setpoint
 #   thermsp: climate.kamer_dide
 
-masterslavefien:
-  module: masterslavezolder
-  class: masterslavezolder
-  ventipv: sensor.temperatuur_fien_ventilatie
-  thermpv: sensor.fienthermpv
-  roomsp: input_number.slaapkamer_fien_setpoint
-  thermsp: climate.kamer_fien
+# masterslavefien:
+#   module: masterslavezolder
+#   class: masterslavezolder
+#   ventipv: sensor.temperatuur_fien_ventilatie
+#   thermpv: sensor.fienthermpv
+#   roomsp: input_number.slaapkamer_fien_setpoint
+#   thermsp: climate.kamer_fien
 
 # masterslavedidepid:
 #   module: masterslavezolder1
@@ -235,18 +235,18 @@ masterslavefien:
 #   class: showergasuse
 
 # Apps
-itho:
-  module: itho
-  class: itho
+# itho:
+#   module: itho
+#   class: itho
 
 pseudo_thermostat_fien:
-  module: zolder_pseudo_thermostat
+  module: zolder_pseudo_thermostat_zwave
   class: zolderpseudothermostat
-  sptopic: "homegear/climate/plain/1/1/SET_TEMPERATURE"
+  # sptopic: "homegear/climate/plain/1/1/SET_TEMPERATURE"
   frontendsp: sensor.fienthermsp_fe
-  raw_climate_device: climate.kamer_fien_raw
+  # raw_climate_device: climate.kamer_fien_raw
   frontend_climate_device: climate.kamer_fien
-  settopic: "homegear/climate/set/1/1/SET_TEMPERATURE"
+  # settopic: "homegear/climate/set/1/1/SET_TEMPERATURE"
   timeout: 3600
   weekend_morning_switch: "07:30:00"
   weekend_afternoon_switch: "17:02:00"
@@ -275,7 +275,7 @@ pseudo_thermostat_dide:
   weekend_sleeptime_switch: "19:00:00"
   week_morning_switch: "06:30:00" 
   week_afternoon_switch: "17:02:00"
-  week_sleeptime_switch: "18:30:00"
+  week_sleeptime_switch: "19:00:00"
   input_number_setpoint: input_number.slaapkamer_dide_setpoint
   temp_high_sp: input_number.temp_high_sp_dide
   temp_low_sp: input_number.temp_low_sp_dide
@@ -317,11 +317,27 @@ minhum:
   class: minmaxstats
   max_age: 14400 # seconds
   interval: 300 # seconds
+  # interval: 3 # seconds
   initial_value: 99
   stat_type: min
   enity_id: sensor.badkamer_relhumidity
   input_number: input_number.minhum
 
+# minhumtest:
+#   module: minmaxstats
+#   class: minmaxstats
+#   max_age: 33 # seconds
+#   # interval: 300 # seconds
+#   interval: 3 # seconds
+#   initial_value: 99
+#   stat_type: min
+#   enity_id: input_number.minhumtestinput
+#   input_number: input_number.minhumtestoutput
+
 pid2cover:
   module: pid2cover
   class: pid2cover 
+
+# test:
+#   module: test
+#   class: test

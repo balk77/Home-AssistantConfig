@@ -29,4 +29,8 @@ woonkamer:
   entities:
     - group.woonkamer_delay
     - group.woonkamer_direct
-
+woonkamer_low:
+  name: Woonkamer Low
+  entities:
+    - light.keuken_aanrecht_groep
+    - light.lichtsnoer

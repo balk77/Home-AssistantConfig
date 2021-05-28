@@ -38,6 +38,10 @@
   - data:
       entity_id: light.wk_muur_level
     service: light.turn_off
+  - service: light.turn_off
+    data: {}
+    entity_id: light.lichtsnoer
+  mode: single
 - id: wk_muur4
   alias: 'WK Muur: uit bij geen Beweging'
   trigger:
@@ -60,9 +64,11 @@
 - id: toggle_bankje
   alias: 'WK muur: Toggle aan/uit'
   trigger:
-  - entity_id: sensor.lichtknop_wk_links_boven
-    platform: state
-    to: '26'
+  - platform: event
+    event_type: zwave_js_value_notification
+    event_data:
+      node_id: 9
+      value: 26
   action:
   - data:
       brightness: 125
@@ -73,7 +79,7 @@
 - id: douche_counter
   alias: 'Douche counter: count +1'
   trigger:
-  - entity_id: input_boolean.shower
+  - entity_id: input_boolean.shower2
     for: 0:02:00
     platform: state
     to: 'on'
@@ -81,6 +87,7 @@
   - data:
       entity_id: counter.douches
     service: counter.increment
+  mode: single
 - id: reset_douche_counter
   alias: 'Douche Counter: Reset'
   trigger:
@@ -180,13 +187,16 @@
 - id: Keuken_aanrecht_muur_1
   alias: Keuken aanrecht knop bediening
   trigger:
-  - entity_id: sensor.lichtknop_wk_midden
-    platform: state
-    to: '26'
+  - platform: event
+    event_type: zwave_js_value_notification
+    event_data:
+      node_id: 12
+      value: 26
   action:
-    service: light.toggle
+  - service: light.toggle
     data:
       entity_id: light.keuken_aanrecht_groep
+  mode: single
 - id: Keuken_aanrecht_muur_2
   alias: Keuken aanrecht knop aan max
   trigger:
@@ -436,14 +446,6 @@
       message: 'pong
 
         pang'
-- id: heal_network
-  description: Heal z-wave network every night
-  alias: heal at 2:32am
-  trigger:
-    platform: time
-    at: '2:32:00'
-  action:
-    service: zwave.heal_network
 - id: sander_gaat_weg
   alias: Sander gaat weg
   trigger:
@@ -474,10 +476,21 @@
   - entity_id: sensor.rolluik_handbediening
     platform: state
     to: '26'
+  - platform: event
+    event_type: zwave_js_value_notification
+    event_data:
+      node_id: 24
+      value: 16
+  - platform: event
+    event_type: zwave_js_value_notification
+    event_data:
+      node_id: 24
+      value: 26
   action:
   - data: {}
     entity_id: input_boolean.zonnescherm_manual
     service: input_boolean.turn_on
+  mode: single
 - id: rolluik_reset
   alias: 'Zonnescherm: reset'
   description: Reset override automatische bediening rolluik
@@ -967,11 +980,12 @@
   action:
   - data:
       position: 99
-    entity_id: cover.level_mqtt_ozw
+    entity_id: cover.rolluik
     service: cover.set_cover_position
   - data: {}
     entity_id: input_boolean.zonnescherm_manual
     service: input_boolean.turn_off
+  mode: single
 - id: '1586548606521'
   alias: 'Zonnescherm: dicht bij zon..'
   description: ''
@@ -991,14 +1005,15 @@
     - condition: state
       entity_id: input_boolean.zonnescherm_manual
       state: 'off'
-    - above: '400'
-      condition: numeric_state
+    - condition: numeric_state
       entity_id: sensor.delft_irradiance
+      above: '500'
   action:
   - data:
       position: 20
-    entity_id: cover.level_mqtt_ozw
     service: cover.set_cover_position
+    target:
+      entity_id: cover.rolluik
   mode: single
 - id: '1586549028766'
   alias: 'Zonnescherm: open bij regen2 - disabled'
@@ -1032,11 +1047,12 @@
   action:
   - data:
       position: 99
-    entity_id: cover.level_mqtt_ozw
+    entity_id: cover.rolluik
     service: cover.set_cover_position
   - data: {}
     entity_id: input_boolean.zonnescherm_manual
     service: input_boolean.turn_on
+  mode: single
 - id: '1586585344614'
   alias: 'Zonnescherm: open bij geen zon'
   description: ''
@@ -1051,8 +1067,9 @@
   action:
   - data:
       position: 99
-    entity_id: cover.level_mqtt_ozw
+    entity_id: cover.rolluik
     service: cover.set_cover_position
+  mode: single
 - id: '1590699496659'
   alias: WK Motion test
   description: ''
@@ -1091,8 +1108,14 @@
     entity_id: input_boolean.occupancy_simulation
     state: 'on'
   action:
-  - delay: 00:{{ (range(10, 40)|random|int) }}:00
-  - scene: scene.alle_lichten_uit
+  - delay:
+      hours: 0
+      minutes: '{{ range(1, 30)|random }}'
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    entity_id: all
   - data:
       message: 'Occusim: lichten gaan uit'
     service: notify.telegram
@@ -1100,33 +1123,18 @@
     entity_id: input_boolean.occupancy_simulation
     service: input_boolean.turn_off
   - delay: 00:00:10
-  - brightness_pct: 50
-    device_id: 8fcb4c73d2cd41ce95e42d1b6c0718cb
-    domain: light
+  - service: light.turn_on
+    data: {}
     entity_id: light.mbr_plafond_level
-    type: turn_on
-  - delay: 00:03:00
-  - device_id: 8fcb4c73d2cd41ce95e42d1b6c0718cb
-    domain: light
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
     entity_id: light.mbr_plafond_level
-    type: turn_off
   mode: single
-- id: '1599078314001'
-  alias: 'Thermostaat Kikkerkamer: Refresh Node '
-  description: https://github.com/OpenZWave/open-zwave/issues/1971
-  trigger:
-  - platform: mqtt
-    topic: OpenZWave/1/command/setvalue/
-  condition:
-  - condition: template
-    value_template: '{{ ''281475451764754'' in trigger.payload }}'
-  action:
-  - data:
-      payload: '{"node": 28}'
-      topic: OpenZWave/1/command/refreshnodeinfo/
-    service: mqtt.publish
-  mode: queued
-  max: 10
 - id: '1599243609890'
   alias: Keuken aanrecht PIR keuken 2oo2
   description: ''
@@ -1266,84 +1274,21 @@
     entity_id: input_boolean.reset_radiator_dide
   mode: single
 - id: '1605727689331'
-  alias: Thermostaat Kikkerkamer
+  alias: Thermostaat Kikkerkamer aan
   description: ''
   trigger:
   - platform: time
     at: '7:00'
-  - platform: time
-    at: '17:30'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
   action:
-  - choose:
-    - conditions:
-      - condition: time
-        after: '6:58'
-        before: '7:02'
-      - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'on'
-      sequence:
-      - service: climate.set_temperature
-        data:
-          temperature: 20
-        entity_id: climate.thermostaat_kikkerkamer
-    - conditions:
-      - condition: time
-        after: '17:28'
-        before: '17:32'
-      sequence:
-      - service: climate.set_temperature
-        data:
-          temperature: 15
-        entity_id: climate.thermostaat_kikkerkamer
-    default: []
-  mode: single
-- id: '1607378152285'
-  alias: Babyfoon
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: automation.beweging_zolder_uit
-    to: 'on'
-  condition: []
-  action:
-  - service: notify.mobile_app_pocophone_f1
+  - service: climate.set_temperature
     data:
-      message: command_volume_level
-      title: '10'
-      data:
-        channel: music_stream
-  - service: notify.mobile_app_pocophone_f1
-    data:
-      title: Geluid bij Fien
-      message: TTS
-      data:
-        ttl: 0
-        channel: babyfoon
-        importance: high
-  mode: single
-- id: '1607431633647'
-  alias: babyfoon aan/uit
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: input_boolean.babyfoon
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: input_boolean.babyfoon
-        state: 'on'
-      sequence:
-      - service: ffmpeg.start
-        data: {}
-        entity_id: binary_sensor.ffmpeg_noise
-    default:
-    - service: ffmpeg.stop
-      data: {}
-      entity_id: binary_sensor.ffmpeg_noise
+      temperature: 20
+    target:
+      entity_id: climate.thermostaat_kikkerkamer
   mode: single
 - id: '1608068029362'
   alias: Battery Level Notification woonkamer
@@ -1351,21 +1296,35 @@
   use_blueprint:
     path: jazakrzewski/send-notification-for-battery-level.yaml
     input:
-      battery_level: 100
+      battery_level: 25
       notify_device: e0f94f78bff548d189dd5109b894c38a
       battery_entity: sensor.woonkamer_multisensor_battery_level_2
-      message: ping
+      message: Woonkamer multisensor batterij 25%
 - id: '1609087245674'
-  alias: deurbel notificatie
+  alias: 'Deurbel: notificatie'
   description: ''
   trigger:
   - platform: state
     entity_id: binary_sensor.doorbell_button
     to: 'on'
-  condition: []
+  - platform: state
+    entity_id: input_boolean.deurbel_dummy_trigger
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.deurbel_to_phone_sander
+    state: 'on'
   action:
   - service: notify.mobile_app_pocophone_f1
-    data: {}
+    data:
+      title: Deurbel
+      message: De deurbel gaat af
+      data:
+        channel: alarm_stream
+        priority: high
+        ledColor: red
+        vibrationPattern: 100, 1000, 100, 1000, 100
+  - delay: 00:00:10
   mode: single
 - id: '1609134677541'
   alias: Convectorput
@@ -1413,4 +1372,493 @@
       data:
         brightness: 165
       entity_id: light.convectorput
+  mode: single
+- id: '1609139820580'
+  alias: 'nodered: check if online'
+  description: ''
+  trigger:
+  - minutes: /5
+    platform: time_pattern
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: counter.nodered_disconnected
+        state: '2'
+      sequence:
+      - service: notify.telegram
+        data:
+          message: Node Red restart
+      - service: counter.reset
+        data: {}
+        entity_id: counter.nodered_disconnected
+      - service: rest_command.nodered_restart
+        data: {}
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.nodered_alive
+        for: 0:01:00
+        state: 'off'
+      sequence:
+      - data:
+          message: Node Red draait niet
+        service: notify.telegram
+      - service: counter.increment
+        data: {}
+        entity_id: counter.nodered_disconnected
+    default:
+    - data:
+        entity_id: input_boolean.nodered_alive
+      service: input_boolean.turn_off
+    - service: counter.reset
+      data: {}
+      entity_id: counter.nodered_disconnected
+  mode: single
+- id: '1609149843283'
+  alias: 'Deurbel: reset'
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:00'
+  - platform: time
+    at: '22:00'
+  - platform: time
+    at: '6:00'
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    data: {}
+    entity_id: input_boolean.deurbel_to_phone_sander
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.doorbell_chime_active
+  mode: single
+- id: '1610725539887'
+  alias: 'Shower: shower_on_off'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.warm_water_dhw_active
+    to: 'off'
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.shower2
+        state: 'on'
+      sequence:
+      - service: input_boolean.turn_off
+        data: {}
+        entity_id: input_boolean.shower2
+    default:
+    - service: input_boolean.turn_on
+      data: {}
+      entity_id: input_boolean.stop_shower_fan
+  mode: single
+- id: '1610725766640'
+  alias: 'Shower: shower_fan_delay'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.shower2
+    to: 'off'
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 20
+      seconds: 0
+      milliseconds: 0
+  - service: input_boolean.turn_on
+    data: {}
+    entity_id: input_boolean.stop_shower_fan
+  mode: restart
+- id: '1610725874987'
+  alias: 'Shower: reset_zolder_ventilatie_close_lock'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.zolder_ventilatie_close_lock
+    to: 'on'
+    for: 00:00:60
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    data: {}
+    entity_id: input_boolean.zolder_ventilatie_close_lock
+  mode: single
+- id: '1610739814772'
+  alias: 'Shower: shower_fan_on dhw_active'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.warm_water_dhw_active
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.badkamer_plafond_level
+    state: 'on'
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    entity_id: input_boolean.zolder_ventilatie_close_lock
+  - service: cover.close_cover
+    data: {}
+    entity_id: cover.zolder_ventilatie
+  - service: fan.turn_on
+    data:
+      speed: High
+    target:
+      entity_id: fan.itho
+  - service: switch.turn_on
+    target:
+      entity_id: switch.fansendhigh
+  mode: single
+- id: '1610739884895'
+  alias: 'Shower: shower_fan_on shower2 on'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.warm_water_dhw_active
+    to: 'on'
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    entity_id: input_boolean.zolder_ventilatie_close_lock
+  - service: cover.close_cover
+    data: {}
+    entity_id: cover.zolder_ventilatie
+  - service: fan.turn_on
+    data:
+      speed: High
+    target:
+      entity_id: fan.itho
+  - service: switch.turn_on
+    target:
+      entity_id: switch.fansendhigh
+  mode: single
+- id: '1610740028740'
+  alias: 'Shower: shower_fan_on humdelta'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.humdelta
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.humdelta
+        above: '15'
+      sequence:
+      - service: fan.turn_on
+        data:
+          speed: high
+        entity_id: fan.itho
+      - service: cover.close_cover
+        data: {}
+        entity_id: cover.zolder_ventilatie
+      - service: input_boolean.turn_on
+        data: {}
+        entity_id: input_boolean.zolder_ventilatie_close_lock
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.humdelta
+        above: '10'
+      - condition: state
+        entity_id: input_boolean.shower2
+        state: 'off'
+      sequence:
+      - service: fan.turn_on
+        data:
+          speed: medium
+        entity_id: fan.itho
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.humdelta
+        below: '10'
+      - condition: state
+        entity_id: input_boolean.shower2
+        state: 'off'
+      sequence:
+      - service: fan.turn_on
+        data:
+          speed: low
+        entity_id: fan.itho
+    default: []
+  mode: single
+- id: '1610740504640'
+  alias: 'Shower: shower_fan_off'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.stop_shower_fan
+    to: 'on'
+  condition: []
+  action:
+  - wait_template: '{{ is_state(''input_boolean.zolder_ventilatie_close_lock'', ''off'')
+      }}'
+  - service: input_boolean.turn_off
+    data: {}
+    entity_id: input_boolean.shower2
+  - service: input_boolean.turn_off
+    data: {}
+    entity_id: input_boolean.stop_shower_fan
+  - service: fan.turn_on
+    data:
+      speed: Low
+    target:
+      entity_id: fan.itho
+  - service: cover.open_cover
+    data: {}
+    entity_id: cover.zolder_ventilatie
+  - service: switch.turn_on
+    target:
+      entity_id: switch.fansendlow
+  mode: single
+- id: '1612606695349'
+  alias: 'Shower: shower_fan_on humdelta (Duplicate)2'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.humdelta
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.humdelta
+        above: '15'
+      sequence:
+      - service: fan.turn_on
+        data:
+          speed: High
+        entity_id: fan.itho
+      - service: cover.close_cover
+        data: {}
+        entity_id: cover.zolder_ventilatie
+      - service: input_boolean.turn_on
+        data: {}
+        entity_id: input_boolean.zolder_ventilatie_close_lock
+    default: []
+  mode: single
+- id: '1612611376354'
+  alias: 'Shower: shower_on_off (delay)'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.warm_water_dhw_active
+    to: 'on'
+    for: 00:00:59
+  condition:
+  - condition: state
+    state: 'on'
+    entity_id: light.badkamer_plafond_level
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    entity_id: input_boolean.shower2
+  mode: single
+- id: '1612725472934'
+  alias: Reload ZWaveJS hourly
+  description: ''
+  trigger:
+  - platform: time_pattern
+    hours: /1
+  condition: []
+  action:
+  - service: rest_command.reload_zwavejs
+    data: {}
+  mode: single
+- id: '1613721891474'
+  alias: 'Shower: shower_fan_on humdelta (Low)'
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /5
+  condition:
+  - condition: state
+    entity_id: input_boolean.shower2
+    state: 'Off'
+  - condition: numeric_state
+    entity_id: sensor.humdelta
+    below: '10'
+  action:
+  - service: fan.turn_off
+    data: {}
+    entity_id: fan.itho
+  - service: switch.turn_on
+    target:
+      entity_id: switch.fansendlow
+  mode: single
+- id: '1614104203023'
+  alias: occusim aan (tijd)
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:00'
+  condition:
+  - condition: time
+    before: '22:00'
+  - condition: state
+    entity_id: light.wk_muur_level
+    state: 'off'
+  - condition: sun
+    after: sunset
+  action:
+  - service: scene.turn_on
+    data: {}
+    entity_id: scene.woonkamer_low
+  - service: input_boolean.turn_on
+    data: {}
+    entity_id: input_boolean.occupancy_simulation
+  mode: single
+- id: '1614105346973'
+  alias: occusim aan (sunset)
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+  condition:
+  - condition: time
+    before: '22:00'
+  - condition: state
+    entity_id: light.wk_muur_level
+    state: 'off'
+  - condition: time
+    after: '17:59'
+  action:
+  - service: scene.turn_on
+    data: {}
+    entity_id: scene.woonkamer_low
+  - service: input_boolean.turn_on
+    data: {}
+    entity_id: input_boolean.occupancy_simulation
+  - service: notify.telegram
+    data:
+      message: 'Occusim: lichten gaan aan'
+  mode: single
+- id: '1614349029131'
+  alias: 'Occusim: random off (test)'
+  description: x
+  trigger:
+  - at: '22:20:00'
+    platform: time
+  condition: []
+  action:
+  - delay:
+      seconds: '{{ range(10, 20)|random }}'
+  - service: light.turn_off
+    data: {}
+    entity_id: all
+  - data:
+      message: 'Occusim: lichten gaan uit'
+    service: notify.telegram
+  - data: {}
+    entity_id: input_boolean.occupancy_simulation
+    service: input_boolean.turn_off
+  - delay: 00:00:10
+  - service: light.turn_on
+    data: {}
+    entity_id: light.mbr_plafond_level
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    entity_id: light.mbr_plafond_level
+  mode: single
+- id: '1614434635489'
+  alias: testing 123
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /1
+  condition:
+  - condition: template
+    value_template: '{{ now().hour < 9 }}'
+  action:
+  - service: notify.mobile_app_pocophone_f1
+    data:
+      message: kitchen light is turned {{ sun.sun }}
+  mode: single
+- id: '1615876916940'
+  alias: Thermostaat Kikkerkamer uit
+  description: ''
+  trigger:
+  - platform: time
+    at: '17:30'
+  - platform: time
+    at: '22:00'
+  condition: []
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: 15
+    target:
+      entity_id: climate.thermostaat_kikkerkamer
+  mode: single
+- id: '1621308728747'
+  alias: 'Speakers: Raumfeld on at reboot'
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: shutdown
+  condition: []
+  action:
+  - service: teufel_raumfeld.set_power_state
+    data:
+      entity_id: sensor.room_woonkamer_powerstate
+      power_state: 'on'
+  mode: single
+- id: '1621535944945'
+  alias: 'Speakers: On when starting music'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.spotify_sbalk
+    attribute: source
+    to: Woonkamer
+  - platform: state
+    entity_id: sensor.room_woonkamer_powerstate
+    to: ACTIVE
+  condition: []
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.speakers
+  mode: single
+- id: '1621536577376'
+  alias: 'Speakers: On when starting Spotify'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.spotify_sbalk
+    to: playing
+  condition:
+  - condition: state
+    entity_id: media_player.spotify_sbalk
+    state: Woonkamer
+    attribute: source
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.speakers
+  mode: single
+- id: '1621669121811'
+  alias: 'Speakers: Off after 10 minutes'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.room_woonkamer_powerstate
+    to: eco
+    for: 00:10:00
+  condition: []
+  action:
+  - service: switch.turn_off
   mode: single

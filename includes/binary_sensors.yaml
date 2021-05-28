@@ -17,24 +17,29 @@
   payload_off: "0"
 # END NEFIT EMS script
 
-# - platform: template
-#   sensors:
-#     washer_pwrup:
-#       friendly_name: "Wasmachine status"
-#       value_template: "{{ states('sensor.power_meter_wasmachine') | int > 7 }}"
-#     dryer_pwrup:
-#       value_template: "{{ states('sensor.power_meter_droger') | int > 20 }}"
-#       friendly_name: "Droger status"
 
-
-- platform: ffmpeg_noise
-  input: rtp://192.168.0.9:12345
-  #extra_arguments: -filter:a highpass=f=300,lowpass=f=2500,volume=volume=2 -codec:a libmp3lame -ar 16000
-  extra_arguments: -filter:a highpass=f=300,lowpass=f=2500
-  # output: -f mp3 rtp://192.168.0.250:12345
-  initial_state: true
-  duration: 2
-  reset: 6
-  peak: -2
-  
+# - platform: mqtt
+#   name: 'Hank Button 1'
+#   state_topic: "zwavejsmqtt/33/91/0/scene/001"
+#   payload_on: 1
+#   payload_off: 0
+#   value_template: "{% if value_json.value == 0 %} 1 {% else %} 0 {% endif %}"
+# - platform: mqtt
+#   name: 'Hank Button 2'
+#   state_topic: "zwavejsmqtt/33/91/0/scene/002"
+#   payload_on: 1
+#   payload_off: 0
+#   value_template: "{% if value_json.value == 0 %} 1 {% else %} 0 {% endif %}"
+# - platform: mqtt
+#   name: 'Hank Button 3'
+#   state_topic: "zwavejsmqtt/33/91/0/scene/003"
+#   payload_on: 1
+#   payload_off: 0
+#   value_template: "{% if value_json.value == 0 %} 1 {% else %} 0 {% endif %}"
+# - platform: mqtt
+#   name: 'Hank Button 4'
+#   state_topic: "zwavejsmqtt/33/91/0/scene/004"
+#   payload_on: 1
+#   payload_off: 0
+#   value_template: "{% if value_json.value == 0 %} 1 {% else %} 0 {% endif %}"
   

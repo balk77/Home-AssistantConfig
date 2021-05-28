@@ -19,16 +19,26 @@ class mbrlight(hass.Hass):
         self.run_daily(self.fetch_sunriseset, fetch_sunriseset_time)
         self.fetch_sunriseset(1)
 
-        # self.run_in(self.changesetting, 1, value=99)
+        # self.run_in(self.changesetting, 1, value=17)
     
     def changesetting(self, value):
         #self.log("setting parameter")
         # self.call_service("zwave/set_config_parameter", node_id=kwargs["node_id"],parameter=kwargs["parameter"],value=kwargs["value"])
         value = value["value"]
         
+        #OpenZW Beta
         topic = "OpenZWave/1/command/setvalue/"
         payload = '{ "ValueIDKey": 5348024802607121, "Value":'+str(value)+'}'
         self.call_service("mqtt/publish", topic=topic, payload=payload)
+
+
+        # Zwave JS2MQTT
+        topic = "zwavejsmqtt/_CLIENTS/ZWAVE_GATEWAY-zwavejs2mqtt/api/writeValue/set"
+        payload = '{ "args":[{"nodeId":14, "commandClass":112, "endpoint":0, "property":19},'+str(value)+']}'
+        # self.call_service("mqtt/publish", topic=topic, payload=payload)
+        parameter="Forced switch on brightness level"
+        entity_id="light.mbr_plafond_level"
+        self.call_service("zwave_js/set_config_parameter", entity_id=entity_id, parameter=parameter, value=value)
 
     def fetch_sunriseset(self, kwargs):
 

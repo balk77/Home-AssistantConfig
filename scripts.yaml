@@ -12,3 +12,10 @@
   - delay: 00:00:05
   - data: {}
     service: script.all_lights_off
+set_itho_fan:
+  alias: Set Itho Fan2
+  sequence:
+  - service: notify.mobile_app_sanders_macbook_air
+    data:
+      message: ah
+  mode: single

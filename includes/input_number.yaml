@@ -1,11 +1,5 @@
 
-# slaapkamer_dide_setpoint:
-#   name: Slaapkamer Dide Setpoint
-#   min: 10
-#   max: 25
-#   mode: slider
-#   step: 0.5
-#   initial: 13
+
 slaapkamer_fien_setpoint:
   name: Slaapkamer Fien Setpoint
   min: 10
@@ -29,17 +23,7 @@ random_minute:
   min: 0
   max: 59
   mode: slider
-# humdelta_dummy:
-#   min: 0
-#   max: 20
-# zonnescherm:
-#   # 0 is omhoog, 255 is down
-#   min: 0
-#   max: 255
-# thermostaat_setpoint:
-#   min: 5
-#   max: 40
-#   initial: 15
+
 sousvidetemp:
   name: Sous Vide Target Temp
   initial: 50

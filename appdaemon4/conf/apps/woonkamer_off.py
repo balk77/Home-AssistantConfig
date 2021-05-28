@@ -7,9 +7,10 @@ class woonkamer_off(hass.Hass):
     #self.listen_state(self.main2, "input_boolean.test", new="on")
     ## eventjes uit op 3 Feb 2019
     ##self.listen_event(self.main, "zwave.scene_activated", entity_id = "zwave.hank_knop_wk", scene_id = 3)
-    self.listen_event(self.main, "zwave.scene_activated", entity_id = "zwave.keuken_koof", scene_id = 24)
+    # self.listen_event(self.main, "zwave.scene_activated", entity_id = "zwave.keuken_koof", scene_id = 24)
+    self.listen_event(self.main, "zwave_js_value_notification", node_id = 9, value = 24)
     # self.listen_state(self.main2, "input_boolean.lichtknop_wk_links_boven_dubbel", new="on")
-    self.listen_state(self.main2, "sensor.lichtknop_wk_links_boven", new="24")
+    # self.listen_state(self.main2, "sensor.lichtknop_wk_links_boven", new="24")
     
     self.counter = 0
 

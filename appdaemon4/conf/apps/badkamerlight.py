@@ -1,5 +1,6 @@
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
+import time
 
 
 
@@ -8,6 +9,7 @@ class badkamerlight(hass.Hass):
         
         # self.listen_state(self.inputhandler, "light.badkamer_plafond_level", old = "off", new = "on")
         self.listen_state(self.inputhandler, "light.badkamer_plafond_level", old = "off", new = "on")
+        # self.listen_state(self.inputhandler, "light.wk_eettafel_plafond_level", old = "off", new = "on")
 
         
         dimtime = datetime.time(0, 0, 1)
@@ -20,7 +22,7 @@ class badkamerlight(hass.Hass):
         self.run_daily(self.fetch_sunriseset, fetch_sunriseset_time)
         self.fetch_sunriseset(1)
 
-        # self.run_in(self.changesetting, 1,value=99)
+        # self.run_in(self.changesetting, 1,value=17)
 
         
         
@@ -38,9 +40,19 @@ class badkamerlight(hass.Hass):
         # self.log(str(value))
         # self.call_service("zwave/set_config_parameter", node_id=kwargs["node_id"],parameter=kwargs["parameter"],value=kwargs["value"])
         # value
+        #OpenZW Beta
         topic = "OpenZWave/1/command/setvalue/"
         payload = '{ "ValueIDKey": 5348024785829905, "Value":'+str(value)+'}'
         self.call_service("mqtt/publish", topic=topic, payload=payload)
+
+        # Zwave JS2MQTT
+        topic = "zwavejsmqtt/_CLIENTS/ZWAVE_GATEWAY-zwavejs2mqtt/api/writeValue/set"
+        payload = '{ "args":[{"nodeId":13, "commandClass":112, "endpoint":0, "property":19},'+str(value)+']}'
+        # self.call_service("mqtt/publish", topic=topic, payload=payload)
+        parameter="Forced switch on brightness level"
+        entity_id="light.badkamer_plafond_level"
+        self.call_service("zwave_js/set_config_parameter", entity_id=entity_id, parameter=parameter, value=value)
+
 
 
     def inputhandler(self, entity, attribute, old, new, kwargs):
@@ -101,11 +113,26 @@ class badkamerlight(hass.Hass):
 
     def setlight(self, brightness, transition):
         self.turn_on("light.badkamer_plafond_level", brightness=brightness, transition=transition)
+        # self.turn_on("light.wk_eettafel_plafond_level", brightness=brightness, transition=transition)
 
     def setlightfade(self, kwargs):
         state = self.get_state("light.badkamer_plafond_level")
+        # state = self.get_state("light.wk_eettafel_plafond_level")
+        
         if state == "on":
-            self.turn_on("light.badkamer_plafond_level", brightness=kwargs['brightness'], transition=kwargs['transition'])
+            transition=kwargs['transition']
+            if transition > 10:
+                for i in range(10):
+                    brightness = kwargs['brightness'] * (i+1) / 10
+                    self.log(i)
+                    delay = transition/10
+                    self.setlight(brightness=brightness, transition=0)
+                    time.sleep(delay)
+                    self.log(delay)
+                    # self.turn_on("light.badkamer_plafond_level", brightness=brightness)
+
+            else:
+                self.turn_on("light.badkamer_plafond_level", brightness=kwargs['brightness'], transition=kwargs['transition'])
 
     
 
