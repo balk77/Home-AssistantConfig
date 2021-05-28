@@ -27,7 +27,7 @@ my:
 person:
 
 recorder:
-  db_url: postgresql://homeassistant:ereadsta@192.168.0.9/homeassistant
+  db_url: !secret postgresql
   purge_keep_days: 7
   exclude:
     domains:
@@ -73,8 +73,6 @@ logger:
 #    homeassistant.components.automation: debug
 #    homeassistant.components.device_tracker: debug
 
-#splunk:
-#  token: !secret splunk_token
 
 # Enables the frontend
 frontend:
@@ -167,17 +165,7 @@ mqtt:
   discovery: true
   discovery_prefix: homeassistant
 
-# Z-Wave config
-# zwave:
-#   usb_path: /dev/ttyACM0
-#   autoheal: false
-#   device_config:
-#     cover.level:
-#       invert_openclose_buttons: true
 
-# # IFTTT
-# ifttt:
-#   key: !secret ifttt_key
 
 climate: !include includes/climate.yaml
 
