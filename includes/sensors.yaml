@@ -11,6 +11,10 @@
   #state_topic: "woonkamer/woonkamer/thermostaat/gemetentemperatuur"
   state_topic: 'ems-esp/thermostat_data'
   value_template: "{{ value_json.hc1.currtemp }}"
+  
+- platform: mqtt
+  name: 'vaccinatie_jaar'
+  state_topic: "coronavirus/vaccinatie"
 
 # - platform: mqtt
 #   name: 'wk_thermostaat_hass_sp'
@@ -200,20 +204,20 @@
 
 - platform: version
 
-- platform: buienradar
-  name: Delft
-  timeframe: 30
-  monitored_conditions:
-    - symbol_1d
-    - temperature_1d
-    - rainchance_1d
-    - sunchance_1d
-    - rain_1d
-    - symbol
-    - temperature
-    - condition
-    - irradiance
-    - precipitation_forecast_total
+# - platform: buienradar
+#   name: Delft
+#   timeframe: 30
+#   monitored_conditions:
+#     - symbol_1d
+#     - temperature_1d
+#     - rainchance_1d
+#     - sunchance_1d
+#     - rain_1d
+#     - symbol
+#     - temperature
+#     - condition
+#     - irradiance
+#     - precipitation_forecast_total
 
 # - platform: mqtt
 #   name: 'thermostaat_activeprogram'
@@ -554,3 +558,4 @@
   name: 'Hank Button 4'
   state_topic: "zwavejsmqtt/33/91/0/scene/004"
   value_template: "{% if value_json.value == 0 %} 1 {% elif value_json.value == 2 %} 2 {% else %} 0 {% endif %}"
+- platform: dsmr_reader

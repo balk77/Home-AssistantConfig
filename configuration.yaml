@@ -115,8 +115,8 @@ logbook:
 # Track the sun
 sun:
 
-weather:
-  - platform: buienradar
+# weather:
+#   - platform: buienradar
 
 sensor: !include includes/sensors.yaml
 binary_sensor: !include includes/binary_sensors.yaml
@@ -225,6 +225,12 @@ shopping_list:
 
 influxdb:
   host: 192.168.0.9
+  port: 8086
+  api_version: 2
+  ssl: false
+  token: !secret inlfuxdb_token
+  organization: !secret influxdb_organization
+  bucket: !secret influxdb_bucket
   max_retries: 3
   default_measurement: state
   include:
@@ -240,6 +246,9 @@ influxdb:
       - switch
       - binary_sensor
       - cover
+  exclude:
+    entity_globs:
+      - sensor.dsmr*
   tags:
     source: hass
   tags_attributes:

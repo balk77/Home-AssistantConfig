@@ -990,7 +990,7 @@
   alias: 'Zonnescherm: dicht bij zon..'
   description: ''
   trigger:
-  - minutes: '5'
+  - minutes: /5
     platform: time_pattern
   condition:
   - condition: and
@@ -1043,7 +1043,13 @@
   - above: '0.1'
     entity_id: sensor.delft_precipitation_forecast_total
     platform: numeric_state
-  condition: []
+  condition:
+  - condition: and
+    conditions:
+    - above: '54'
+      below: '234'
+      condition: numeric_state
+      entity_id: sensor.azimuth
   action:
   - data:
       position: 99
@@ -1861,4 +1867,69 @@
   condition: []
   action:
   - service: switch.turn_off
+    target:
+      device_id: 3aea11517a47b98f5b0734e69908866e
+  mode: single
+- id: '1622399126247'
+  alias: Vaccinatie melder
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: coronavirus/vaccinatie
+    payload: '1981'
+  - platform: mqtt
+    topic: coronavirus/vaccinatie
+    payload: '1982'
+  - platform: mqtt
+    topic: coronavirus/vaccinatie
+    payload: '1983'
+  condition: []
+  action:
+  - service: notify.mobile_app_pocophone_f1
+    data:
+      title: Vaccinatie!
+      message: Linda mag een afspraak maken!
+  - service: notify.telegram
+    data:
+      title: Vaccinatie!
+      message: Linda mag een afspraak maken!
+  mode: single
+- id: '1623484282780'
+  alias: 'DSMR: switch running on'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.dsmr_reading_timestamp
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.dsmr_running
+  mode: single
+- id: '1623484898099'
+  alias: 'DSMR: switch running off'
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /5
+  condition: []
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.dsmr_running
+  mode: single
+- id: '1623484988774'
+  alias: 'DSMR: warn'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.dsmr_running
+    to: 'off'
+    for: 2 minutes
+  condition: []
+  action:
+  - service: notify.telegram
+    data:
+      title: DSMR
+      message: DSMR not running
   mode: single
